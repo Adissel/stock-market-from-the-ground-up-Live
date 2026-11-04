@@ -189,15 +189,54 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
   const labels=bars.map((_,i)=>'B'+String(i+1).padStart(2,'0'))
    .concat(Array.from({length:rightBuffer},()=> ' '));
   const padding=Array(rightBuffer).fill('-');
+  const displayBars=cfg.view==='heikin'?heikinAshi(bars):bars;
   const ema9=moving(bars,9,'ema'),ema20=moving(bars,20,'ema');
   const sma20=moving(bars,20,'sma'),vwap=barProxyVWAP(bars);
   const indicator=cfg.study==='sma20'?sma20:cfg.study==='ema20'?ema20:cfg.study==='vwap'?vwap:ema9;
   const show=(id:Study)=>cfg.study==='all'||cfg.study===id;
+  const view=cfg.view;
+  const up='#00d7a3',down='#ed3155',gold='#f5bd26';
+  const isCandles=view==='candles'||view==='hollow'||view==='heikin';
+  const isOhlc=view==='ohlc'||view==='hlc'||view==='range';
+  const priceSeries=isCandles?{
+   type:'candlestick',name:view==='heikin'?'Simulated Heikin-Ashi':'Simulated OHLCV',
+   data:displayBars.map(b=>[b.open,b.close,b.low,b.high]).concat(padding as never[]),
+   barMaxWidth:7,barMinWidth:1,
+   itemStyle:{color:view==='hollow'?'transparent':up,color0:down,
+    borderColor:up,borderColor0:down,borderWidth:1.05}
+  }:isOhlc?{
+   type:'custom',name:view==='range'?'Simulated high-low range':'Simulated OHLC bars',
+   data:displayBars.map((b,i)=>[i,b.open,b.close,b.low,b.high]).concat(padding as never[]),
+   renderItem:(_params:any,api:any)=>{
+    const i=Number(api.value(0)),o=Number(api.value(1)),c=Number(api.value(2));
+    const low=Number(api.value(3)),high=Number(api.value(4));
+    const x=api.coord([i,c])[0],yOpen=api.coord([i,o])[1],yClose=api.coord([i,c])[1];
+    const yLow=api.coord([i,low])[1],yHigh=api.coord([i,high])[1];
+    const color=c>=o?up:down,width=Math.max(2,api.size([1,0])[0]*.33);
+    const children:any[]=[{type:'line',shape:{x1:x,y1:yHigh,x2:x,y2:yLow},
+      style:{stroke:color,lineWidth:view==='range'?4:1.5}}];
+    if(view!=='range'){
+     if(view==='ohlc')children.push({type:'line',shape:{x1:x-width,y1:yOpen,x2:x,y2:yOpen},
+      style:{stroke:color,lineWidth:1.5}});
+     children.push({type:'line',shape:{x1:x,y1:yClose,x2:x+width,y2:yClose},
+      style:{stroke:color,lineWidth:1.5}});
+    }
+    return {type:'group',children};
+   }
+  }:{
+   type:view==='columns'?'bar':view==='dots'?'scatter':'line',name:'Simulated close',
+   data:displayBars.map(b=>+b.close.toFixed(3)).concat(padding as never[]),
+   symbol:'circle',symbolSize:view==='dots'?5:0,showSymbol:view==='dots',
+   barMaxWidth:7,barMinWidth:1,smooth:false,step:view==='step'?'end':false,
+   lineStyle:{color:up,width:1.5},itemStyle:{color:up},
+   areaStyle:view==='area'?{color:'rgba(0,205,152,.18)'}:undefined,
+   markLine:view==='baseline'&&displayBars.length?{
+    data:[{yAxis:displayBars[0].close}],symbol:'none',silent:true,
+    lineStyle:{color:gold,type:'dashed',width:1}
+   }:undefined
+  };
   const series=[
-   {type:cfg.view==='candles'?'candlestick':'line',name:'Simulated market',
-    data:bars.map(b=>cfg.view==='candles'?[b.open,b.close,b.low,b.high]:+b.close.toFixed(3)).concat(padding as never[]),
-    barMaxWidth:9,barMinWidth:2,smooth:false,showSymbol:false,lineStyle:{color:'#10cdaa',width:1.7},
-    itemStyle:{color:'#08c69d',color0:'#e32d55',borderColor:'#08c69d',borderColor0:'#e32d55'}},
+   priceSeries,
    ...(show('ema9')?[{type:'line',name:'EMA 9',data:ema9.concat(padding as never[]),
     showSymbol:false,connectNulls:false,lineStyle:{color:'#8bf100',width:1.3},z:3}]:[]),
    ...(show('ema20')?[{type:'line',name:'EMA 20',data:ema20.concat(padding as never[]),
@@ -206,20 +245,20 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
     showSymbol:false,connectNulls:false,lineStyle:{color:'#efd074',width:1.4},z:3}]:[]),
    ...(show('vwap')?[{type:'line',name:'Bar-based VWAP proxy',data:vwap.concat(padding as never[]),
     showSymbol:false,connectNulls:false,lineStyle:{color:'#ffbd25',width:1.4},z:3}]:[]),
-   {type:'bar',name:'Simulated volume',xAxisIndex:1,yAxisIndex:1,barMaxWidth:9,
+   {type:'bar',name:'Simulated volume',xAxisIndex:1,yAxisIndex:1,barMaxWidth:7,
     data:bars.map(bar=>({value:bar.volume,itemStyle:{color:bar.close>=bar.open?'#18a584':'#d94c6a'}}))
      .concat(padding.map(()=>({value:0,itemStyle:{color:'transparent'}})))}
   ];
   const tooltip={trigger:'axis',axisPointer:{type:'cross'},confine:true,appendToBody:false,
    backgroundColor:'#102638',borderColor:'#4b687f',textStyle:{color:'#e8f4f8'},
-   formatter:(params:unknown)=>marketTooltip(params,bars,indicator,cfg.study)};
+   formatter:(params:unknown)=>marketTooltip(params,displayBars,indicator,cfg.study)};
   if(initial){
-   chart.setOption({animation:false,backgroundColor:'transparent',
-    grid:[{left:50,right:20,top:25,height:'64%'},{left:50,right:20,top:'77%',height:'12%'}],
+   chart.setOption({animation:false,backgroundColor:isPublicHome?'#030607':'transparent',
+    grid:[{left:isPublicHome?38:50,right:isPublicHome?8:20,top:isPublicHome?9:25,height:isPublicHome?'74%':'64%'},{left:isPublicHome?38:50,right:isPublicHome?8:20,top:isPublicHome?'80%':'77%',height:isPublicHome?'14%':'12%'}],
     tooltip,legend:{show:false},
-    xAxis:[{type:'category',data:labels,axisLine:{lineStyle:{color:'#3b5266'}},axisLabel:{color:'#96b3c5',interval:9}},
+    xAxis:[{type:'category',data:labels,axisLine:{lineStyle:{color:isPublicHome?'#363e41':'#3b5266'}},axisLabel:{color:'#96b3c5',interval:isPublicHome?13:9}},
       {type:'category',gridIndex:1,data:labels,axisLabel:{show:false}}],
-    yAxis:[{scale:true,axisLabel:{color:'#9db4c5'},splitLine:{lineStyle:{color:'rgba(121,163,188,.16)'}}},
+    yAxis:[{scale:true,axisLabel:{color:'#9db4c5'},splitLine:{lineStyle:{color:isPublicHome?'rgba(137,148,150,.22)':'rgba(121,163,188,.16)'}}},
       {gridIndex:1,axisLabel:{show:false},splitLine:{show:false}}],
     dataZoom:[{type:'inside',xAxisIndex:[0,1],start:bars.length<=32?0:100-cfg.windowSize,end:100,zoomOnMouseWheel:true,moveOnMouseMove:true,moveOnMouseWheel:false},
       {type:'slider',xAxisIndex:[0,1],start:bars.length<=32?0:100-cfg.windowSize,end:100,bottom:3,height:13}],series},true);
