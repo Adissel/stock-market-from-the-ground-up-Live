@@ -234,7 +234,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
     const label=el('label','Change planned risk budget in dollars');
     const control=el('input');control.type='range';control.min='20';control.max='200';control.step='10';control.value='40';
     const result=el('output');result.setAttribute('role','status');
-    const update=()=>{const budget=Number(control.value);result.textContent='$'+budget+' budget ÷ $0.40 planned risk/share = '+Math.floor(budget/.4)+' whole shares (illustrative only).'};
+    const update=()=>{const budget=Number(control.value);result.textContent='$'+budget+' budget ÷ $0.40 planned risk/share = '+Math.floor(budget/.4)+' whole shares (simulated teaching example only).'};
     control.addEventListener('input',()=>{interactionStages.add(stage);update()});
     label.append(control);panel.append(label,result);update();
    }else{
