@@ -41,13 +41,13 @@ The owner-approved Lumens V1 definition is 11 milestones, with **9 accepted (81.
 - Consolidated source CI success for that commit. Later `808e7d17ee8d7b92d5760470159aa7d692c1f795` has passing engineering CI and a failed credential-dependent browser job.
 - Cloudflare Pages production builds passed for commits `808e7d17ee8d7b92d5760470159aa7d692c1f795` and `2a229617e5b613c91c45c221a28f8d6ba2cd737c`; **not** proof of a frozen final SHA.
 - Read-only Supabase James_Test wallet integrity returned `balanced=true` and 29 available credits. No independently approved protected cases or issued rewards. Separate TEST Stripe refund checks showed 13 Chart Studio Lumens and 1 expired Lumens reservation restored and all 5 specifically tagged TEST payments fully refunded.
-- Authenticated Chromium workflow was truly executed but failed **before login**: repository secrets `LAB_QA_EMAIL` and `LAB_QA_PASSWORD` were absent. Failing gate is retained; do not use a forged session.
+- Authenticated Chromium was genuinely executed: the original run had missing `LAB_QA_*` values. A subsequent run passed the GitHub secret-presence preflight but failed during Supabase password authentication; Auth logs show a 400 `invalid_credentials` event in that window. No authenticated browser result is accepted. No email or password is exposed.
 - `learning_rewards_enabled`, `member_gifts_enabled` and `mixed_checkout_enabled` stay **false** in production. Source policy keeps V2 gifting disabled even if an unrelated database operator toggles gift release flags.
 - Historical draft reward budget is **1,483 Lumens at $0.07 each = $103.81** potential internal eligible discount per fully qualifying member, not an earned credit or payable cash promise.
 
 ## External blockers requiring real evidence
 
-1. **Authentic member sign-in:** Securely configure the existing GitHub Actions repository QA secrets, not a public issue, chat message or file; test with James_Test. A second authenticated QA identity is required for cross-account isolation.
+1. **Authentic member sign-in:** Verify that the existing GitHub Actions `LAB_QA_EMAIL` / `LAB_QA_PASSWORD` secrets match the actual confirmed James_Test user. The credentials are present but the password sign-in was rejected; safely rotate/reset the pair through Supabase Auth and GitHub Secrets only as an authorized operational action, never into a public issue, chat or file. A distinct second QA identity must also be configured using `LAB_QA_SECOND_EMAIL` / `LAB_QA_SECOND_PASSWORD`.
 2. **Genuine independent academic approval:** Map each released protected case to an attributable independent reviewer, rubric, case version and approved revision; preserve official first graded result and do not mint credits by editing tables.
 3. **Full Store and policy:** V1 included credits have an owner-approved 60-day rollover while purchased credits never expire. Existing general nonexpiry copy must be reconciled before release. Applicable licensed legal/consumer/tax review cannot be replaced by technical approvals.
 4. **Payments/financial lifecycle:** Historical Chart Studio and bundle TEST refunds pass; generic checkout, renewal, failed-payment, replay/dispute and entitlement cases remain independently unaccepted.
@@ -58,9 +58,14 @@ The owner-approved Lumens V1 definition is 11 milestones, with **9 accepted (81.
 - `tests/lumens-v1-consolidated-20261104.mjs`: noncharging reward, math and disabled-gifting contract.
 - `tests/lumens-v1-batch-readiness-20261104.mjs`: validates the 60-gate register, 11-milestone baseline, live-gate presence, workflow wiring and independent HOLD status. It must **never** auto-approve release from source-only evidence.
 - `tests/live-lumen-server-catalog-parity-v1.mjs`: reads production catalog, denied anonymous private endpoints, and (when `SMFGU_EXPECT_SHA` is set) the deployed release manifest exact commit.
+- `tests/live-lumen-two-account-isolation-v1.mjs`: requires two genuine, distinct Supabase password sign-ins; tests wallet isolation and spoofed user IDs without changing balances, awards or Stripe records.
 - `supabase/qa/20261104_lumens_v1_full_release_read_only.sql`: safe production data and RLS audit.
 - `.github/workflows/lumens-v1-consolidated-batch-20261104.yml`: one CI batch, including existing protected-case, wallet, quote, TEST and webhook tests. Real browser job requires GitHub secrets and must fail closed.
 - `scripts/build-pages.sh`: mandatory build-level Lumens release tests; no Cloudflare publication when offline contract checks fail.
+
+## Executed full-batch CI evidence
+
+At source SHA `7aadafd62f3aa7675ac82543699e557081f53409`, the new combined source/regression job **PASSED**, the separate live public noncharging catalog and anonymous privacy job **PASSED**, and Cloudflare Pages production deployment **SUCCEEDED**. This is a three-layer bounded engineering result. The complete workflow was still not successful because real member QA authentication did not complete. Follow-up commits `20e254ed64ae30764bac47ae62b7db7861ffb03b` and `d3f21958f6aa28c724555382cb135397686e54b1` add genuine two-account privacy and sanitized Auth diagnostics. All evidence is limited to the cited SHA and cannot automatically certify a newer main commit.
 
 ## Signoff record
 
