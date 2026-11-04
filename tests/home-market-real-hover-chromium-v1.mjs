@@ -29,6 +29,7 @@ try{
  await page.waitForFunction(()=>document.querySelector('.cl-react-plot canvas')!==null,{timeout:12000});
  assert.equal(errors.length,0,'No React or ECharts page errors');
  const rect=await plot.boundingBox();assert(rect,'Real chart is sized');
+ assert.match(await page.locator('.cl-react-progress').innerText(),/Forming B01/,'The homepage starts with one candle');
  // The approved single-candle reveal starts with one forming candle and a
  // substantial empty right buffer. An arbitrary center hover targets EMPTY
  // future time, not a visible candle. Use the actual ECharts price/time
@@ -55,7 +56,8 @@ try{
  await plot.focus();await page.keyboard.press('Home');
  await page.waitForFunction(()=>document.querySelector('.cl-react-bottom [role="status"]')?.textContent?.includes('Fictional B01'));
  await page.keyboard.press('ArrowRight');
- assert((await page.locator('.cl-react-bottom [role="status"]').innerText()).includes('Fictional B02'));
+ assert((await page.locator('.cl-react-bottom [role="status"]').innerText()).includes('Fictional B01'),
+  'Right arrow cannot inspect an unrevealed second candle');
 
  // Verify real browser movement, pause isolation and correct aggregated timeframe controls.
  const progress=page.locator('.cl-react-progress');
@@ -68,12 +70,12 @@ try{
  await page.getByRole('button',{name:'Resume fictional candle formation'}).click();
  await page.waitForFunction(previous=>document.querySelector('.cl-react-progress')?.textContent!==previous,frozen,{timeout:5500});
  await page.locator('.cl-react-toolbar select').nth(3).selectOption('5');
- await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B21'),{timeout:5500});
+ await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B01'),{timeout:5500});
  await page.getByRole('button',{name:'Replay',exact:true}).click();
- await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B21'));
+ await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B01'));
  await page.setViewportSize({width:390,height:800});
  const selects=page.locator('.cl-react-toolbar select');
- assert.equal(await selects.count(),5);
+ assert.equal(await selects.count(),4,'Homepage auto-plays speed and shows four selectors');
  for(let i=0;i<3;i++){const b=await selects.nth(i).boundingBox();assert(b&&b.x>=0&&b.x+b.width<=392,'Mobile control remains inside viewport');}
  assert.equal(errors.length,0,'No unexpected runtime errors');
  console.log('PASS real Chromium: mouse hover, rounded OHLCV, keyboard candle inspection, mobile chart control bounds');
