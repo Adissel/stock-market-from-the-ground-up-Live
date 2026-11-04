@@ -106,7 +106,7 @@ test('existing gated page wiring and build pipeline expose only post-authorizati
  const authorize=article.indexOf("if(!response.ok||!data.ok)");
  const mount=article.indexOf('CrownlightKnowledgeLesson?.mount');
  assert.ok(authorize>=0&&mount>authorize);
- assert.match(article,/classroom.replaceChildren\(\);classroom.hidden=true/);
+ assert.match(article,/(?:lesson|lessonHost|classroom)\.replaceChildren\(\);(?:lesson|lessonHost|classroom)\.hidden=true/);
  assert.match(build,/node --test tests\/talia-kdb-interactive-wave1\.test\.mjs/);
  assert.doesNotMatch(runtime,/localStorage|sessionStorage|service_role|paidInference|fetch\s*\(/i);
 });
