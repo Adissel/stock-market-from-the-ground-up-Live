@@ -4,6 +4,7 @@
  */
 import {advancedToolContext,privateJson} from '../_lib/advanced-tool-access-v014110.js';
 import {VALID_SYMBOL,resolveTicker,normalizeSubmissions,normalizeFacts} from '../_lib/sec-issuer-normalize-v1.js';
+import {requireSecSourceRelease} from '../_lib/sec-edgar-qa-gate-v1.js';
 const HEAD={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store',
  'x-content-type-options':'nosniff'};
 const send=(x,status=200)=>new Response(JSON.stringify(x),{status,headers:HEAD});
@@ -47,7 +48,7 @@ async function secJson(url,env,ttl,cap,actor){
  finally{clearTimeout(timeout)}
 }
 export async function fetchIssuerResearch(actor,env,symbol,mode='filings'){
-  if(env.SEC_EDGAR_BETA_ENABLED!=='true')throw failure('Authorized SEC retrieval is not yet enabled.',503);
+  await requireSecSourceRelease(actor,env);
   userAgent(env);
   const observedAt=new Date().toISOString();
   const index=await secJson(URL_INDEX,env,86400,4500000,actor);
