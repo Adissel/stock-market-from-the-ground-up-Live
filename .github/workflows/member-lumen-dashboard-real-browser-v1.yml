@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - 'tests/live-member-lumen-dashboard-browser-v1.mjs'
+      - 'tests/live-lumen-two-account-isolation-v1.mjs'
       - 'dashboard.html'
       - 'assets/js/crownlight-member-quickview-v1.js'
       - 'functions/api/member-lumen-integrity.js'
@@ -37,8 +38,17 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Syntax of independent two-member isolation
+        run: node --check tests/live-lumen-two-account-isolation-v1.mjs
       - name: Test genuine James_Test wallet, progress, gifts-disabled and privacy UI
         env:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
         run: node tests/live-member-lumen-dashboard-browser-v1.mjs
+      - name: Genuine two-member private wallet and history isolation
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/live-lumen-two-account-isolation-v1.mjs

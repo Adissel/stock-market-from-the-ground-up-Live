@@ -8,6 +8,7 @@ on:
       - 'tests/lumens-v1-consolidated-20261104.mjs'
       - 'tests/lumens-v1-batch-readiness-20261104.mjs'
       - 'tests/live-lumen-server-catalog-parity-v1.mjs'
+      - 'tests/live-lumen-two-account-isolation-v1.mjs'
       - 'docs/qa/2026-11-04_LUMENS_V1_FULL_RELEASE_BATCH_AND_SIGNOFF.md'
       - 'supabase/qa/20261104_lumens_v1_full_release_read_only.sql'
       - 'functions/_lib/lumen-discount-policy-v1.js'
@@ -81,11 +82,20 @@ jobs:
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Syntax of independent two-member isolation
+        run: node --check tests/live-lumen-two-account-isolation-v1.mjs
       - name: Genuine James_Test production Dashboard wallet smoke (read only)
         env:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
         run: node tests/live-member-lumen-dashboard-browser-v1.mjs
+      - name: Genuine two-member private wallet and history isolation
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/live-lumen-two-account-isolation-v1.mjs
 
   live-public-catalog-readonly:
     # Public live verification, no QA JWT, Stripe secret or payment mutation.
