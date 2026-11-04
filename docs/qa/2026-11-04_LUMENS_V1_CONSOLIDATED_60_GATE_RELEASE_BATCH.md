@@ -79,8 +79,8 @@ Purpose: Package all remaining Version 1 tasks in one guarded release batch, wit
 | I05 | Genuine authenticated UI and provider TEST smoke | OPEN |
 | I06 | Full cross-product regression (Labs/Academy/Studio/Store) | OPEN |
 | J01 | V2 gifting/transfer out of V1, all related flags disabled | VERIFIED |
-| J02 | Dedicated branch, PR and one consolidated release register | SOURCE |
-| J03 | Moving-main rebase without loss of changes | OPEN |
+| J02 | Sole main branch, preserved archived PR and one consolidated release register | SOURCE |
+| J03 | Concurrent main updates preserve controlled release changes and version history | OPEN |
 | J04 | Exact source SHA, required Actions all green | OPEN |
 | J05 | Same-SHA Cloudflare plus production member acceptance | OPEN |
 | J06 | Technical, product and required independent signoffs before launch | OPEN |
@@ -88,6 +88,10 @@ Purpose: Package all remaining Version 1 tasks in one guarded release batch, wit
 **SOURCE** means a reviewed source check or staged implementation exists; it is not proof that CI or deployed member behavior has passed. **VERIFIED** describes limited live metadata or previously accepted bounded evidence only. **OPEN** cannot be approved from synthetic fixture data.
 
 ## Batch files
+- `docs/qa/2026-11-04_LUMENS_V1_FULL_RELEASE_BATCH_AND_SIGNOFF.md` — V1 full-batch technical OAT and outstanding acceptance evidence.
+- `supabase/qa/20261104_lumens_v1_full_release_read_only.sql` — repeatable authenticated production read-only audit.
+- `tests/lumens-v1-batch-readiness-20261104.mjs` — mechanically reconciles 60 gates and prevents source-only GO.
+- `tests/live-lumen-server-catalog-parity-v1.mjs` — public deployed catalog, privacy boundary and exact-SHA manual gate.
 - `functions/api/member-lumen-gifts.js` — V1 independent server hard stop.
 - `functions/api/learning-reward-preview.js` — duplicate scope validation, noncached release status.
 - `tests/lumens-v1-consolidated-20261104.mjs` — noncharging arithmetic, recipient privacy, catalog and source tests.

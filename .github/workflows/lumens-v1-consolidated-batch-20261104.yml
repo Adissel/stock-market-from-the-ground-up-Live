@@ -6,6 +6,10 @@ on:
     paths:
       - '.github/workflows/lumens-v1-consolidated-batch-20261104.yml'
       - 'tests/lumens-v1-consolidated-20261104.mjs'
+      - 'tests/lumens-v1-batch-readiness-20261104.mjs'
+      - 'tests/live-lumen-server-catalog-parity-v1.mjs'
+      - 'docs/qa/2026-11-04_LUMENS_V1_FULL_RELEASE_BATCH_AND_SIGNOFF.md'
+      - 'supabase/qa/20261104_lumens_v1_full_release_read_only.sql'
       - 'functions/_lib/lumen-discount-policy-v1.js'
       - 'functions/_lib/lumen-learning-award-policy-v1.js'
       - 'functions/_lib/lumen-member-gifting-policy-v1.js'
@@ -39,6 +43,8 @@ jobs:
           node --check tests/lumens-v1-consolidated-20261104.mjs
       - name: Full combined Lumens V1 source and mocked behavioral gates
         run: node tests/lumens-v1-consolidated-20261104.mjs
+      - name: Audit complete 60-gate V1 register and fail-closed release status
+        run: node tests/lumens-v1-batch-readiness-20261104.mjs
       - name: Existing dedicated protected-grade, mixed-order and wallet tests
         run: |
           node tests/test_lumen_learning_gifts_and_academy_progress_v1.mjs
@@ -80,3 +86,49 @@ jobs:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
         run: node tests/live-member-lumen-dashboard-browser-v1.mjs
+
+  live-public-catalog-readonly:
+    # Public live verification, no QA JWT, Stripe secret or payment mutation.
+    # The separate manual release cut adds SMFGU_EXPECT_SHA after main is frozen.
+    needs: consolidated-no-money-regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Live catalog, anonymous API denial and public noncash release guards
+        shell: bash
+        run: |
+          for i in 1 2 3; do
+            if node tests/live-lumen-server-catalog-parity-v1.mjs; then exit 0; fi
+            if [[ "$i" != "3" ]]; then sleep 30; fi
+          done
+          exit 1
+
+  exact-sha-full-release-cut:
+    # Manual/frozen SHA only. Cannot pass while real James_Test browser gate fails.
+    if: github.event_name == 'workflow_dispatch'
+    needs: [consolidated-no-money-regression, live-public-catalog-readonly, james-wallet-browser-live-smoke]
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Exact production manifest and public server catalog from immutable commit
+        env:
+          SMFGU_EXPECT_SHA: ${{ github.sha }}
+        shell: bash
+        run: |
+          for i in 1 2 3 4; do
+            if node tests/live-lumen-server-catalog-parity-v1.mjs; then exit 0; fi
+            if [[ "$i" != "4" ]]; then sleep 90; fi
+          done
+          exit 1
