@@ -55,6 +55,19 @@ for(const path of ['/','/index','/index.html']){
   assert.equal(check('frontend-complete.js',path),true);
  });
 }
+test('Legacy site shell cannot insert competing Home mobile toggle',()=>{
+ const shell=read('assets/js/site-shell-v1.js');
+ assert.match(shell,/if\(name==='index\.html'\)return/);
+ assert.match(shell,/nav\.dataset\.v11Owned==='1'/);
+ // Retain the separate legacy shell's skip link and educational disclaimer.
+ assert.match(shell,/function mainLandmark\(\)/);
+ assert.match(shell,/function observe\(\)/);
+ assert.match(shell,/navigation\(\);mainLandmark\(\);observe\(\)/);
+ const canonical=read('assets/js/navigation.js');
+ assert.match(canonical,/id='v1341-mobile-menu'/);
+ assert.match(canonical,/function installMobileMenu\(\)/);
+});
+
 test('Current Home resists older cached navigation and legacy DOM repair modules',()=>{
  const site=read('assets/js/site.js');
  const fixes=read('assets/js/live-fixes.js');
