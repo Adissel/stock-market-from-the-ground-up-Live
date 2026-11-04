@@ -138,7 +138,16 @@ try{
     assert.match(await section.innerText(),/lookalike domain/,'Day 1 must include an independent source-identity case');
     const answer=page.locator('#academy-self-check-answer');
     const compare=section.getByRole('button',{name:'Compare my reasoning'});
-    assert.equal(await compare.isDisabled(),true,'Do not reveal the coaching answer before a written learner attempt');
+    assert.equal(await compare.isEnabled(),true,'Ungraded method feedback must not require a written essay');
+     await compare.click();
+     assert.match(await section.innerText(),/Choose an evidence-handling response/,
+      'A missing method selection cannot disclose the worked review');
+     assert.equal(await section.locator('.academy-day-evidence-check input[type="radio"]').count(),3);
+     await section.locator('.academy-day-evidence-check input[value="FORECAST"]').check();
+     await compare.click();
+     assert.match(await section.innerText(),/Not yet/,
+      'Unsupported prediction requires free corrective feedback before the worked review');
+     await section.locator('.academy-day-evidence-check input[value="EVIDENCE"]').check();
    
     await answer.fill(originalReasoning);
     assert.equal(await compare.isEnabled(),true);
