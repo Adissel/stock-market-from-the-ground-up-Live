@@ -11,7 +11,7 @@
  const expected=new Map([['free5',5],['truth5',5],['watchlist7',7],['scanners10',10],
   ['foundations30',30],['charts45',45],['risk60',60],['practicum90',90],
   ['tape10',10],['indicators10',10],['filings7',7]]);
- let academyBrowsePrograms=[],academyBrowseRights=null,academyBrowseEpoch=0,guidedSession=null,protectedAssessmentSession=null,academySupplementChart=null;
+ let academyBrowsePrograms=[],academyBrowseRights=null,academyBrowseEpoch=0,guidedSession=null,protectedAssessmentSession=null,academySupplementChart=null,academyHomeMarketReplay=null;
  // Enrich course search using ONLY public, already published Lab metadata.
  // Private course material and member entitlements never enter the index.
  async function loadAcademySearchMetadata(){
@@ -143,6 +143,7 @@
  }
  function clean(){
   academySupplementChart?.dispose?.();academySupplementChart=null;
+  academyHomeMarketReplay?.dispose?.();academyHomeMarketReplay=null;
   globalThis.CrownlightAcademyEnterpriseResearchV1?.scrub?.();
   globalThis.CrownlightMemberLayoutsV1?.resetAcademy?.();
   protectedAssessmentSession?.dispose?.();protectedAssessmentSession=null;
@@ -722,6 +723,7 @@
   const d=days[dayIndex-1];if(!d)return;
   // Dispose the previous lesson chart before replacing its DOM.
   academySupplementChart?.dispose?.();academySupplementChart=null;
+  academyHomeMarketReplay?.dispose?.();academyHomeMarketReplay=null;
   globalThis.CrownlightLearningProgress?.reset?.('academy-learning-progress');
   ++renderSerial;const renderEpoch=renderSerial;
   get('academy-stage-label').textContent=(d.programCode==='free5'?'Lesson ':'Day ')+dayIndex+' of '+days.length+' · '+(d.phaseLabel||'Guided learning');
@@ -754,6 +756,20 @@
   // workstation, including days without an independently authorized book Lab.
   // This fictional supplement cannot unlock a related Lab or confer mastery.
   const originalInstruction=get('academy-original-instruction');
+  // Only verified, enrolled members may see the optional fictional chart.
+  // Its prices are not source data for the lesson or a protected assessment.
+  if(originalInstruction&&enrolled&&progressAvailable&&userId&&
+     typeof globalThis.CrownlightHomeMarketTerminal?.mountInto==='function'){
+   const panel=node('section');panel.className='gu-learning-market-replay';
+   panel.setAttribute('aria-label','Homepage-style fictional market replay — Boot Camp');
+   const heading=node('h3','Watch fictional candles form — homepage chart');
+   const explanation=node('p','The same market chart used on the homepage: forming candles, Pause/Resume/Replay, speed, timeframe, crosshair, pan, zoom, volume and OHLCV details. This fictional market is separate from the study day’s historical evidence, graded answers, and saved progress.');
+   explanation.className='gu-learning-market-context';
+   const host=node('div');host.className='gu-learning-market-host';
+   panel.append(heading,explanation,host);originalInstruction.prepend(panel);
+   academyHomeMarketReplay=globalThis.CrownlightHomeMarketTerminal.mountInto(host,{context:'bootcamp',startPaused:false})||null;
+   if(!academyHomeMarketReplay)panel.remove();
+  }
   if(originalInstruction&&globalThis.CrownlightLearningEChartsV1?.mount){
    const extra=node('details');extra.className='academy-echarts-supplement';
    const summary=node('summary','Optional: experiment with a fictional ECharts market chart');
