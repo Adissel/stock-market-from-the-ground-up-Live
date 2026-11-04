@@ -235,6 +235,8 @@ try{
    if(code==='truth5'){
     assert.equal(await page.locator('#academy-self-check-answer').inputValue(),'',
      'Local ungraded self-check drafts must not persist or leak after page reload');
+    const notesAfterReload=page.locator('#academy-original-instruction details:has(#academy-self-check-answer)');
+    if(!(await notesAfterReload.evaluate(el=>el.open)))await notesAfterReload.locator('summary').click();
     assert.equal(await page.getByRole('button',{name:'Add reasoning to my private reflection'}).isDisabled(),true);
    }
    assert.equal(await page.locator('#academy-reflection').inputValue(),storedReflection,
