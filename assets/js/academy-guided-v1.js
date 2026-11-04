@@ -132,7 +132,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
  const hasAdvancedPackage=isNewCourse||(authoredFormative&&advancedCases.length>0);
  const plannedMinutes=authoredFormative?REFERENCE_MINUTES:STANDARD_MINUTES;
  let stage=0,furthest=0,autoplay=false,timer=0,disposed=false,
-   answer=-1,misses=0,selectedOptions=[],numericInputs=[],chart=null;const completed=new Set();
+   answer=-1,misses=0,selectedOptions=[],numericInputs=[],chart=null;const completed=new Set(),checkEvidence=new Map();
  const formativeDrafts=new Map(),reviewedFormative=new Set(),advancedDrafts=new Map(),reviewedAdvanced=new Set();
  const formativeSelections=new Map(),advancedSelections=new Map();
  const firstName=String(memberFirstName||'').trim().replace(/[^\p{L}\p{M}\s'\-]/gu,'').slice(0,32);
@@ -320,7 +320,25 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
    }
   }
   if(stage===6)content.append(el('p','First formative selection is preserved until submitted. No official grade, competency or independent mastery is awarded.'));
-  if(stage===9)content.append(el('p','Formative stages completed: '+completed.size+' of 9. Save your own notes using the existing course reflection controls. Official competency remains Not Yet Assessed.'));
+  if(stage===9){
+   content.append(el('p','Formative stages completed: '+completed.size+' of 9. Save your own notes using the existing course reflection controls. Official competency remains Not Yet Assessed.'));
+   const results=[...checkEvidence.values()].filter(row=>row.correct);
+   const firstTry=results.filter(row=>row.attempts===1).length;
+   const corrected=results.filter(row=>row.attempts>1).length;
+   const numeric=results.filter(row=>row.numeric).length;
+   const report=el('section');report.className='academy-guided-evidence-report';
+   report.append(el('h5','What your practice demonstrated — this session'));
+   const facts=el('dl');for(const [label,value] of [
+    ['Completed, checked method/numeric decisions',results.length],
+    ['Correct on first attempt',firstTry],
+    ['Corrected after feedback',corrected],
+    ['Verified numeric/equation checkpoints',numeric]
+   ]){
+    const row=el('div');row.append(el('dt',label),el('dd',value));facts.append(row);
+   }
+   report.append(facts,el('p','This is practice evidence only, not a grade or a declaration of skill mastery. A correct method choice alone does not prove concept understanding. Protected independent assessment and source-reviewed case acceptance remain separate.'));
+   content.append(report);
+  }
   instructor.append(content);previous.disabled=stage===0;next.disabled=stage===9;
   next.textContent=check?'Close & Next — Submit answer':'Next lesson step';
  }
@@ -341,14 +359,20 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
   }
   const q=cfg.checks[stage];
   if(q&&!completed.has(stage)){
+   const recordAttempt=(correct,numeric)=>{
+    const prior=checkEvidence.get(stage)||{attempts:0};
+    checkEvidence.set(stage,{attempts:prior.attempts+1,correct,numeric});
+   };
    if(q.numeric){
     const values=numericInputs.map(x=>x.value.trim());
     const empty=values.findIndex(v=>v===''||!Number.isFinite(Number(v)));
     if(empty>=0){feedback.textContent='Enter a valid number for '+q.labels[empty]+'.';return}
     const wrong=values.findIndex((v,i)=>Math.abs(Number(v)-q.expected[i])>(q.tolerance?.[i]??(q.labels[i].includes('VWAP')?.0051:.011)));
+    recordAttempt(wrong<0,true);
     if(wrong>=0){misses++;feedback.textContent=(misses===1?'Not yet. ':'Work through the intermediate step. ')+q.hints[wrong]+' Correct the entry and retry for free.';return}
    }else{
     if(answer<0){feedback.textContent='Choose an answer before submitting. You can retry for free.';return}
+    recordAttempt(selectedOptions[answer].ok,false);
     if(!selectedOptions[answer].ok){
      misses++;feedback.textContent=misses===1?'Not yet. Compare the response with Talia’s evidence and method. Try again.':
       'Additional instruction: '+clean(q.correct)+' Review the evidence and retry without Lumens.';return;
@@ -375,7 +399,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
     tutorOutput.textContent=String(error?.message||'Tutor unavailable. Use the free lesson explanations.');}
   finally{if(!disposed&&serial===tutorSerial){tutorAbort=null;tutorButton.disabled=false}}
  };
- play.onclick=()=>{if(stage===9){stage=0;furthest=0;completed.clear();reviewedFormative.clear();reviewedAdvanced.clear();formativeDrafts.clear();advancedDrafts.clear();render()}
+ play.onclick=()=>{if(stage===9){stage=0;furthest=0;completed.clear();checkEvidence.clear();reviewedFormative.clear();reviewedAdvanced.clear();formativeDrafts.clear();advancedDrafts.clear();render()}
   autoplay=!autoplay;play.textContent=autoplay?'Pause guided teaching':'Play guided teaching';
   if(autoplay)narration();else{stop();status.textContent='Automatic teaching paused.'}};
  render();const session={dispose(){disposed=true;stop();cancelTutor();chart?.dispose?.();if(active.get(host)===session)active.delete(host);host.replaceChildren()}};active.set(host,session);return session;
