@@ -204,11 +204,11 @@ function mount({shell,plot,trigger,drawingTrigger,getStatus,onAdd,onCustom,onMan
  trigger?.addEventListener('click',onMainClick);
  drawingTrigger?.addEventListener('click',onDrawClick);
  doc.addEventListener('pointerdown',outside,true);
- menu.addEventListener('keydown',keyboard);
+ doc.addEventListener('keydown',keyboard,true);
  return Object.freeze({open,close,refresh(){if(menu.hidden)return;if(currentTab==='drawings')showDrawings();else if(currentTab==='indicators')showIndicators()},
  dispose(){if(disposed)return;disposed=true;close();plot.removeEventListener('contextmenu',onContext);
   trigger?.removeEventListener('click',onMainClick);drawingTrigger?.removeEventListener('click',onDrawClick);
-  doc.removeEventListener('pointerdown',outside,true);menu.remove()}});
+  doc.removeEventListener('pointerdown',outside,true);doc.removeEventListener('keydown',keyboard,true);menu.remove()}});
 }
 const api=Object.freeze({version:'1.0.0',catalog:CATALOG,allowed,explanation,normalize,mount});
 root.CrownlightChartContextMenuV1=api;

@@ -77,6 +77,17 @@ try{
   throw error;
  });
  const wNode=page.locator('#member-sparks-wallet');
+ // Balance content can arrive before the Dashboard's asynchronous auth layout
+ // becomes visible. Demand actual visible UI, not detached/hidden DOM content.
+ await wNode.waitFor({state:'visible',timeout:30000}).catch(async error=>{
+  const ui=await wNode.evaluate(el=>({
+   display:getComputedStyle(el).display,visibility:getComputedStyle(el).visibility,
+   parentDisplay:getComputedStyle(el.parentElement).display,
+   contentReady:/verified/i.test(el.querySelector('#sparks-wallet-status')?.textContent||'')
+  })).catch(()=>({nodeUnavailable:true}));
+  console.error('Wallet panel never became visible: '+JSON.stringify(ui));
+  throw error;
+ });
  const diagnostic=await wNode.evaluate(el=>({
   clientRectCount:el.getClientRects().length,
   isVisible:el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}),
@@ -121,6 +132,15 @@ try{
  const menu=page.locator('.gu-nav-sparks-popup');
  assert(await menu.isVisible(),'Wallet popup must be displayed after member opens summary');
  assert.match(await menu.innerText(),/Closest study progress/);
+ // A true signed-in keyboard interaction, no mocked credentials or balance output.
+ await walletSummary.focus();
+ assert(await walletSummary.evaluate(el=>document.activeElement===el),
+  'Lumens summary must receive keyboard focus');
+ await page.keyboard.press('Enter');
+ await page.waitForFunction(()=>document.querySelector('details.gu-nav-sparks')?.open===false,null,{timeout:10000});
+ await page.keyboard.press('Enter');
+ await page.waitForFunction(()=>document.querySelector('details.gu-nav-sparks')?.open===true,null,{timeout:10000});
+ assert(await menu.isVisible(),'Lumens disclosure must reopen by Enter key');
  const details=menu.getByRole('link',{name:/How to use.*wallet details/i});
  assert.equal(await details.getAttribute('href'),'/dashboard.html?tab=wallet');
  assert.equal(await page.locator('script[data-gu-member-gifting-script]').count(),1,'Dashboard must load versioned gifting controls directly');

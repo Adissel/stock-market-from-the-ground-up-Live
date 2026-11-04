@@ -31,7 +31,7 @@ node --test tests/runtime-owned-talia-v1.test.mjs
 # Student-facing Tutor desk must keep chart and instruction aligned and preserve revealed-evidence boundaries.
 node --test tests/talia-student-desk-v1.test.mjs
 node --test tests/talia-classroom-teaching-depth-v1.test.mjs
-# All 245 source-derived original Knowledge lesson journeys: first 16 numerical, remaining 229 guided.
+# Talia original 16 source-validated worked-case lessons plus 229 source-driven nine-stage lessons.
 node --test tests/talia-kdb-interactive-wave1.test.mjs
 node --test tests/talia-kdb-all-batches-v1.test.mjs
 node --check assets/js/talia-kdb-lessons-wave1.js
@@ -73,6 +73,8 @@ node --test tests/crownlight-workspace-phase2-behavior-20.test.mjs
 node tests/lumens-v1-consolidated-20261104.mjs
 node tests/lumens-v1-batch-readiness-20261104.mjs
 node tests/lumens-v1-static-dashboard-wallet-contract.mjs
+node tests/lumens-v1-release-eight-batch-source-20261104.mjs
+node tests/lumens-v1-founder-60day-rollover-source-20261104.mjs
 # Verify Chart Pass requests before privileged atomic wallet redemption.
 node --test tests/crownlight-sparks-pass-20-behavior-v1.test.mjs
 # Talia React classroom: original fictional arithmetic, protected source-only chat.
