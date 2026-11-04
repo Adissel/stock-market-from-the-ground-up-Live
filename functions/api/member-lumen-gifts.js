@@ -3,6 +3,7 @@
  * independent legal/security clearance. No anonymous recipient enumeration.
  */
 import {memberIdentity} from './member-tool-access.js';
+import {giftingPolicy} from '../_lib/lumen-member-gifting-policy-v1.js';
 const H={'content-type':'application/json; charset=utf-8','cache-control':'private, no-store','x-content-type-options':'nosniff'};
 const reply=(x,s=200)=>new Response(JSON.stringify(x),{status:s,headers:H});
 const UUID=/^[a-f0-9]{8}-[a-f0-9]{4}-[1-8a-f][a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
@@ -15,6 +16,9 @@ async function rest(c,path,opt={}){
  return r.json();
 }
 async function release(c){
+ // V1 application-level kill switch is independent of database flags:
+ // accidental or unauthorized changes to DB flags cannot launch a V2 feature.
+ if(giftingPolicy.enabled!==true||giftingPolicy.releasePhase!=='V2_RELEASED')return false;
  const rows=await rest(c,'gu_lumen_completion_release_v1?select=member_gifts_enabled,legal_gifting_clearance,security_gifting_clearance&singleton=eq.true&limit=1');
  const r=rows?.[0]||{};
  return r.member_gifts_enabled===true&&r.legal_gifting_clearance===true&&r.security_gifting_clearance===true;
