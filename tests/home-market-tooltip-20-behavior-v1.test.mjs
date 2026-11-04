@@ -52,7 +52,7 @@ test('19 indicator warmup does not invent data',()=>assert.doesNotMatch(call(0,[
 test('20 nonfinite OHLC is rejected without fabricated data',()=>assert.equal(call(0,[],'none',[{...up,close:NaN}]),''));
 test('21 finite upper candle uses gain color',()=>assert.match(call(0),/#37d7ad/));
 test('22 finite lower candle uses loss color',()=>assert.match(call(1),/#fb7b90/));
-test('23 tooltip explicitly labels fictional observations',()=>assert.match(call(),/>Fictional<\/span>/));
+test('23 tooltip explicitly labels simulated observations',()=>assert.match(call(),/>Simulated<\/span>/));
 test('24 untrusted chart pointer text is never rendered',()=>assert.doesNotMatch(call(),/<script>|onerror/));
 
 test('25 homepage deploy uses updated OHLCV chart bundle URL',()=>{
