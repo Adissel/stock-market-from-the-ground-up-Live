@@ -120,6 +120,21 @@ try{
     assert(await tab.title(),path+' lost its title');
     assert.equal(await tab.locator('main').count(),1,path+' missing main landmark');
     const legal=source.includes('data-legal-doc="');
+    if(path==='index.html'){
+     // Home deliberately waits for page-style and authenticated nav controllers.
+     // This static fixture has no Supabase or Pages presentation API: verify
+     // an accessible loading state, then require the four-second fail-open
+     // to reveal REAL Home content. A permanently hidden Home still fails.
+     const pending=await tab.locator('html').evaluate(e=>e.classList.contains('cl-home-initializing'));
+     if(pending){
+      const status=tab.locator('#cl-home-initial-loading');
+      assert.equal(await status.getAttribute('role'),'status','Home loading must be announced');
+      assert.match((await status.textContent())||'',/Preparing your learning workspace/i);
+      await tab.waitForFunction(()=>
+       !document.documentElement.classList.contains('cl-home-initializing'),null,{timeout:5500});
+     }
+     assert(await tab.locator('main').isVisible(),'Home must become visible after auth/style readiness or timeout');
+    }
     const content=(await tab.locator('main').innerText()).trim();
     if(legal){
      assert(source.includes('noindex'),'Legal placeholder must not be indexed');

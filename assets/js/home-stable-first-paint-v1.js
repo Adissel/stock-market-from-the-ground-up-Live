@@ -36,8 +36,9 @@
   sheet.remove();
  };
  // Network, auth or a third-party resource must never make the page vanish
- // indefinitely. A failure restores the normal existing homepage.
- const safety=setTimeout(release,8500);
+ // indefinitely. Cap the loading shell to four seconds for availability.
+ // The published style remains server-authoritative; failures show the page.
+ const safety=setTimeout(release,4000);
  const ready=()=>{
   if(done||queued)return;
   const nav=document.querySelector('.site-header .navlinks');

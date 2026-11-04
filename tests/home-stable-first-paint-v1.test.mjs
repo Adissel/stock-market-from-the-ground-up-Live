@@ -86,6 +86,7 @@ test('Classic presentation remains a valid resolved state for public guests',()=
  assert.equal(h.classes.has('cl-home-initializing'),false);
 });
 test('Auth or layout service outages cannot leave the homepage hidden indefinitely',()=>{
+ assert.match(code,/setTimeout\(release,4000\)/,'Loading timeout budget cannot exceed four seconds');
  const h=browser();h.domReady();h.expire();
  assert.equal(h.classes.has('cl-home-initializing'),false);
  assert.equal(h.style.removed,true);
