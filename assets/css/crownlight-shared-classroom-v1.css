@@ -18,3 +18,24 @@ body.gu-shared-classroom .cl-classroom-chart .cl-react-toolbar{gap:7px;flex-wrap
 body.gu-shared-classroom .cl-classroom-chart .cl-react-toolbar :is(select,button){font-size:13px;min-height:36px;padding:6px 9px}
 @media(max-width:750px){body.gu-shared-classroom .cl-classroom-banner{align-items:flex-start}body.gu-shared-classroom .cl-classroom-chart-inner{padding:10px}body.gu-shared-classroom .cl-classroom-chart .cl-react-toolbar :is(button,select){min-height:42px}}
 @media(prefers-reduced-motion:reduce){body.gu-shared-classroom .cl-classroom-chart *{animation:none!important;transition:none!important}}
+
+/* React Experience B chart within real member classroom: same compact chrome
+ * and larger educational copy used by the Owner's chosen Classic layout. */
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-shared-chart{max-width:100%;min-width:0;padding:12px;background:#0b2030}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:12px;border-bottom:1px solid #42637a;padding:9px 11px}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-top strong{font-size:19px;line-height:1.4;color:#f4fcff}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-top p{font-size:16px;line-height:1.7;color:#d7eaf3;margin:5px 0}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-top>span{font-size:11px;color:#5be7aa}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px;padding:11px 0}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-controls label{display:grid;gap:4px;font-size:13px;min-width:155px}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-controls select,
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-controls input{font-size:13px;min-height:34px;padding:5px 7px;color:#f3f9ff;background:#12384a;border:1px solid #4f7b8d}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-controls button,
+body.gu-shared-classroom .cl-classroom-chart .cx-pan-controls button{font-size:12px;line-height:1.25;min-height:34px;padding:5px 9px;box-shadow:none}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-note{font-size:15px;line-height:1.7;background:#10374a;border-left:3px solid #5be7aa;padding:10px 12px}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-shared-chart>details{margin:10px 0;padding:9px;border:1px solid #47768b;border-radius:8px}
+body.gu-shared-classroom .cl-classroom-chart .cx-classic-shared-chart>details>summary{font-size:15px;color:#e9f9ff}
+body.gu-shared-classroom .cl-classroom-chart .cx-indicator-workbench{margin:14px 0;padding:14px;min-width:0}
+body.gu-shared-classroom .cl-classroom-chart .cx-guide-copy p{font-size:16px;line-height:1.7}
+@media(max-width:750px){body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-controls :is(button,select),body.gu-shared-classroom .cl-classroom-chart .cx-pan-controls button{min-height:42px}}
+@media(max-width:440px){body.gu-shared-classroom .cl-classroom-chart .cx-classic-chart-controls{grid-template-columns:1fr}}
