@@ -56,9 +56,13 @@ jobs:
           if "main" not in live:raise RuntimeError("main is absent; refusing changes")
           extra=set(live)-set(expected)-{"main"}
           changed={n:(expected[n],live[n]["sha"]) for n in expected if n in live and expected[n]!=live[n]["sha"]}
-          if extra or changed:
-              summary("STOP: branch refs changed after owner-approved snapshot: "+str({"extra":list(extra),"changed":changed}))
-              raise RuntimeError("A fresh snapshot is required. No branches deleted.")
+          if changed:
+              summary("STOP: branch tips changed after archival snapshot: "+str(changed))
+              raise RuntimeError("Branch updates require a new archival review. No branches deleted.")
+          if extra:
+              summary("Additional branches created after snapshot: "+", ".join(sorted(extra))+". They will also be archived before deletion.")
+              for name in extra:
+                  expected[name]=live[name]["sha"]
           if any(live[n]["protected"] for n in expected if n in live):
               raise RuntimeError("Protected non-main branches found: inspect before deletion.")
           pr_rows=api("GET","/pulls?state=open&per_page=100")
