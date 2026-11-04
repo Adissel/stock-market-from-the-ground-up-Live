@@ -19,6 +19,12 @@ assert.match(js,/No balance is assumed/);
 assert.match(legacy,/preservedWalletPanel=q\('#member-sparks-wallet',main\)/);
 assert.match(legacy,/preservedLumenWidgets=q\('\.gu-member-lumen-widgets',main\)/);
 assert.match(legacy,/wallet:renderWallet/);
+assert.match(legacy,/await api\('\/api\/member-sparks-balance'\)/,
+ 'After replacement the real wallet tab must refresh from server');
+assert.match(legacy,/active\?\.user\?\.id!==session\.user\.id/,
+ 'The same authenticated member must remain active before showing credits');
+assert.match(legacy,/balance\.included\+balance\.purchased\+balance\.manual!==balance\.available/,
+ 'Credit bucket totals must reconcile before presentation');
 assert.match(legacy,/\['wallet','Crownlight Lumens Wallet'\]/);
 assert.match(legacy,/if\(preservedWalletPanel\)host\.appendChild\(preservedWalletPanel\)/);
 assert.match(test,/#member-sparks-wallet/);
