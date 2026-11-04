@@ -1,0 +1,28 @@
+name: Learning Mastery Browser Behavior Gate
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/learning-mastery-browser-behavior-v1.yml'
+      - 'tests/mastery-learning-browser-behavior-v1.mjs'
+      - 'assets/js/academy-guided-v1.js'
+permissions: {contents: read}
+concurrency:
+  group: learning-mastery-browser-behavior-v1
+  cancel-in-progress: false
+jobs:
+  guided-formative-behavior:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Run real browser ungraded learning behavior
+        run: |
+          node --check tests/mastery-learning-browser-behavior-v1.mjs
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+          node tests/mastery-learning-browser-behavior-v1.mjs
