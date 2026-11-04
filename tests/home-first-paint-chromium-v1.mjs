@@ -28,6 +28,7 @@ try{
  assert.equal(v.pending,true,'Initial CSS guard must exist before first content paint');
  assert.equal(v.header,'hidden','Wrong anonymous header must not flash');
  assert.equal(v.main,'hidden','Wrong Classic chart position must not flash');
+ assert.equal(await page.locator('#cl-home-initial-loading').evaluate(el=>getComputedStyle(el).display),'flex');
 
  await page.evaluate(()=>document.body.dataset.clWorkspace='continuous');
  await page.waitForTimeout(100);
@@ -43,6 +44,7 @@ try{
  v=await visibility();
  assert.equal(v.header,'visible');assert.equal(v.main,'visible');
  assert.equal(v.mode,'continuous');
+ assert.equal(await page.locator('#cl-home-initial-loading').evaluate(el=>getComputedStyle(el).display),'none');
  const cols=await page.locator('.gu-home-stage-grid').evaluate(el=>{
   const [left,right]=getComputedStyle(el).gridTemplateColumns.split(' ').map(parseFloat);
   return {left,right};
