@@ -4,7 +4,12 @@ import {createRoot} from 'react-dom/client';
 type Study='ema9'|'sma20'|'none';
 type Bar={open:number;close:number;low:number;high:number;volume:number};
 type Chart={setOption:(v:unknown,replace?:boolean)=>void;resize:()=>void;dispose:()=>void;dispatchAction:(v:unknown)=>void};
-declare global{interface Window{CrownlightECharts?:{load:()=>Promise<{init:(node:HTMLElement)=>Chart}>}}}
+type EmbeddedTerminalControl={pause?:()=>void;resume?:()=>void};
+type EmbeddedTerminalSession={pause:()=>void;resume:()=>void;dispose:()=>void};
+declare global{interface Window{
+ CrownlightECharts?:{load:()=>Promise<{init:(node:HTMLElement)=>Chart}>};
+ CrownlightHomeMarketTerminal?:{mountInto:(target:HTMLElement,options?:{context?:'lab'|'bootcamp';startPaused?:boolean;checkpointLocked?:boolean})=>EmbeddedTerminalSession|null};
+}}
 const DATA:Bar[]=Array.from({length:150},(_,i)=>{const trend=85+0.15*i+3*Math.sin(i*.22)+Math.cos(i*.68);const open=trend-.8*Math.sin(i*1.1),close=trend+.9*Math.cos(i*.9);return {open,close,low:Math.min(open,close)-.4-(i%4)*.16,high:Math.max(open,close)+.55+(i%3)*.18,volume:120+(i*31)%285}});
 function moving(bars:Bar[],period:number,method:'ema'|'sma'){let state=0;return bars.map((b,i)=>{if(i<period-1)return null;if(i===period-1)state=bars.slice(0,period).reduce((sum,x)=>sum+x.close,0)/period;else if(method==='ema')state=(2/(period+1))*b.close+(1-2/(period+1))*state;else state=bars.slice(i-period+1,i+1).reduce((sum,x)=>sum+x.close,0)/period;return +state.toFixed(3)})}
 /** Exact-bar public tooltip. No HTML from members or market-data providers is used. */
@@ -68,18 +73,27 @@ function revealedBars(frame:Frame,position:number):Bar[]{
  if(next<DATA.length)minutes.push(partialMinute(next,safe%TICKS_PER_MINUTE));
  return groupMinutes(minutes,frame);
 }
-function Terminal(){
+function Terminal({context='home',startPaused=false,checkpointLocked=false,embedded}:{
+ context?:'home'|'lab'|'bootcamp';startPaused?:boolean;checkpointLocked?:boolean;embedded?:EmbeddedTerminalControl
+}){
  const host=useRef<HTMLDivElement>(null);
  const [study,setStudy]=useState<Study>('ema9');
  const [windowSize,setWindowSize]=useState(60);
  const [view,setView]=useState<'candles'|'line'>('candles');
  const [frame,setFrame]=useState<Frame>(1);
  const [speed,setSpeed]=useState(1);
- const [playing,setPlaying]=useState(()=>!(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches));
+ const [playing,setPlaying]=useState(()=>!startPaused&&!checkpointLocked&&!(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches));
  const [note,setNote]=useState('Fictional simulation · Not real-time market data');
  const [progress,setProgress]=useState('Preparing fictional candle replay…');
  const chartInstance=useRef<Chart|null>(null);
  const playhead=useRef(0);
+ useEffect(()=>{
+  if(!embedded)return;
+  embedded.pause=()=>setPlaying(false);
+  embedded.resume=()=>{if(!checkpointLocked)setPlaying(true)};
+  return()=>{delete embedded.pause;delete embedded.resume};
+ },[embedded,checkpointLocked]);
+ useEffect(()=>{if(checkpointLocked)setPlaying(false)},[checkpointLocked]);
  const shown=useRef<Bar[]>([]);
  const focusIndex=useRef(0);
  const settings=useRef({study,windowSize,view,frame});
@@ -172,20 +186,23 @@ function Terminal(){
   return()=>window.clearInterval(timer);
  },[playing,speed,frame]);
  const changeFrame=(value:Frame)=>{playhead.current=0;setFrame(value);setPlaying(true);setNote('Fictional '+value+'-minute replay · Intracandle movement is compressed for demonstration.')};
- const restart=()=>{playhead.current=0;paint();setPlaying(true);setNote('Fictional replay restarted. No live market feed.')};
+ const restart=()=>{if(checkpointLocked)return;playhead.current=0;paint();setPlaying(true);setNote('Fictional replay restarted. No live market feed.')};
  return <div className="cl-react-terminal">
   <div className="cl-react-toolbar">
-   <span className="cl-react-title">CROWNLIGHT <small>TRAINING TERMINAL</small></span>
+   <span className="cl-react-title">CROWNLIGHT <small>{context==='home'?'TRAINING TERMINAL':'LAB & BOOT CAMP MARKET REPLAY'}</small></span>
    <label>Chart <select value={view} onChange={e=>setView(e.target.value as 'candles'|'line')}><option value="candles">Candlesticks</option><option value="line">Line</option></select></label>
    <label>Indicator <select value={study} onChange={e=>setStudy(e.target.value as Study)}><option value="ema9">EMA 9</option><option value="sma20">SMA 20</option><option value="none">None</option></select></label>
    <label>History <select value={windowSize} onChange={e=>setWindowSize(Number(e.target.value))}><option value={30}>30%</option><option value={60}>60%</option><option value={100}>All</option></select></label>
    <label>Timeframe <select value={frame} onChange={e=>changeFrame(Number(e.target.value) as Frame)}><option value={1}>1m</option><option value={3}>3m</option><option value={5}>5m</option></select></label>
    <label>Replay speed <select value={speed} onChange={e=>setSpeed(Number(e.target.value))}><option value={0.1}>0.1×</option><option value={0.5}>0.5×</option><option value={1}>1×</option><option value={3}>3×</option></select></label>
-   <div className="cl-react-playback"><button type="button" onClick={()=>setPlaying(x=>!x)} aria-label={playing?'Pause fictional candle formation':'Resume fictional candle formation'}>{playing?'Pause':'Resume'}</button><button type="button" onClick={restart}>Replay</button></div>
+   <div className="cl-react-playback"><button type="button" disabled={checkpointLocked} onClick={()=>setPlaying(x=>!x)}
+    aria-label={playing?'Pause fictional candle formation':'Resume fictional candle formation'}>{playing?'Pause':'Resume'}</button>
+    <button type="button" disabled={checkpointLocked} onClick={restart}>Replay</button></div>
   </div>
   <div ref={host} className="cl-react-plot" role="region" tabIndex={0} onKeyDown={event=>{if(inspect(event.key))event.preventDefault()}}
    aria-label="Interactive fictional OHLCV training chart. Press Left or Right arrow to inspect a candle, Home for first candle, End for last candle; mouse wheel to zoom."/>
-  <div className="cl-react-progress" aria-live="off"><span>{progress}</span><small>Accelerated fictional replay. Candle timeframes represent simulated market minutes, not elapsed wall-clock time.</small></div>
+  <div className="cl-react-progress" aria-live="off"><span>{checkpointLocked?'Playback paused for the Lab calculation checkpoint. Finish the ungraded method check to continue.':progress}</span>
+   <small>Accelerated original fictional replay. Candle timeframes represent simulated market minutes, not elapsed wall-clock time. This market scenario is separate from the course's worked example.</small></div>
   <div className="cl-react-bottom"><span role="status">{note}</span><a href="/simulator.html">Open full Chart Studio</a></div>
  </div>;
 }
@@ -206,5 +223,26 @@ function resolveHomeChartHost():HTMLElement|null{
  linked.replaceWith(host);
  return host;
 }
+// The exact homepage ECharts experience is embedded only by an authorized
+// Lab or Academy lesson host. It never reads membership, progress or hidden
+// historical bars; it uses the existing public fictional dataset.
+const embeddedRoots=new WeakMap<HTMLElement,EmbeddedTerminalSession>();
+function mountInto(target:HTMLElement,options?:{context?:'lab'|'bootcamp';startPaused?:boolean;checkpointLocked?:boolean}):EmbeddedTerminalSession|null{
+ if(!target||typeof target.replaceChildren!=='function'||!target.isConnected)return null;
+ embeddedRoots.get(target)?.dispose();
+ const controller:EmbeddedTerminalControl={};
+ const root=createRoot(target);
+ let disposed=false;
+ const session:EmbeddedTerminalSession={
+  pause(){if(!disposed)controller.pause?.()},
+  resume(){if(!disposed)controller.resume?.()},
+  dispose(){if(disposed)return;disposed=true;root.unmount();target.replaceChildren();if(embeddedRoots.get(target)===session)embeddedRoots.delete(target)}
+ };
+ embeddedRoots.set(target,session);
+ root.render(<Terminal context={options?.context==='bootcamp'?'bootcamp':'lab'}
+   startPaused={options?.startPaused===true} checkpointLocked={options?.checkpointLocked===true} embedded={controller}/>);
+ return session;
+}
+window.CrownlightHomeMarketTerminal=Object.freeze({mountInto});
 function mount(){const host=resolveHomeChartHost();if(!host||host.hasAttribute('data-react-terminal'))return;host.setAttribute('data-react-terminal','true');host.replaceChildren();createRoot(host).render(<Terminal/>);}
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});else mount();
