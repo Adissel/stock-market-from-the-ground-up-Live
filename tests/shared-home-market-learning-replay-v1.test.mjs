@@ -38,7 +38,7 @@ test('all homepage playback controls and tooltip behavior remain shared',()=>{
 });
 test('original homepage terminal cannot query private users, unlock courses, or reveal future market observations',()=>{
  assert.doesNotMatch(home,/supabase|access_token|service_role|fetch\(|\/api\/|gradeMember|protectedAnswer/i);
- assert.match(home,/const DATA:Bar\[\]=Array\.from/);
+ assert.match(home,/const DATA:Bar\[\]=\(\(\)=>\{/);
  assert.match(home,/function partialMinute\(index:number,ticks:number\):Bar/);
  assert.match(home,/safe%TICKS_PER_MINUTE/);
  assert.match(home,/window\.matchMedia\?\.\('\(prefers-reduced-motion: reduce\)'\)/);
@@ -61,7 +61,7 @@ test('Lab calculation checkpoint pauses the market terminal rather than supplyin
  assert.match(labs,/context:'lab',startPaused:checkpointLocked,checkpointLocked/);
  assert.match(home,/if\(checkpointLocked\)setPlaying\(false\)/);
  assert.match(home,/disabled=\{checkpointLocked\}/);
- assert.match(home,/if\(checkpointLocked\)return;playhead\.current=0/);
+ assert.match(home,/if\(checkpointLocked\)return;playhead\.current=1/);
  assert.match(home,/Playback paused for the Lab calculation checkpoint/);
 });
 test('Academy replay appears only inside a verified enrolled day and cleans up on user switch',()=>{
