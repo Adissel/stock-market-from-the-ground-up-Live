@@ -25,11 +25,11 @@ test('OHLC prices appear inside chart region, not as an always-open unrelated ta
  assert.match(shared,/className="cx-classic-measurements" aria-label="Latest revealed candle price measurements"/);
  const high=shared.indexOf('<dt>High</dt>'),close=shared.indexOf('<dt>Close</dt>'),open=shared.indexOf('<dt>Open</dt>'),low=shared.indexOf('<dt>Low</dt>');
  assert.ok(high>=0&&high<close&&close<open&&open<low,'Measurement order matches the instructional reference');
- assert.match(shared,/measurement\.high\.toFixed\(2\)/);
- assert.match(shared,/measurement\.close\.toFixed\(2\)/);
- assert.match(shared,/measurement\.open\.toFixed\(2\)/);
- assert.match(shared,/measurement\.low\.toFixed\(2\)/);
- assert.match(shared,/Math\.abs\(measurement\.close-measurement\.open\)/);
+ assert.match(shared,/activeMeasurement\.high\.toFixed\(2\)/);
+ assert.match(shared,/activeMeasurement\.close\.toFixed\(2\)/);
+ assert.match(shared,/activeMeasurement\.open\.toFixed\(2\)/);
+ assert.match(shared,/activeMeasurement\.low\.toFixed\(2\)/);
+ assert.match(shared,/Math\.abs\(activeMeasurement\.close-activeMeasurement\.open\)/);
  assert.match(tutor,/measurement=\{\{index:visible,open:latest\[0\],high:latest\[3\],low:latest\[2\],close:latest\[1\],interval:'1-minute source'\}\}/);
  assert.match(tutor,/<details className="tc-current-candle-ledger">/);
  assert.match(tutor,/<table className="tc-candle-table"><caption>Latest visible completed candle/);
@@ -40,6 +40,13 @@ test('Talia chart consumes only its revealed bar prefix for full plotted data an
  assert.match(tutor,/useMemo\(\(\)=>REPLAY\.slice\(0,visible\)/);
  assert.match(tutor,/caseBars=\{sharedBars\}/);
  assert.match(shared,/const count=mode==='talia'\?Math\.max\(1,available\.length\)/);
+ assert.match(shared,/available\.slice\(0,Math\.floor\(available\.length\/appearance\.timeframe\)\*appearance\.timeframe\)/);
+ assert.match(shared,/sourceBars=\{completedBars\}/);
+ assert.match(shared,/reveal=\{chartCount\}/);
+ assert.match(shared,/completedGroup\.length===appearance\.timeframe/);
+ assert.match(shared,/high:Math\.max\(\.\.\.completedGroup\.map\(b=>b\.h\)\)/);
+ assert.match(shared,/low:Math\.min\(\.\.\.completedGroup\.map\(b=>b\.l\)\)/);
+
  assert.match(shared,/if\(mode==='talia'&&caseBars\.length>0\)setFocus\(caseBars\.length-1\)/);
  assert.match(shared,/onObservedBar\?\.\(Math\.floor\(index\/appearance\.timeframe\),appearance\.timeframe\)/);
  assert.match(tutor,/REPLAY\.slice\(index\*interval,Math\.min\(visible,\(index\+1\)\*interval\)\)/);
