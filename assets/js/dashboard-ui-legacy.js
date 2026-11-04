@@ -414,6 +414,43 @@
     // Existing private API owns all amounts; do not reconstruct or grant credits.
     if(preservedWalletPanel)host.appendChild(preservedWalletPanel);
     if(preservedLumenWidgets)host.appendChild(preservedLumenWidgets);
+    // Populate the preserved Wallet after the legacy DOM replacement. A
+    // pre-DOMContentLoaded script may have read a detached copy; the backend
+    // remains the single authoritative ledger, and this GET never issues credits.
+    if(preservedWalletPanel){
+      const put=(id,value)=>{const node=preservedWalletPanel.querySelector('#'+id);
+        if(node)node.textContent=String(value)};
+      const empty=(message)=>{
+        for(const id of ['sparks-wallet-total','sparks-wallet-included','sparks-wallet-purchased',
+          'sparks-wallet-manual','sparks-wallet-expiry'])put(id,'—');
+        put('sparks-wallet-status',message);
+      };
+      empty('Verifying your private Lumens wallet…');
+      try{
+        const data=await api('/api/member-sparks-balance');
+        const balance=data?.wallet||{};
+        const valid=n=>Number.isSafeInteger(n)&&n>=0&&n<=1000000000;
+        if(data?.ok!==true||!['available','included','purchased','manual'].every(k=>valid(balance[k]))||
+           balance.included+balance.purchased+balance.manual!==balance.available)
+          throw Error('Unreconciled private wallet');
+        const active=await getSession();
+        if(active?.user?.id!==session.user.id){
+          empty('Account changed; private wallet was not displayed.');
+          return;
+        }
+        put('sparks-wallet-total',balance.available.toLocaleString());
+        put('sparks-wallet-included',balance.included.toLocaleString());
+        put('sparks-wallet-purchased',balance.purchased.toLocaleString());
+        put('sparks-wallet-manual',balance.manual.toLocaleString());
+        const when=typeof balance.nextExpiry==='string'&&Number.isFinite(Date.parse(balance.nextExpiry))
+          ?new Date(balance.nextExpiry).toLocaleDateString()
+          :'No upcoming expiration recorded for current credits';
+        put('sparks-wallet-expiry',when);
+        put('sparks-wallet-status','Your private Crownlight Lumens balance is verified.');
+      }catch{
+        empty('Wallet balance temporarily unavailable. No balance is assumed.');
+      }
+    }
     if(!preservedWalletPanel&&!preservedLumenWidgets){
       const note=document.createElement('p');
       note.textContent='Member wallet is temporarily unavailable. No balance is assumed.';
