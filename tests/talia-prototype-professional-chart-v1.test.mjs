@@ -15,7 +15,7 @@ test('Customization is available only on the staff prototype and never authorize
  assert.match(ts,/false&&<div className="tc-row tp-chart-tools"/,'Legacy duplicated controls are not mounted');
  assert.match(ts,/type="color"/);assert.match(ts,/moveOnMouseMove:true/);
  assert.match(ts,/onQuestion\('Teach the '/);
- assert.match(ts,/volume is a simulated proxy/,'Tutor still discloses the synthetic volume evidence boundary');
+ assert.match(ts,/Volume is simulated/,'Tutor clearly distinguishes simulated volume from observed market prints');
 });
 
 test('Member-scoped chart preferences validate stored values and do not persist conversation data',()=>{
