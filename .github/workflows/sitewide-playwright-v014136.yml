@@ -108,6 +108,10 @@ jobs:
             sleep 1
           done
           curl --fail --silent http://127.0.0.1:8765/index.html >/dev/null
+      - name: Browser-verify Home first paint waits for authenticated nav and published style (isolated)
+        env:
+          SITEWIDE_TEST_BASE: http://127.0.0.1:8765
+        run: node tests/home-first-paint-chromium-v1.mjs
       - name: Browser-test Talia guided indicators and watchlist coaching at mobile/desktop widths (mocked, ungraded)
         env:
           SITEWIDE_TEST_BASE: http://127.0.0.1:8765
