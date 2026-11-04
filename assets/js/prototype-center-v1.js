@@ -437,7 +437,7 @@ function controls(){
 }
 async function start(){try{
  const sb=await window.getSupabaseClient?.();if(!sb)throw Error('Authentication service unavailable.');
- const {data:{session}}=await sb.auth.getSession();if(!session?.access_token){location.replace('/signin.html?next='+encodeURIComponent(location.pathname));return;}
+ const {data:{session}}=await sb.auth.getSession();if(!session?.access_token){location.replace('/signin.html?next='+encodeURIComponent(location.pathname+location.search));return;}
  const verified=await sb.auth.getUser();if(verified.error||verified.data?.user?.id!==session.user?.id)throw Error('Verified sign-in required.');
  const reply=await fetch('/api/admin?action=context',{method:'GET',headers:{authorization:'Bearer '+session.access_token,accept:'application/json'},cache:'no-store',credentials:'same-origin'});
  if(!reply.ok)throw Error('Administrative access check failed.');
