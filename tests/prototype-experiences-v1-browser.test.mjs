@@ -87,7 +87,7 @@ try{
  const periodControl=prototypeMenu.locator('.cx-context-setting input').first();
  await periodControl.fill('12');
  await periodControl.press('Tab');
- await prototypeMenu.getByRole('button',{name:'Apply to chart'}).click();
+ await prototypeMenu.getByRole('button',{name:'Apply',exact:true}).click();
  await prototypeMenu.waitFor({state:'hidden'});
  assert.equal(await a.page.locator('.cx-chart-customizer-shell').count(),1,
   'Custom study settings reuse the existing React indicator state');
