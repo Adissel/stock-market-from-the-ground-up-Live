@@ -67,7 +67,7 @@ function normalize(input){
   lineStyle:['solid','dashed','dotted'].includes(original.lineStyle)?original.lineStyle:'solid'
  });
 }
-function mount({shell,plot,trigger,drawingTrigger,getStatus,onAdd,onCustom,onManage,onAppearance,onLevel,onDrawing}={}){
+function mount({shell,plot,trigger,drawingTrigger,getStatus,onAdd,onCustom,onManage,onAppearance,onLevel,onDrawing,onToggleVolume,getVolumeVisible}={}){
  if(!shell||!plot||typeof plot.addEventListener!=='function'||typeof onAdd!=='function')return null;
  const doc=shell.ownerDocument||root.document;
  const el=(tag,label,cls)=>{const x=doc.createElement(tag);if(label!==undefined)x.textContent=label;if(cls)x.className=cls;return x};
@@ -101,7 +101,12 @@ function mount({shell,plot,trigger,drawingTrigger,getStatus,onAdd,onCustom,onMan
  }
  function showIndicators(){
   currentTab='indicators';secondary.hidden=false;tertiary.hidden=true;secondary.replaceChildren();
-  secondary.append(el('strong','All 17 indicator studies','cl-context-title'));
+  secondary.append(el('strong','Chart studies · 17 indicators + volume','cl-context-title'));
+  // The histogram is a visibility control, not a line indicator: no color,
+  // line style, or misleading calculation settings are shown.
+  if(typeof onToggleVolume==='function')secondary.append(btn((getVolumeVisible?.()===false?'Show':'Hide')+' bar volume',()=>{
+   onToggleVolume();close();
+  }));
   for(const item of CATALOG){
    const permitted=allowed(item.type,status());
    const itemButton=btn(item.label+(permitted?'':' · Locked · '+item.tier),()=>{
@@ -116,7 +121,7 @@ function mount({shell,plot,trigger,drawingTrigger,getStatus,onAdd,onCustom,onMan
    itemButton.addEventListener('focus',()=>showPreset(item.type));
    secondary.append(itemButton);
   }
-  tell('All indicators appear here. Locked studies require verified tier access.');
+  tell('Advanced study access is checked against the verified Chart Studio tier.');
  }
  function showPreset(type){
   const item=map[type];if(!item)return;
