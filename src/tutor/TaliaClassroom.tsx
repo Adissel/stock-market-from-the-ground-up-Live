@@ -81,10 +81,33 @@ const labHandoff=(()=>{
 })();
 const labQuestion=(q:string)=>labHandoff
   ?('Lab '+labHandoff.id+'. Learning Journey stage: '+labHandoff.stage+'. '+q).slice(0,450):q;
-function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;memberId:string}){
+type LessonKind='candles'|'body-range'|'vwap';
+type LessonQuestion={id:string;kind:'choice'|'numeric'|'vwap';title:string;prompt:string;options?:string[];correct?:number;hint:string};
+const displayStages=['Welcome','Percentage basics','Candle experiment','Calculate the body','Calculate the range','Calculate the percentage','Independent practice','Review and retry','Transfer challenge','Learning report'] as const;
+const cleanNumber=(x:string)=>{const n=Number(x.trim());return x.trim()!==''&&Number.isFinite(n)?n:null};
+const closeNumber=(actual:number|null,expected:number,tolerance=.011)=>actual!==null&&Math.abs(actual-expected)<=tolerance;
+function originalQuestion(kind:LessonKind,bar:number[],index:number):LessonQuestion{
+ if(kind==='vwap')return{id:'vwap-'+index,kind:'vwap',title:'Work out a fictional transaction VWAP',
+   prompt:'Two fictional groups traded: 200 shares at $8 and 100 shares at $10. Enter the dollar total, total shares and VWAP separately.',
+   hint:'Multiply each trade price by its shares. Add the dollar values, then divide by the total shares. The trade-print example is not bar-based proxy VWAP.'};
+ if(kind==='body-range')return{id:'body-'+index,kind:'numeric',title:'Calculate body, range and body percentage',
+   prompt:'Completed fictional candle: open $'+bar[0].toFixed(2)+', high $'+bar[3].toFixed(2)+', low $'+bar[2].toFixed(2)+', close $'+bar[1].toFixed(2)+'. Calculate three values separately.',
+   hint:'Real body = |close − open|. Full range = high − low. Body percentage = (body ÷ full range) × 100.'};
+ return{id:'candle-'+index,kind:'choice',title:'Read the completed candle',
+   prompt:'Which statement can you justify from the revealed fictional candle without predicting the next one?',
+   options:['The candle guarantees the next price direction.',
+    'The observed open, high, low and close describe this completed interval only.',
+    'A green body guarantees buyers will control the following interval.',
+    'The wick proves the exact transaction sequence inside the interval.'],
+   correct:1,hint:'Separate what has already been observed from what remains unknown. OHLC does not establish intrabar transaction order.'};
+}
+function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
+ onQuestion:(q:string)=>void;memberId:string;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
+ playing:boolean;setPlaying:React.Dispatch<React.SetStateAction<boolean>>;playSpeed:number;setPlaySpeed:React.Dispatch<React.SetStateAction<number>>;
+ onPauseForQuestion:()=>void
+}){
   const host=useRef<HTMLDivElement|null>(null);
   const chartRef=useRef<ChartInstance|null>(null);
-  const [visible,setVisible]=useState(7);
   const [timeframe,setTimeframe]=useState<1|3|5>(1);
   const [compare,setCompare]=useState(false);
   const prototype=typeof window!=='undefined'&&isTaliaAdvancedRoute();
@@ -239,10 +262,13 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
       </table></div>
     </details>}
     <div className="tc-row">
-      {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 completed fictional bars for EMA 200</button>}
-      {prototype&&<button type="button" className="tc-secondary" onClick={()=>setVisible(v=>Math.max(7,v-1))} disabled={visible<=7}>Step back one bar</button>}
-      <button type="button" onClick={()=>setVisible(v=>Math.min(REPLAY.length,v+1))} disabled={visible===REPLAY.length}>Reveal next fictional bar</button>
-      <button type="button" className="tc-secondary" onClick={()=>{setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7&&timeframe===1&&zoom===100&&annotation===null}>Reset</button>
+      {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 completed fictional bars for EMA 200</button>}
+      {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(v=>Math.max(7,v-1))}} disabled={visible<=7}>Step back one bar</button>}
+      <button type="button" onClick={()=>{setPlaying(false);setVisible(v=>Math.min(REPLAY.length,v+1))}} disabled={visible===REPLAY.length}>Reveal next fictional bar</button>
+      <button type="button" onClick={()=>setPlaying(v=>!v)} disabled={visible>=REPLAY.length} aria-pressed={playing} aria-label={playing?'Pause automatic fictional candle playback':'Start automatic fictional candle playback'}>{playing?'Pause':'Auto Play'}</button>
+      <label className="tc-playback-speed">Playback speed <select value={playSpeed} onChange={e=>setPlaySpeed(Number(e.target.value))} aria-label="Fictional playback speed"><option value={3000}>Slow</option><option value={1600}>Normal</option><option value={750}>Fast</option></select></label>
+      <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);onPauseForQuestion()}}>Pause for a question</button>
+      <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7&&timeframe===1&&zoom===100&&annotation===null}>Reset</button>
       <button type="button" className="tc-secondary" onClick={()=>onQuestion(('The latest revealed fictional bar is '+visible+' with open '+latest[0].toFixed(2)+', high '+latest[3].toFixed(2)+', low '+latest[2].toFixed(2)+', close '+latest[1].toFixed(2)+'. Guide me through one observation question using only these completed bars; do not reveal later candles.').slice(0,450))}>Ask Talia about this candle</button>
     </div>
   </section>;
