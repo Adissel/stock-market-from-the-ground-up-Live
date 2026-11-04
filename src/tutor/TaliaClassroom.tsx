@@ -783,10 +783,10 @@ function Classroom(){
         </div>
         {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
       </form>
-      <div className="tc-chipbar" aria-label="Example questions">
+      <details className="tc-example-questions"><summary>Suggested questions</summary><div className="tc-chipbar" aria-label="Example questions">
         {EXAMPLES.map(item=><button type="button" key={item} disabled={busy||!!checkpoint} onClick={()=>void submitTutor(item,'explain','')}>{item}</button>)}
-      </div>
-      {advancedExperience&&<section className="tc-live-lesson" aria-label="Talia synchronized interactive lesson">
+      </div></details>
+      {advancedExperience&&<details className="tc-guided-lesson" open={!!lessonKind}><summary>{lessonKind?'Guided lesson · '+lessonKind:'Choose a guided lesson'}</summary><section className="tc-live-lesson" aria-label="Talia synchronized interactive lesson">
         <div className="tc-row tc-row-between"><h3>Teach with the chart</h3><span className="tc-pill">Original fictional · ungraded</span></div>
         <p>Talia reveals completed candles, types explanations and pauses automatically for multiple-choice or numerical questions. Free corrections and unlimited practice retries are available.</p>
         <div className="tc-row">
@@ -807,7 +807,8 @@ function Classroom(){
         {checkpoint&&<TeachingCheckpoint key={checkpoint.id} checkpoint={checkpoint} bar={REPLAY[visible-1]}
           onComplete={checkpointCompleted} onFeedback={checkpointFeedback} onSkip={checkpointSkipped}/>}
         {!checkpoint&&lessonKind&&<p className="tc-muted">Use Auto Play to continue. You can pause, zoom, inspect the accessible candle table, or ask Talia a follow-up at any point.</p>}
-      </section>}
+      </section></details>}
+      <details className="tc-advanced-tutor-options" hidden={!advancedExperience}><summary>Additional tutoring options</summary>
       {advancedExperience&&<section className="tc-premium-bridge" aria-label="Authenticated Tutor tier teaching">
         <h3>Personalized Tutor editions <span className="tc-pill">{activeEdition}</span></h3>
         <p className="tc-muted">Beta features are available only after the server confirms your signed-in membership. These controls do not change subscriptions or publish premium features.</p>
@@ -859,6 +860,7 @@ function Classroom(){
         </div>
         <p className="tc-muted">Current instructional lens: {dimension} · {perspective} · {method}. Select a phase to prepare an editable question. Only the existing authenticated Tutor API can provide the explanation; this prototype does not assign scores.</p>
       </section>}
+      </details>
       {advancedExperience&&chat.length>=3&&chat[chat.length-1]?.who==='talia'&&
         <section className="tp-followup" aria-label="Continue the current learning session">
           <strong>Continue this lesson</strong>
