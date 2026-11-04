@@ -150,7 +150,7 @@ const CASES=[
  'revocation_denies_read','forged_key_not_saved','unlicensed_history_denied',
  'midflight_revocation','midflight_downgrade','midflight_identity_switch',
  'midflight_release_switch','midflight_expired_grant','midflight_tool_denial',
- 'midflight_suspension','midflight_cancellation','midflight_invalid_config',
+ 'midflight_suspension','midflight_cancellation','midflight_optional_config_irrelevant',
  'canonical_lab_or_case_guard','no_lookahead_guard','cross_origin_guard',
  'regrant_restores_private_row','first_account_cannot_read_second'
 ];
@@ -226,8 +226,12 @@ async function exerciseCase(name,f,spec){
   f.setStageHook(()=>f.suspend(A));await noWrite();
  }else if(name==='midflight_cancellation'){
   f.setStageHook(()=>{f.users.get(A).status='canceled'});await noWrite();
- }else if(name==='midflight_invalid_config'){
-  f.setStageHook(()=>f.setFailConfig(true));await noWrite(503);
+ }else if(name==='midflight_optional_config_irrelevant'){
+  // Optional product-display config is NOT an authorization grant or deny.
+  // Only the server-owned active edition grant and tool permission decide.
+  f.setStageHook(()=>f.setFailConfig(true));
+  const result=await f.post(A,b());assert.equal(result.status,200);
+  assert.equal(writes().length,1);assert.equal(f.rows.size,1);
  }else if(name==='canonical_lab_or_case_guard'){
   const key=spec.family==='lab'?'NOT_IN_CANONICAL_LABS':'INVALID!';
   assert.equal((await f.post(A,b(0,key))).status,spec.family==='lab'?404:400);
