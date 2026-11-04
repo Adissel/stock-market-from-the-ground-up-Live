@@ -41,3 +41,34 @@
 .cl-react-progress{padding:8px 15px;border-top:1px solid #27475b;color:#c2ebdc;font:600 .7rem/1.5 system-ui,sans-serif;font-variant-numeric:tabular-nums}
 @media(max-width:650px){.cl-react-playback{grid-column:1/-1}.cl-react-playback button{flex:1;min-height:44px}}
 @media(prefers-reduced-motion:reduce){.cl-react-playback button{transition:none}}
+
+/* Controlled market-looking one-minute teaching tape: compact bodies and
+ * consistent dark terminal, without implying exchange-provided market data. */
+.cl-react-home-speed{display:grid;gap:2px;align-items:center;color:#b8d8e5;
+ padding:5px 10px;border:1px solid #45677a;border-radius:7px;
+ background:#132e40;font-size:.73rem;line-height:1.35}
+.cl-react-home-speed strong{font-variant-numeric:tabular-nums;color:#baf1df;font-size:.9rem}
+.cl-react-home-speed small{color:#b1cad7;font-size:.65rem}
+.cl-react-plot{background:#080e14}
+.cl-react-terminal{border-color:#314b59;background:#0a1118}
+.cl-react-toolbar{background:#101e2b}
+.cl-react-progress{background:#0b1926}
+.cl-react-toolbar button[disabled]{cursor:not-allowed;opacity:.52}
+#pt-experience[data-workspace="labs"] #pt-chart:has(.cl-react-terminal),
+#pt-experience[data-workspace="bootcamps"] #pt-chart:has(.cl-react-terminal){
+ height:auto!important;min-height:440px;overflow:visible;
+}
+#pt-experience[data-workspace="labs"] .pt-chart-tools,
+#pt-experience[data-workspace="bootcamps"] .pt-chart-tools{display:none}
+.cx-home-shared-market,.cx-home-shared-market-host{min-width:0;width:100%}
+.cx-home-shared-market-host .cl-react-plot{min-height:300px;height:365px}
+.cx-home-shared-market-host .cl-react-terminal{border-radius:8px}
+.cx-home-shared-market-source{color:#bad1d6;font:500 .75rem/1.5 system-ui,sans-serif;margin:6px 0 0;padding:7px 3px}
+.cx-lp-card.cx-lp-visual:has(.cx-home-shared-market){min-height:0;overflow:visible}
+.cx-lp-card.cx-lp-visual .cx-home-shared-market .cl-react-toolbar{font-size:.78rem}
+@media(max-width:700px){
+ .cl-react-home-speed{grid-column:1/-1}
+ .cx-home-shared-market-host .cl-react-plot{height:300px}
+ #pt-experience[data-workspace="labs"] #pt-chart:has(.cl-react-terminal),
+ #pt-experience[data-workspace="bootcamps"] #pt-chart:has(.cl-react-terminal){min-height:390px}
+}
