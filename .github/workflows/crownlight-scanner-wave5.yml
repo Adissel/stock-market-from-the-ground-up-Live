@@ -23,7 +23,7 @@ jobs:
           node --check assets/js/crownlight-scanner-history-view-v5.js
           node --check assets/js/crownlight-scanner-rules-v1.js
           node --check assets/js/advanced-tools.js
-          node --test tests/test_crownlight_scanner_historical_v5.mjs tests/test_crownlight_scanner_historical_indicators_v5.mjs tests/test_crownlight_scanner_historical_input_v5.mjs tests/test_crownlight_scanner_historical_source_v5.mjs
+          node --test tests/test_crownlight_scanner_historical_v5.mjs tests/test_crownlight_scanner_historical_indicators_v5.mjs tests/test_crownlight_scanner_historical_input_v5.mjs tests/test_crownlight_scanner_historical_source_v5.mjs tests/test_crownlight_scanner_historical_cutoff_v6.mjs
           node tests/test_crownlight_scanner_rules_v1.mjs
           node tests/test_crownlight_scanner_results_v2.mjs
           node tests/test_crownlight_scanner_sec_evidence_v1.mjs

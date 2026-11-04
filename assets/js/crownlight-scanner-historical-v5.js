@@ -10,6 +10,18 @@ const MINUTE=60000,FRAME=5*MINUTE,MAX=20000;
 const error=m=>Object.assign(new Error(m),{code:'SCANNER_HISTORICAL_INVALID'});
 function cutoff(value){
  if(typeof value!=='string'||!RE.test(value))throw error('An exact as-of timestamp with UTC offset is required.');
+ // Date.parse silently normalizes nonexistent days (for example 2026-02-30).
+ // Validate the written calendar and actual worldwide UTC-offset limit first.
+ const year=Number(value.slice(0,4)),month=Number(value.slice(5,7)),
+       day=Number(value.slice(8,10)),hour=Number(value.slice(11,13)),
+       minute=Number(value.slice(14,16)),second=Number(value.slice(17,19));
+ const leap=year%4===0&&(year%100!==0||year%400===0);
+ const days=[31,leap?29:28,31,30,31,30,31,31,30,31,30,31];
+ const zone=value.match(/([+-])(\d{2}):(\d{2})$/);
+ if(month<1||month>12||day<1||day>days[month-1]||
+    hour>23||minute>59||second>59||
+    (zone&&Number(zone[2])===14&&Number(zone[3])!==0))
+  throw error('Invalid calendar date or UTC offset for as-of cutoff.');
  const ms=Date.parse(value);
  if(!Number.isFinite(ms))throw error('Invalid calendar date for as-of cutoff.');
  const iso=new Date(ms).toISOString();
@@ -72,6 +84,7 @@ function evaluate({bars,asOf,symbol,sourceNote,metadata={}}){
   I.session(g.bars.at(-1)).minute===955;
  const currentContinuous=current.startsAtOpen&&current.continuous;
  const latest=current.bars.at(-1);
+ const cutoffLagMinutes=(at-(latest.time.getTime()+FRAME))/MINUTE;
  const last=latest.close,previous=current.bars.at(-2);
  const lastPrev=complete(prev)?prev.bars.at(-1).close:null;
  const secondPrev=complete(prev)&&complete(prev2)?prev2.bars.at(-1).close:null;
@@ -109,9 +122,11 @@ function evaluate({bars,asOf,symbol,sourceNote,metadata={}}){
  if(!currentContinuous)warnings.push('Current session opens late or contains missing 5-minute observations; derived metrics remain unknown.');
  if(!complete(prev)||!complete(prev2))warnings.push('Two complete earlier regular sessions required for two-session percentage.');
  if(!allContinuous)warnings.push('Warmup history is incomplete; recursive indicators withheld.');
+ if(cutoffLagMinutes>=5)warnings.push('The latest supplied completed bar ends '+cutoffLagMinutes+' minutes before cutoff; subsequent observations were not supplied.');
  return Object.freeze({
   available:true,asOf:new Date(at).toISOString(),lastCompletedAt:new Date(latest.time.getTime()+FRAME).toISOString(),
   symbol:ticker,sessionDay:current.day,observedBars:seen.length,visibleCurrentBars:current.bars.length,
+  cutoffLagMinutes,sourceFreshness:cutoffLagMinutes>=5?'NO_OBSERVATION_AT_CUTOFF':'RECENT_COMPLETED_OBSERVATION',
   previousCompleteSessions:[prev2,prev].filter(complete).map(x=>x.day),
   row,sourceStatus:'UNVERIFIED_MEMBER_SUPPLIED_OHLCV',
   basis:'TWO_PRECEDING_FULL_OBSERVED_SESSIONS_NOT_EXCHANGE_CALENDAR_VERIFIED',
