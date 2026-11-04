@@ -1247,8 +1247,9 @@ function Suite({page}:{page:Page}){
  * already-disclosed case bars; ordinary members use the same calculation and
  * UI components with immutable Standard-only supplemental simulation. The
  * member caller provides no private lesson data or entitlement overrides. */
-export type ClassicChartInput={mode:'lab'|'bootcamp'|'talia';caseBars?:Bar[];memberSafe?:boolean;onObservedBar?:(index:number,timeframe:ChartTimeframe)=>void};
-export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObservedBar}:ClassicChartInput){
+export type ClassicChartMeasurement={index:number;open:number;high:number;low:number;close:number;interval:string};
+export type ClassicChartInput={mode:'lab'|'bootcamp'|'talia';caseBars?:Bar[];memberSafe?:boolean;onObservedBar?:(index:number,timeframe:ChartTimeframe)=>void;measurement?:ClassicChartMeasurement};
+export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObservedBar,measurement}:ClassicChartInput){
  const [source,setSource]=useState<'demo'|'case'>(mode==='talia'?'case':'demo');
  const [reveal,setReveal]=useState(54);
  const [focus,setFocus]=useState(0);
@@ -1269,7 +1270,7 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
   return()=>window.removeEventListener('crownlight:prototype-chart-menu',onCommand);
  },[open]);
  const available=source==='case'&&caseBars.length>0?caseBars:series;
- const count=Math.max(1,Math.min(reveal,available.length));
+ const count=mode==='talia'?Math.max(1,available.length):Math.max(1,Math.min(reveal,available.length));
  const focused=Math.min(focus,count-1);
  const effectiveStudio:Studio=memberSafe?'Standard':studio;
  const prefs:IndicatorPrefs={settings,enabled,studio:effectiveStudio,
@@ -1284,7 +1285,7 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
   <section className="cx-app cx-theme-quantum cx-page-b cx-classic-shared-chart" aria-label="Classic Classroom ECharts workstation"
    onContextMenuCapture={e=>{if(!(e.target as HTMLElement).closest('.cx-chart-grabbable'))return;e.preventDefault();open(e.clientX,e.clientY)}}>
    <div className="cx-classic-chart-top"><div><strong>Classroom chart · {mode==='talia'?'Talia':mode==='bootcamp'?'Boot Camp':'Lab'}</strong>
-    <p>{memberSafe?'Interactive simulated chart: pan, zoom, study catalog, appearance and timeframe. Advanced calculations remain locked; this never changes account permissions.':'Actual Experience B ECharts controls: zoom, pan, 16 calculated studies, appearance, timeframes, and right-click. Owner-only design preview.'}</p></div>
+    <p>{mode==='talia'?'Observe each revealed candle while reading Talia’s explanation. Use the chart controls to zoom, inspect, and compare completed evidence.':memberSafe?'Simulated price chart · pan, zoom, studies, and timeframes. Advanced tools remain locked.':'Actual Experience B ECharts controls: zoom, pan, 16 calculated studies, appearance, timeframes, and right-click. Owner-only design preview.'}</p></div>
     <span>SIMULATED · UNGRADED</span></div>
    <div className="cx-classic-chart-controls">
     {!memberSafe&&<label>Chart evidence <select aria-label="Classic chart evidence source" value={source} onChange={e=>selectSource(e.target.value as 'demo'|'case')}>
@@ -1301,8 +1302,22 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
     {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.max(1,count-1))} disabled={count===1}>Previous candle</button>}
     {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.min(available.length,count+1))} disabled={count===available.length}>Reveal next candle</button>}
    </div>
-   <EChart kind="price" reveal={count} showVolume={true} showEma={true} showProxy={true}
-    sourceBars={available} focusBar={focused} onSelect={index=>{setFocus(index);onObservedBar?.(index,appearance.timeframe)}} design="quantum" height={460}/>
+   <div className={measurement?'cx-classic-visual-region cx-classic-has-measurements':'cx-classic-visual-region'}>
+    <EChart kind="price" reveal={count} showVolume={true} showEma={true} showProxy={true}
+     sourceBars={available} focusBar={focused} onSelect={index=>{setFocus(index);onObservedBar?.(Math.floor(index/appearance.timeframe),appearance.timeframe)}} design="quantum" height={mode==='talia'?365:460}/>
+    {measurement&&<aside className="cx-classic-measurements" aria-label="Latest revealed candle price measurements">
+     <div className="cx-measure-heading"><strong>Price measurements</strong><small>Bar {measurement.index} · {measurement.interval}</small></div>
+     <dl>
+      <div><dt>High</dt><dd>${measurement.high.toFixed(2)}</dd></div>
+      <div><dt>Close</dt><dd>${measurement.close.toFixed(2)}</dd></div>
+      <div><dt>Open</dt><dd>${measurement.open.toFixed(2)}</dd></div>
+      <div><dt>Low</dt><dd>${measurement.low.toFixed(2)}</dd></div>
+     </dl>
+     <p className="cx-measure-candle-type">{measurement.close>measurement.open?'Bullish':measurement.close<measurement.open?'Bearish':'Doji'} candle</p>
+     <p>Body ${Math.abs(measurement.close-measurement.open).toFixed(2)} · Range ${(measurement.high-measurement.low).toFixed(2)}</p>
+     <small>Simulated completed candle. No future bars.</small>
+    </aside>}
+   </div>
    <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {count} · {mode==='talia'?'Synchronized with Talia’s revealed instructional prefix; the chart cannot disclose a later candle.':'All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.'}</div>
    <details><summary>Chart appearance · colors, timeframes, candle spacing and levels</summary><ChartCustomizer/></details>
    <IndicatorDock/>
