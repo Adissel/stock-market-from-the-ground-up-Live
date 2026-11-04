@@ -49,7 +49,7 @@ for(const file of readdirSync(output).filter(x=>x.endsWith('.html')&&!/^google[\
   // changes. This is additive to the static rendered header and preserves URLs.
   if(!html.includes(runtimeScript)){
    if(/<\/body>/i.test(html))html=html.replace(/<\/body>/i,
-     '<script defer src="'+runtimeScript+'?v=20261104-global1"></script></body>');
+     '<script defer src="'+runtimeScript+'?v=20261104-global3"></script></body>');
    else throw Error('Academy-branded document lacks body close: '+file);
   }
  }
