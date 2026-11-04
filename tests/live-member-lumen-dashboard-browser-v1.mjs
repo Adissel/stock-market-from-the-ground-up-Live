@@ -26,6 +26,14 @@ const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 try{
  const context=await browser.newContext({viewport:{width:1360,height:900},serviceWorkers:'block'});
  const page=await context.newPage();
+ const privateWalletHttp=[];
+ const scriptFailureNames=[];
+ page.on('response',response=>{
+  try{const u=new URL(response.url());if(u.origin===origin&&
+    ['/api/member-sparks-balance','/api/member-lumen-integrity','/api/member-lumen-activity'].includes(u.pathname))
+    privateWalletHttp.push({endpoint:u.pathname,status:response.status()})}catch{}
+ });
+ page.on('pageerror',error=>scriptFailureNames.push(String(error.name||'Error').slice(0,45)));
  const protectedWrites=[];
  page.on('request',r=>{
   try{const u=new URL(r.url());if(u.origin===origin&&!['GET','HEAD','OPTIONS'].includes(r.method())&&
@@ -56,7 +64,16 @@ try{
    hasAuthClient:typeof window.getSupabaseClient==='function',
    hasSignInIdentifier:!!document.querySelector('#login-identifier')
   }));
-  console.error('Wallet interface state without member data: '+JSON.stringify({...state,finalPath:new URL(page.url()).pathname}));
+  const authSessionPresent=await page.evaluate(async()=>{
+   try{if(typeof window.getSupabaseClient!=='function')return false;
+    const sb=await window.getSupabaseClient();
+    return Boolean((await sb.auth.getSession()).data?.session?.access_token)}catch{return false}
+  });
+  console.error('Wallet interface state without member data: '+JSON.stringify({
+   ...state,finalPath:new URL(page.url()).pathname,authSessionPresent,
+   walletScriptLoaded:await page.locator('script[src*="member-lumen-wallet-widget-v1.js"]').count()>0,
+   privateWalletHttp,scriptFailureNames:scriptFailureNames.slice(0,8)
+  }));
   throw error;
  });
  const wNode=page.locator('#member-sparks-wallet');
