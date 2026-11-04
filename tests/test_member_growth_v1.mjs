@@ -10,7 +10,7 @@ for(const page of pages){
  assert(html.includes('name="viewport"'),'Mobile viewport '+page);
  assert(!/<meta name="robots" content="noindex/i.test(html),'New public guide must be indexable '+page);
  assert(html.includes('create-account.html')||html.includes('Start Day 1'),'Free learning path missing '+page);
- assert(/fictional/i.test(html),'No market examples may masquerade as historical '+page);
+ assert(/simulated/i.test(html),'Training examples must identify their simulated source '+page);
  assert(/risk|loss/i.test(html),'Risk statement missing '+page);
  assert(html.includes('member-growth-v1.css'),'Responsive styling missing '+page);
 }
@@ -42,7 +42,7 @@ assert(dashboard.includes('candle-practice.html')&&dashboard.includes('free-foun
 const practice=read('assets/js/public-candle-learning-journey-v3.js'),sharing=read('assets/js/public-share-v1.js');
 new Script(practice,{filename:'public-candle-learning-journey-v3.js'});
 new Script(sharing,{filename:'public-share-v1.js'});
-assert(practice.includes('fictional')&&practice.includes('CrownlightECharts.load')&&practice.includes("type:'candlestick'"),'Original fictional chart must use locally hosted ECharts');
+assert(practice.includes('simulated')&&practice.includes('CrownlightECharts.load')&&practice.includes("type:'candlestick'"),'Original fictional chart must use locally hosted ECharts');
 assert(read('candle-practice.html').includes('/assets/js/crownlight-echarts-loader-v1.js'),'Public page loads the first-party local ECharts adapter');
 assert(read('candle-practice.html').includes('gu-practice-ohlc'),'Accessible table must remain available without the chart');
 assert(read('candle-practice.html').includes('public-candle-learning-journey-v3.js'),'Ten-stage source must be mounted');
