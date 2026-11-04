@@ -37,6 +37,10 @@ function canonicalRuntimeRoute(path){
 }
 function shouldInjectLegacyModule(file,path){
  const route=canonicalRuntimeRoute(path);
+ // The canonical Home already owns its layout and session-aware navigation.
+ // Historical DOM fixers must never race a published Owner page style or menu.
+ if((route==='/'||route==='/index')&&
+  ['production-completion.js','frontend-freeze.js','live-fixes.js'].includes(file))return false;
  if(file==='live-fixes.js')return LEGACY_COPY_FIX_ROUTES.test(String(path||'/').toLowerCase());
  if(file==='dashboard-ui-legacy.js')return route==='/dashboard';
  if(file==='production.js')return LEGACY_REDIRECT_ROUTES.has(route);
