@@ -3,12 +3,12 @@
  */
 (function(root){
 'use strict';
-function summarize(payload,symbol,asOf){
+function summarize(payload,symbol,asOf,forms){
  const engine=root.CrownlightSecEvidenceV1;
  if(!engine||typeof engine.assess!=='function')throw Error('SEC timing evaluator unavailable.');
  return Object.freeze({
-  hours24:engine.assess(payload,symbol,asOf,{windowHours:24}),
-  hours72:engine.assess(payload,symbol,asOf,{windowHours:72}),
+  hours24:engine.assess(payload,symbol,asOf,{windowHours:24,...(forms===undefined?{}:{forms})}),
+  hours72:engine.assess(payload,symbol,asOf,{windowHours:72,...(forms===undefined?{}:{forms})}),
   source:'SEC_EDGAR_PRIMARY',
   firstPublicDisseminationKnown:false,
   historicalTradingSignal:false
@@ -27,19 +27,41 @@ function mount({host,payload,symbol,asOf}){
  const select=create('select');select.setAttribute('aria-label','SEC research lookback window');
  for(const hours of [24,72]){const o=create('option',String(hours)+' hours');o.value=String(hours);select.append(o);}
  label.append(select);
+ const formLabel=create('label','Filing form');
+ const formSelect=create('select');
+ formSelect.setAttribute('aria-label','Filter official SEC filings by form type');
+ for(const [code,name] of [
+  ['','All common forms (8-K, 8-K/A, 10-Q, 10-K)'],
+  ['8-K','8-K'],['8-K/A','8-K amendment'],['10-Q','10-Q'],['10-Q/A','10-Q amendment'],
+  ['10-K','10-K'],['10-K/A','10-K amendment'],['S-1','S-1 registration'],
+  ['S-1/A','S-1 amendment'],['SC 13D','Schedule 13D'],['SC 13G','Schedule 13G'],
+  ['4','Form 4'],['DEF 14A','Proxy DEF 14A']
+ ]){
+  const o=create('option',name);o.value=code;formSelect.append(o);
+ }
+ formLabel.append(formSelect);
  const message=create('p');message.setAttribute('role','status');message.setAttribute('aria-live','polite');
  const table=create('table');const caption=create('caption','Official SEC accepted records, not a trade signal');table.append(caption);
  const header=create('tr');for(const name of ['Form','Accepted time (UTC)','Original SEC filing']){const th=create('th',name);th.scope='col';header.append(th);}
  const thead=create('thead');thead.append(header);table.append(thead);
  const body=create('tbody');table.append(body);
  const note=create('p','Unknown exact times and source verification failures are not treated as zero filings. Authentication and SEC fair-access limits remain enforced by the existing research endpoint.');
- section.append(heading,disclosure,label,message,table,note);
- let evaluations;
- try{evaluations=summarize(payload,symbol,asOf);}catch(e){
+ section.append(heading,disclosure,label,formLabel,message,table,note);
+ try{summarize(payload,symbol,asOf);}catch(e){
   message.textContent='Unable to verify SEC event chronology: '+(e.message||'unknown reason')+'.';table.hidden=true;host.append(section);return section;
  }
  function render(){
-  const answer=select.value==='72'?evaluations.hours72:evaluations.hours24;
+  let answer;
+  try{
+   const forms=formSelect.value?[formSelect.value]:undefined;
+   const evaluations=summarize(payload,symbol,asOf,forms);
+   answer=select.value==='72'?evaluations.hours72:evaluations.hours24;
+  }catch{
+   body.replaceChildren();
+   table.hidden=true;
+   message.textContent='Selected SEC filing evidence cannot be verified. No match has been established.';
+   return;
+  }
   body.replaceChildren();
   message.textContent=answer.match==='UNAVAILABLE'?'SEC evidence unavailable: '+answer.reason:
    answer.match+' · '+answer.acceptedFilings.length+' accepted filing(s) in selected lookback; '+
@@ -57,7 +79,7 @@ function mount({host,payload,symbol,asOf}){
    row.append(cell);body.append(row);
   }
  }
- select.addEventListener('change',render);render();host.append(section);return section;
+ select.addEventListener('change',render);formSelect.addEventListener('change',render);render();host.append(section);return section;
 }
 root.CrownlightScannerSecBriefV4=Object.freeze({summarize,mount});
 })(globalThis);
