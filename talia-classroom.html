@@ -30,6 +30,12 @@
   <button type="button" data-tmb-tier="PROFESSIONAL" aria-pressed="false">Professional</button>
   <button type="button" data-tmb-tier="ENTERPRISE" aria-pressed="false">Enterprise</button>
  </div>
+ <div data-tmb-personalize hidden>
+  <label for="tmb-topic">Verified competency topic</label>
+  <select id="tmb-topic" data-tmb-topic aria-label="Choose an official competency for your instruction"><option value="">Recommended focus</option></select>
+  <label for="tmb-reasoning">Explain your current reasoning to request an ungraded correction</label>
+  <textarea id="tmb-reasoning" data-tmb-reasoning rows="3" maxlength="1800" placeholder="Describe the evidence you observed, your interpretation, and what remains uncertain. Do not include private answer keys."></textarea>
+ </div>
  <p data-tmb-status role="status" aria-live="polite">Verifying your private beta membership.</p>
  <div data-tmb-features class="tmb-feature-grid" aria-label="Member-personalized teaching evidence"></div>
  <div data-tmb-answer class="tmb-answer" role="status" aria-live="polite"></div>
