@@ -23,7 +23,7 @@ try{
   const host=page.locator('#pt-methods60-body');
   assert.equal(await host.locator('select option').count(),60);
   assert.equal(await host.locator('table tbody tr').count(),1);
-  assert.match(await host.getByRole('status').innerText(),/1 of 6 fictional completed minute bars/);
+  assert.match(await host.getByRole('status').innerText(),/1 of 6 simulated completed minute bars/);
   await host.getByRole('button',{name:'Next completed bar'}).click();
   assert.equal(await host.locator('table tbody tr').count(),2);
   await host.getByRole('button',{name:'Show method explanation'}).click();
