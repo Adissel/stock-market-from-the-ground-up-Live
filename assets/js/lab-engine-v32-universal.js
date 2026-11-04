@@ -302,6 +302,26 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   },400);
  }
  const echartsControllers=[];
+ // The homepage's original fictional ECharts/React terminal is shared with
+ // the authorized Lab, never with a protected grader or private replay feed.
+ function mountHomeMarketReplay(parent,checkpointLocked=false){
+  if(academyScope||!['guided','practice'].includes(mode)||
+    typeof root.CrownlightHomeMarketTerminal?.mountInto!=='function')return null;
+  const panel=el('section');panel.className='gu-learning-market-replay';
+  panel.setAttribute('aria-label','Interactive fictional market replay — same chart as homepage');
+  const title=el('h3','Watch fictional candles form — homepage chart controls');
+  const explanation=el('p',checkpointLocked?
+   'This market animation is paused while you complete Talia’s ungraded calculation checkpoint. The fictional moving prices are separate from the fixed worked example below.':
+   'The homepage fictional candle-formation terminal: pause, resume, replay, timeframe, speed, pan, zoom and exact OHLCV inspection. This synthetic scenario is separate from the Lab’s authored evidence.');
+  explanation.className='gu-learning-market-context';
+  const host=el('div');host.className='gu-learning-market-host';
+  panel.append(title,explanation,host);
+  parent.insertBefore(panel,parent.firstChild);
+  const controller=root.CrownlightHomeMarketTerminal.mountInto(host,{context:'lab',startPaused:checkpointLocked,checkpointLocked});
+  if(!controller){panel.remove();return null}
+  echartsControllers.push(controller);
+  return controller;
+ }
  const passAttemptId=typeof root.crypto?.randomUUID==='function'?root.crypto.randomUUID():null;
  const passRequests=new Map();
  let checkpointReady=false,checkpointTimer=null,checkpointChangeSerial=0;
@@ -835,6 +855,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   });
   proceed.className='btn gu-v44-calc-next';proceed.disabled=!passed;coach.append(proceed);
   wrap.append(visual,coach);body.append(wrap);
+  mountHomeMarketReplay(body,true);
   previous.disabled=false;next.disabled=true;
   autoStatus.textContent='Calculate / Analyze pauses here until the member completes the method check. This is ungraded learning.';
   mark('Free explanations and retries remain available. No Lumens or mastery credit are spent.');
@@ -961,6 +982,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    // The instructor and chart are the lesson; do not repeat the same
    // content underneath as an isolated wall of generic competency text.
    showVisual(1,topic==='Bearish Candle'?'bearish':visualType==='candle'?'worked':'default');
+   mountHomeMarketReplay(body,false);
    // Always prepare the four source-backed teaching explanations. With Talia
    // mounted, render() converts the disclosures into chart-contained controls;
    // without Talia, the disclosures remain available as accessible fallbacks.
@@ -1009,6 +1031,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    else if(kind==='vwap')showVisual(2);
    const input=field(body,'Record what changed and why (optional)',observations);
    body.append(button('Record my observation',()=>{observations=input.value.trim();scheduleCheckpoint();mark(observations?'Observation recorded as a private learning draft.':'Add an observation if helpful.')}));freeExplanation();
+   mountHomeMarketReplay(body,false);
   }else if(stage===3){
    showVisual(3);
    appendParagraph(body,'Predict or describe the next relevant observation before seeing any subsequent market evidence. State what would invalidate your interpretation.');
