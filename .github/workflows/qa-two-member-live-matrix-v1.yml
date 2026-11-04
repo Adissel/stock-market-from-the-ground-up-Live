@@ -1,0 +1,65 @@
+# Genuine independent authenticated QA. No test user creation, payments, staff roles,
+# grants, grading, gifts, wallet writes, or simulated identity claims.
+name: QA Two Genuine Members Noncharging Privacy Matrix
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qa-two-member-live-matrix-v1.yml'
+permissions: {contents: read}
+concurrency:
+  group: qa-two-member-live-matrix
+  cancel-in-progress: false
+jobs:
+  learning-journal:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Check QA source syntax
+        run: node --check tests/learning-two-member-rls-browserless-v1.mjs
+      - name: Learning and Journal private RLS both directions
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/learning-two-member-rls-browserless-v1.mjs
+  chart-studio:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Check QA source syntax
+        run: node --check tests/live-chart-two-member-isolation-readonly-v1.mjs
+      - name: Chart Studio private workspace RLS both directions
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/live-chart-two-member-isolation-readonly-v1.mjs
+  lumens-wallet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Check QA source syntax
+        run: node --check tests/live-lumen-two-account-isolation-v1.mjs
+      - name: Lumens wallet and history private account isolation
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/live-lumen-two-account-isolation-v1.mjs
