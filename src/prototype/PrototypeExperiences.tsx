@@ -303,7 +303,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
    const paintBar=(up:boolean)=>barVisual(barLook,up,good,bad);
    const bars=completedTimeframe(dataFor(reveal),appearance.timeframe);
    const earlier=completedTimeframe(contextBars,appearance.timeframe);
-   const context=earlier.slice(-12),offset=context.length;
+   const context:Bar[]=[],offset=context.length; // Every prototype chart starts with a single observed fictional candle.
    const plotted=[...context,...bars,...(kind==='price'&&forming?[forming]:[])];
    const names=plotted.map(b=>b.time).concat(Array.from({length:appearance.rightBuffer},(_,i)=>'PADDING '+(i+1)));
    const pad=(items:any[])=>Array(offset).fill(null).concat(items);
@@ -355,7 +355,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
        lineStyle:{color:ink(x.label,x.color),width:x.width,type:stroke(x.label)},itemStyle:{color:ink(x.label,x.color)},symbol:'none'});
     if(currentEnabled.EMA_200){
       const mathApi=(window as any).CrownlightIndicatorMath;
-      const historyPlusObserved=earlier.concat(bars);
+      const historyPlusObserved=bars; // Never warm up a visible study with undisclosed earlier fictional bars.
       const longPeriod=settings?.ema200||200;
       const longEma=mathApi?.ema?.(historyPlusObserved.map((b:Bar)=>b.c),longPeriod);
       if(Array.isArray(longEma))option.series.push({id:'ind-ema200',name:'EMA '+longPeriod,type:'line',showSymbol:false,connectNulls:false,animation:false,
