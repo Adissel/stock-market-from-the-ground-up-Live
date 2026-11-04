@@ -1271,6 +1271,7 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
  },[open]);
  const available=source==='case'&&caseBars.length>0?caseBars:series;
  const count=mode==='talia'?Math.max(1,available.length):Math.max(1,Math.min(reveal,available.length));
+ useEffect(()=>{if(mode==='talia'&&caseBars.length>0)setFocus(caseBars.length-1)},[mode,caseBars.length]);
  const focused=Math.min(focus,count-1);
  const effectiveStudio:Studio=memberSafe?'Standard':studio;
  const prefs:IndicatorPrefs={settings,enabled,studio:effectiveStudio,
