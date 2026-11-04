@@ -7,6 +7,8 @@ on:
       - 'tests/live-lumen-two-account-isolation-v1.mjs'
       - 'dashboard.html'
       - 'assets/js/crownlight-member-quickview-v1.js'
+      - 'assets/js/dashboard-ui-legacy.js'
+      - 'assets/js/member-lumen-wallet-widget-v1.js'
       - 'functions/api/member-lumen-integrity.js'
       - '.github/workflows/member-lumen-dashboard-real-browser-v1.yml'
   workflow_dispatch:
@@ -45,6 +47,29 @@ jobs:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
         run: node tests/live-member-lumen-dashboard-browser-v1.mjs
+
+  two-member-wallet-isolation:
+    needs: james-wallet-browser
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check separate genuine-member isolation source
+        run: node --check tests/live-lumen-two-account-isolation-v1.mjs
+      - name: Require second genuine QA account without logging secrets
+        env:
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: |
+          if [[ -z "$LAB_QA_SECOND_EMAIL" || -z "$LAB_QA_SECOND_PASSWORD" ]]; then
+            echo "::error::BLOCKED: Second authenticated QA identity must be configured for two-account isolation. Cannot certify without it."
+            exit 1
+          fi
       - name: Genuine two-member private wallet and history isolation
         env:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}

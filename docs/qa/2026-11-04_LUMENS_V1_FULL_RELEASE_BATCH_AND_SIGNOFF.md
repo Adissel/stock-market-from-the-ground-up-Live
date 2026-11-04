@@ -8,7 +8,7 @@
 | Google Drive document ID | Not assigned |
 | Filename | `docs/qa/2026-11-04_LUMENS_V1_FULL_RELEASE_BATCH_AND_SIGNOFF.md` |
 | File type | Markdown |
-| Version | 1.0 |
+| Version | 1.1 |
 | Date | November 4, 2026 |
 | Status | **FULL V1 RELEASE NO-GO — engineering batch integrated; independent acceptance outstanding** |
 | Prerequisites | Owner-approved V1 scope; 429 approved learning reward definitions; independent academic case review; existing Supabase and Stripe TEST; James_Test plus a second genuine member; frozen main and Cloudflare exact SHA; applicable consumer/legal review |
@@ -67,13 +67,20 @@ The owner-approved Lumens V1 definition is 11 milestones, with **9 accepted (81.
 
 At source SHA `7aadafd62f3aa7675ac82543699e557081f53409`, the new combined source/regression job **PASSED**, the separate live public noncharging catalog and anonymous privacy job **PASSED**, and Cloudflare Pages production deployment **SUCCEEDED**. This is a three-layer bounded engineering result. The complete workflow was still not successful because real member QA authentication did not complete. Follow-up commits `20e254ed64ae30764bac47ae62b7db7861ffb03b` and `d3f21958f6aa28c724555382cb135397686e54b1` add genuine two-account privacy and sanitized Auth diagnostics. All evidence is limited to the cited SHA and cannot automatically certify a newer main commit.
 
+## November 4 repeat execution — verified outcome
+
+- **Confirmed genuine James_Test authenticated browser PASS** on [Actions run 41924028007](https://github.com/Adissel/stock-market-from-the-ground-up-Live/actions/runs/41924028007): live Dashboard wallet and bucket display, balance reconciliation, private history, Lab/Boot Camp progress, navigation, disabled gifting, and denied anonymous private activity. A malformed digit-matching test expression caused earlier false-negative timeouts; fixed and regression-protected at source commit `15ef957af2e69c99f9cd4c65b1b743af68dbe02f`.
+- **Second-member privacy remains BLOCKED, not PASSED:** the genuine second account's `LAB_QA_SECOND_EMAIL` / `LAB_QA_SECOND_PASSWORD` GitHub Actions secrets are not configured. No synthetic user or session was substituted.
+- **CI policy correction:** separate `james-wallet-browser-live-smoke` and `two-member-wallet-isolation` jobs preserve the verified single-member result without waiving the independent two-member gate. The latter remains required by the manual immutable-SHA release job. This does not promote full V1 to GO.
+- **Database reconfirmed:** 429 catalog scopes, zero published rewards, zero mapped independently reviewed protected assessments, zero earned awards, zero peer transfers and zero LIVE Lumen orders; learning issuance and P2P remain explicitly disabled.
+
 ## Signoff record
 
 | Authority | Evidence and status | Acceptance |
 | --- | --- | --- |
 | Acting technical owner / engineering | Consolidated source, TEST refunds, disabled gates, selected Pages builds | Limited technical scope reviewed; NOT final release |
 | Genuine independent assessment reviewer | No approved case-release rows | WITHHELD |
-| Authenticated QA / privacy | James_Test secret-backed run blocked before login; second-account review absent | WITHHELD |
+| Authenticated QA / privacy | James_Test authenticated Dashboard, wallet and history PASSED; second authenticated member privacy BLOCKED pending secrets | WITHHELD |
 | Financial/legal licensed review | Outstanding included-credit, purchase/consumer obligations and general commerce lifecycle | WITHHELD |
 | Final exact-SHA release authority | Moving main, no all-green matched production cut | WITHHELD |
 
@@ -83,6 +90,7 @@ At source SHA `7aadafd62f3aa7675ac82543699e557081f53409`, the new combined sourc
 
 | Version | Date | Change |
 | --- | --- | --- |
+| 1.1 | 2026-11-04 | Reran genuine James_Test browser to PASS; isolated missing second-member secret gate from verified browser job; full release remains held |
 | 1.0 | 2026-11-04 | Consolidated full V1 execution matrix, operational evidence, fail-closed scripts, external blockers and exact-SHA release requirements |
 
 Footer: SMFGU-LUMENS-V1-FULL-BATCH-20261104 · Release control / internal OAT · Not a legal opinion or approval for customer charges, credits or assessed awards.

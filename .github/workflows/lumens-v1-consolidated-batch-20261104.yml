@@ -97,7 +97,34 @@ jobs:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
         run: node tests/live-member-lumen-dashboard-browser-v1.mjs
-      - name: Genuine two-member private wallet and history isolation
+
+  two-member-wallet-isolation:
+    # Genuine second account required. Missing credentials are a release blocker,
+    # never a synthetic/pass-through result. No member data is logged.
+    needs: consolidated-no-money-regression
+    runs-on: ubuntu-latest
+    timeout-minutes: 7
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check real two-member isolation
+        run: node --check tests/live-lumen-two-account-isolation-v1.mjs
+      - name: Require four configured secrets for distinct real QA identities
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: |
+          if [[ -z "$LAB_QA_EMAIL" || -z "$LAB_QA_PASSWORD" || -z "$LAB_QA_SECOND_EMAIL" || -z "$LAB_QA_SECOND_PASSWORD" ]]; then
+            echo "::error::BLOCKED: Genuine two-member wallet isolation requires two separate QA accounts and four GitHub repository secrets. No secrets belong in code or logs."
+            exit 1
+          fi
+      - name: Authenticated two-member ID spoof and private wallet isolation
         env:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
           LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
@@ -130,7 +157,7 @@ jobs:
   exact-sha-full-release-cut:
     # Manual/frozen SHA only. Cannot pass while real James_Test browser gate fails.
     if: github.event_name == 'workflow_dispatch'
-    needs: [consolidated-no-money-regression, live-public-catalog-readonly, james-wallet-browser-live-smoke]
+    needs: [consolidated-no-money-regression, live-public-catalog-readonly, james-wallet-browser-live-smoke, two-member-wallet-isolation]
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
