@@ -55,13 +55,13 @@ try{
  }
  assert(deployed,'Exact deployment verification did not pass');
  mark('Verified immutable deployment source SHA','PASS','Pages manifest equals pinned source commit '+SHA.slice(0,8));
- for(const path of ['/talia-classroom.html','/talia-tutor-prototype.html','/assets/css/talia-terminal-v4.css?v=20261102','/assets/js/talia-classroom-v1.bundle.js?v=20261102-terminal4-route2']){
+ for(const path of ['/talia-classroom.html','/talia-tutor-prototype.html','/assets/css/talia-terminal-v4.css?v=20261102','/assets/js/talia-classroom-v1.bundle.js?v=20261104-student-desk2']){
   const res=await fetch(ORIGIN+path,{signal:AbortSignal.timeout(25000)});
   assert.equal(res.status,200,'Release asset status '+res.status+' for '+path);
   const body=await res.text();
   assert(body.length>100,'Release asset empty '+path);
   if(path.endsWith('.html'))assert(body.includes('talia-terminal-v4.css'),'V4 stylesheet not linked '+path);
-  if(path.includes('.bundle.js'))assert(body.includes('Load 200 completed fictional bars'),'V4 bundle not included in immutable deployment');
+  if(path.includes('.bundle.js'))assert(body.includes('Load 200 candles for EMA 200'),'V4 bundle not included in immutable deployment');
  }
  mark('Exact deployed V4 assets','PASS','Two routes and versioned CSS/JS returned HTTP 200');
  browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
@@ -144,7 +144,7 @@ try{
  assert.equal(state.barCount,7,'Seven completed base candles required initially');
  mark('Authenticated workstation renders','PASS','Seven initial fictional candles and professional controls');
  await page.getByLabel('Compare EMA 9 / 20 / 200 + VWAP').check();
- await page.getByRole('button',{name:/Load 200 completed fictional bars/}).click();
+ await page.getByRole('button',{name:/Load 200 candles for EMA 200/}).click();
  await page.waitForFunction(()=>document.querySelector('.tc-chart')&&window.echarts?.getInstanceByDom?.(document.querySelector('.tc-chart'))?.getOption()?.series?.find(s=>s.type==='candlestick')?.data?.length===200,null,{timeout:25000});
  state=await dataFor(page);
  assert.equal(state.barCount,200);
