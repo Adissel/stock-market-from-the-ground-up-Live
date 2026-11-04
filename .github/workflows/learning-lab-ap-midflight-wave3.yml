@@ -1,0 +1,42 @@
+name: Learning Lab Advanced Professional Midflight Wave 3
+on:
+  push:
+    branches: [main, feature/learning-lab-ap-midflight-revocation-qa-wave3-20261103]
+    paths:
+      - 'functions/api/learning-lab-edition-workspace.js'
+      - 'functions/api/learning-lab-edition-exercise.js'
+      - 'tests/learning-lab-midflight-96-wave3.test.mjs'
+      - '.github/workflows/learning-lab-ap-midflight-wave3.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  premium-midflight-source-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Verify production API and new fixture syntax
+        run: |
+          node --check functions/api/learning-lab-edition-workspace.js
+          node --check tests/learning-lab-midflight-96-wave3.test.mjs
+      - name: Execute 96 Advanced and Professional private-member lifecycle cases
+        run: node --test tests/learning-lab-midflight-96-wave3.test.mjs
+      - name: Verify existing premium authorization and two-account contracts
+        run: |
+          node --test tests/learning-lab-edition-api-v1.test.mjs
+          node --test tests/learning-lab-edition-workspace-v1.test.mjs
+          node --test tests/learning-lab-edition-two-account-contract-v1.test.mjs
+          node --test tests/learning-lab-premium-lifecycle-64-v2.test.mjs
+      - name: Preserve frozen Basic versions and source-evidence accounting
+        run: |
+          node --test tests/learning-lab-progress-scorecard-v2.test.mjs
+          node --test tests/learning-lab-feature-evidence-64.test.mjs
+          node --test tests/learning-lab-premium-48-pending-guard-20261103.test.mjs
