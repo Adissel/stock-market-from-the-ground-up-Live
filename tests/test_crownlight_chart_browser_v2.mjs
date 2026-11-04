@@ -159,6 +159,18 @@ try{
    if(width===390){
     await page.locator('.crownlight-plot').click({button:'right',position:{x:90,y:165}});
     const menu=page.locator('.cl-context-menu');await menu.waitFor({state:'visible'});
+    // Regression: the old popup was clipped by .sim-chart-panel overflow:hidden.
+    assert.equal(await menu.evaluate(el=>el.parentElement===document.body),true,
+     'The popup must be attached outside the clipped chart panel');
+    const popup=await menu.boundingBox();
+    assert(popup&&popup.width>180&&popup.height>90,'Right-click popup must have measurable dimensions');
+    const visibleViewport=await page.evaluate(()=>({width:innerWidth,height:innerHeight}));
+    assert(popup.x>=0&&popup.x+popup.width<=visibleViewport.width+1,
+     'Right-click popup must fit horizontally in the visible viewport');
+    assert(popup.y>=0&&popup.y<visibleViewport.height,
+     'Right-click popup must appear at a visible viewport coordinate');
+    assert.equal(await menu.locator('.cl-context-catalog').isVisible(),true,
+     'Right click must open the indicator catalog immediately');
     await menu.getByRole('menuitem',{name:/Indicators · all supported studies/}).hover();
     const all=menu.locator('.cl-context-catalog');
     assert.equal(await all.locator('[data-indicator]').count(),17,'All catalog studies visible');
