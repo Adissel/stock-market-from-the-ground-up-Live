@@ -1,0 +1,307 @@
+{
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "purpose": "Preserve exact branch head SHAs before owner-authorized main-only branch consolidation.",
+  "snapshot_date_utc": "2026-11-04",
+  "main_pre_snapshot_sha": "53e1fb36a75697ebf32497d4505292b56424ff13",
+  "branch_count": 68,
+  "non_main_count": 67,
+  "branches": [
+    {
+      "branch": "batch/128-lab-regulatory-topic-source-20261103",
+      "sha": "836627e8bc7d8da92199007535e0d19a20b628d9"
+    },
+    {
+      "branch": "batch/227-labs-tape-site-source-final-20261103",
+      "sha": "62ae8a4169056b1e4efc05b753be25ab873dfce2"
+    },
+    {
+      "branch": "batch/64-lab-topic-source-triage-20261103",
+      "sha": "98bf44797640d984a432f0fba47dd4871bc56bad"
+    },
+    {
+      "branch": "batch/adissel-tier-roadmap-v1-20261103",
+      "sha": "89522a427e03024cdf777843252eccc8e0718c37"
+    },
+    {
+      "branch": "batch/enterprise-academy-bookmarks-20261103",
+      "sha": "d192916624964ce58ab8cd50e5db21f68bf63ebc"
+    },
+    {
+      "branch": "batch/enterprise-pair-persistence-20261103",
+      "sha": "d94ce001b259bc100621cdf84531c54a304e5673"
+    },
+    {
+      "branch": "batch/lab419-editorial-reconciliation-20261103",
+      "sha": "0ce4fe33ddb89ab89bf3ceb717a1bb02928b7f4f"
+    },
+    {
+      "branch": "batch/lab419-live-source-p0-fifty-cases-20261103",
+      "sha": "13e854dc3161d09f4c654038d9cc81f447e6da3d"
+    },
+    {
+      "branch": "batch/learning-lab-64-evidence-audit-20261103",
+      "sha": "28ef2eafbbf66479f82553d78d995a65a4aa815a"
+    },
+    {
+      "branch": "batch/learning-lab-methodology-seven-20261103",
+      "sha": "07f7e866f500e6e7e0c324ab9bfe957d9b305fdb"
+    },
+    {
+      "branch": "batch/site100-member-journey-qa-20261103",
+      "sha": "e22bd2bbfdc441a80f47fa5419000165ff8fa8d6"
+    },
+    {
+      "branch": "feature/20261103-premium-64-evidence-guard",
+      "sha": "0608b254791800c0c524b27c3c377d17cfdd2215"
+    },
+    {
+      "branch": "feature/constellation-3d-classic-builder-v3",
+      "sha": "0cb14f5b875cdd78421fd47877efacc5bc35cd3f"
+    },
+    {
+      "branch": "feature/constellation-galaxy-classic-acceptance-20261103",
+      "sha": "5038ccabf048b22f30e2635ebb5a9f0e59fbe8f8"
+    },
+    {
+      "branch": "feature/crownlight-scanner-presets-source-audit-20261103",
+      "sha": "34a8cff706aca546b2f299353eb0e4c10da11eae"
+    },
+    {
+      "branch": "feature/crownlight-scanner-research-wave1-20261103",
+      "sha": "d484223823641219d25d8d2292b6b52ccc5c2afb"
+    },
+    {
+      "branch": "feature/crownlight-scanner-wave2-results-20261103",
+      "sha": "356e5ee5798885e916ceddf1e532b0e32e6202b7"
+    },
+    {
+      "branch": "feature/crownlight-scanner-wave3-sec-evidence-20261103",
+      "sha": "1f7580780d6c63c69ac03a8c4a9272e680fe48e6"
+    },
+    {
+      "branch": "feature/crownlight-scanner-wave4-research-handoff-20261103",
+      "sha": "18d9452a607773e912a9f29915262e8809c3cc0d"
+    },
+    {
+      "branch": "feature/crownlight-scanner-wave4-sec-watchlist-talia-20261103",
+      "sha": "daf7a07ceefcc52dcc9cc99d8cf41701ca46c9a4"
+    },
+    {
+      "branch": "feature/crownlight-scanner-wave5-history-indicators-20261103",
+      "sha": "f933bceec1f532a1cb7eda32b5d99eca77dc89f4"
+    },
+    {
+      "branch": "feature/crownlight-sec-scanner-tiers-v1-20261103",
+      "sha": "99c2918a6aadad73b78957e2b6538b444f48fbf7"
+    },
+    {
+      "branch": "feature/crownlight-sec-tier-enforcement-batch2-20261103",
+      "sha": "f8faf0501339fe48c3a4be4a96256d96dc7286c1"
+    },
+    {
+      "branch": "feature/home-intracandle-member-stats-20261103",
+      "sha": "24be76a38b1bc38fc853c2e8e679a2cb98d93e4d"
+    },
+    {
+      "branch": "feature/home-one-candle-realistic-charts-prototype-constellation-20261103",
+      "sha": "9a965e4044f2138d8d364553d530ba711fa442f2"
+    },
+    {
+      "branch": "feature/knowledge-articles-batch002-50-20261103",
+      "sha": "8dac451ac562ad5081cf5181854632a55bf2bf54"
+    },
+    {
+      "branch": "feature/knowledge-batch003-50-all-sources-20261103",
+      "sha": "6884d5a65c6fac2f4b9ada7e2df36a58c1edf291"
+    },
+    {
+      "branch": "feature/knowledge-standalone-article-pages-v1",
+      "sha": "78a2a2d48c599705bd939b02ed2622f4d36633a9"
+    },
+    {
+      "branch": "feature/learning-lab-advanced-professional-64-lifecycle-20261103",
+      "sha": "6a4dd1fe818bf4e6eec4d738ad2085cff1a7338a"
+    },
+    {
+      "branch": "feature/learning-lab-ap-midflight-revocation-qa-wave3-20261103",
+      "sha": "bd0138f3264df389ee87b197ae2cb0847a7941e2"
+    },
+    {
+      "branch": "feature/learning-lab-ap-unified-32-requirement-release-batch-20261103",
+      "sha": "1eead8221d2b83f96c4005d862fca1680e4d2077"
+    },
+    {
+      "branch": "feature/prototype-60-fictional-method-workbench-20261103",
+      "sha": "ec163842cf2d4539b7fba330f54ba144b32ee7c6"
+    },
+    {
+      "branch": "feature/prototype-shared-chart-on-current-main-20261103",
+      "sha": "cf7b0bdc149d6a67e203c78eb03bf6ae89d077a5"
+    },
+    {
+      "branch": "feature/prototype-shared-learning-market-chart-20261103",
+      "sha": "d9240c33b53249c853999f2b1d115c05e8688489"
+    },
+    {
+      "branch": "feature/sec-scanner-batch3-qa-controlled-release-20261103",
+      "sha": "94151ae206a4dd053cc124de3041b1589a250373"
+    },
+    {
+      "branch": "feature/shared-home-market-replay-labs-bootcamps-20261103",
+      "sha": "8ebaa88f1d3dd90fce5e3eb3e132463bdcf0176d"
+    },
+    {
+      "branch": "feature/talia-four-tier-staff-qa-20261103",
+      "sha": "2bb96f39b10fc15ca7e5ecd795c792eba432f9c7"
+    },
+    {
+      "branch": "feature/talia-real-member-runtime-wave1-20261103",
+      "sha": "307e26e0540706f3b30933d24d2c0da4e13d8857"
+    },
+    {
+      "branch": "feature/talia-wave-a-source-qa-20261103",
+      "sha": "667f95bb754084de252156f5a9aca73942525343"
+    },
+    {
+      "branch": "fix/combined-watchlist-home-qa-20261103",
+      "sha": "9dcd4813c283747ffedd3cc4e17e5d5b79375352"
+    },
+    {
+      "branch": "fix/crownlight-stock-presets-sec-classification-20261103",
+      "sha": "eb0462d554c23280d0b51d1175bf6105dc258139"
+    },
+    {
+      "branch": "fix/growth-browser-extensionless-canonicals-20261103",
+      "sha": "d975f0e06dd4543e9e22f8b5aea2817dcbdf6575"
+    },
+    {
+      "branch": "fix/homepage-stable-initial-render-20261103",
+      "sha": "6e0e45e12f21cbbfbfb66dfe0d762d77e1a12cc3"
+    },
+    {
+      "branch": "fix/knowledge-article-responsive-layout-v2",
+      "sha": "36f1c975643bbf1756086ee0d52d092ac4c94c14"
+    },
+    {
+      "branch": "fix/member-engine-versions-plan-grants-20261103",
+      "sha": "44bb8fa16aca629258a3a40f4ca0d8be35c2c025"
+    },
+    {
+      "branch": "fix/member-version-grant-mock-ci-20261103",
+      "sha": "ab2e48728780144074d9de8bdbb80c3361d1802e"
+    },
+    {
+      "branch": "fix/prelive-build-guard-fast-regression-20261103",
+      "sha": "7d45defbb194a82c3a1a124e2c73add4c237c44c"
+    },
+    {
+      "branch": "fix/prelive-guard-fastfail-20261103",
+      "sha": "8e285b2df690708eb758ad60b7b19c68dec86291"
+    },
+    {
+      "branch": "fix/premium-editions-plan-grants-20261103",
+      "sha": "2e9e14e1ae4a2edb16606db3db732dd284ef8033"
+    },
+    {
+      "branch": "fix/premium-engine-authoritative-plan-grants-20261103",
+      "sha": "a00ba764df48b1fc648f93bb904ac13ad772869d"
+    },
+    {
+      "branch": "fix/release-blocker-cleanup-post-pr8-20261103",
+      "sha": "42a6194ab21b7b7412d4e21aa134f6580e765d14"
+    },
+    {
+      "branch": "fix/restore-interactive-home-chart-20261103",
+      "sha": "9d6e2850033151b601c2774e6afc6cc5ed0b412a"
+    },
+    {
+      "branch": "fix/simulator-instructional-sequence-20261103",
+      "sha": "e09260f87093af95179ded3f1ffd5b55374524b2"
+    },
+    {
+      "branch": "fix/sitewide-tools-nav-visibility-20261103",
+      "sha": "074b319a3427aa239c09bbcb1c9a455b5c3ba514"
+    },
+    {
+      "branch": "fix/talia-batch26-source-scanner-assertion-20261103",
+      "sha": "bfcd369b68f873437ddc7830c4350202b75b3492"
+    },
+    {
+      "branch": "fix/talia-source-scanner-dynamic-inventory-20261103",
+      "sha": "69cea36597edcee6e591e1735f5ee791b38e93f5"
+    },
+    {
+      "branch": "fix/talia-synthetic-float-parity-20261103",
+      "sha": "c92984cb519fb0006a6df03f0d797d76a3512f3a"
+    },
+    {
+      "branch": "fix/talia-wave-a-auth-privacy-negative-batch-20261103",
+      "sha": "d16f922c20cae58ad74ac5258424278ef3deb3eb"
+    },
+    {
+      "branch": "fix/v1-talia-account-switch-privacy-current-main-20261103",
+      "sha": "680751787825c9bf9efe43d2fd225433a834b8bb"
+    },
+    {
+      "branch": "fix/v1-watchlist-offline-ci-current-main-20261103",
+      "sha": "b39653a11914eebe63dbfc2436dd0d74ac3982fb"
+    },
+    {
+      "branch": "fix/watchlist-credentialed-qa-scope-20261103",
+      "sha": "96395d93bbd875e928c682c2a05033dead971224"
+    },
+    {
+      "branch": "integration/crownlight-main-first-wave5-20261103",
+      "sha": "90a86f4deab85b568dd5d60415ab569817b04128"
+    },
+    {
+      "branch": "main",
+      "sha": "53e1fb36a75697ebf32497d4505292b56424ff13"
+    },
+    {
+      "branch": "qa/prototype-auth-revocation-acceptance-20261103",
+      "sha": "8cd83c204fddeaa1c75d181884a646049a68d532"
+    },
+    {
+      "branch": "recovery/verified-2026-11-02",
+      "sha": "6c87124685ddf909aef94f1f96ccd44ac7d7d88d"
+    },
+    {
+      "branch": "release/2026-11-03-batch50-environment-runtime",
+      "sha": "42f7c41c7aa9b4f7ad2b77b5e569ec5474b1626f"
+    },
+    {
+      "branch": "talia/final-three-qa-main-compatible-20261103",
+      "sha": "445d6e8ff34f7cc0661f5f37099dfb3137772884"
+    },
+    {
+      "branch": "talia/foundation-b25-b28-source-quality-20261103",
+      "sha": "0b97791ede8b5cfc59b08a9fca761f0ca07c71f6"
+    }
+  ],
+  "open_pull_requests": [
+    {
+      "number": 59,
+      "head": "fix/talia-wave-a-auth-privacy-negative-batch-20261103",
+      "head_sha": "d16f922c20cae58ad74ac5258424278ef3deb3eb",
+      "base": "main",
+      "title": "Talia Market Tutor: consolidated A–E 60-task engineering batch and 12 release gates"
+    },
+    {
+      "number": 58,
+      "head": "feature/sec-scanner-batch3-qa-controlled-release-20261103",
+      "head_sha": "94151ae206a4dd053cc124de3041b1589a250373",
+      "base": "main",
+      "title": "SEC Scanner Batch 3: audited QA-only EDGAR activation and release-state correctness"
+    },
+    {
+      "number": 53,
+      "head": "fix/crownlight-stock-presets-sec-classification-20261103",
+      "head_sha": "eb0462d554c23280d0b51d1175bf6105dc258139",
+      "base": "main",
+      "title": "Scanner: classify pictured presets as stocks, not SEC filings"
+    }
+  ],
+  "retention_policy": "Branches ahead of main must be tagged before deletion; unique code must not be represented as merged."
+}
