@@ -41,7 +41,7 @@ test('all shared chart menus have compact controls, no instructional placeholder
  assert.match(src,/specs\.filter\(ind=>ind\.id!=='VOLUME'\)/);
  assert.match(src,/export function ClassicClassroomChart/);
  assert.match(tutor,/import \{ClassicClassroomChart\} from '\.\.\/prototype\/PrototypeExperiences'/);
- assert.match(tutor,/caseBars=\{REPLAY\.slice\(0,visible\)/);
+ assert.match(tutor,/caseBars=\{sharedBars\}/);
  assert.match(tutor,/mode="talia" memberSafe=\{true\}/);
  assert.match(tutor,/if\(index>=visible\)return/);
  assert.match(studio,/showBarVolume=!showBarVolume;volumeState\(\);render\(\)/);
