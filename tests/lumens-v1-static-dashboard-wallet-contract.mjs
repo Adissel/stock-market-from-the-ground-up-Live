@@ -19,8 +19,12 @@ assert.match(js,/No balance is assumed/);
 assert.match(legacy,/preservedWalletPanel=q\('#member-sparks-wallet',main\)/);
 assert.match(legacy,/preservedLumenWidgets=q\('\.gu-member-lumen-widgets',main\)/);
 assert.match(legacy,/wallet:renderWallet/);
-assert.match(legacy,/await api\('\/api\/member-sparks-balance'\)/,
- 'After replacement the real wallet tab must refresh from server');
+assert.match(legacy,/await fetch\('\/api\/member-sparks-balance'/,
+ 'After replacement the real wallet tab must fetch the authoritative API');
+assert.match(legacy,/authorization:'Bearer '\+session\.access_token/,
+ 'The existing verified Wallet-tab bearer token must be used');
+assert.match(legacy,/signal:AbortSignal\.timeout\(20000\)/,
+ 'Read-only balance fetch must be bounded');
 assert.match(legacy,/active\?\.user\?\.id!==session\.user\.id/,
  'The same authenticated member must remain active before showing credits');
 assert.match(legacy,/balance\.included\+balance\.purchased\+balance\.manual!==balance\.available/,
