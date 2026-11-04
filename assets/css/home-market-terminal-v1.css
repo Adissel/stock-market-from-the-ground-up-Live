@@ -108,3 +108,15 @@
  .cl-react-terminal--home .cl-react-home-type{display:flex;gap:5px;font-size:.65rem}
  .cl-react-terminal--home .cl-react-home-type select{width:auto;min-width:137px;max-width:calc(100vw - 105px);min-height:38px}
 }
+
+/* Homepage-only chart refinement: hide verbose replay caption, give chart room. */
+.gu-premium-home .cl-react-terminal--home .cl-react-home-speed,
+.gu-premium-home .cl-react-terminal--home .cl-react-progress,
+.gu-premium-home .cx-home-shared-market-source{display:none!important}
+.gu-premium-home .cl-react-terminal--home .cl-react-plot{height:460px!important;min-height:390px!important}
+@media(min-width:1100px){
+ .gu-premium-home .gu-home-stage-grid{grid-template-columns:minmax(0,.88fr) minmax(0,1.12fr)!important;gap:clamp(18px,2.4vw,40px)!important}
+ .gu-premium-home .gu-home-right-rail,.gu-premium-home .gu-home-right-rail .gu-home-terminal{max-width:none!important}
+}
+@media(min-width:651px) and (max-width:1099px){.gu-premium-home .cl-react-terminal--home .cl-react-plot{height:405px!important;min-height:355px!important}}
+@media(max-width:650px){.gu-premium-home .cl-react-terminal--home .cl-react-plot{height:345px!important;min-height:310px!important}}
