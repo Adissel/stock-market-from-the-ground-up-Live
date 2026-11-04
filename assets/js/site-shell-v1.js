@@ -4,7 +4,11 @@ const name=(location.pathname.split('/').pop()||'index.html').toLowerCase();
 if(/^(labs|lab-|bootcamp|boot-camp|academy|prototype)/.test(name))return;
 const ready=fn=>document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn,{once:true}):fn();
 function navigation(){
- const header=document.querySelector('.site-header'),nav=header?.querySelector('.navlinks');if(!header||!nav||nav.dataset.smShell)return;nav.dataset.smShell='1';
+ // The homepage's canonical authenticated navigation owns desktop and mobile
+ // menus. The historical shell must not insert a competing toggle while the
+ // account-aware controller is still loading.
+ if(name==='index.html')return;
+ const header=document.querySelector('.site-header'),nav=header?.querySelector('.navlinks');if(!header||!nav||nav.dataset.smShell||nav.dataset.v11Owned==='1')return;nav.dataset.smShell='1';
  const toggle=document.createElement('button');toggle.type='button';toggle.className='sm-shell-menu';toggle.setAttribute('aria-label','Open site navigation');toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-controls','sm-shell-links');toggle.textContent='Menu';nav.id='sm-shell-links';
  const brand=header.querySelector('.brand');(brand?.parentElement||header).insertBefore(toggle,nav);
  const open=(value)=>{nav.classList.toggle('sm-shell-links-open',value);toggle.setAttribute('aria-expanded',String(value));toggle.setAttribute('aria-label',value?'Close site navigation':'Open site navigation');toggle.textContent=value?'Close':'Menu'};
