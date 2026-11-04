@@ -84,7 +84,7 @@
   panel.className='v1353-member-stats';panel.setAttribute('aria-label','Member status and activity statistics');
   panel.setAttribute('role','region');
   panel.innerHTML='<div class="gu-home-stats-layout"><div class="gu-stats-hero"><div class="v1353-stats-graph" data-stats-chart role="img" aria-label="Member activity"></div></div>'+
-   '<div class="gu-stats-content"><div class="gu-stats-head"><div><span class="eyebrow">OUR LEARNING COMMUNITY</span><h2>Member Status</h2></div><div class="gu-stat-status"><span class="gu-stat-mode" data-mode>LIVE DATA</span></div></div>'+
+   '<div class="gu-stats-content"><div class="gu-stats-head"><div><span class="eyebrow">OUR LEARNING COMMUNITY</span><h2>Member Status</h2></div><div class="gu-stat-status"><span class="gu-stat-mode" data-mode>CONNECTING</span></div></div>'+
    '<dl class="gu-stats-metrics"><div class="v1353-stat-row"><dt data-online-label aria-label="Members active within the last 60 minutes">Online members</dt><dd data-online>—</dd></div>'+
    '<div class="v1353-stat-row"><dt data-registered-label>Registered members</dt><dd data-registered>—</dd></div></dl></div></div>'+
    '<div class="gu-home-future-modules" data-future-modules hidden></div>'+
@@ -112,7 +112,7 @@
  function paint(panel){
   if(!panel)return;
   const hero=panel.parentElement;
-  if(snapshot){
+  if(snapshot&&!failed){
    const d=snapshot;
    if(d.show===false){panel.hidden=true;hero?.classList.remove('v1358-stat-visible');return}
    panel.hidden=false;hero?.classList.add('v1358-stat-visible');
@@ -121,7 +121,7 @@
      Number(d.online)>=0&&Number(d.online)<=Number(d.registered);
    const badge=panel.querySelector('[data-mode]');
    const example=d.mode==='custom'||d.mode==='range';
-   badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE';
+   badge.textContent=valid?(example?'EXAMPLE':'LIVE'):'UNAVAILABLE';
    badge.setAttribute('aria-label',valid?(example?'Owner-configured demonstration counts, not verified registered or online members':'LIVE DATA; verified membership aggregates'):'Member statistics unavailable');
    panel.querySelector('[data-online]').textContent=valid?Number(d.online).toLocaleString():'—';
    panel.querySelector('[data-registered]').textContent=valid?Number(d.registered).toLocaleString():'—';
@@ -134,7 +134,11 @@
    else {const host=panel.querySelector('[data-stats-chart]');if(host)host.textContent='Live member statistics temporarily unavailable.'}
   }else if(failed){
    panel.querySelector('[data-mode]').textContent='UNAVAILABLE';
-   const host=panel.querySelector('[data-stats-chart]');if(host)host.textContent='Live member statistics temporarily unavailable.';
+   panel.querySelector('[data-mode]').setAttribute('aria-label','Live member statistics cannot currently be verified');
+   panel.querySelector('[data-online]').textContent='—';
+   panel.querySelector('[data-registered]').textContent='—';
+   if(visual){visual.dispose();visual=null;visualNode=null}
+   const host=panel.querySelector('[data-stats-chart]');if(host)host.replaceChildren(document.createTextNode('Live member statistics temporarily unavailable.'));
   }
  }
 
