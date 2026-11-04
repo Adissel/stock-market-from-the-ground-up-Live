@@ -11,9 +11,9 @@ const protoHtml=read('prototype.html');
 const constellation=read('assets/js/home-learning-constellation-v1.js');
 const owner=read('assets/js/prototype-learning-constellation-v1.js');
 const css=read('assets/css/home-learning-constellation-v1.css');
-test('all shared charts start from one, and only one, fictional forming candle',()=>{
+test('Labs and Boot Camps start at one forming candle; public home alone uses simulated contextual bars',()=>{
  assert.match(home,/const FIRST_REPLAY_MINUTE=0;/);
- assert.match(home,/const playhead=useRef\(1\)/);
+ assert.match(home,/const playhead=useRef\(context==='home'\?HOME_INITIAL_COMPLETED_CANDLES\*TICKS_PER_MINUTE\+1:1\)/);
  assert.match(home,/const minutes=DATA\.slice\(0,first\+Math\.floor\(safe\/TICKS_PER_MINUTE\)\)/);
  assert.match(home,/if\(next<DATA\.length\)minutes\.push\(partialMinute\(next,safe%TICKS_PER_MINUTE\)\)/);
  assert.match(proto,/\[reveal,setReveal\]=useState\(1\)/);
@@ -30,13 +30,13 @@ test('original market-like candles provide volatility regimes and moving studies
  assert.match(home,/barProxyVWAP\(bars\)/);
  assert.doesNotMatch(home,/supabase|service_role|access_token|WebSocket|\/api\/market-data|fetch\(/i);
 });
-test('only the public homepage automatically alternates 0.1x and 0.5x',()=>{
+test('only the public homepage varies automatic speed between 0.1x and 0.4x',()=>{
  assert.match(home,/const \[speed,setSpeed\]=useState\(context==='home'\?0\.1:1\)/);
  assert.match(home,/const actualSpeed=isPublicHome\?/);
- assert.match(home,/Math\.floor\(playhead\.current\/TICKS_PER_MINUTE\)%2===0\?0\.1:0\.5/);
- assert.match(home,/actualSpeed\);/);
- assert.match(home,/0\.1× ↔ 0\.5× per completed candle/);
- assert.match(home,/isPublicHome\?<div className="cl-react-home-speed"/);
+ assert.match(home,/\[0\.1,0\.2,0\.4,0\.3\]\[Math\.floor\(playhead\.current\/TICKS_PER_MINUTE\)%4\]/);
+ assert.match(home,/carry\+=elapsed\*actualSpeed/);
+ assert.match(home,/0\.1×–0\.4× PLAYBACK/);
+ assert.match(home,/isPublicHome\?<label className="cl-react-home-type"/);
  assert.match(home,/setPlaying\(x=>!x\)/);
 });
 test('actual Prototype Center workspaces and all eight experiences replace static primary charts',()=>{

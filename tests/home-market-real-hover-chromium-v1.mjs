@@ -34,12 +34,9 @@ try{
   const option=chart.getOption();
   return {slots:option.xAxis[0].data.length,observed:option.series[0].data.filter(Array.isArray).length};
  });
- assert.equal(initialAxis.observed,1,'Only the one forming candle is initially observed');
- assert(initialAxis.slots>=45&&initialAxis.slots<=72,'Desktop opens with compact bar pitch and empty future slots');
- // The approved single-candle reveal starts with one forming candle and a
- // substantial empty right buffer. An arbitrary center hover targets EMPTY
- // future time, not a visible candle. Use the actual ECharts price/time
- // coordinate so this remains a genuine physical Chromium mouse hover.
+ assert(initialAxis.observed>=105&&initialAxis.observed<=107,'The public market wall opens with simulated observed context');
+ assert(initialAxis.slots>=110,'Desktop opens with over 100 compact simulated bars, not empty space');
+ // Inspect the observed chart through actual ECharts coordinates, not a synthetic DOM tooltip.
  const location=await page.evaluate(()=>{
   const host=document.querySelector('.cl-react-plot');
   const instance=window.echarts?.getInstanceByDom(host);
@@ -62,32 +59,28 @@ try{
  await plot.focus();await page.keyboard.press('Home');
  await page.waitForFunction(()=>document.querySelector('.cl-react-bottom [role="status"]')?.textContent?.includes('Simulated B01'));
  await page.keyboard.press('ArrowRight');
- assert((await page.locator('.cl-react-bottom [role="status"]').innerText()).includes('Simulated B01'),
-  'Keyboard must never inspect B02 before the second completed or forming candle is revealed');
+ await page.waitForFunction(()=>document.querySelector('.cl-react-plot')?.getAttribute('role')==='region');
+ // Older bars are genuine observed simulated context; right-arrow can inspect B02.
+ // No unobserved future index is exposed through the ECharts series.
 
  // Verify real browser movement, pause isolation and correct aggregated timeframe controls.
- const progress=page.locator('.cl-react-progress');
- await progress.waitFor({state:'visible'});
- await page.getByRole('button',{name:'Pause simulated candle formation'}).click();
- await page.waitForTimeout(120);
- const frozen=await progress.innerText();
- await page.waitForTimeout(650);
- assert.equal(await progress.innerText(),frozen,'A paused candle must not change OHLCV or volume');
- await page.getByRole('button',{name:'Resume simulated candle formation'}).click();
- await page.waitForFunction(previous=>document.querySelector('.cl-react-progress')?.textContent!==previous,frozen,{timeout:5500});
- await page.locator('.cl-react-toolbar select').nth(3).selectOption('5');
- await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B01'),{timeout:5500});
- await page.getByRole('button',{name:'Replay',exact:true}).click();
- await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B01'));
- await page.setViewportSize({width:390,height:800});
- await page.waitForFunction(()=>{
-  const plot=document.querySelector('.cl-react-plot');
-  const chart=plot&&window.echarts?.getInstanceByDom(plot);
-  return chart&&chart.getOption().xAxis[0].data.length<=30;
- },null,{timeout:5000});
+ const progress=page.loc // The homepage has exactly one visible control, with twelve truthful chart presentations.
  const selects=page.locator('.cl-react-toolbar select');
- assert.equal(await selects.count(),4,'The public homepage exposes four selectors and automatic candle-speed alternation');
- for(let i=0;i<3;i++){const b=await selects.nth(i).boundingBox();assert(b&&b.x>=0&&b.x+b.width<=392,'Mobile control remains inside viewport');}
- assert.equal(errors.length,0,'No unexpected runtime errors');
- console.log('PASS real Chromium: mouse hover, rounded OHLCV, keyboard candle inspection, mobile chart control bounds');
+ assert.equal(await selects.count(),1,'Only Chart Type may be changed on the public home');
+ const options=await selects.first().locator('option').allTextContents();
+ assert.equal(options.length,12,'Twelve mainstream OHLCV chart presentations');
+ assert.equal(await page.locator('.cl-react-toolbar button').count(),0,'No homepage playback buttons');
+ for(const type of ['hollow','heikin','ohlc','hlc','line','area','baseline','step','columns','dots','range','candles']){
+  await selects.first().selectOption(type);
+  await page.waitForFunction(()=>!!window.echarts?.getInstanceByDom(document.querySelector('.cl-react-plot')));
+  assert.equal(errors.length,0,'No chart error when switching to '+type);
+ }
+ const progress=page.locator('.cl-react-progress');
+ await progress.waitFor({state:'attached'});
+ assert.match(await progress.innerText(),/0.1×–0.4× PLAYBACK/,'Automatic speed range is disclosed');
+ await page.setViewportSize({width:390,height:800});
+ const b=await selects.first().boundingBox();
+ assert(b&&b.x>=0&&b.x+b.width<=392,'Mobile chart-type control remains inside viewport');
+ assert.equal(await page.locator('.cl-react-toolbar select').count(),1,'No additional mobile controls');
+ OHLCV, keyboard candle inspection, mobile chart control bounds');
 }finally{await browser.close()}

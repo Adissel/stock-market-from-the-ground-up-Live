@@ -199,13 +199,13 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
   const isCandles=view==='candles'||view==='hollow'||view==='heikin';
   const isOhlc=view==='ohlc'||view==='hlc'||view==='range';
   const priceSeries=isCandles?{
-   type:'candlestick',name:view==='heikin'?'Simulated Heikin-Ashi':'Simulated OHLCV',
+   type:'candlestick',name:view==='heikin'?'Simulated market Heikin-Ashi':'Simulated market OHLCV',
    data:displayBars.map(b=>[b.open,b.close,b.low,b.high]).concat(padding as never[]),
    barMaxWidth:7,barMinWidth:1,
    itemStyle:{color:view==='hollow'?'transparent':up,color0:down,
     borderColor:up,borderColor0:down,borderWidth:1.05}
   }:isOhlc?{
-   type:'custom',name:view==='range'?'Simulated high-low range':'Simulated OHLC bars',
+   type:'custom',name:view==='range'?'Simulated market high-low range':'Simulated market OHLC bars',
    data:displayBars.map((b,i)=>[i,b.open,b.close,b.low,b.high]).concat(padding as never[]),
    renderItem:(_params:any,api:any)=>{
     const i=Number(api.value(0)),o=Number(api.value(1)),c=Number(api.value(2));
@@ -224,7 +224,7 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
     return {type:'group',children};
    }
   }:{
-   type:view==='columns'?'bar':view==='dots'?'scatter':'line',name:'Simulated close',
+   type:view==='columns'?'bar':view==='dots'?'scatter':'line',name:'Simulated market close',
    data:displayBars.map(b=>+b.close.toFixed(3)).concat(padding as never[]),
    symbol:'circle',symbolSize:view==='dots'?5:0,showSymbol:view==='dots',
    barMaxWidth:7,barMinWidth:1,smooth:false,step:view==='step'?'end':false,
