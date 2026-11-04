@@ -283,7 +283,7 @@ function disposePrototypeHomeChart(){
  if(prototypeHomeChart){prototypeHomeChart.dispose();prototypeHomeChart=null;prototypeHomeContext=null}
 }
 function mountedPrototypeHomeChart(){
- return state.user&&['labs','bootcamps'].includes(state.id)&&state.kind==='candlestick'&&
+ return state.user&&['labs','bootcamps'].includes(state.id)&&
   typeof window.CrownlightHomeMarketTerminal?.mountInto==='function';
 }
 function applyChartMetrics(data){
