@@ -40,3 +40,12 @@ test('fictional candle and volume colors meet nontext contrast on dark training 
  assert.ok(source.includes('borderColor:'),'Bullish candle borders and wicks must remain visible');
  assert.match(source,/Fictional market/);
 });
+
+test('canonical homepage linked illustration upgrades to the original interactive React chart without replacing the surrounding hero',()=>{
+ assert.match(html,/class="gu-home-terminal"/,'Initial illustrative chart remains as a no-JavaScript fallback');
+ assert.match(tsx,/querySelector<HTMLAnchorElement>\('main\.gu-premium-home a\.gu-home-terminal'\)/,'Original public hero is used as the mount point');
+ assert.match(tsx,/linked\.replaceWith\(host\)/,'Only the chart illustration is replaced');
+ assert.match(tsx,/host\.className='gu-home-terminal sm-v5-chart'/,'Existing dark styles and React host styles are retained');
+ assert.match(tsx,/if\(existing\)return existing/,'Original V5 React chart location still works');
+ assert.doesNotMatch(tsx,/removeChild\(main\)|main\.replaceWith/,'No whole-page replacement from the React mount');
+});
