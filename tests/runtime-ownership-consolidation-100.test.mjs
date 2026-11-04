@@ -98,14 +98,14 @@ test('unverified version does not overwrite verified release metadata',()=>{
  assert.match(runtime,/if\(version\)/);
  assert.doesNotMatch(runtime,/m\.content='unverified'/);
 });
-test('Simulator must use a dedicated drag handle, not an entire panel',()=>{
+test('Simulator retains canonical teaching order with display-only presets',()=>{
  const x=front.slice(front.indexOf('function simulatorEnhance(){'),front.indexOf('function membershipCompare(){'));
  assert.match(x,/panel\.draggable=false/);
- assert.match(x,/fe-sim-move-handle/);
- assert.match(x,/data-shift="-1"/);
- assert.match(x,/data-shift="1"/);
- assert.match(x,/handle\.addEventListener\('dragstart'/);
- assert.doesNotMatch(x,/x\.draggable=layout\.classList/);
+ assert.match(x,/local\.del\('sim-layout-order'\)/);
+ assert.match(x,/layout\.classList\.remove\('fe-sortable'\)/);
+ assert.match(x,/savePref\('simulator',\{preset:sel\.value\}\)/);
+ assert.doesNotMatch(x,/insertBefore\(dragged/);
+ assert.doesNotMatch(x,/dragstart/);
 });
 test('Dashboard must not make every widget draggable',()=>{
  const x=front.slice(front.indexOf('function customizeDashboard(ov){'),front.indexOf('async function renderBilling(host){'));
@@ -123,16 +123,15 @@ test('specific save shortcuts still exist for approved Admin dialogs',()=>{
  const x=front.slice(front.indexOf('function globalShortcuts(){'),front.indexOf('function showShortcuts(){'));
  assert.match(x,/#admin-dialog-save,#v11-modal-save/);
 });
-test('drag controls preserve keyboard-accessible Up/Down controls and focus rings',()=>{
- assert.match(front,/aria-label="Move simulator panel earlier"/);
- assert.match(front,/aria-label="Move simulator panel later"/);
+test('Dashboard maintains keyboard-accessible section reorder without altering simulator sequence',()=>{
  assert.match(front,/aria-label="Move dashboard section earlier"/);
  assert.match(front,/aria-label="Move dashboard section later"/);
- assert.match(css,/\.fe-sim-move-controls button:focus-visible/);
+ assert.match(css,/\.fe-widget-sort-controls button:focus-visible/);
 });
-test('chart canvas does not inherit always-on HTML drag behavior',()=>{
- assert.doesNotMatch(front,/x\.draggable=layout\.classList/);
- assert.match(front,/\.sim-layout > \*/);
+test('Simulator chart canvas cannot inherit legacy arbitrary drag behavior',()=>{
+ const sim=front.slice(front.indexOf('function simulatorEnhance(){'),front.indexOf('function membershipCompare(){'));
+ assert.doesNotMatch(sim,/x\.draggable=layout\.classList/);
+ assert.match(sim,/qsa\(':scope > \*',layout\)/);
 });
 test('Cloudflare build enforces consolidated source contracts',()=>{
  assert.match(build,/node --test tests\/runtime-ownership-consolidation-100\.test\.mjs/);
@@ -184,4 +183,15 @@ test('Existing Admin environment badge consumes classifier rather than a hardcod
 });
 test('Preview theme exists in the shared front-end stylesheet',()=>{
  assert.match(css,/\.fe-env-badge\.preview/);
+});
+
+test('Mobile instructional shells retain chart popup and overlay access',()=>{
+ const teachingCss=read('assets/css/teaching-full-width-v1.css');
+ const after=teachingCss.slice(teachingCss.indexOf('/* Mobile chart and instructional overlay access.'));
+ assert.match(after,/@media\(max-width:640px\)/);
+ assert.match(after,/body\.gu-teaching-wide main\.section/);
+ assert.match(after,/body\.gu-bc-learning\.gu-teaching-wide \.academy-study-grid/);
+ assert.match(after,/overflow-x:visible!important/);
+ assert.match(after,/overflow-y:visible!important/);
+ assert.doesNotMatch(after,/overflow-x:hidden/);
 });

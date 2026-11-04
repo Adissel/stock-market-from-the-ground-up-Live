@@ -14,7 +14,14 @@ test('all 140 topic-source review records are present and none pre-approved',()=
  assert.equal(new Set(triage.topics.map(x=>x.code)).size,60);
  triage.topics.forEach((r,i)=>{
   assert.equal(r.number,i+181);assert.equal(r.code,topics[i].code);
-  assert.equal(r.candidateReference,topics[i].sourceUrls[0]);
+  if(r.candidateReference!==topics[i].sourceUrls[0]){
+   assert.equal(topics[i].previousGenericSourceUrl,r.candidateReference,'Historical research candidate must remain traceable');
+   assert.ok(topics[i].sourceUrls.every(url=>url.startsWith('https://')));
+   assert.ok(topics[i].sourceResearchTriage.supportedScope.length>100);
+   assert.equal(topics[i].sourceResearchTriage.independentMathAccepted,false);
+   assert.equal(topics[i].sourceResearchTriage.independentPublicationApproved,false);
+   assert.equal(topics[i].sourceResearchTriage.sourceRedistributionRightsCleared,false);
+  }else assert.equal(r.candidateReference,topics[i].sourceUrls[0]);
   assert.equal(r.finalEditorialDecision,'HOLD');assert.equal(r.officialGrade,false);
   assert.ok(r.specificReviewFocus.length>30);
   assert.ok(r.actionNeeded.length>35);

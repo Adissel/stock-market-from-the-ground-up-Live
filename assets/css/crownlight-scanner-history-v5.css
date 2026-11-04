@@ -1,0 +1,15 @@
+.cl-history-v5{background:linear-gradient(140deg,#071a28,#0b2b38 64%,#102037);border:1px solid #318e9e;border-radius:15px;padding:clamp(1rem,2.2vw,1.5rem);margin:1.5rem 0;color:#eaf7fb;box-shadow:0 12px 32px rgba(0,0,0,.18)}
+.cl-history-v5 h2{color:#b5f6ff;margin:0 0 .65rem}
+.cl-history-v5 p{max-width:90ch}
+.cl-history-controls{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:.85rem}
+.cl-history-controls label,.cl-history-evidence label{display:flex;flex-direction:column;gap:.35rem;font-size:.95rem}
+.cl-history-controls input,.cl-history-evidence select{width:100%;min-width:0;box-sizing:border-box;background:#102d3b;color:#f1faff;border:1px solid #6db1bf;border-radius:.45rem;padding:.65rem}
+.cl-history-controls input:focus-visible,.cl-history-evidence select:focus-visible,.cl-history-actions button:focus-visible{outline:3px solid #ffd174;outline-offset:3px}
+.cl-history-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin:1rem 0}
+.cl-history-status{color:#c3e4ef}
+.cl-history-table-wrap{overflow-x:auto;margin-top:1rem}
+.cl-history-table-wrap table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+.cl-history-table-wrap th,.cl-history-table-wrap td{padding:.6rem;border-bottom:1px solid #315868;text-align:left}
+.cl-history-table-wrap th{font-weight:600;width:55%}
+.cl-history-chart{height:320px;width:100%;margin:.8rem auto;border:1px solid #346c7b;border-radius:.5rem}
+@media (prefers-reduced-motion:reduce){.cl-history-v5 *{scroll-behavior:auto!important;transition:none!important}}

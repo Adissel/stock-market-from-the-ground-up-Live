@@ -91,7 +91,10 @@ try{
  verify(assess.status===200,'Free with actual grant can access safe assessment guidance');
  verify(!JSON.stringify(assess).includes(target.worked),'Assess worked case excluded from entire API');
  verify(!JSON.stringify(assess).includes(target.transfer),'Assess transfer excluded from entire API');
- verify(assess.sources[1].referenceUrls[0]===target.sourceUrl,'Assess still supplies source');
+ verify(Array.isArray(assess.sources)&&assess.sources.length===0,'Assess has no case-specific source payload');
+  verify(assess.aiReason==='source_only_assess_boundary','Assess uses source-only protected boundary');
+  verify(assess.officialGrade===false&&assess.memberRecordWritten===false,'Assess cannot grade or write official progress');
+  verify(!('labContext' in assess),'Assess hides specific Lab context and private evidence');
  for(const label of ['suspended','showcase','staffNotMember']){
   const denied=await ask(label);
   verify(denied.status===403,'Denial required for '+label);

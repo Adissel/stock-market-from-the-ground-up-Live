@@ -18,7 +18,7 @@ import {tutorRequestLimit} from '../_lib/tutor-rate-limit-v014107.js';
 import {parseTutorRequest} from '../_lib/tutor-request-boundary-v014147.js';
 import {ownedConversation,attachTutorExchange} from './member-tutor-conversations.js';
 import {recordTutorGap} from '../_lib/tutor-gaps-v014149.js';
-import {getApprovedLabContext,labGuidance} from '../_lib/tutor-lab-context-v014149.js';
+import {getApprovedLabContext,labGuidance,requestedCanonicalLab,requestedLearningStage} from '../_lib/tutor-lab-context-v014149.js';
 import {isContextualTutorFollowup,getVerifiedPriorTutorQuestion} from '../_lib/tutor-conversation-context-v014159.js';
 import {parseAcademyTutorRequest,resolveAcademyTutorContext} from '../_lib/tutor-academy-context-v1.js';
 import {diagnoseFoundationReflection} from '../_lib/talia-foundation-reflection-coach-v1.js';
@@ -166,6 +166,12 @@ export async function onRequest({request,env}){
   // Validate transport, consent and payload before authentication-backed
   // request reservation. Invalid/cross-site attempts cannot burn member quota.
   const body=await parseTutorRequest(request);
+  // Invalid canonical stage markers fail closed before member quota or
+  // source retrieval. Do not downgrade a malformed Assess handoff to chat.
+  if(/^Academy program:/i.test(body.question)&&!parseAcademyTutorRequest(body.question))
+   return reply({ok:false,error:'Invalid Academy learning context.'},400);
+  if(/\bLearning Journey stage\s*:/i.test(body.question)&&!requestedLearningStage(body.question))
+   return reply({ok:false,error:'Invalid Learning Journey stage.'},400);
   const auth=await toolAccess(env,request,'MARKET_TUTOR');
   // A verified eligible Free/Pick/Founder14 member receives the shared
   // source-grounded Foundation Tutor. Premium tool access remains independently
@@ -192,12 +198,13 @@ export async function onRequest({request,env}){
    academyQuery=resolved.query;
    academyContext=Object.fromEntries(Object.entries(resolved).filter(([key])=>key!=='query'));
   }
+  const protectedAssess=academyContext?.requestedStage==='Assess'||requestedLearningStage(q)==='Assess';
   let verifiedFollowupContext=false;
   if(body.priorTurnsSupplied)safeTutorMetric('safety',{reason:'unverified_prior_turns_ignored'});
   async function finish(data){
    data.verifiedFollowupContext=verifiedFollowupContext;
    if(academyContext)data.academyContext=academyContext;
-   if(verifiedPractice){
+   if(verifiedPractice&&!protectedAssess){
     data.formativePractice=verifiedPractice;
     const teaching=formatTutorFormativePractice(verifiedPractice);
     if(teaching)data.answer=String(data.answer||'')+'\n\n'+teaching;
@@ -212,6 +219,16 @@ export async function onRequest({request,env}){
     safeTutorMetric('history',{reason:id?'server_saved':'server_save_unavailable'});
    }else{data.historySaved=false;data.historyId=null}
    return reply(data);
+  }
+  if(protectedAssess){
+   // No direct answers, prior official grades, numeric practice feedback,
+   // scenario-specific hints, model use or future historical observations.
+   return finish({ok:true,generation:'original-competency-guide',mode:'explain',
+    aiReason:'source_only_assess_boundary',
+    answer:'This is a protected Assess stage. I can explain general study methods: identify observable inputs, verify units and timestamps, state uncertainty, and recheck the process. I cannot provide a case-specific solution, a private rubric, an answer key, a score or a future candle. Complete the independent assessment before requesting general review and teaching.',
+    sources:[],graded:false,officialGrade:false,masteryAwarded:false,memberRecordWritten:false,
+    sourceLimit:'General process education only. No protected case data or assessment grading evidence.',
+    notice:'Source-only Assess boundary enforced. No paid AI call or official grade.'});
   }
   if(mode==='practice'){
    const result=await memberPractice(env,auth.userId);
@@ -251,6 +268,8 @@ export async function onRequest({request,env}){
   // Explicit Lab identifiers may access public canonical ID/skill metadata
   // only. Never query unreviewed/private questions, future bars, or answer keys.
   const labContext=await getApprovedLabContext(env,request,q).catch(()=>null);
+  if(requestedCanonicalLab(q)&&!labContext)
+   return reply({ok:false,error:'Canonical Lab identifier is not registered or its public context is unavailable.'},404);
   if(labContext){
    // One exact researched public claim may accompany the canonical Lab ID.
    // Only the existing allowlisted source asset can supply this link; there is
@@ -321,5 +340,5 @@ export async function onRequest({request,env}){
    sourceLimit:'Public companion-glossary context only. Historical datasets and Lab grading are independent.',
    notice:generation==='grounded-model-draft'?'AI-generated educational draft. Check source references before relying on an explanation.':'Source-grounded companion teaching; not generative AI and not a verified assessment.',
    links:{labs:'/labs.html',journal:'/journal.html',skills:'/skills.html',simulator:'/simulator.html'}});
- }catch(e){return reply({ok:false,error:e.status===413?'Request too large.':e.status===401?'Sign in to use the Market Tutor.':e.status===403?'Market Tutor entitlement required.':e.status===415?'Tutor requests require JSON content.':e.status===400?'Invalid Tutor request.':'Tutor is temporarily unavailable.'},[400,401,403,405,413,415,429].includes(e.status)?e.status:503)}
+ }catch(e){return reply({ok:false,error:e.status===413?'Request too large.':e.status===401?'Sign in to use the Market Tutor.':e.status===403?'Market Tutor entitlement required.':e.status===404?'Requested Tutor lesson or context is unavailable.':e.status===415?'Tutor requests require JSON content.':e.status===400?'Invalid Tutor request.':'Tutor is temporarily unavailable.'},[400,401,403,404,405,413,415,429].includes(e.status)?e.status:503)}
 }

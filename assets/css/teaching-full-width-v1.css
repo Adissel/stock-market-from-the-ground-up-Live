@@ -236,3 +236,24 @@ body.gu-teaching-wide [hidden]{display:none!important}
   -webkit-mask:url("/assets/images/ui/bell.svg") center/contain no-repeat;
  }
 }
+
+/* Mobile chart and instructional overlay access.
+   Never hide horizontal overflow on the overall teaching content shell;
+   retain deliberate scrolling within chart controls, tables and day navigation. */
+@media(max-width:640px){
+ body.gu-teaching-wide main.section,
+ body.gu-teaching-wide main.section>.wrap,
+ body.gu-teaching-wide main.section>.gu-growth-sheet,
+ body.gu-lab-member.gu-teaching-wide #app,
+ body.gu-lab-member.gu-teaching-wide #app>.shell,
+ body.gu-bc-learning.gu-teaching-wide .gu-learning-ad-core,
+ body.gu-bc-learning.gu-teaching-wide .academy-study-grid{
+  overflow-x:visible!important;
+  overflow-y:visible!important;
+ }
+ body.gu-teaching-wide :is(.gu-learning-journey-v3,.gu-public-classroom,
+  .gu-v33-stage-hero,.gu-bc-lesson,.academy-studio-layout){
+  min-width:0!important;
+  max-width:100%!important;
+ }
+}

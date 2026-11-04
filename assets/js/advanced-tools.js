@@ -247,6 +247,13 @@
     loadPresets:()=>latestRecords('filter_set')
    });
   }
+  // Historical research under existing authenticated SCANNER_BUILDER gate.
+  if(scannerOnly&&globalThis.CrownlightScannerHistoryViewV5){
+   const researchHost=document.createElement('div');
+   researchHost.id='crownlight-scanner-historical-v5';
+   document.getElementById('tool-workbench').append(researchHost);
+   globalThis.CrownlightScannerHistoryViewV5.mount({host:researchHost});
+  }
  }
 
  async function renderWatchlist(){
