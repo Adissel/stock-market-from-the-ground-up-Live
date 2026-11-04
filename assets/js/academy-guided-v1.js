@@ -16,10 +16,10 @@ function classify(d){
 }
 function guidance(d,kind){
  const terms={
-  vwap:['Price is dollars per share; volume is shares traded.','Weighted price = sum of price × shares divided by total shares.','Fictional: 200 × $8 + 100 × $10 = $2,600; 300 shares; VWAP ≈ $8.67/share.'],
-  candle:['OHLC means open, high, low and close for a defined interval.','Real body = |close − open|; full range = high − low.','Fictional: $31 open, $32 close, $32.50 high, $30.50 low: body $1, range $2, body is 50% of range.'],
-  risk:['Plan the maximum risk before share quantity.','Planned risk per share = |entry − stop|; whole shares = floor(risk budget ÷ risk per share).','Fictional: $20 entry, $19.60 stop, $40 planned risk → 100 shares, excluding slippage, gaps and fees.'],
-  research:['Identify the original publisher, evidence and measured period.','Distinguish the source timestamp from a later interpretation of the event.','Fictional: a viral claim about a contract is unverified until a dated original issuer record supports its actual wording.']
+  vwap:['Price is dollars per share; volume is shares traded.','Weighted price = sum of price × shares divided by total shares.','Simulated: 200 × $8 + 100 × $10 = $2,600; 300 shares; VWAP ≈ $8.67/share.'],
+  candle:['OHLC means open, high, low and close for a defined interval.','Real body = |close − open|; full range = high − low.','Simulated: $31 open, $32 close, $32.50 high, $30.50 low: body $1, range $2, body is 50% of range.'],
+  risk:['Plan the maximum risk before share quantity.','Planned risk per share = |entry − stop|; whole shares = floor(risk budget ÷ risk per share).','Simulated: $20 entry, $19.60 stop, $40 planned risk → 100 shares, excluding slippage, gaps and fees.'],
+  research:['Identify the original publisher, evidence and measured period.','Distinguish the source timestamp from a later interpretation of the event.','Simulated: a viral claim about a contract is unverified until a dated original issuer record supports its actual wording.']
  };
  return terms[kind].concat(['The day-specific objective: '+clean(d.objective),
   'Required observation: '+clean(d.observe),
@@ -35,7 +35,7 @@ function plan(d){
    ['Calculate / Analyze',[l.worked,l.method]],
    ['Experiment',[l.experiment,'Record what changed and what stayed uncertain.']],
    ['Predict',[l.predict,'Commit to a provisional answer before revealing the review.']],
-   ['Replay / Practice',[l.replay,'The example is fictional. No historical feed is implied.']],
+   ['Replay / Practice',[l.replay,'The example is simulated. No historical feed is implied.']],
    ['Assess',[l.transfer,'Use a new case and keep the first response in your private reflection. This is formative, not an official grade.']],
    ['Review & Retry',[l.review,'Revise the method after checking the source and the unknowns.']],
    ['Transfer Challenge',[l.transfer,'A different case requires fresh evidence and a no-trade option.']],
@@ -54,8 +54,8 @@ function plan(d){
   const stages=[
    ['Start',[clean(d.title),clean(d.objective),clean(lesson.why)]],
    ['Learn',[clean(lesson.explanation),'Evidence reference: '+clean(source.label||'Original primary sources still required.'),'Reference scope: '+clean(source.scope)]],
-   ['Calculate / Analyze',[clean(lesson.workedExample),...steps.map(clean),'The example is fictional and explicitly ungraded.']],
-   ['Experiment',['Change one fictional input or source-quality condition, then reassess the conclusion.',clean(d.practice),clean(lesson.error)]],
+   ['Calculate / Analyze',[clean(lesson.workedExample),...steps.map(clean),'The example is simulated and explicitly ungraded.']],
+   ['Experiment',['Change one simulated input or source-quality condition, then reassess the conclusion.',clean(d.practice),clean(lesson.error)]],
    ['Predict',[clean(d.observe),'Predict what evidence would be necessary at the frozen observation time, not a future market price.']],
    ['Replay / Practice',[clean(lesson.investigation),'Freeze the current evidence; do not use a later publication or future candle in this decision.']],
    ['Assess',[clean(lesson.selfCheck),clean(lesson.transfer),'First response is instructional only. The protected assessor still controls any official grade.']],
@@ -71,7 +71,7 @@ function plan(d){
    8:{question:'How should an unfamiliar case be investigated?',correct:clean(lesson.transfer)}
   };
   if(numeric.length){
-   checks[2]={numeric:true,question:'Independently calculate the following fictional quantities (use the units shown).',
+   checks[2]={numeric:true,question:'Independently calculate the following simulated quantities (use the units shown).',
     labels:numeric.map((c,i)=>(i+1)+'. '+clean(c.operation)+' ('+clean(c.unit)+')'),
     expected:numeric.map(c=>c.expected),
     tolerance:numeric.map(c=>c.tolerance),
@@ -85,9 +85,9 @@ function plan(d){
   ['Start',[d.title,d.objective,'Talia teaches from first principles before requesting independent work.']],
   ['Learn',teach.slice(0,2).concat(['Today: '+clean(d.observe)])],
   ['Calculate / Analyze',teach.slice(1,3).concat(['Apply the method to: '+clean(d.title)])],
-  ['Experiment',['Use the fictional ECharts chart when a chart is relevant.','For a research subject, inspect the source-and-evidence checklist.',clean(d.practice)]],
+  ['Experiment',['Use the simulated ECharts chart when a chart is relevant.','For a research subject, inspect the source-and-evidence checklist.',clean(d.practice)]],
   ['Predict',[clean(d.observe),'Identify one fact you would need before claiming a likely outcome. Later market bars are never revealed by this module.']],
-  ['Replay / Practice',[method,clean(d.practice),'Only synthetic illustrative chart data are displayed. No future historical bar is supplied.']],
+  ['Replay / Practice',[method,clean(d.practice),'Only synthetic simulated chart data are displayed. No future historical bar is supplied.']],
   ['Assess',['Independent formative question using a different decision situation.','The first selection is held until submission. It is not the official protected Lab assessment.']],
   ['Review & Retry',teach.concat([limitation,'Incorrect answers receive additional teaching and free retries.'])],
   ['Transfer Challenge',[clean(d.lesson?.transfer||d.practice),'Different cases require new evidence and a documented invalidation.']],
@@ -100,9 +100,9 @@ function plan(d){
   6:{question:'A new unfamiliar case has incomplete evidence. What should you do?',correct:'Apply the method, record what remains unknown and withhold unsupported claims.'},
   8:{question:'How should you transfer the skill to a different case?',correct:'Recheck the new evidence, its limitations and the NO TRADE conditions before deciding.'}
  };
- if(kind==='vwap')checks[2]={numeric:true,question:'Calculate fictional traded dollars, shares and VWAP.',labels:['Total traded dollars ($)','Total shares','VWAP ($/share)'],expected:[2600,300,8.67],hints:['Multiply $8 × 200 and $10 × 100, then add dollar totals.','Add 200 and 100 shares.','Divide $2,600 by 300 shares; round to cents.']};
- if(kind==='candle')checks[2]={numeric:true,question:'Calculate fictional body, range and body percentage.',labels:['Real body ($)','Full range ($)','Body / range (%)'],expected:[1,2,50],hints:['Body = |$32 close − $31 open|.','Range = $32.50 high − $30.50 low.','Divide $1 body by $2 range, then multiply by 100.']};
- if(kind==='risk')checks[2]={numeric:true,question:'Calculate fictional risk per share and share quantity.',labels:['Risk per share ($)','Whole shares for $40 planned risk'],expected:[.4,100],hints:['Use $20 entry − $19.60 planned stop.','Divide $40 by $0.40/share. Actual loss can exceed planned loss.']};
+ if(kind==='vwap')checks[2]={numeric:true,question:'Calculate simulated traded dollars, shares and VWAP.',labels:['Total traded dollars ($)','Total shares','VWAP ($/share)'],expected:[2600,300,8.67],hints:['Multiply $8 × 200 and $10 × 100, then add dollar totals.','Add 200 and 100 shares.','Divide $2,600 by 300 shares; round to cents.']};
+ if(kind==='candle')checks[2]={numeric:true,question:'Calculate simulated body, range and body percentage.',labels:['Real body ($)','Full range ($)','Body / range (%)'],expected:[1,2,50],hints:['Body = |$32 close − $31 open|.','Range = $32.50 high − $30.50 low.','Divide $1 body by $2 range, then multiply by 100.']};
+ if(kind==='risk')checks[2]={numeric:true,question:'Calculate simulated risk per share and share quantity.',labels:['Risk per share ($)','Whole shares for $40 planned risk'],expected:[.4,100],hints:['Use $20 entry − $19.60 planned stop.','Divide $40 by $0.40/share. Actual loss can exceed planned loss.']};
  return {kind,stages,checks,limitation};
 }
 function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
@@ -144,12 +144,12 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
   head.append(itinerary);
  }
  head.append(meter,play,status,nav);
- evidence.append(el('h4','Illustrative ECharts & evidence'),visual);
+ evidence.append(el('h4','Simulated ECharts & evidence'),visual);
  instructor.append(el('h4','Talia Mercer — Guided instructor'));
  controls.append(previous,next,explain,depth);
  if(typeof tutorRequest==='function')controls.append(tutorButton);
  grid.append(evidence,instructor);
- shell.append(head,grid,controls,feedback,tutorPanel,el('p','Free explanations and retries. No Lumens charged. Fictional teaching evidence only; protected replay, grading and access remain unchanged.'));
+ shell.append(head,grid,controls,feedback,tutorPanel,el('p','Free explanations and retries. No Lumens charged. Simulated teaching evidence only; protected replay, grading and access remain unchanged.'));
  host.replaceChildren(shell);
  function stop(){if(timer){clearTimeout(timer);timer=0}}
  function narration(){
@@ -179,7 +179,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
   }else if(cfg.kind==='candle'||cfg.kind==='vwap'){
    if(stage>0&&stage<9&&root.CrownlightLearningEChartsV1?.mount)
     chart=root.CrownlightLearningEChartsV1.mount(visual,{kind:cfg.kind==='vwap'?'vwap':'candle',interactive:true});
-   else visual.append(el('p','Illustrative chart becomes available during the instructional stages.'));
+   else visual.append(el('p','Simulated chart becomes available during the instructional stages.'));
    visual.append(el('p','These synthetic prices are general calculation demonstrations, not an actual replay or proof for this study day.'));
   }else{
    const ul=el('ul');for(const value of [day.objective,day.observe,day.practice,day.limitation||day.caution].filter(Boolean))ul.append(el('li',clean(value)));
@@ -197,7 +197,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
    const exerciseId=advanced.id+(transferOnly?'-transfer':'');
    const practicum=el('section');practicum.className='academy-advanced-practicum';
    practicum.append(el('h5','Advanced application · '+advanced.id+(transferOnly?' · independent transfer':'')));
-   practicum.append(el('p','Fictional evidence: '+clean(advanced.scenario)));
+   practicum.append(el('p','Simulated evidence: '+clean(advanced.scenario)));
    practicum.append(el('p','Your task: '+clean(transferOnly?advanced.transfer:advanced.task)));
    const response=el('textarea');response.rows=4;
    response.setAttribute('aria-label','Reason through '+advanced.id+(transferOnly?' independent transfer':''));

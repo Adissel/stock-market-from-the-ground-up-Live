@@ -48,3 +48,14 @@ test('Training and member data engines do not alter authorization or entitlement
  assert(free.includes('value="FICTIONAL"'),'Legacy selector enum remains unchanged');
  assert(draw.includes("fetch('/api/home-member-stats-v01353?action=public'"),'Server aggregate remains the source');
 });
+
+test('Academy and Prototype chart copy distinguish simulation without changing code identifiers',()=>{
+ for(const p of ['assets/js/academy-guided-v1.js','assets/js/crownlight-learning-echarts-v1.js','verified-replay.html']){
+  const s=read(p);assert.doesNotMatch(s,/\b(?:fictional|illustrative)\b/i,p);
+ }
+ const source=read('prototype.html');
+ assert(source.includes('prototype-60-fictional-method-workbench-v1.js'));
+ assert(source.includes('SIMULATED SOURCE DATA'),'Protected classroom provenance stays visible');
+ const visible=source.replace(/<[^>]*>/g,' ');
+ assert.doesNotMatch(visible,/\b(?:fictional|illustrative)\b/i);
+});

@@ -1,5 +1,5 @@
 /* Crownlight ECharts Learning Workstation v1.
- * Public, authored FICTIONAL teaching data only. Never accepts private answers,
+ * Public, authored SIMULATED teaching data only. Never accepts private answers,
  * member balances, entitlements, replay buffers, or future market bars.
  * Visual accompaniment to the existing protected nine-stage Learning Engine.
  */
@@ -66,8 +66,8 @@
   const candle={o:original.o,h:original.h,l:original.l,c:original.c};
   let secondVolume=100,instance=null,observer=null,disposed=false,comparing=false;
   const section=node('section');section.className='gu-echarts-lesson';
-  section.setAttribute('aria-label','Talia interactive fictional chart experiment');
-  const eyebrow=node('p','APACHE ECHARTS · FICTIONAL TEACHING DATA');
+  section.setAttribute('aria-label','Talia interactive simulated chart experiment');
+  const eyebrow=node('p','APACHE ECHARTS · SIMULATED TEACHING DATA');
   eyebrow.className='gu-echarts-eyebrow';
   const heading=node('h3',kind==='vwap'?'See how trading volume changes VWAP':'Construct and measure a candlestick');
   const description=node('p',kind==='vwap'
@@ -75,13 +75,13 @@
    :'Talia: Open and Close mark the body. High and Low mark the full range. Change Close to see which measurements move.');
   const chart=node('div');chart.className='gu-echarts-plot';
   chart.setAttribute('role','img');chart.setAttribute('aria-label',kind==='vwap'?
-   'Fictional trade prices, quantities and volume-weighted average':'Fictional candlestick with price-positioned Open, High, Low and Close guides');
+   'Simulated trade prices, quantities and volume-weighted average':'Simulated candlestick with price-positioned Open, High, Low and Close guides');
   const note=node('p','This is a synthetic, ungraded teaching example—not a live quote, a historical replay, an assessment answer, a trading signal, or an official mastery result.');
   note.className='gu-echarts-source';
   const controls=node('div');controls.className='gu-echarts-controls';
   const facts=node('div');facts.className='gu-echarts-facts';facts.setAttribute('aria-live','polite');
   const table=node('table');table.className='gu-echarts-table';
-  const caption=node('caption',kind==='vwap'?'Fictional trades and quantities':'Accessible open, high, low and close reference');
+  const caption=node('caption',kind==='vwap'?'Simulated trades and quantities':'Accessible open, high, low and close reference');
   table.append(caption);
   const th=node('thead'),theadRow=node('tr');
   for(const txt of (kind==='vwap'?['Group','Price','Shares','Traded value']:['Price level','Value']))
@@ -119,7 +119,7 @@
      list.append(item);
     }
     feedback.append(list);
-    if(results.every(x=>x.ok))feedback.append(node('p','Well calculated. Try a fresh fictional case before relying on this skill independently.'));
+    if(results.every(x=>x.ok))feedback.append(node('p','Well calculated. Try a fresh simulated case before relying on this skill independently.'));
    });
    retry.addEventListener('click',()=>{
     attempts++;fields.forEach(f=>{f.value=''});
@@ -132,7 +132,7 @@
   target.replaceChildren(section);
   let slider=null,output=null;
   if(options.interactive!==false){
-   const label=node('label',kind==='vwap'?'Shares traded at $10 (fictional)':'Closing price (USD, fictional)');
+   const label=node('label',kind==='vwap'?'Shares traded at $10 (simulated)':'Closing price (USD, simulated)');
    slider=node('input');slider.type='range';slider.min=kind==='vwap'?'50':String(candle.l);
    slider.max=kind==='vwap'?'500':String(candle.h);slider.step=kind==='vwap'?'50':'0.05';
    slider.value=kind==='vwap'?'100':String(candle.c);
@@ -145,12 +145,12 @@
    });
   }
   if(options.interactive!==false){
-   const compare=node('button','Compare fictional cases');compare.type='button';
+   const compare=node('button','Compare simulated cases');compare.type='button';
    compare.className='gu-echarts-compare-button';compare.setAttribute('aria-pressed','false');
    compare.addEventListener('click',()=>{
     comparing=!comparing;
     compare.setAttribute('aria-pressed',String(comparing));
-    compare.textContent=comparing?'Return to single fictional case':'Compare fictional cases';
+    compare.textContent=comparing?'Return to single simulated case':'Compare simulated cases';
     fields.forEach(field=>{field.value=''});feedback.replaceChildren();render();
    });
    controls.append(compare);
@@ -170,7 +170,7 @@
    const common={animation:false,backgroundColor:'transparent',aria:{enabled:true},
     textStyle:{color:'#d1e2ef'},grid:{left:64,right:152,top:35,bottom:48},
     tooltip:{trigger:'axis',axisPointer:{type:'cross'}},
-    xAxis:{type:'category',data:kind==='vwap'?['Group A','Group B']:['Fictional candle'],
+    xAxis:{type:'category',data:kind==='vwap'?['Group A','Group B']:['Simulated candle'],
      axisLabel:{color:'#d1e2ef'}},
     yAxis:{type:'value',scale:true,axisLabel:{color:'#d1e2ef'}},
     dataZoom:[{type:'inside',filterMode:'none'}]};
@@ -178,10 +178,10 @@
     const data=compareMetrics(kind,candle,secondVolume);
     if(kind==='candle'){
      const a=data.originalCandle,b=data.independentCandle;
-     common.xAxis.data=['Original fictional','Independent fictional'];
+     common.xAxis.data=['Original simulated','Independent simulated'];
      common.yAxis={type:'value',scale:true,min:Math.max(0,Math.min(a.l,b.l)-.5),
       max:Math.max(a.h,b.h)+.5,axisLabel:{color:'#d1e2ef'}};
-     common.series=[{type:'candlestick',name:'Two fictional candles',barMaxWidth:58,
+     common.series=[{type:'candlestick',name:'Two simulated candles',barMaxWidth:58,
       data:[[a.o,a.c,a.l,a.h],[b.o,b.c,b.l,b.h]],
       itemStyle:{color:'#24b79c',color0:'#ee7487',borderColor:'#24b79c',borderColor0:'#ee7487'}}];
     }else{
@@ -217,7 +217,7 @@
    }else{
     common.yAxis={type:'value',scale:true,min:Math.max(0,candle.l-(candle.h-candle.l)*.16-.01),
      max:candle.h+(candle.h-candle.l)*.16+.01,axisLabel:{color:'#d1e2ef'}};
-    common.series=[{type:'candlestick',name:'Fictional OHLC',barWidth:56,
+    common.series=[{type:'candlestick',name:'Simulated OHLC',barWidth:56,
      data:[[candle.o,candle.c,candle.l,candle.h]],
      itemStyle:{color:'#24b79c',color0:'#ee7487',borderColor:'#24b79c',borderColor0:'#ee7487'},
      markLine:{silent:true,symbol:['none','none'],precision:2,
@@ -253,8 +253,8 @@
     const c=compareMetrics(kind,candle,secondVolume);
     if(c){
      facts.append(node('p',kind==='candle'?
-      'Original body share '+c.original.percent.toFixed(1)+'%; independent fictional share '+c.independent.percent.toFixed(1)+'%. Different OHLC values, no forward-price inference.':
-      'Original trade-price VWAP '+money(c.original.price)+'; independent fictional VWAP '+money(c.independent.price)+'. Neither is a bar-proxy historical calculation.'));
+      'Original body share '+c.original.percent.toFixed(1)+'%; independent simulated share '+c.independent.percent.toFixed(1)+'%. Different OHLC values, no forward-price inference.':
+      'Original trade-price VWAP '+money(c.original.price)+'; independent simulated VWAP '+money(c.independent.price)+'. Neither is a bar-proxy historical calculation.'));
      if(kind==='candle'){
       row('New Open',money(c.independentCandle.o));row('New High',money(c.independentCandle.h));
       row('New Low',money(c.independentCandle.l));row('New Close',money(c.independentCandle.c));
@@ -265,9 +265,9 @@
     }
    }
    chart.setAttribute('aria-label',comparing?
-    'Two original fictional numerical cases; equivalent values appear in the table and textual calculation.':
-    kind==='vwap'?'Fictional trade prices, quantities and volume-weighted average':
-      'Fictional candlestick with Open, High, Low and Close guides');
+    'Two original simulated numerical cases; equivalent values appear in the table and textual calculation.':
+    kind==='vwap'?'Simulated trade prices, quantities and volume-weighted average':
+      'Simulated candlestick with Open, High, Low and Close guides');
    instance?.setOption(option(),{notMerge:true});
   }
   const session={
