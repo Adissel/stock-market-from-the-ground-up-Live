@@ -152,6 +152,29 @@ test('A09 — a delayed token lookup cannot send an old question with a new memb
  assert.equal(outbound[0].opts.headers.authorization,'Bearer A-TOKEN');
  assert.equal(JSON.parse(outbound[0].opts.body).requestId,requestId);
  assert.equal(JSON.parse(outbound[0].opts.body).allowModel,false);
+ // Destructive history operations must be bound to their initiating identity
+ // BEFORE awaiting the asynchronous session lookup. No second-account DELETE.
+ globals.confirm=()=>true;
+ let resolveDelete;
+ globals.__deleteSession=()=>new Promise(resolve=>{resolveDelete=resolve});
+ vm.runInContext("TUTOR.user={id:'"+a+"'};TUTOR.identityEpoch=8;TUTOR.sb={auth:{getSession:__deleteSession}};",ctx);
+ const deletePromise=vm.runInContext("deleteAll()",ctx);
+ await Promise.resolve();
+ vm.runInContext("TUTOR.user={id:'"+b+"'};TUTOR.identityEpoch=9;",ctx);
+ resolveDelete({data:{session:{user:{id:b},access_token:'B-TOKEN'}}});
+ await deletePromise;
+ assert.equal(outbound.length,1,'A09: old member bulk deletion may not target newly signed-in account');
+ assert.equal(outbound.filter(x=>String(x.url).includes('member-tutor-data-delete')).length,0);
+ // Ordinary private reads and writes must similarly refuse stale member tokens.
+ let resolvePrivate;
+ globals.__privateSession=()=>new Promise(resolve=>{resolvePrivate=resolve});
+ vm.runInContext("TUTOR.user={id:'"+a+"'};TUTOR.identityEpoch=10;TUTOR.sb={auth:{getSession:__privateSession}};",ctx);
+ const privatePromise=vm.runInContext("privateApi('','GET')",ctx);
+ await Promise.resolve();
+ vm.runInContext("TUTOR.user={id:'"+b+"'};TUTOR.identityEpoch=11;",ctx);
+ resolvePrivate({data:{session:{user:{id:b},access_token:'B-TOKEN'}}});
+ await assert.rejects(privatePromise,/Member session changed/i);
+ assert.equal(outbound.length,1,'A09: no prior account private request dispatched with new token');
  const contract=readFileSync(new URL('../assets/js/market-tutor.js',import.meta.url),'utf8');
  assert.match(contract,/TUTOR\.identityEpoch===submittingEpoch&&TUTOR\.user\?\.id===submittingUser&&/);
  assert.match(contract,/TUTOR\.abortController===controller/);
