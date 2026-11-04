@@ -10,7 +10,9 @@ const bridge=read('assets/js/crownlight-classroom-chart-bridge-v1.js');
 const css=read('assets/css/crownlight-shared-classroom-v1.css');
 test('Classic Prototype Lab and Boot Camp views mount exact Experience B technical chart',()=>{
  assert.match(source,/export function mountClassicClassroomChart\(/);
- assert.match(source,/sourceBars=\{available\}/);
+ assert.match(source,/sourceBars=\{completedBars\}/);
+ assert.match(source,/mode==='talia'\?available\.slice\(0,Math\.floor/,'Talia timeframes do not render forming bars');
+ assert.match(source,/mode==='talia'\?completedBars\.length:count/,'Other Lab and Boot Camp case evidence remains unchanged');
  assert.match(source,/function PrototypeChartContextMenu\(/);
  assert.match(source,/function IndicatorDock\(/);
  assert.match(source,/function ChartCustomizer\(/);
