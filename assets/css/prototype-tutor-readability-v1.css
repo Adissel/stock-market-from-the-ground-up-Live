@@ -1,0 +1,59 @@
+/* Prototype Center V1: instruction-first readable typography and compact chrome.
+ * Only affects Owner/Admin React prototype, never member pages or simulator.
+ * Buttons remain at least 40px high on narrow touch devices.
+ */
+.cx-app .cx-talia .cx-coach-content{min-width:0;max-width:100%;line-height:1.7}
+.cx-app .cx-talia .cx-coach-content>strong{font-size:clamp(18px,1.45vw,22px);line-height:1.4;color:#f4fdff}
+.cx-app .cx-talia .cx-coach-typed{font-size:clamp(18px,1.4vw,21px);font-weight:450;line-height:1.8;letter-spacing:.005em;color:#f3fcff;overflow-wrap:anywhere;white-space:pre-wrap;max-width:72ch;margin:12px 0 15px}
+.cx-app .cx-talia .cx-coach-evidence{font-size:17px;line-height:1.75;color:#f0f9ff;max-width:72ch;overflow-wrap:anywhere}
+.cx-app .cx-talia .cx-coach-content>small{display:block;font-size:14px;line-height:1.6;color:#c6dfe9;margin:9px 0}
+.cx-app .cx-tutor-evidence-head h4{font-size:clamp(19px,1.7vw,24px);line-height:1.4}
+.cx-app .cx-tutor-evidence-head p{font-size:16px;line-height:1.7;color:#e5f1f8}
+.cx-app .cx-tutor-evidence-body>p,.cx-app .cx-tutor-caution,.cx-app .cx-tutor-feedback,.cx-app .cx-structure-tutor{font-size:17px;line-height:1.75;color:#edf8ff;max-width:72ch;overflow-wrap:anywhere}
+.cx-app .cx-tutor-context strong{font-size:17px;line-height:1.5}
+.cx-app .cx-tutor-context small,.cx-app .cx-tutor-evidence-foot{font-size:13px;line-height:1.55}
+.cx-app .cx-tutor-calc label{font-size:15px;line-height:1.5}
+.cx-app .cx-learning .cx-lesson-body p,.cx-app .cx-learning .cx-lesson-body li{font-size:16px;line-height:1.7}
+.cx-app .cx-lp-coach .cx-talia{max-height:none;overflow:visible}
+.cx-app .cx-lp-guided-script{font-size:16px;line-height:1.7}
+.cx-app .cx-lp-guided-script strong{font-size:16px}
+.cx-app .cx-right .cx-learning,.cx-app .cx-talia,.cx-app .cx-tutor-evidence{min-width:0}
+/* Small control footprints; only chrome shrinks, never instructional prose. */
+.cx-app .cx-live-workspace .cx-pan-controls{gap:4px;padding:5px 8px;min-height:0}
+.cx-app .cx-live-workspace .cx-pan-controls button,
+.cx-app .cx-market-terminal .cx-tool-row button,
+.cx-app .cx-tool-row button,
+.cx-app .cx-replay button,
+.cx-app .cx-simulation-controls button,
+.cx-app .cx-talia .cx-coach-actions button,
+.cx-app .cx-talia .cx-talia-playback button,
+.cx-app .cx-talia .cx-talia-playback select,
+.cx-app .cx-tutor-tabs button,
+.cx-app .cx-tutor-controls button,
+.cx-app .cx-tutor-choices button,
+.cx-app .cx-lp-card button{
+ font-size:11px;line-height:1.25;padding:5px 8px;min-height:32px;border-radius:6px;box-shadow:none;letter-spacing:0
+}
+.cx-app .cx-talia .cx-coach-actions{gap:5px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.cx-app .cx-talia .cx-coach-actions button{text-align:center;white-space:normal}
+.cx-app .cx-talia .cx-talia-playback{gap:5px}
+.cx-app .cx-talia .cx-talia-playback label{font-size:12px;line-height:1.35}
+/* The floating context menu is outside .cx-app; keep its controls compact. */
+.cx-context-menu button{padding:5px 8px;min-height:32px;font-size:12px}
+.cx-context-menu .cx-context-editor input,.cx-context-menu .cx-context-editor select{font-size:14px;min-height:36px}
+@media(max-width:750px){
+ .cx-app .cx-talia .cx-coach-typed{font-size:18px;line-height:1.75}
+ .cx-app .cx-talia .cx-coach-evidence,.cx-app .cx-tutor-evidence-body>p,.cx-app .cx-tutor-caution{font-size:17px}
+ .cx-app .cx-talia .cx-coach-actions button,
+ .cx-app .cx-talia .cx-talia-playback button,
+ .cx-app .cx-tutor-tabs button,
+ .cx-app .cx-live-workspace .cx-pan-controls button,
+ .cx-app .cx-lp-card button{min-height:40px}
+ .cx-app .cx-talia .cx-coach-actions{grid-template-columns:1fr 1fr}
+ .cx-context-menu button{min-height:40px}
+}
+@media(max-width:440px){
+ .cx-app .cx-talia .cx-coach-actions{grid-template-columns:1fr}
+ .cx-app .cx-tutor-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(prefers-reduced-motion:reduce){.cx-app .cx-talia *{transition:none!important}}
