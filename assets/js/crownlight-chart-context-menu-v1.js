@@ -95,9 +95,9 @@ function mount({shell,plot,trigger,drawingTrigger,getStatus,onAdd,onCustom,onMan
   const vw=root.innerWidth||doc.documentElement.clientWidth||1024;
   const vh=root.innerHeight||doc.documentElement.clientHeight||768;
   // Respect actual rendered width rather than placing a flyout outside the viewport.
-  menu.style.left=Math.max(8,Math.min(x,vw-menu.offsetWidth-8))+'px';
-  menu.style.top=Math.max(8,Math.min(y,vh-Math.min(menu.offsetHeight,vh-16)-8))+'px';
-  const start=primary.querySelector('button');start?.focus();
+  menu.style.left=Math.max(8,Math.min(Number(x)||8,Math.max(8,vw-menu.offsetWidth-8)))+'px';
+  menu.style.top=Math.max(8,Math.min(Number(y)||8,Math.max(8,vh-Math.min(menu.offsetHeight,vh-16)-8)))+'px';
+  const start=tab==='indicators'||tab==='drawings'?secondary.querySelector('button'):primary.querySelector('button');start?.focus();
  }
  function showIndicators(){
   currentTab='indicators';secondary.hidden=false;tertiary.hidden=true;secondary.replaceChildren();
@@ -169,7 +169,7 @@ function mount({shell,plot,trigger,drawingTrigger,getStatus,onAdd,onCustom,onMan
   btn('Manage indicators and line colors',()=>{close();onManage?.()}),
   btn('Chart appearance',()=>{close();onAppearance?.()}),
   btn('Close menu',close));
- function onContext(event){event.preventDefault();open(event.clientX,event.clientY)}
+ function onContext(event){event.preventDefault();event.stopPropagation();open(event.clientX,event.clientY,'indicators')}
  function onMainClick(){const r=trigger?.getBoundingClientRect?.()||{left:12,bottom:48};open(r.left,r.bottom+5,'indicators')}
  function onDrawClick(){const r=drawingTrigger?.getBoundingClientRect?.()||{left:12,bottom:48};open(r.left,r.bottom+5,'drawings')}
  function outside(event){if(!menu.hidden&&!menu.contains(event.target)&&event.target!==trigger&&event.target!==drawingTrigger)close()}
@@ -192,7 +192,9 @@ function mount({shell,plot,trigger,drawingTrigger,getStatus,onAdd,onCustom,onMan
    if(children.length){children[(index+delta+children.length)%children.length].focus();event.preventDefault()}
   }
  }
- shell.append(menu);
+ // Portal outside .sim-chart-panel, whose overflow:hidden clips a popup
+ // even when its CSS position is fixed. Preserve viewport-based placement.
+ doc.body.append(menu);
  plot.addEventListener('contextmenu',onContext);
  trigger?.addEventListener('click',onMainClick);
  drawingTrigger?.addEventListener('click',onDrawClick);
