@@ -4,6 +4,8 @@
   // injected this file, it must not modify React, Lab, Boot Camp or simulator DOM.
   const LEGACY_COPY_FIX_ROUTES = /^\/(?:$|(?:index|membership|store|dashboard|account|profile|settings|access|founding600|my-purchases|admin)(?:\.html)?$)/;
   if (!LEGACY_COPY_FIX_ROUTES.test(location.pathname.toLowerCase())) return;
+  // Do not mutate current Homepage DOM even if an older Pages middleware cached this module.
+  if (['/','/index','/index.html'].includes(location.pathname.toLowerCase())) return;
   const BUILD = 'v0.13.2.4';
   const normalize = (v) => String(v || '').replace(/\s+/g, ' ').trim().toLowerCase();
 
