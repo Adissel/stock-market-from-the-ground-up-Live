@@ -19,5 +19,11 @@ body.sm-experience-v7 .card:focus-within,body.sm-experience-v7 .gu-path-card:foc
  body.sm-experience-v7 .site-header .navlinks a:hover{background:#20374a}
  body.sm-experience-v7 .site-header .sm-theme-picker{align-self:flex-start;margin:8px 10px}
  .sm-shell-menu{display:inline-flex;align-items:center;justify-content:center}
+ /* The authoritative mobile drawer must be discoverable across the entire
+  * ≤900px interval; frontend-complete.css otherwise hides it above 700px. */
+ body.sm-experience-v7 .site-header #v1341-mobile-menu{
+  display:inline-flex!important;align-items:center;justify-content:center;
+  min-height:44px
+ }
 }
 @media(prefers-reduced-motion:reduce){body.sm-experience-v7 *,body.sm-experience-v7 *:before,body.sm-experience-v7 *:after{scroll-behavior:auto!important;animation-duration:.01ms!important;transition-duration:.01ms!important}}
