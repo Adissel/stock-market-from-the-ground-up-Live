@@ -13,7 +13,11 @@ assert(home.includes('/assets/css/home-member-stats.css?v=20261103-restore1'),'R
 assert(stats.includes("fetch('/api/home-member-stats-v01353?action=public'"),'Member Status must read only the verified public aggregate endpoint');
 assert(stats.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE'"),'Demonstration counts must be visibly labeled and verification failures fail closed');
 assert(!read('functions/_middleware.js').includes('home-community.js'),'Edge middleware must not re-inject the owner-removed example statistics');
-assert(stats.includes('Example online members')&&stats.includes('Example registered members'),'Example statistics must never appear as real counts');
+assert(stats.includes('Owner-configured demonstration counts, not verified registered or online members')&&
+ stats.includes('Owner-configured demonstration values only. These are not actual membership counts.'),
+ 'Example statistics must never appear as real counts even with concise metric labels');
+assert(stats.includes('Online members')&&stats.includes('Registered members'),
+ 'Preserve approved concise metric names with separate provenance disclosure');
 assert(stats.includes('if(d.show===false)'),'Owner must retain authority to hide statistics');
 
 assert(theme.includes("if(isAdmin){try{const saved=sessionStorage.getItem(KEY)"),'Private Owner theme previews must not leak into public browsing');
