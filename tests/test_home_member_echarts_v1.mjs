@@ -4,7 +4,8 @@ import {Script} from 'node:vm';
 const get=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const js=get('assets/js/home-community.js'),home=get('index.html'),style=get('assets/css/home-member-stats.css');
 assert.doesNotThrow(()=>new Script(js));
-for(const p of ['/assets/js/home-community.js','/assets/js/crownlight-echarts-loader-v1.js','/assets/css/home-member-stats.css'])assert(!home.includes(p),p+' must remain removed from the public homepage');
+for(const p of ['/assets/js/home-community.js','/assets/js/crownlight-echarts-loader-v1.js','/assets/css/home-member-stats.css'])assert(home.includes(p),p+' must be restored to the homepage');
+assert(js.includes('<h2>Member Status</h2>'),'The member status heading is restored');
 assert(js.includes("fetch('/api/home-member-stats-v01353?action=public'"),'Only existing aggregate endpoint');
 assert(js.includes('window.CrownlightECharts.load()'),'Use first-party local ECharts loader');
 assert(js.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE'"),'Archived renderer distinguishes illustrative versus verified data');
@@ -21,7 +22,7 @@ assert(js.includes('if(!total)'),'No-data denominator must not create a fabricat
 assert(js.includes('if(visual&&visualNode!==host)'),'Remount must release previous chart');
 assert(js.includes('if(window.__SMFGUHomeStatsMounted)return'),'Singleton initializer');
 assert(style.includes('v1353-stats-graph'),'Chart layout exists');
-console.log('PASS archived member-stat ECharts source is disabled on homepage, with truthful example labeling and tested no-data fallback');
+console.log('PASS restored homepage member status; verifiable aggregates, truthful example labeling and no-data fallback');
 
 assert(js.includes('renderFuture(panel,d.extras)'),'Owner toggles drive optional homepage modules');
 assert(!js.includes('187 of 225 illustrative members'),'Removed unwanted verbose text');
