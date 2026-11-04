@@ -89,3 +89,13 @@ test('learning observations do not claim verified retention, independent mastery
  assert.equal(policy.releaseHolds.length,3);
  assert.match(policy.evidencePolicy.retention,/later spaced recall/);
 });
+
+test('Boot Camp reflection notes are optional at every input length; no 40/80-character quota',()=>{
+ const source=read('assets/js/bootcamp-academy-v014168.js');
+ assert.match(source,/Optional written reasoning — not required for feedback/);
+ assert.match(source,/use\.disabled=!answer\.value\.trim\(\)/);
+ assert.match(source,/use\.disabled=!value\.trim\(\)/);
+ assert.match(source,/if\(!written\)/);
+ assert.match(source,/if\(!answer\)/);
+ assert.doesNotMatch(source,/answer\.length<40|written\.length<80|\.value\.trim\(\)\.length<80/);
+});
