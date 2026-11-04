@@ -87,9 +87,9 @@ try{
       const caseBox=page.locator('.academy-advanced-practicum');
       assert.equal(await caseBox.count(),1,'A fully worked advanced case is available at calculation stage');
       await page.locator('.academy-guided-controls button').nth(1).click();
-      assert.match(await page.locator('.academy-guided-controls + p[role="status"]').innerText(),/Complete the advanced case reasoning/);
-      await caseBox.locator('textarea').fill('I will compute from the given prices and volume units, check the timestamp and risk, and state what is not proven.');
-      await caseBox.locator('button').click();
+      assert.match(await page.locator('.academy-guided-controls + p[role="status"]').innerText(),/Choose an evidence-handling decision/);
+      await caseBox.locator('.academy-guided-method-check input[value="EVIDENCE"]').check();
+      await caseBox.getByRole('button',{name:/Review advanced reasoning/}).click();
       assert.match(await caseBox.locator('p[role="status"]').innerText(),/Worked analysis:.*Common mistake:/);
      }
      await page.locator('.academy-guided-controls button').nth(1).click();
@@ -101,8 +101,8 @@ try{
     for(let n=0;n<12;n++){
      const item=page.locator('.academy-formative-question').nth(n);
      await item.locator('summary').click();
-     await item.locator('textarea').fill('I will calculate the observed quantities with appropriate units, verify source and timestamps, and preserve the no-trade option.');
-     await item.locator('button').click();
+     await item.locator('.academy-guided-method-check input[value="EVIDENCE"]').check();
+     await item.getByRole('button',{name:/Check method and review Talia/}).click();
      assert.match(await item.locator('p[role="status"]').innerText(),/Teaching feedback:/);
     }
     assert.match(await page.locator('.academy-formative-progress').innerText(),/12 of 12/);
@@ -111,8 +111,8 @@ try{
     await page.locator('.academy-guided-controls button').nth(1).click();
     const second=page.locator('.academy-advanced-practicum');
     assert.equal(await second.count(),1,'Independent advanced transfer case at stage eight');
-    await second.locator('textarea').fill('The second advanced case requires independent source evaluation and a fresh calculation, then a conservative no-trade decision.');
-    await second.locator('button').click();
+    await second.locator('.academy-guided-method-check input[value="EVIDENCE"]').check();
+    await second.getByRole('button',{name:/Review advanced reasoning/}).click();
     assert.match(await second.locator('p[role="status"]').innerText(),/Worked analysis:/);
     await page.locator('.academy-guided-choice').filter({hasText:lesson.transfer}).locator('input').check();
     await page.locator('.academy-guided-controls button').nth(1).click();
