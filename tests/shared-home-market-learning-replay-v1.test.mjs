@@ -21,9 +21,9 @@ test('same homepage React ECharts component is mounted in authenticated learning
  assert.match(home,/const embeddedRoots=new WeakMap/);
  assert.match(home,/function mount\(\)\{const host=resolveHomeChartHost/);
  for(const page of [labHtml,academyHtml]){
-  assert.match(page,/home-market-terminal-v1\.bundle\.js\?v=20261103-sharing1/);
-  assert.match(page,/home-market-terminal-v1\.css\?v=20261103-sharing1/);
-  assert.match(page,/learning-home-market-replay-v1\.css\?v=20261103-sharing1/);
+  assert.match(page,/home-market-terminal-v1\.bundle\.js\?v=20261104-realism1/);
+  assert.match(page,/home-market-terminal-v1\.css\?v=20261104-realism1/);
+  assert.match(page,/learning-home-market-replay-v1\.css\?v=20261104-realism1/);
   assert.match(page,/crownlight-learning-echarts-v1\.js/,'Previous stepwise math remains available');
  }
  assert.match(build,/HomeMarketTerminal\.tsx/);
@@ -38,7 +38,7 @@ test('all homepage playback controls and tooltip behavior remain shared',()=>{
 });
 test('original homepage terminal cannot query private users, unlock courses, or reveal future market observations',()=>{
  assert.doesNotMatch(home,/supabase|access_token|service_role|fetch\(|\/api\/|gradeMember|protectedAnswer/i);
- assert.match(home,/const DATA:Bar\[\]=Array\.from/);
+ assert.match(home,/const DATA:Bar\[\]=\(\(\)=>\{/);
  assert.match(home,/function partialMinute\(index:number,ticks:number\):Bar/);
  assert.match(home,/safe%TICKS_PER_MINUTE/);
  assert.match(home,/window\.matchMedia\?\.\('\(prefers-reduced-motion: reduce\)'\)/);
@@ -61,7 +61,7 @@ test('Lab calculation checkpoint pauses the market terminal rather than supplyin
  assert.match(labs,/context:'lab',startPaused:checkpointLocked,checkpointLocked/);
  assert.match(home,/if\(checkpointLocked\)setPlaying\(false\)/);
  assert.match(home,/disabled=\{checkpointLocked\}/);
- assert.match(home,/if\(checkpointLocked\)return;playhead\.current=0/);
+ assert.match(home,/if\(checkpointLocked\)return;playhead\.current=1/);
  assert.match(home,/Playback paused for the Lab calculation checkpoint/);
 });
 test('Academy replay appears only inside a verified enrolled day and cleans up on user switch',()=>{
@@ -78,7 +78,7 @@ test('learning styling is responsive and does not fabricate grades or account st
   'prefers-reduced-motion','outline:3px','gu-learning-market-context'])
   assert.ok(css.includes(k),k);
  assert.doesNotMatch(css,/pointer-events:none/);
- assert.match(home,/Accelerated original fictional replay/);
+ assert.match(home,/Fictional one-minute OHLCV/);
  assert.match(labs,/separate from the Lab’s authored evidence/);
  assert.match(academy,/separate from the study day’s historical evidence, graded answers, and saved progress/);
 });

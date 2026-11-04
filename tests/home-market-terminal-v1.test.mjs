@@ -36,7 +36,7 @@ test('fictional candle and volume colors meet nontext contrast on dark training 
  assert.ok(css.includes(background));
  const lum=hex=>{const c=hex.match(/[a-f0-9]{2}/ig);assert.equal(c?.length,3);const rgb=c.map(v=>parseInt(v,16)/255).map(n=>n<=0.04045?n/12.92:((n+0.055)/1.055)**2.4);return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2]};
  const contrast=(a,b)=>{const aa=lum(a),bb=lum(b);return (Math.max(aa,bb)+.05)/(Math.min(aa,bb)+.05)};
- for(const color of ['#37c7aa','#e36d79','#2da98f','#be6570']){assert.ok(source.includes(color),'Missing rendered color '+color);assert.ok(contrast(color,background)>=3,'Insufficient nontext contrast '+color)}
+ for(const color of ['#08c69d','#e32d55','#18a584','#d94c6a']){assert.ok(source.includes(color),'Missing rendered color '+color);assert.ok(contrast(color,background)>=3,'Insufficient nontext contrast '+color)}
  assert.ok(source.includes('borderColor0'),'Bearish candle borders and wicks must remain visible');
  assert.ok(source.includes('borderColor:'),'Bullish candle borders and wicks must remain visible');
  assert.match(source,/Fictional market/);
@@ -78,15 +78,15 @@ test('intracandle simulation reveals only current fictional ticks; no future hig
  }
  for(const k of ['open','close','high','low','volume'])assert.ok(Math.abs(prior[k]-b[k])<1e-8,'Final fictional candle reconciles: '+k);
  const one=api.revealedBars(1,0),after=api.revealedBars(1,1);
- assert.equal(one.length,101);assert.equal(one[100].volume,0);
- assert.ok(after[100].volume>0&&after[100].volume<b.volume,'Only observed volume becomes visible');
+ assert.equal(one.length,1,'The first frame displays one forming candle only');assert.equal(one[0].volume,0);
+ assert.ok(after[0].volume>0&&after[0].volume<fixture[0].volume,'Only current observed volume becomes visible');
  const five=api.revealedBars(5,0);
- assert.equal(five.length,21,'Five-minute aggregation starts at a completed boundary');
- assert.equal(five[20].open,b.open);assert.equal(five[20].volume,0);
+ assert.equal(five.length,1,'Five-minute aggregation also starts with one forming candle');
+ assert.equal(five[0].open,fixture[0].open);assert.equal(five[0].volume,0);
  const three=api.revealedBars(3,0);
- assert.equal(three.length,34,'Three-minute aggregation includes one forming group, without future data');
- assert.equal(three[33].volume,0);
- const final=api.revealedBars(5,1000);
+ assert.equal(three.length,1,'Three-minute aggregation includes only one forming group');
+ assert.equal(three[0].volume,0);
+ const final=api.revealedBars(5,3000);
  assert.equal(final.length,30,'Replay finishes with 30 complete five-minute candles');
  assert.equal(final[29].volume,fixture.slice(145,150).reduce((n,x)=>n+x.volume,0));
 });
