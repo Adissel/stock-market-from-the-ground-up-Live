@@ -359,11 +359,15 @@ test -s "$output/assets/js/member-progress-visual-v1.bundle.js"
 # Talia member classroom is a new presentation over the existing Tutor API.
 # Type-check against the same pinned React/TypeScript toolchain used by prototypes.
 test -s src/tutor/TaliaClassroom.tsx
-cp -- src/tutor/TaliaClassroom.tsx "$vendor_temp/TaliaClassroom.tsx"
+# Talia now reuses the same React chart as Classic Labs. Keep source files in
+# their original relative positions within the isolated temporary toolchain.
+mkdir -p "$vendor_temp/tutor" "$vendor_temp/prototype"
+cp -- src/tutor/TaliaClassroom.tsx "$vendor_temp/tutor/TaliaClassroom.tsx"
+cp -- src/prototype/PrototypeExperiences.tsx "$vendor_temp/prototype/PrototypeExperiences.tsx"
 node "$vendor_temp/node_modules/typescript/bin/tsc" --noEmit --strict --skipLibCheck \
   --module esnext --moduleResolution bundler --jsx react-jsx --target es2022 \
-  "$vendor_temp/TaliaClassroom.tsx"
-node "$vendor_temp/node_modules/esbuild/bin/esbuild" "$vendor_temp/TaliaClassroom.tsx" \
+  "$vendor_temp/tutor/TaliaClassroom.tsx"
+node "$vendor_temp/node_modules/esbuild/bin/esbuild" "$vendor_temp/tutor/TaliaClassroom.tsx" \
   --bundle --format=esm --target=es2022 --minify \
   --define:process.env.NODE_ENV='"production"' \
   --outfile="$output/assets/js/talia-classroom-v1.bundle.js"
