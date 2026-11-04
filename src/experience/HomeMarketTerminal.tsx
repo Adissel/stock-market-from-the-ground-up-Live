@@ -2,6 +2,7 @@
 import React,{useEffect,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 type Study='all'|'ema9'|'ema20'|'vwap'|'sma20'|'none';
+type View='candles'|'hollow'|'heikin'|'ohlc'|'hlc'|'line'|'area'|'baseline'|'step'|'columns'|'dots'|'range';
 type Bar={open:number;close:number;low:number;high:number;volume:number};
 type Chart={setOption:(v:unknown,replace?:boolean)=>void;resize:()=>void;dispose:()=>void;dispatchAction:(v:unknown)=>void};
 type EmbeddedTerminalControl={pause?:()=>void;resume?:()=>void};
@@ -75,7 +76,8 @@ function marketTooltip(params:unknown,bars:readonly Bar[],indicator:readonly (nu
  */
 type Frame=1|3|5;
 const TICKS_PER_MINUTE=20;
-const FIRST_REPLAY_MINUTE=0; // The initial frame contains exactly one forming candle, no historical pre-roll.
+const FIRST_REPLAY_MINUTE=0; // Protected Lab and Academy teaching replays still begin at one forming candle.
+const HOME_INITIAL_COMPLETED_CANDLES=105; // Homepage-only public simulated context, not a live or historical data feed.
 const TICK_MS=160; // Demonstration playback is deliberately compressed, not wall-clock exchange time.
 function partialMinute(index:number,ticks:number):Bar{
  const b=DATA[index],n=Math.max(0,Math.min(TICKS_PER_MINUTE,Math.floor(ticks)));
@@ -111,22 +113,46 @@ function revealedBars(frame:Frame,position:number):Bar[]{
  if(next<DATA.length)minutes.push(partialMinute(next,safe%TICKS_PER_MINUTE));
  return groupMinutes(minutes,frame);
 }
+/** Derive Heikin-Ashi from revealed candles only. This never inspects later market observations. */
+function heikinAshi(observed:readonly Bar[]):Bar[]{
+ const result:Bar[]=[];let previousOpen=0,previousClose=0;
+ for(const [i,b] of observed.entries()){
+  const close=(b.open+b.high+b.low+b.close)/4;
+  const open=i===0?(b.open+b.close)/2:(previousOpen+previousClose)/2;
+  result.push({open,close,high:Math.max(b.high,open,close),low:Math.min(b.low,open,close),volume:b.volume});
+  previousOpen=open;previousClose=close;
+ }
+ return result;
+}
+const HOME_CHART_OPTIONS:readonly {value:View;label:string}[]=[
+ {value:'candles',label:'Candlesticks'},
+ {value:'hollow',label:'Hollow Candlesticks'},
+ {value:'heikin',label:'Heikin-Ashi'},
+ {value:'ohlc',label:'OHLC Bars'},
+ {value:'hlc',label:'HLC Bars'},
+ {value:'line',label:'Line'},
+ {value:'area',label:'Area / Mountain'},
+ {value:'baseline',label:'Baseline'},
+ {value:'step',label:'Step Line'},
+ {value:'columns',label:'Close Columns'},
+ {value:'dots',label:'Close Dots'},
+ {value:'range',label:'High-Low Range'}
+];
 function Terminal({context='home',startPaused=false,checkpointLocked=false,embedded}:{
  context?:'home'|'lab'|'bootcamp';startPaused?:boolean;checkpointLocked?:boolean;embedded?:EmbeddedTerminalControl
 }){
  const host=useRef<HTMLDivElement>(null);
  const [study,setStudy]=useState<Study>('all');
- const [windowSize,setWindowSize]=useState(60);
- const [view,setView]=useState<'candles'|'line'>('candles');
+ const [windowSize,setWindowSize]=useState(context==='home'?100:60);
+ const [view,setView]=useState<View>('candles');
  const [frame,setFrame]=useState<Frame>(1);
  const [speed,setSpeed]=useState(context==='home'?0.1:1);
- const homeSpeed=useRef(0.1);
- const [displaySpeed,setDisplaySpeed]=useState(0.1);
+ // Homepage speed is a deterministic, automatic 0.1x–0.4x cadence; no speed control.
  const [playing,setPlaying]=useState(()=>!startPaused&&!checkpointLocked&&!(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches));
  const [note,setNote]=useState('Simulated candles · Not real-time market data');
  const [progress,setProgress]=useState('Preparing simulated candle replay…');
  const chartInstance=useRef<Chart|null>(null);
- const playhead=useRef(1);
+ const playhead=useRef(context==='home'?HOME_INITIAL_COMPLETED_CANDLES*TICKS_PER_MINUTE+1:1);
  const isPublicHome=context==='home';
  useEffect(()=>{
   if(!embedded)return;
@@ -163,15 +189,54 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
   const labels=bars.map((_,i)=>'B'+String(i+1).padStart(2,'0'))
    .concat(Array.from({length:rightBuffer},()=> ' '));
   const padding=Array(rightBuffer).fill('-');
+  const displayBars=cfg.view==='heikin'?heikinAshi(bars):bars;
   const ema9=moving(bars,9,'ema'),ema20=moving(bars,20,'ema');
   const sma20=moving(bars,20,'sma'),vwap=barProxyVWAP(bars);
   const indicator=cfg.study==='sma20'?sma20:cfg.study==='ema20'?ema20:cfg.study==='vwap'?vwap:ema9;
   const show=(id:Study)=>cfg.study==='all'||cfg.study===id;
+  const view=cfg.view;
+  const up='#00d7a3',down='#ed3155',gold='#f5bd26';
+  const isCandles=view==='candles'||view==='hollow'||view==='heikin';
+  const isOhlc=view==='ohlc'||view==='hlc'||view==='range';
+  const priceSeries=isCandles?{
+   type:'candlestick',name:view==='heikin'?'Simulated Heikin-Ashi':'Simulated OHLCV',
+   data:displayBars.map(b=>[b.open,b.close,b.low,b.high]).concat(padding as never[]),
+   barMaxWidth:7,barMinWidth:1,
+   itemStyle:{color:view==='hollow'?'transparent':up,color0:down,
+    borderColor:up,borderColor0:down,borderWidth:1.05}
+  }:isOhlc?{
+   type:'custom',name:view==='range'?'Simulated high-low range':'Simulated OHLC bars',
+   data:displayBars.map((b,i)=>[i,b.open,b.close,b.low,b.high]).concat(padding as never[]),
+   renderItem:(_params:any,api:any)=>{
+    const i=Number(api.value(0)),o=Number(api.value(1)),c=Number(api.value(2));
+    const low=Number(api.value(3)),high=Number(api.value(4));
+    const x=api.coord([i,c])[0],yOpen=api.coord([i,o])[1],yClose=api.coord([i,c])[1];
+    const yLow=api.coord([i,low])[1],yHigh=api.coord([i,high])[1];
+    const color=c>=o?up:down,width=Math.max(2,api.size([1,0])[0]*.33);
+    const children:any[]=[{type:'line',shape:{x1:x,y1:yHigh,x2:x,y2:yLow},
+      style:{stroke:color,lineWidth:view==='range'?4:1.5}}];
+    if(view!=='range'){
+     if(view==='ohlc')children.push({type:'line',shape:{x1:x-width,y1:yOpen,x2:x,y2:yOpen},
+      style:{stroke:color,lineWidth:1.5}});
+     children.push({type:'line',shape:{x1:x,y1:yClose,x2:x+width,y2:yClose},
+      style:{stroke:color,lineWidth:1.5}});
+    }
+    return {type:'group',children};
+   }
+  }:{
+   type:view==='columns'?'bar':view==='dots'?'scatter':'line',name:'Simulated close',
+   data:displayBars.map(b=>+b.close.toFixed(3)).concat(padding as never[]),
+   symbol:'circle',symbolSize:view==='dots'?5:0,showSymbol:view==='dots',
+   barMaxWidth:7,barMinWidth:1,smooth:false,step:view==='step'?'end':false,
+   lineStyle:{color:up,width:1.5},itemStyle:{color:up},
+   areaStyle:view==='area'?{color:'rgba(0,205,152,.18)'}:undefined,
+   markLine:view==='baseline'&&displayBars.length?{
+    data:[{yAxis:displayBars[0].close}],symbol:'none',silent:true,
+    lineStyle:{color:gold,type:'dashed',width:1}
+   }:undefined
+  };
   const series=[
-   {type:cfg.view==='candles'?'candlestick':'line',name:'Simulated market',
-    data:bars.map(b=>cfg.view==='candles'?[b.open,b.close,b.low,b.high]:+b.close.toFixed(3)).concat(padding as never[]),
-    barMaxWidth:9,barMinWidth:2,smooth:false,showSymbol:false,lineStyle:{color:'#10cdaa',width:1.7},
-    itemStyle:{color:'#08c69d',color0:'#e32d55',borderColor:'#08c69d',borderColor0:'#e32d55'}},
+   priceSeries,
    ...(show('ema9')?[{type:'line',name:'EMA 9',data:ema9.concat(padding as never[]),
     showSymbol:false,connectNulls:false,lineStyle:{color:'#8bf100',width:1.3},z:3}]:[]),
    ...(show('ema20')?[{type:'line',name:'EMA 20',data:ema20.concat(padding as never[]),
@@ -180,23 +245,23 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
     showSymbol:false,connectNulls:false,lineStyle:{color:'#efd074',width:1.4},z:3}]:[]),
    ...(show('vwap')?[{type:'line',name:'Bar-based VWAP proxy',data:vwap.concat(padding as never[]),
     showSymbol:false,connectNulls:false,lineStyle:{color:'#ffbd25',width:1.4},z:3}]:[]),
-   {type:'bar',name:'Simulated volume',xAxisIndex:1,yAxisIndex:1,barMaxWidth:9,
+   {type:'bar',name:'Simulated volume',xAxisIndex:1,yAxisIndex:1,barMaxWidth:7,
     data:bars.map(bar=>({value:bar.volume,itemStyle:{color:bar.close>=bar.open?'#18a584':'#d94c6a'}}))
      .concat(padding.map(()=>({value:0,itemStyle:{color:'transparent'}})))}
   ];
   const tooltip={trigger:'axis',axisPointer:{type:'cross'},confine:true,appendToBody:false,
    backgroundColor:'#102638',borderColor:'#4b687f',textStyle:{color:'#e8f4f8'},
-   formatter:(params:unknown)=>marketTooltip(params,bars,indicator,cfg.study)};
+   formatter:(params:unknown)=>marketTooltip(params,displayBars,indicator,cfg.study)};
   if(initial){
-   chart.setOption({animation:false,backgroundColor:'transparent',
-    grid:[{left:50,right:20,top:25,height:'64%'},{left:50,right:20,top:'77%',height:'12%'}],
+   chart.setOption({animation:false,backgroundColor:isPublicHome?'#030607':'transparent',
+    grid:[{left:isPublicHome?38:50,right:isPublicHome?8:20,top:isPublicHome?9:25,height:isPublicHome?'74%':'64%'},{left:isPublicHome?38:50,right:isPublicHome?8:20,top:isPublicHome?'80%':'77%',height:isPublicHome?'14%':'12%'}],
     tooltip,legend:{show:false},
-    xAxis:[{type:'category',data:labels,axisLine:{lineStyle:{color:'#3b5266'}},axisLabel:{color:'#96b3c5',interval:9}},
+    xAxis:[{type:'category',data:labels,axisLine:{lineStyle:{color:isPublicHome?'#363e41':'#3b5266'}},axisLabel:{color:'#96b3c5',interval:isPublicHome?13:9}},
       {type:'category',gridIndex:1,data:labels,axisLabel:{show:false}}],
-    yAxis:[{scale:true,axisLabel:{color:'#9db4c5'},splitLine:{lineStyle:{color:'rgba(121,163,188,.16)'}}},
+    yAxis:[{scale:true,axisLabel:{color:'#9db4c5'},splitLine:{lineStyle:{color:isPublicHome?'rgba(137,148,150,.22)':'rgba(121,163,188,.16)'}}},
       {gridIndex:1,axisLabel:{show:false},splitLine:{show:false}}],
-    dataZoom:[{type:'inside',xAxisIndex:[0,1],start:bars.length<=32?0:100-cfg.windowSize,end:100,zoomOnMouseWheel:true,moveOnMouseMove:true,moveOnMouseWheel:false},
-      {type:'slider',xAxisIndex:[0,1],start:bars.length<=32?0:100-cfg.windowSize,end:100,bottom:3,height:13}],series},true);
+    dataZoom:[{type:'inside',xAxisIndex:[0,1],start:isPublicHome?(plotWidth<650?70:0):(bars.length<=32?0:100-cfg.windowSize),end:100,zoomOnMouseWheel:true,moveOnMouseMove:true,moveOnMouseWheel:false},
+      {type:'slider',xAxisIndex:[0,1],show:!isPublicHome,start:isPublicHome?(plotWidth<650?70:0):(bars.length<=32?0:100-cfg.windowSize),end:100,bottom:3,height:13}],series},true);
   }else{
    // Merge incremental series updates: keep the visitor's zoom and horizontal pan.
    chart.setOption({tooltip,xAxis:[{data:labels},{data:labels}],series},false);
@@ -235,8 +300,7 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
   const timer=window.setInterval(()=>{
    const now=performance.now(),elapsed=Math.min(400,now-last);last=now;
    if(document.hidden)return;
-   const actualSpeed=isPublicHome?(Math.floor(playhead.current/TICKS_PER_MINUTE)%2===0?0.1:0.5):speed;
-   if(isPublicHome&&homeSpeed.current!==actualSpeed){homeSpeed.current=actualSpeed;setDisplaySpeed(actualSpeed);}
+   const actualSpeed=isPublicHome?([0.1,0.2,0.4,0.3][Math.floor(playhead.current/TICKS_PER_MINUTE)%4]):speed;
    carry+=elapsed*actualSpeed;
    const steps=Math.floor(carry/TICK_MS);
    if(steps<1)return;
@@ -251,30 +315,34 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
  },[playing,speed,frame,isPublicHome]);
  const changeFrame=(value:Frame)=>{if(checkpointLocked)return;playhead.current=1;setFrame(value);setPlaying(true);setNote('Simulated '+value+'-minute replay · Intracandle movement is compressed for demonstration.')};
  const restart=()=>{if(checkpointLocked)return;playhead.current=1;paint();setPlaying(true);setNote('Simulated replay restarted. No live market feed.')};
- return <div className="cl-react-terminal">
+ return <div className={'cl-react-terminal'+(isPublicHome?' cl-react-terminal--home':'')}>
   <div className="cl-react-toolbar">
-   <span className="cl-react-title">CROWNLIGHT <small>{context==='home'?'TRAINING TERMINAL':'LAB & BOOT CAMP MARKET REPLAY'}</small></span>
-   <label>Chart <select value={view} onChange={e=>setView(e.target.value as 'candles'|'line')}><option value="candles">Candlesticks</option><option value="line">Line</option></select></label>
-   <label>Indicator <select value={study} onChange={e=>setStudy(e.target.value as Study)}>
-   <option value="all">EMA 9 / EMA 20 / VWAP proxy</option><option value="ema9">EMA 9</option>
-   <option value="ema20">EMA 20</option><option value="vwap">VWAP proxy</option>
-   <option value="sma20">SMA 20</option><option value="none">None</option></select></label>
-   <label>History <select value={windowSize} onChange={e=>setWindowSize(Number(e.target.value))}><option value={30}>30%</option><option value={60}>60%</option><option value={100}>All</option></select></label>
-   <label>Timeframe <select value={frame} onChange={e=>changeFrame(Number(e.target.value) as Frame)}><option value={1}>1m</option><option value={3}>3m</option><option value={5}>5m</option></select></label>
-   {isPublicHome?<div className="cl-react-home-speed" role="status" aria-label="Homepage automatically alternates replay speed">
-   Auto speed <strong>{displaySpeed.toFixed(1)}×</strong><small>0.1× ↔ 0.5× per completed candle</small>
-  </div>:<label>Replay speed <select value={speed} onChange={e=>setSpeed(Number(e.target.value))}>
-   <option value={0.1}>0.1×</option><option value={0.5}>0.5×</option>
-   <option value={1}>1×</option><option value={3}>3×</option></select></label>}
-   <div className="cl-react-playback"><button type="button" disabled={checkpointLocked} onClick={()=>setPlaying(x=>!x)}
-    aria-label={playing?'Pause simulated candle formation':'Resume simulated candle formation'}>{playing?'Pause':'Resume'}</button>
-    <button type="button" disabled={checkpointLocked} onClick={restart}>Replay</button></div>
+   {isPublicHome?<label className="cl-react-home-type">Chart type
+    <select aria-label="Chart type" value={view} onChange={e=>setView(e.target.value as View)}>
+     {HOME_CHART_OPTIONS.map(type=><option key={type.value} value={type.value}>{type.label}</option>)}
+    </select></label>:<>
+    <span className="cl-react-title">CROWNLIGHT <small>LAB & BOOT CAMP MARKET REPLAY</small></span>
+    <label>Chart <select value={view} onChange={e=>setView(e.target.value as View)}><option value="candles">Candlesticks</option><option value="line">Line</option></select></label>
+    <label>Indicator <select value={study} onChange={e=>setStudy(e.target.value as Study)}>
+     <option value="all">EMA 9 / EMA 20 / VWAP proxy</option><option value="ema9">EMA 9</option>
+     <option value="ema20">EMA 20</option><option value="vwap">VWAP proxy</option>
+     <option value="sma20">SMA 20</option><option value="none">None</option></select></label>
+    <label>History <select value={windowSize} onChange={e=>setWindowSize(Number(e.target.value))}><option value={30}>30%</option><option value={60}>60%</option><option value={100}>All</option></select></label>
+    <label>Timeframe <select value={frame} onChange={e=>changeFrame(Number(e.target.value) as Frame)}><option value={1}>1m</option><option value={3}>3m</option><option value={5}>5m</option></select></label>
+    <label>Replay speed <select value={speed} onChange={e=>setSpeed(Number(e.target.value))}>
+     <option value={0.1}>0.1×</option><option value={0.5}>0.5×</option>
+     <option value={1}>1×</option><option value={3}>3×</option></select></label>
+    <div className="cl-react-playback"><button type="button" disabled={checkpointLocked} onClick={()=>setPlaying(x=>!x)}
+     aria-label={playing?'Pause simulated candle formation':'Resume simulated candle formation'}>{playing?'Pause':'Resume'}</button>
+     <button type="button" disabled={checkpointLocked} onClick={restart}>Replay</button></div>
+   </>}
   </div>
   <div ref={host} className="cl-react-plot" role="region" tabIndex={0} onKeyDown={event=>{if(inspect(event.key))event.preventDefault()}}
    aria-label="Interactive simulated OHLCV training chart. Press Left or Right arrow to inspect a candle, Home for first candle, End for last candle; mouse wheel to zoom."/>
   <div className="cl-react-progress" aria-live="off"><span>{checkpointLocked?'Playback paused for the Lab calculation checkpoint. Finish the ungraded method check to continue.':progress}</span>
-   <small>Simulated one-minute OHLCV; every replay starts with one forming candle. EMA 9 (green), EMA 20 (red), bar-based VWAP proxy (gold, not trade-print VWAP). No live or licensed market feed.</small><a href="/practice-data-policy.html" className="cl-market-source-policy">How practice data is sourced</a></div>
-  <div className="cl-react-bottom"><span role="status">{note}</span><a href="/simulator.html">Open full Chart Studio</a></div>
+   <small>{isPublicHome?'SIMULATED MARKET · VARIABLE 0.1×–0.4× PLAYBACK · EMA 9 (GREEN) · EMA 20 (RED) · BAR-BASED VWAP PROXY (GOLD) · NO LIVE MARKET DATA':'Simulated one-minute OHLCV; every Lab or Boot Camp replay starts with one forming candle. EMA 9 (green), EMA 20 (red), bar-based VWAP proxy (gold, not trade-print VWAP). No live or licensed market feed.'}</small>
+   {!isPublicHome&&<a href="/practice-data-policy.html" className="cl-market-source-policy">How practice data is sourced</a>}</div>
+  {!isPublicHome&&<div className="cl-react-bottom"><span role="status">{note}</span><a href="/simulator.html">Open full Chart Studio</a></div>
  </div>;
 }
 /** Keep the original linked SVG available until the compiled chart is ready.
