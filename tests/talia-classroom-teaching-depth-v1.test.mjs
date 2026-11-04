@@ -101,7 +101,7 @@ test('server honors registered independent active Tutor upgrade and denies restr
   globalThis.fetch=mockFetch({denied:true});
   const free=await onRequest({request:request('GET'),env});
   assert.equal(free.status,200,'Eligible Foundation study remains free when premium tool RPC denied');
-  globalThis.fetch=async(url)=>String(url).includes('/rest/v1/profiles?')?json([{account_kind:'member',deleted_at:null}]):mockFetch()(...arguments);
+  // Account eligibility is independently verified by the existing Tutor access route.
  }finally{globalThis.fetch=saved}
 });
 test('student page has topic, depth, teaching action and no Pack card presentation',()=>{
