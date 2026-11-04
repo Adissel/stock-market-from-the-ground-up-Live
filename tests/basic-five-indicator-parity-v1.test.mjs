@@ -38,7 +38,7 @@ test('canonical mapped Lab topics reject swapped indicators and unknown IDs',()=
 });
 test('all named indicator lessons are source-only and ungraded',()=>{
  for(const id of ['rsi','macd','atr','bollinger']){
-  const def=m.definitions[id];assert(def);assert.match(def.workedPrompt,/fictional/i);
-  assert.match(def.transferPrompt,/fictional/i);assert.equal(m.assess({studyId:id,inputs:['0','0','0'],mode:'guided',stage:'practice',provenance:'fictional_authored'}).officialGrade,false);
+  const def=m.definitions[id];assert(def);assert.match(def.workedPrompt,/simulated/i);
+  assert.match(def.transferPrompt,/simulated/i);assert.equal(m.assess({studyId:id,inputs:['0','0','0'],mode:'guided',stage:'practice',provenance:'fictional_authored'}).officialGrade,false);
  }
 });
