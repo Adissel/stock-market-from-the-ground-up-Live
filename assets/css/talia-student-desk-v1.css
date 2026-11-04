@@ -1,0 +1,98 @@
+/* Student-first Talia classroom, v1.
+ * Pairs price evidence with Tutor explanation. No lesson, auth, grade or feed changes. */
+html body.tc-body .tc-main{max-width:1660px;padding:clamp(10px,1.4vw,22px)}
+html body.tc-body .tc-top{margin:5px 0 10px;padding:12px 18px;border-radius:11px;gap:6px}
+html body.tc-body .tc-top h1{font-size:clamp(23px,2vw,30px);margin:2px 0 4px;letter-spacing:-.025em}
+html body.tc-body .tc-top p{font-size:13px;line-height:1.5;margin:4px 0}
+html body.tc-body .tc-terminal-controls{margin:0 0 8px;padding:8px 12px;border-radius:10px;gap:7px}
+html body.tc-body .tc-terminal-identity strong{font-size:12px}
+html body.tc-body .tc-terminal-identity span{font-size:11px}
+html body.tc-body .tc-terminal-switches{display:flex;flex-wrap:wrap;gap:5px}
+html body.tc-body .tc-terminal-switches button{font-size:12px;min-height:32px;padding:4px 9px}
+html body.tc-body .tc-terminal-size{font-size:11px;gap:6px}
+html body.tc-body .tc-terminal-size input{width:88px}
+html body.tc-body .tc-terminal-grid.tc-terminal-split{grid-template-columns:minmax(0,1.55fr) minmax(355px,.95fr);gap:10px;align-items:start}
+html body.tc-body .tc-terminal-grid>.tc-chart-panel{grid-column:1;grid-row:1}
+html body.tc-body .tc-terminal-grid>.tc-chat{grid-column:2;grid-row:1}
+html body.tc-body .tc-terminal-grid>.tc-chart-panel,
+html body.tc-body .tc-terminal-grid>.tc-chat{padding:10px 12px;border-radius:12px;min-width:0}
+html body.tc-body .tc-terminal-split>.tc-chart-panel{position:sticky;top:92px;max-height:calc(100dvh - 106px);overflow-y:auto;overscroll-behavior:contain;scrollbar-color:#52738a #0c2032;scrollbar-width:thin}
+html body.tc-body .tc-terminal-split>.tc-chat{display:flex;flex-direction:column;gap:8px}
+html body.tc-body .tc-terminal-grid .tc-chart-panel>.tc-row:first-child,
+html body.tc-body .tc-terminal-grid .tc-chat-top{padding-bottom:8px;margin-bottom:4px;gap:6px}
+html body.tc-body .tc-terminal-grid .tc-chart-panel h2{font-size:18px}
+html body.tc-body .tc-terminal-grid .tc-chat h2{font-size:17px}
+html body.tc-body .tc-terminal-grid .tc-pill{font-size:10px;padding:5px 8px}
+html body.tc-body .tc-chart-boundary{font-size:12px!important;line-height:1.45!important;margin:4px 0 7px!important}
+html body.tc-body .tc-student-read-hint{margin:0 0 3px;font-size:12px;color:#a5ded5;line-height:1.45}
+html body.tc-body .tc-terminal-grid .tc-transcript{min-height:160px;max-height:clamp(195px,37dvh,380px);padding:9px;gap:8px;scrollbar-gutter:stable;scrollbar-color:#52738a #0b1d2d;scrollbar-width:thin}
+html body.tc-body .tc-terminal-grid .tc-message{padding:11px 13px;max-width:100%;line-height:1.58;border-radius:10px}
+html body.tc-body .tc-terminal-grid .tc-message p{font-size:clamp(15px,1vw,16px)!important;line-height:1.62!important;overflow-wrap:anywhere}
+html body.tc-body .tc-terminal-grid .tc-message strong{font-size:11px;margin-bottom:5px}
+html body.tc-body .tc-terminal-grid .tc-typing-controls{margin:0;padding:4px 0;gap:7px}
+html body.tc-body .tc-terminal-grid .tc-typing-controls label,
+html body.tc-body .tc-terminal-grid .tc-typing-controls button{font-size:12px}
+html body.tc-body .tc-terminal-grid .tc-composer{padding:11px;gap:6px;border-radius:10px}
+html body.tc-body .tc-terminal-grid .tc-composer textarea{min-height:62px;padding:8px 10px;font-size:14px}
+html body.tc-body .tc-terminal-grid .tc-composer label{font-size:12px}
+html body.tc-body .tc-terminal-grid .tc-composer button{min-height:34px}
+html body.tc-body .tc-terminal-grid .tc-chipbar{margin:4px 0;gap:5px}
+html body.tc-body .tc-terminal-grid .tc-chipbar button{min-height:32px;padding:6px 9px;font-size:12px}
+html body.tc-body .tc-terminal-grid .tc-live-lesson,
+html body.tc-body .tc-terminal-grid .tc-premium-bridge,
+html body.tc-body .tc-terminal-grid .tp-instruction-engine{margin:8px 0;padding:12px}
+html body.tc-body .tc-unified-chart{margin:5px 0 8px}
+html body.tc-body .tc-unified-chart .cx-app{padding:8px}
+html body.tc-body .tc-unified-chart .cx-classic-chart-top{padding:3px 5px;gap:5px}
+html body.tc-body .tc-unified-chart .cx-classic-chart-top strong{font-size:16px}
+html body.tc-body .tc-unified-chart .cx-classic-chart-top p{font-size:12px;line-height:1.5;margin:3px 0}
+html body.tc-body .tc-unified-chart .cx-classic-chart-top>span{font-size:10px}
+html body.tc-body .tc-unified-chart .cx-classic-chart-controls{margin:4px 0;padding:3px;gap:5px}
+html body.tc-body .tc-unified-chart .cx-classic-chart-controls label{font-size:12px;min-width:145px}
+html body.tc-body .tc-unified-chart .cx-classic-chart-controls select{min-height:31px;padding:4px 6px}
+html body.tc-body .tc-unified-chart .cx-classic-visual-region{display:grid;grid-template-columns:minmax(0,1fr) minmax(155px,185px);gap:8px;align-items:start}
+html body.tc-body .tc-unified-chart .cx-interactive-chart{min-width:0}
+html body.tc-body .tc-unified-chart .cx-pan-controls{display:flex;flex-wrap:wrap;gap:4px;padding:4px}
+html body.tc-body .tc-unified-chart .cx-pan-controls>span{display:none}
+html body.tc-body .tc-unified-chart .cx-pan-controls button{min-height:30px;padding:4px 7px;font-size:11px}
+html body.tc-body .tc-unified-chart .cx-viewport-status{font-size:10px}
+html body.tc-body .tc-unified-chart .cx-classic-measurements{min-width:0;align-self:stretch;border:1px solid #47778b;border-radius:10px;background:linear-gradient(160deg,#17324b,#0b2235);padding:10px;color:#eef9ff;font-variant-numeric:tabular-nums}
+html body.tc-body .tc-unified-chart .cx-measure-heading strong{display:block;font-size:14px;line-height:1.35}
+html body.tc-body .tc-unified-chart .cx-measure-heading small{display:block;color:#b2d6e7;font-size:11px;line-height:1.5;margin-top:4px}
+html body.tc-body .tc-unified-chart .cx-classic-measurements dl{margin:10px 0 7px}
+html body.tc-body .tc-unified-chart .cx-classic-measurements dl>div{display:flex;justify-content:space-between;gap:6px;align-items:center;padding:9px 0;border-bottom:1px solid #34576b}
+html body.tc-body .tc-unified-chart .cx-classic-measurements dt{font-size:12px;color:#c4dce9}
+html body.tc-body .tc-unified-chart .cx-classic-measurements dd{margin:0;font-size:14px;font-weight:750;color:#fff}
+html body.tc-body .tc-unified-chart .cx-classic-measurements p{font-size:12px;line-height:1.5;margin:8px 0;color:#d0e4ed}
+html body.tc-body .tc-unified-chart .cx-measure-candle-type{font-weight:750;color:#57ead0!important}
+html body.tc-body .tc-unified-chart .cx-classic-measurements>small{font-size:10px;color:#a6c8d8;line-height:1.5}
+html body.tc-body .tc-unified-chart .cx-classic-chart-note{font-size:12px;line-height:1.5;padding:5px 8px;margin:6px 0}
+html body.tc-body .tc-unified-chart .cx-classic-shared-chart>details{margin:5px 0;padding:6px}
+html body.tc-body .tc-unified-chart .cx-classic-shared-chart>details summary{font-size:12px}
+html body.tc-body .tc-unified-chart .cx-indicator-workbench{margin:5px 0;padding:7px}
+html body.tc-body .tc-chart-sync{font-size:12px!important;line-height:1.5;margin:5px 0}
+html body.tc-body .tc-current-candle-ledger,
+html body.tc-body .tp-candle-audit{margin:5px 0;border:1px solid #31556e;border-radius:8px;padding:7px 10px}
+html body.tc-body .tc-current-candle-ledger summary,
+html body.tc-body .tp-candle-audit summary{font-size:12px;line-height:1.45;color:#b9e7dc;cursor:pointer}
+html body.tc-body .tc-chart-panel>.tc-row:last-child{gap:5px;margin-top:8px}
+html body.tc-body .tc-chart-panel>.tc-row:last-child button{width:auto;padding:6px 8px;min-height:34px;font-size:12px}
+html body.tc-body .tc-chart-panel>.tc-row:last-child label{font-size:12px}
+@media(max-width:970px){
+ html body.tc-body .tc-terminal-grid.tc-terminal-split{grid-template-columns:minmax(0,1fr)}
+ html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chart-panel{grid-column:1;grid-row:1;position:sticky;top:0;z-index:2;max-height:min(46dvh,410px);overflow:auto}
+ html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chat{grid-column:1;grid-row:2}
+ html body.tc-body .tc-terminal-grid .tc-transcript{max-height:300px}
+}
+@media(max-width:620px){
+ html body.tc-body .tc-top{padding:10px 12px}
+ html body.tc-body .tc-top h1{font-size:22px}
+ html body.tc-body .tc-terminal-controls{padding:7px}
+ html body.tc-body .tc-terminal-grid>.tc-chart-panel,html body.tc-body .tc-terminal-grid>.tc-chat{padding:9px}
+ html body.tc-body .tc-unified-chart .cx-classic-visual-region{grid-template-columns:minmax(0,1fr)}
+ html body.tc-body .tc-unified-chart .cx-classic-measurements dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:10px;margin:6px 0}
+ html body.tc-body .tc-unified-chart .cx-classic-measurements dl>div{padding:5px 0}
+ html body.tc-body .tc-unified-chart .cx-classic-measurements{padding:8px}
+ html body.tc-body .tc-terminal-grid .tc-message p{font-size:15px!important}
+}
+@media(prefers-reduced-motion:reduce){html body.tc-body .tc-terminal-grid *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
