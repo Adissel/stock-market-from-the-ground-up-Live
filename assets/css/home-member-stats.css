@@ -220,3 +220,20 @@
 /* The restored statistics rail must not make the interactive React chart behave like a link. */
 .gu-premium-home .gu-home-right-rail .gu-home-terminal.sm-v5-chart{cursor:default;transition:none;transform:none}
 @media(hover:hover){.gu-premium-home .gu-home-right-rail .gu-home-terminal.sm-v5-chart:hover{transform:none;box-shadow:none}}
+
+/* Compact verified member status in the public-home hero.
+   The nearby chart retains its independent, wider layout. */
+.gu-premium-home .gu-home-stage-grid>.gu-home-right-rail>#v1353-member-stats{
+ width:100%!important;
+ max-width:560px!important;
+ margin-inline:auto!important;
+ align-self:center!important;
+}
+@media(max-width:600px){
+ .gu-premium-home .gu-home-stage-grid>.gu-home-right-rail>#v1353-member-stats{
+  width:100%!important;max-width:100%!important;
+ }
+ .gu-premium-home .gu-home-right-rail .gu-stats-head{
+  flex-wrap:wrap;row-gap:8px;
+ }
+}
