@@ -2,7 +2,7 @@
  * Draft/catalog values must NEVER look like an earnable award.
  * Reward publication requires reviewer attribution and server release switch.
  */
-const H={'content-type':'application/json; charset=utf-8','cache-control':'public, max-age=30',
+const H={'content-type':'application/json; charset=utf-8','cache-control':'no-store',
  'x-content-type-options':'nosniff'};
 const answer=(body,status=200)=>new Response(JSON.stringify(body),{status,headers:H});
 const REVISION='lumen-v1.0';
@@ -28,8 +28,13 @@ export async function onRequest({request,env}){
    throw Error('Incomplete server catalog');
   const labRows=rows.filter(x=>x.scope_type==='lab');
   const campRows=rows.filter(x=>x.scope_type==='bootcamp');
-  if(labRows.length!==419||campRows.length!==10||
-     labRows.some(x=>x.amount!==2)||campRows.some(x=>!Number.isSafeInteger(x.amount)||x.amount<1))
+  // Validate every scope, not only row counts. A duplicated or malformed lab
+  // must not make an incomplete award catalog appear authoritative.
+  const labIds=new Set(labRows.map(x=>x.scope_id));
+  if(labRows.length!==419||campRows.length!==10||labIds.size!==419||
+     labRows.some(x=>typeof x.scope_id!=='string'||
+       !/^[A-Za-z0-9_-]{2,100}$/.test(x.scope_id)||x.amount!==2)||
+     campRows.some(x=>!Number.isSafeInteger(x.amount)||x.amount<1))
    throw Error('Unreconciled reward definitions');
   const bootcamps=Object.create(null);
   for(const x of campRows){
