@@ -3706,7 +3706,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Use new fictional ORCL-like closes and calculate the seed and next EMA."
+        "prompt": "Independent fictional EMA case (not actual ORCL prices): completed closes $48.00, $48.40, $48.20 and $48.80 at successive five-minute cutoffs. Seed a period-3 EMA using only the first three completed closes, then update it after the fourth close with smoothing factor 2/(3+1). Report the seed and updated value with units, identify which close was unavailable before the fourth interval ended, and explain why the calculation is not a trading signal."
       },
       "competencies": [
         "EMA_CONTEXT"
@@ -3810,7 +3810,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Calculate a new period-3 EMA and separate arithmetic from a trade decision."
+        "prompt": "Use a distinct simulated VZ-like four-bar series of completed closes $51.00, $51.40, $50.80 and $51.20. Calculate a period-3 SMA seed from the first three and the next EMA using smoothing factor 0.5. At the earlier three-bar cutoff, conceal the fourth close. Compare the seed with the later EMA and state one source or execution limitation; do not interpret a direction as a prediction."
       },
       "competencies": [
         "EMA_CONTEXT"
@@ -3914,7 +3914,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Compute the same convention on a new four-close path and identify the cutoff."
+        "prompt": "New fictional GM-like five-minute closes are $38.00, $38.40, $38.20 and $38.80. Using only the completed bars, seed a period-3 EMA on the first three closes, update it with the fourth close, and identify the exact observation cutoff for each computation. Check whether substituting the fourth close into the seed creates lookahead. Explain the limitation without claiming this reproduces actual GM market data."
       },
       "competencies": [
         "EMA_CONTEXT"
@@ -4018,7 +4018,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Calculate a period-4 SMA from five new closes and show the included window."
+        "prompt": "Five completed simulated closes are $10.10, $10.40, $10.20, $10.60 and $10.80. Compute the period-4 simple moving average at the fourth completed candle and again at the fifth. Identify which historical close exits the second window and which new close enters. Conceal the fifth close at the fourth-bar cutoff. Give both dollar averages and explain why SMA direction alone does not establish a trade."
       },
       "competencies": [
         "EMA_CONTEXT"
@@ -4122,7 +4122,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Compare period 2 and period 4 averages on a new series."
+        "prompt": "A new five-bar fictional sequence closes $10.00, $10.50, $10.20, $10.90 and $11.10. At the final completed bar, compare the period-2 and period-4 simple averages using their exact windows. At the preceding cutoff, show which bar must remain concealed. Explain how the shorter and longer averages respond differently without claiming either forecasts the next candle or confirms an executable setup."
       },
       "competencies": [
         "EMA_CONTEXT"
@@ -4226,7 +4226,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Compute one EMA9 update and one EMA20 update from new valid seeds."
+        "prompt": "A separate simulated study has a valid previous EMA9 of $40.00 and previous EMA20 of $39.70, each seeded from its own required completed history. The next completed close is $40.50. Update EMA9 with smoothing factor 2/10 and EMA20 with 2/21, showing both calculations and time boundaries. State why the prior EMA seeds must be verified and why a crossing alone does not supply spread, liquidity, invalidation, or fill evidence."
       },
       "competencies": [
         "EMA_CONTEXT"
@@ -4330,7 +4330,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Classify a new two-step ordering and list three missing trade-plan fields."
+        "prompt": "Fictional five-minute observations: at 10:00 ET completed EMA9 is $10.08 and EMA20 is $10.12; at 10:05 ET they are $10.16 and $10.13. Classify the ordering change using only the two completed observations. Identify three missing trade-plan fields, including an invalidation and execution-cost condition. At 10:00 the 10:05 observation must remain concealed. A crossover is not an automatic entry."
       },
       "competencies": [
         "EMA_CONTEXT"
@@ -4434,7 +4434,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Classify a new below-to-above sequence using time-matched VWAP."
+        "prompt": "Fictional synchronized five-minute observations: at 10:00 ET a completed close of $9.85 is below its time-matched VWAP $10.00; at 10:05 ET a later completed close of $10.12 is above VWAP $10.02. Classify the provisional reclaim at each cutoff, explain why the later candle was unavailable at 10:00, and identify a confirmation or no-trade condition. Do not assume the next candle holds above VWAP."
       },
       "competencies": [
         "VWAP_CONTEXT"
@@ -4538,7 +4538,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Evaluate a new test under touch- and close-based rules."
+        "prompt": "On a new fictional 5-minute sample at 10:10 ET, the completed candle has high $12.10 and close $12.02 against matched VWAP $12.10. At 10:15 ET a later completed candle has high $12.06 and close $12.00 against VWAP $12.08. Classify the test under a touch-based rule and separately under a close-above rule, preserving the earlier information cutoff. Name the missing evidence that prevents forecasting a reversal."
       },
       "competencies": [
         "VWAP_CONTEXT"
@@ -4642,7 +4642,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Classify a new two-bar approach and close sequence."
+        "prompt": "New simulated bars show a 10:00 ET close $10.14 versus time-matched VWAP $10.04, a 10:05 close $9.98 versus VWAP $10.05, and a 10:10 close $9.94 versus VWAP $10.03. At each cutoff, distinguish a first loss of VWAP from continued trading below it. Keep later closes concealed at earlier stages. Explain one rule that would invalidate the failure interpretation and one reason to choose NO TRADE."
       },
       "competencies": [
         "VWAP_CONTEXT"
@@ -4746,7 +4746,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Count crossings in a new completed sequence and state the rule."
+        "prompt": "Use five completed fictional five-minute closes $10.02, $9.98, $10.01, $9.97 and $10.03 with a stated, approximately flat matched VWAP of $10.00 throughout this teaching example. Count the completed close-to-close VWAP side changes after each new bar; do not count unrevealed bars. Compare chop with a single confirmed directional hold and state a no-trade condition. The simplified constant VWAP is not an authenticated trade-print calculation."
       },
       "competencies": [
         "VWAP_CONTEXT"
@@ -4850,7 +4850,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Apply a hold rule to a new low, close, and time-matched VWAP."
+        "prompt": "New fictional evidence: at 10:05 ET a completed candle low is $10.20 and close is $10.35 with matched VWAP $10.10; at 10:10 ET the later completed low is $10.15 and close $10.30 with VWAP $10.12. Test a stated low-above-VWAP hold rule separately from a close-above-VWAP rule and name the cutoff of each available bar. Explain why holding so far does not predict the next candle."
       },
       "competencies": [
         "VWAP_CONTEXT"
@@ -4954,7 +4954,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Distinguish rejection, reclaim, and failed reclaim in a new sequence."
+        "prompt": "New fictional five-minute sequence: at 10:00 ET close $9.91 versus matched VWAP $10.00; at 10:05 close $10.04 versus VWAP $10.00; at 10:10 close $9.92 versus VWAP $10.01. Classify the provisional reclaim after the second close and the failed reclaim only when the third close is complete. Hide the third bar at the second cutoff, distinguish the observation from an entry instruction, and include a NO TRADE alternative."
       },
       "competencies": [
         "VWAP_CONTEXT"
@@ -13349,7 +13349,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Calculate extra loss for a new resumption gap."
+        "prompt": "A fictional halt-resumption study has a planned exit reference of $20.00, a first executable reference of $19.60 after resumption, and 100 hypothetical long shares. Calculate planned versus gap-adjusted loss under both assumptions, including the additional loss attributed to the gap. State why the exit price is illustrative rather than a guaranteed fill and why a prior candle cannot establish post-halt executable liquidity."
       },
       "competencies": [
         "HALTS_LULD",
@@ -13561,7 +13561,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Define and size a new pre-entry invalidation case."
+        "prompt": "A new simulated long case has entry reference $30.00, structural invalidation $29.60 and a hypothetical risk budget of $40 before costs. Compute per-share risk and a whole-share ceiling. Then change the invalidation to $29.45 while leaving the budget unchanged; recompute the ceiling and explain what changed. This is an ungraded risk geometry exercise, not a trade instruction; gaps and slippage can exceed the planned risk."
       },
       "competencies": [
         "INDEPENDENT_PLAN",
