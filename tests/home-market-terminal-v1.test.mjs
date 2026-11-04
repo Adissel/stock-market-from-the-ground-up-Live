@@ -36,7 +36,7 @@ test('fictional candle and volume colors meet nontext contrast on dark training 
  assert.ok(css.includes(background));
  const lum=hex=>{const c=hex.match(/[a-f0-9]{2}/ig);assert.equal(c?.length,3);const rgb=c.map(v=>parseInt(v,16)/255).map(n=>n<=0.04045?n/12.92:((n+0.055)/1.055)**2.4);return .2126*rgb[0]+.7152*rgb[1]+.0722*rgb[2]};
  const contrast=(a,b)=>{const aa=lum(a),bb=lum(b);return (Math.max(aa,bb)+.05)/(Math.min(aa,bb)+.05)};
- for(const color of ['#08c69d','#e32d55','#18a584','#d94c6a']){assert.ok(source.includes(color),'Missing rendered color '+color);assert.ok(contrast(color,background)>=3,'Insufficient nontext contrast '+color)}
+ for(const color of ['#00d7a3','#ed3155','#18a584','#d94c6a']){assert.ok(source.includes(color),'Missing rendered color '+color);assert.ok(contrast(color,background)>=3,'Insufficient nontext contrast '+color)}
  assert.ok(source.includes('borderColor0'),'Bearish candle borders and wicks must remain visible');
  assert.ok(source.includes('borderColor:'),'Bullish candle borders and wicks must remain visible');
  assert.match(source,/Simulated market/);
@@ -52,7 +52,7 @@ test('canonical homepage linked illustration upgrades to the original interactiv
 });
 
 test('intracandle simulation reveals only current fictional ticks; no future high, low or volume',()=>{
- const begin=tsx.indexOf('const TICKS_PER_MINUTE=20;'),end=tsx.indexOf('function Terminal(',begin);
+ const begin=tsx.indexOf('const TICKS_PER_MINUTE=20;'),end=tsx.indexOf('function heikinAshi(',begin);
  assert.ok(begin>0&&end>begin,'Actual intrabar simulator source must be testable');
  let pure=tsx.slice(begin,end);
  for(const [before,after] of [
