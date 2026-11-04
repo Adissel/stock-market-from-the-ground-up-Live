@@ -60,3 +60,20 @@
 @media(prefers-reduced-motion:reduce){
   .site-header .gu-academy-brand{transition:none;}
 }
+
+/* Approved V1 identity is fixed across member/Owner theme and workspace
+ * variants. Scoped to the brand text only; navigation and page palette remain
+ * independently configurable. Specificity also protects against late CSS. */
+html body .site-header a.brand.gu-academy-brand > .gu-academy-brand-title,
+html body .site-header a.brand > .gu-global-brand-title,
+html body .site-header a.brand.gu-academy-brand > .gu-academy-brand-title::first-line{
+  color:#f4f7ff!important;
+}
+html body .site-header a.brand.gu-academy-brand > .gu-academy-brand-title > span,
+html body .site-header a.brand > .gu-global-brand-title > span{
+  color:#e3b64b!important;
+}
+html body .site-header a.brand.gu-academy-brand > .gu-academy-brand-subtitle,
+html body .site-header a.brand > .gu-global-brand-suffix{
+  color:#5be7aa!important;
+}
