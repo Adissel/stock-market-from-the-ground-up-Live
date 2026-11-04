@@ -33,6 +33,16 @@ try{
     const response=await page.goto(base+path,{waitUntil:'domcontentloaded',timeout:30000});
     const status=response?.status()||0;
     assert.equal(status,200,'HTTP status '+status);
+    // Homepage first-paint guard deliberately conceals <main> while the
+    // published layout/auth shell stabilizes (four-second safety release).
+    // Wait for truly visible content; never count the loading shell as a pass.
+    if(path==='/')await page.waitForFunction(()=>{
+     const el=document.querySelector('main');
+     const style=el?getComputedStyle(el):null;
+     return !document.documentElement.classList.contains('cl-home-initializing')&&
+      !!el&&style?.visibility!=='hidden'&&style?.display!=='none'&&
+      (el.innerText||'').trim().length>75;
+    },null,{timeout:10000});
     const finalUrl=new URL(page.url());
     assert.equal(finalUrl.origin,base,'Unexpected navigation to outside origin');
     const state=await page.evaluate(()=>{
