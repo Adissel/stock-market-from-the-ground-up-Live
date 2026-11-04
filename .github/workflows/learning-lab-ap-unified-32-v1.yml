@@ -4,7 +4,7 @@ on:
   pull_request:
     branches: [main]
   push:
-    branches: [main, feature/learning-lab-ap-unified-32-requirement-release-batch-20261103]
+    branches: [main]
     paths:
       - 'functions/_lib/learning-lab-edition-exercises-v1.js'
       - 'data/learning-lab-ap-unified-32-v1.json'
