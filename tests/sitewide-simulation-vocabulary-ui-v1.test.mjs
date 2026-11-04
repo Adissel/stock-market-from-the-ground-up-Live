@@ -29,7 +29,7 @@ test('Member Status retains actual source honesty and has no gauge subtitle in e
  const js=read('assets/js/home-community.js'),api=read('functions/api/home-member-stats-v01353.js');
  assert(js.includes("textContent='Online members'")&&js.includes("textContent='Registered members'"));
  assert(js.includes("subtext:example?'':'LAST 60 MIN'"));
- assert(js.includes("example?'EXAMPLE':'LIVE DATA'"));
+ assert(js.includes("example?'EXAMPLE':'LIVE'"));
  assert(js.includes('not verified registered or online members'));
  assert(api.includes("if(s.mode==='range'){")&&api.includes("mode:'live',registered,online"));
  assert.doesNotMatch(js,/\bfictional\b|\billustrative\b/i);
