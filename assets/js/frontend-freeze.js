@@ -1,5 +1,7 @@
 (()=>{'use strict';
 const BUILD=document.querySelector('meta[name="application-version"]')?.content||'v0.14.0.13',path=(location.pathname||'/').toLowerCase();
+// Historical fallback only: the current Home has canonical navigation/layout owners.
+if(path==='/'||path==='/index'||path==='/index.html')return;
 const q=(s,r=document)=>r.querySelector(s),qa=(s,r=document)=>Array.from(r.querySelectorAll(s));
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
