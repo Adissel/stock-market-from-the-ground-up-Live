@@ -524,6 +524,8 @@ function Classroom(){
   };
   useEffect(()=>{
     if(!playing||!member||busy||checkpoint)return;
+    const lastTutor=chat.at(-1);
+    if(lastTutor?.who==='talia'&&lastTutor.id===typingId&&typedCount<lastTutor.text.length)return;
     if(document.hidden){setPlaying(false);return;}
     const timer=window.setTimeout(()=>{
       const next=Math.min(REPLAY.length,visible+1);
@@ -537,7 +539,7 @@ function Classroom(){
       }
     },playSpeed);
     return()=>window.clearTimeout(timer);
-  },[playing,member,busy,checkpoint,visible,playSpeed,lessonKind,appendInstructor]);
+  },[playing,member,busy,checkpoint,visible,playSpeed,lessonKind,appendInstructor,chat,typingId,typedCount]);
   useEffect(()=>{const hidden=()=>{if(document.hidden)setPlaying(false)};document.addEventListener('visibilitychange',hidden);return()=>document.removeEventListener('visibilitychange',hidden)},[]);
   const checkpointCompleted=(answer:string,feedback:string)=>{
     setChat(lines=>[...lines,{id:crypto.randomUUID(),who:'member',text:answer,label:'Ungraded practice'},
