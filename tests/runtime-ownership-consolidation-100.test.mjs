@@ -55,6 +55,17 @@ for(const path of ['/','/index','/index.html']){
   assert.equal(check('frontend-complete.js',path),true);
  });
 }
+test('Legacy shell and canonical member navigation share a 900px breakpoint',()=>{
+ const shell=read('assets/css/site-shell-v1.css');
+ const canonical=read('assets/css/sitewide-composition-v014234.css');
+ assert.match(shell, /@media\(max-width:900px\)/);
+ assert.doesNotMatch(shell, /@media\(max-width:980px\)/);
+ assert.match(canonical, /@media\(min-width:901px\)\{body\[data-gu-workspace\] #v1341-mobile-menu\{display:none!important\}/);
+ // 940px must retain visible desktop links, without requiring a retired toggle.
+ const shellJs=read('assets/js/site-shell-v1.js');
+ assert.match(shellJs, /if\(name==='index\.html'\)return/);
+});
+
 test('Legacy site shell cannot insert competing Home mobile toggle',()=>{
  const shell=read('assets/js/site-shell-v1.js');
  assert.match(shell,/if\(name==='index\.html'\)return/);
