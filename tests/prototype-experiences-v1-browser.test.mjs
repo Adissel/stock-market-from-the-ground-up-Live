@@ -269,7 +269,7 @@ try{
  await a.page.locator('.cx-live-workspace .cl-react-playback button[aria-label="Pause simulated candle formation"]').first().click();
  assert.equal(await a.page.locator('.cx-live-workspace .cl-react-playback button[aria-label="Resume simulated candle formation"]').count()>=1,true);
  await marketPlot.focus();await marketPlot.press('Home');
- assert.match(await a.page.locator('.cx-live-workspace .cl-react-bottom').first().textContent(),/Fictional B\d+/,'Keyboard inspection must use revealed candle values');
+ assert.match(await a.page.locator('.cx-live-workspace .cl-react-bottom').first().textContent(),/Simulated B\d+/,'Keyboard inspection must use revealed candle values');
  const rect=await gestureChart.boundingBox();
  await a.page.mouse.move(rect.x+rect.width*.52,rect.y+rect.height*.42);
  await a.page.mouse.wheel(0,-340);
