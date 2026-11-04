@@ -68,6 +68,30 @@ try{
  await a.page.locator('.cx-app.cx-page-a').waitFor({state:'visible',timeout:30000});
  assert.match(await a.page.locator('.cx-statusline').textContent(),/Independent fictional lesson-case records: 1/,'Training opens with one fictional lesson bar and no preloaded session');
  await a.page.locator('.cx-live-workspace .cx-home-shared-market .cl-react-plot').first().waitFor({state:'visible',timeout:20000});
+ // Owner complained that right-click did not open the actual Prototype Center charts.
+ // Use a genuine pointer right-click on the shared React/ECharts market chart,
+ // not on a detached simulator fixture.
+ await a.page.locator('.cx-live-workspace .cx-home-shared-market .cl-react-plot').first().click({button:'right',position:{x:90,y:90}});
+ const prototypeMenu=a.page.getByRole('dialog',{name:'Prototype chart indicator context menu'});
+ await prototypeMenu.waitFor({state:'visible',timeout:4000});
+ assert.equal(await prototypeMenu.locator('[data-prototype-indicator]').count(),16,
+  'Prototype right-click must display all 16 actually computed studies');
+ assert.equal(await prototypeMenu.evaluate(el=>el.parentElement===document.body),true,
+  'Prototype menu must use the visible document portal, not a clipped chart container');
+ await prototypeMenu.locator('[data-prototype-indicator="EMA_200"]').hover();
+ assert.equal(await prototypeMenu.locator('[data-prototype-indicator="EMA_200"]').getAttribute('aria-disabled'),'true',
+  'Standard design preview cannot silently unlock EMA 200');
+ assert.match(await prototypeMenu.locator('.cx-context-locked').first().innerText(),/Advanced or Professional/);
+ await prototypeMenu.locator('[data-prototype-indicator="EMA_FAST"]').hover();
+ await prototypeMenu.getByRole('button',{name:'Custom settings · calculation and appearance'}).click();
+ const periodControl=prototypeMenu.locator('.cx-context-setting input').first();
+ await periodControl.fill('12');
+ await periodControl.press('Tab');
+ await prototypeMenu.getByRole('button',{name:'Apply to chart'}).click();
+ await prototypeMenu.waitFor({state:'hidden'});
+ assert.equal(await a.page.locator('.cx-chart-customizer-shell').count(),1,
+  'Custom study settings reuse the existing React indicator state');
+
  assert.equal(await a.page.locator('.cx-live-workspace .cl-react-playback button').count()>=2,true,'Homepage Play/Pause and Replay controls must be visible in original Prototype Center charts');
  await a.page.getByLabel('Reveal fictional candles').fill('54');
  await a.page.getByLabel('Reveal fictional candles').press('Tab');
