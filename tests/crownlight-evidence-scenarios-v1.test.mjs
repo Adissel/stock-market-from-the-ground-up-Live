@@ -64,7 +64,7 @@ test('Invalid and out-of-range case selection never fabricates evidence',()=>{
 test('Five P1 investigations have genuine wired controls and accessible labels',()=>{
  for(const key of ['anatomy','timeline','structure','patterns','wicks'])assert(ui.includes("select.value==='"+key+"'"),key);
  for(const key of ['Identify and draw swing','Reset structure investigation','Reveal next trade print',
-  'Reveal earlier context','Conceal earlier context','Reveal next fictional print',
+  'Reveal earlier context','Conceal earlier context','Reveal next simulated print',
   'Reset wick investigation','createElementNS','aria-live','core.structure(completed)'])assert(ui.includes(key),key);
 });
 test('Structure marker checks only completed candle neighbors',()=>{

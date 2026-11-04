@@ -22,16 +22,16 @@ test('No teaching tools render inside protected blind/assessment or alter authen
  assert.doesNotMatch(core,/fetch\s*\(|supabase|answer_key/i);
 });
 test('Controls are functional, not decorative, with reduced-motion and numeric fallback',()=>{
- for(const s of ['addEventListener(\'input\'','addEventListener(\'change\'','Reveal next fictional observation',
+ for(const s of ['addEventListener(\'input\'','addEventListener(\'change\'','Reveal next simulated observation',
   'Reset observations','Reveal next transaction','Reset to zero transactions','core.aggregate','core.vwap',
   'aria-live','createElementNS','ResizeObserver','CrownlightECharts','setOption','chartHost']){} 
- for(const s of ['Reveal next fictional observation','Reset observations','Reveal next transaction','Reset to zero transactions',
+ for(const s of ['Reveal next simulated observation','Reset observations','Reveal next transaction','Reset to zero transactions',
  'core.aggregate','core.vwap','aria-live','createElementNS','ResizeObserver','CrownlightECharts','setOption','table(']) assert(js.includes(s),s);
  const css=read('assets/css/crownlight-interactive-evidence-v1.css');
  for(const s of ['focus-visible','min-height:44px','max-width:640px','prefers-reduced-motion'])assert(css.includes(s),s);
 });
 test('Trade-print VWAP is explicitly distinct from proxy and disclosure states no real feed or grade',()=>{
- for(const s of ['trade-print VWAP, not the HLC3 bar approximation','Illustrative fictional observations',
+ for(const s of ['trade-print VWAP, not the HLC3 bar approximation','Illustrative simulated observations',
   'no live prices'.toLowerCase()]){assert(js.toLowerCase().includes(s.toLowerCase()),s)}
  assert.match(js,/Revealed '\+state.revealed/);
  assert.match(js,/state\.steps\.map/);

@@ -78,7 +78,7 @@ test('learning styling is responsive and does not fabricate grades or account st
   'prefers-reduced-motion','outline:3px','gu-learning-market-context'])
   assert.ok(css.includes(k),k);
  assert.doesNotMatch(css,/pointer-events:none/);
- assert.match(home,/Fictional one-minute OHLCV/);
+ assert.match(home,/Simulated one-minute OHLCV/);
  assert.match(labs,/separate from the Lab’s authored evidence/);
  assert.match(academy,/separate from the study day’s historical evidence, graded answers, and saved progress/);
 });
