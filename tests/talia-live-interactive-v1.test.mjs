@@ -57,10 +57,15 @@ test('Separate body, range and body percentage; no informal price prediction',()
  }
 });
 test('Fictional trade-print VWAP is separate from chart proxy and has three fields',()=>{
- for(const fragment of ['200 shares at $8 and 100 shares at $10','2600,300,2600/300','Total traded dollars ($)','Total shares','VWAP ($ per share)','not bar-based proxy VWAP'])
+ for(const fragment of ['shares1:200,price1:8,shares2:100,price2:10','shares1:150,price1:9,shares2:250,price2:11','trade.price1*trade.shares1+trade.price2*trade.shares2','Total traded dollars ($)','Total shares','VWAP ($ per share)','not bar-based proxy VWAP'])
   assert.ok(src.includes(fragment),fragment);
  const total=200*8+100*10,qty=200+100;
  assert.equal(total,2600);assert.equal(qty,300);assert.equal(Number((total/qty).toFixed(4)),8.6667);
+});
+test('Ungraded lesson report counts corrections and skips but writes no mastery',()=>{
+ for(const x of ['setStudyReport','studyReport.completed','studyReport.retries','studyReport.skipped','tc-learning-report','temporary in-tab practice counters'])
+  assert.ok(src.includes(x),x);
+ assert.match(src,/setCheckpoint\(null\);setPlaying\(true\)/);
 });
 test('Chart interaction sends authenticated Tutor instruction without new paid AI or future bars',()=>{
  for(const fragment of ["onQuestion={q=>void submitTutor(q,'explain','')}","/api/market-tutor","getToken()","requestId:crypto.randomUUID()","allowModel:false","saveHistory:currentSave,conversationId:thread","setPlaying(false)"])
