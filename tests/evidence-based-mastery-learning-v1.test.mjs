@@ -121,3 +121,29 @@ test('first 16 corrected Lab transfer cases are distinct evidence-driven exercis
  }
  assert.equal(prompts.size,16,'No template text repeated between corrected cases');
 });
+
+test('Wave 1 audits fifty distinct Labs across six collections and thirty Boot Camp formative records',()=>{
+ const audit=JSON.parse(read('data/mastery-source-audit-wave1-v1.json'));
+ assert.equal(audit.scope.labSourceReviewed,50);
+ assert.equal(audit.scope.bootCampFormativeRecordsReviewed,30);
+ assert.equal(audit.scope.labIndependentStudentAccepted,0);
+ assert.equal(audit.scope.bootCampFullDayAccepted,0);
+ assert.equal(new Set(audit.labCases.map(x=>x.labId)).size,50);
+ assert.equal(new Set(audit.labCases.map(x=>x.collection)).size,6);
+ assert.ok(audit.labCases.every(x=>x.protectedGradingDisabled&&x.lookaheadProhibited&&x.hasDistinctTransfer));
+ assert.ok(audit.bootCampFormativeCases.every(x=>x.gradeDisabled===true));
+ assert.equal(audit.status,'SOURCE_ONLY_FIRST_WAVE_NOT_RELEASE_APPROVAL');
+});
+
+test('Mastery V1 retains accessible optional interactions while reserving genuine member acceptance',()=>{
+ const css=read('assets/css/academy-guided-v1.css');
+ const boot=read('assets/js/academy-guided-v1.js');
+ const lab=read('assets/js/lab-engine-v32-universal.js');
+ for(const term of ['focus-visible','prefers-reduced-motion','academy-guided-method-lab','academy-guided-mastery-dimensions'])
+  assert.ok(css.includes(term),term);
+ for(const term of ["el('fieldset')","input.type='radio'","input.type='number'",'aria-live','assistanceByStage'])
+  assert.ok(boot.includes(term),term);
+ assert.ok(lab.includes('gu-v33-observed-dimensions'));
+ assert.match(boot,/No member grades are written/);
+ assert.match(lab,/Not Yet Assessed/);
+});
