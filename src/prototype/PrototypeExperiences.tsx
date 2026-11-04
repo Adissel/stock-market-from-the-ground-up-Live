@@ -1300,7 +1300,7 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
   <section className="cx-app cx-theme-quantum cx-page-b cx-classic-shared-chart" aria-label="Classic Classroom ECharts workstation"
    onContextMenuCapture={e=>{if(!(e.target as HTMLElement).closest('.cx-chart-grabbable'))return;e.preventDefault();open(e.clientX,e.clientY)}}>
    {mode!=='talia'&&<div className="cx-classic-chart-top"><div><strong>Classroom chart · {mode==='bootcamp'?'Boot Camp':'Lab'}</strong>
-    <p>{mode==='talia'?'Observe each revealed candle while reading Talia’s explanation. Use the chart controls to zoom, inspect, and compare completed evidence.':memberSafe?'Simulated price chart · pan, zoom, studies, and timeframes. Advanced tools remain locked.':'Actual Experience B ECharts controls: zoom, pan, 16 calculated studies, appearance, timeframes, and right-click. Owner-only design preview.'}</p></div>
+    <p>{memberSafe?'Simulated price chart · pan, zoom, studies, and timeframes. Advanced tools remain locked.':'Actual Experience B ECharts controls: zoom, pan, 16 calculated studies, appearance, timeframes, and right-click. Owner-only design preview.'}</p></div>
     <span>SIMULATED · UNGRADED</span></div>}
    {mode!=='talia'&&<div className="cx-classic-chart-controls">
     {!memberSafe&&<label>Chart evidence <select aria-label="Classic chart evidence source" value={source} onChange={e=>selectSource(e.target.value as 'demo'|'case')}>
@@ -1313,9 +1313,9 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
     <label>Bar appearance <select aria-label="Classic chart bar appearance" value={barLook} onChange={e=>setBarLook(e.target.value as BarLook)}>
      {barLooks.map(b=><option key={b.id} value={b.id}>{b.label}</option>)}
     </select></label>
-    {mode!=='talia'&&<label>Revealed candles <input aria-label="Classic chart revealed candles" type="range" min="1" max={available.length} value={count} onChange={e=>revealTo(Number(e.target.value))}/><output>{count} of {available.length}</output></label>}
-    {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.max(1,count-1))} disabled={count===1}>Previous candle</button>}
-    {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.min(available.length,count+1))} disabled={count===available.length}>Reveal next candle</button>}
+    <label>Revealed candles <input aria-label="Classic chart revealed candles" type="range" min="1" max={available.length} value={count} onChange={e=>revealTo(Number(e.target.value))}/><output>{count} of {available.length}</output></label>
+    <button type="button" onClick={()=>revealTo(Math.max(1,count-1))} disabled={count===1}>Previous candle</button>
+    <button type="button" onClick={()=>revealTo(Math.min(available.length,count+1))} disabled={count===available.length}>Reveal next candle</button>
    </div>}
    <div className={activeMeasurement?'cx-classic-visual-region cx-classic-has-measurements':'cx-classic-visual-region'}>
     <EChart kind="price" reveal={chartCount} showVolume={true} showEma={true} showProxy={true}
