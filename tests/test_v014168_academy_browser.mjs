@@ -174,7 +174,8 @@ try{
     const bounds=await section.boundingBox();
     assert(bounds&&bounds.x>=-1&&bounds.x+bounds.width<=width+1,
      'The full teaching panel must fit inside the '+width+'px viewport');
-    assert.match(await section.innerText(),/not graded mastery/);
+    assert.match(await section.innerText(),/Simulated and ungraded\. B01’s original sequence and private assessments are unchanged\./,
+     'Original ungraded Academy practice must never present itself as a protected assessment');
     await openReasoning();
     await page.locator('#academy-self-check-answer').focus();
     assert.equal(await page.evaluate(()=>document.activeElement?.id),'academy-self-check-answer',
