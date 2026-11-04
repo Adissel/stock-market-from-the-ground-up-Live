@@ -103,8 +103,35 @@ try{
    data:{topic:'vwap',depth:'FOUNDATION',phase:'explain',entitlement:'ENTERPRISE'},timeout:25000});
   assert.equal(forged.status(),400,'Member cannot forge server entitlement');
   mark('Over-tier requests and client-forged entitlement denied');
+  const classroomHttp=[],classroomErrors=[];
+  page.on('response',res=>{
+   try{
+    const pathname=new URL(res.url()).pathname;
+    if(['/api/member-tool-access','/api/talia-classroom-curriculum-v1','/assets/js/talia-classroom-v1.bundle.js'].includes(pathname))
+     classroomHttp.push({path:pathname,status:res.status()});
+   }catch{}
+  });
+  page.on('pageerror',err=>classroomErrors.push({name:err.name,
+   type:/module|import|syntax/i.test(String(err.message))?'module_or_syntax':
+    /getSupabaseClient|auth|session/i.test(String(err.message))?'auth_init':'runtime'}));
   await page.goto(ORIGIN+'/talia-classroom.html',{waitUntil:'domcontentloaded',timeout:35000});
-  await page.locator('#tc-teaching-topic').waitFor({state:'visible',timeout:35000});
+  try{await page.locator('#tc-teaching-topic').waitFor({state:'visible',timeout:20000});}
+  catch(err){
+   const diagnostic=await page.evaluate(async()=>{
+    const root=document.getElementById('talia-classroom-root');
+    let session=false;
+    try{const sb=await window.getSupabaseClient?.();session=!!(await sb?.auth.getSession()).data?.session?.access_token}catch{}
+    return {path:location.pathname,rootPresent:!!root,rootChildCount:root?.children.length||0,
+     selectorPresent:!!document.querySelector('#tc-teaching-topic'),
+     renderedMain:!!root?.querySelector('.tc-main'),
+     memberSignInPrompt:!!root?.querySelector('a[href*="signin.html"]'),
+     loaderVisible:!!root?.textContent?.includes('Loading the verified member learning workspace'),
+     sessionPresent:session,bundlePresent:!!document.querySelector('script[src*="talia-classroom-v1.bundle.js"]')};
+   }).catch(()=>({diagnostic:'unavailable'}));
+   console.log('TALIA_CLASSROOM_SAFE_UI_DIAGNOSTIC '+JSON.stringify({
+    ...diagnostic,http:classroomHttp,errors:classroomErrors}));
+   throw err;
+  }
   await page.waitForFunction(()=>!!document.querySelector('#tc-teaching-depth')&&!document.querySelector('#tc-teaching-depth').disabled,null,{timeout:35000});
   const controls=await page.evaluate(()=>{
    const depth=document.querySelector('#tc-teaching-depth');
