@@ -63,7 +63,8 @@ test('Boot Camps retain real calculation checks and protected official assessmen
  for(const token of ['methodDecision(','formativeSelections','advancedSelections',"input.type='number'",'numericInputs.map','reviewedFormative.size!==12'])
   assert.ok(guided.includes(token),token);
  assert.doesNotMatch(guided,/reveal.disabled=response.value.trim\(\).length<20|if\(response.value.trim\(\).length<20\)return/);
- assert.match(guided,/No grade or Lumens/);
+ assert.match(guided,/No Lumens charged/);
+ assert.match(guided,/no grade, fabricate historical replay/);
  for(const token of ['function evidenceDecision(',"node('fieldset')",'Check my evidence decision','Optional written reasoning','Optional observation notes'])
   assert.ok(academy.includes(token),token);
  assert.doesNotMatch(academy,/if\(answer.value.trim\(\).length<40\)return|if\(field.value.trim\(\).length<25\)/);
