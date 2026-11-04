@@ -68,6 +68,7 @@ node --check assets/js/prototype-shared-learning-market-v1.js
 node --test tests/prototype-shared-learning-market-v1.test.mjs
 node --test tests/crownlight-evidence-core-v1.test.mjs
 node --test tests/crownlight-evidence-scenarios-v1.test.mjs
+node --test tests/crownlight-indicator-experiments-v1.test.mjs
 node --test tests/crownlight-interactive-evidence-v1.test.mjs
 node --test tests/shared-home-market-learning-replay-v1.test.mjs
 # Public fictional candle inspector: 24 runtime accuracy/privacy regressions.

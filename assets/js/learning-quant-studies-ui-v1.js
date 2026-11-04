@@ -82,7 +82,10 @@ function mount({target,studyId,mode,context}={}){
   transfer.append(checkNew,status);feedback.append(transfer);
  });
  btn.addEventListener('click',()=>{fields.forEach(f=>f.value='');feedback.replaceChildren();fields[0].focus()});
- shell.append(check,btn,feedback,node('p',def.limitation));target.replaceChildren(shell);
+ shell.append(check,btn,feedback,node('p',def.limitation));
+ const experimentHost=node('div');shell.append(experimentHost);
+ const indicatorSession=root.CrownlightIndicatorExplorerV1?.mount?.({target:experimentHost,studyId,mode,context});
+ target.replaceChildren(shell);
  let chartInstance=null,observer=null,disposed=false;
  if(root.CrownlightECharts?.load){
   Promise.resolve(root.CrownlightECharts.load()).then(e=>{
@@ -101,7 +104,7 @@ function mount({target,studyId,mode,context}={}){
    if(typeof ResizeObserver!=='undefined'){observer=new ResizeObserver(()=>chartInstance?.resize());observer.observe(chart)}
   }).catch(()=>{if(!disposed)chart.textContent='The chart is unavailable. All numerical examples and practice remain available in text.'});
  }else chart.textContent='ECharts unavailable. Full numerical instructions and the table remain available.';
- const controller={dispose(){if(disposed)return;disposed=true;observer?.disconnect();chartInstance?.dispose();chartInstance=null;shell.remove();if(sessions.get(target)===controller)sessions.delete(target)}};
+ const controller={dispose(){if(disposed)return;disposed=true;indicatorSession?.dispose?.();observer?.disconnect();chartInstance?.dispose();chartInstance=null;shell.remove();if(sessions.get(target)===controller)sessions.delete(target)}};
  sessions.set(target,controller);return controller;
 }
 const api=Object.freeze({mount});root.GroundUpLearningQuantStudiesUIV1=api;
