@@ -105,8 +105,8 @@
 <script defer src="assets/js/member-learning-layouts-v1.js?v=1"></script><script defer src="assets/js/lab-player.js"></script>
 <script defer src="assets/js/learning-destination-picker-v1.js?v=20261030-combobox3"></script>
 <script defer src="assets/js/crownlight-lab-chart-handoff-v2.js?v=1"></script>
-<link rel="stylesheet" href="assets/css/labs-graphite-skin.css?v=terminal-20261026"><link rel="stylesheet" href="assets/css/lab-terminal-displays.css?v=20261026"><link rel="stylesheet" href="assets/css/learning-workstation-v44.css?v=20261030-progress1"><link rel="stylesheet" href="assets/css/learning-destination-picker-v1.css?v=20261030-compact1"><link rel="stylesheet" href="/assets/css/teaching-full-width-v1.css?v=20261031-1"><link rel="stylesheet" href="assets/css/member-learning-layouts-v1.css?v=1"></head>
-<body data-gu-lab-skin="graphite" class="gu-lab-member gu-teaching-wide">
+<link rel="stylesheet" href="assets/css/labs-graphite-skin.css?v=terminal-20261026"><link rel="stylesheet" href="assets/css/lab-terminal-displays.css?v=20261026"><link rel="stylesheet" href="assets/css/learning-workstation-v44.css?v=20261030-progress1"><link rel="stylesheet" href="assets/css/learning-destination-picker-v1.css?v=20261030-compact1"><link rel="stylesheet" href="/assets/css/teaching-full-width-v1.css?v=20261031-1"><link rel="stylesheet" href="assets/css/member-learning-layouts-v1.css?v=1"><link rel="stylesheet" href="/assets/css/crownlight-shared-classroom-v1.css?v=20261104-class1"></head>
+<body data-gu-lab-skin="graphite" class="gu-shared-classroom gu-lab-member gu-teaching-wide">
 <header class="site-header" aria-label="Website navigation"><div class="wrap nav"><a class="brand" href="index.html"><span class="gu-global-brand-title">THE STOCK MARKET <span>FROM THE GROUND UP</span></span><small class="gu-global-brand-suffix">LEARNING ACADEMY</small></a><nav class="navlinks" aria-label="Primary navigation"><a href="learn.html">Learning System</a><a href="labs.html">Lab Registry</a><a href="market-commons.html">Market Commons</a><a href="store.html">Store</a><a class="nav-cta" href="signin.html">Sign In</a></nav></div></header>
 <main id="app" aria-label="Interactive Learning Center">
 <nav class="gu-lab-breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span aria-hidden="true">/</span><a href="learn.html">Learning System</a><span aria-hidden="true">/</span><a href="labs.html">Lab Registry</a><span aria-hidden="true">/</span><span aria-current="page">Interactive Lab</span></nav>
@@ -177,6 +177,11 @@
 <div id="lab-player-gate" role="status" aria-live="polite">Loading authorized Lab…</div>
 <section id="lab-player-content" hidden>
 <div id="player-access-note"></div>
+<div class="cl-classroom-banner" aria-label="Crownlight classroom layout"><strong>Crownlight Classroom · Interactive Lab</strong><span>LEARN · EXPERIMENT · PRACTICE · REVIEW</span></div>
+<details id="cl-lab-classroom-chart" class="cl-classroom-chart" aria-label="Optional fictional chart training workstation">
+<summary>Open interactive fictional chart · Pan, zoom, replay and indicator controls</summary>
+<div class="cl-classroom-chart-inner"><p class="cl-classroom-chart-note"><strong>Supplemental training fixture:</strong> This chart uses separate original fictional prices. It is not this Lab's protected evidence, a historical feed, a prediction, or an assessment answer. The authorized Lab engine below remains the instructional source.</p><div id="cl-lab-classroom-chart-host" class="cl-classroom-chart-host" aria-label="Optional fictional ECharts Lab chart"></div><p id="cl-lab-classroom-chart-status" class="cl-classroom-chart-status" role="status" aria-live="polite">Open only after an authorized Lab loads. Hidden in Blind Decision and Assessment modes.</p></div>
+</details>
 <section id="player-edition-exercise" hidden aria-label="Server-authorized optional premium study"></section>
 <section id="player-workspace" aria-label="Active learning stage"></section>
 <section id="player-results" aria-live="polite"></section>
@@ -186,5 +191,5 @@
 </div>
 </main>
 <footer class="footer gu-lab-footer"><div class="wrap"><a href="labs.html">Lab Registry</a> · <a href="learn.html">Learning System</a> · <a href="help.html">Help</a></div></footer>
-</body>
+<script defer src="/assets/js/crownlight-classroom-chart-bridge-v1.js?v=20261104-class1"></script></body>
 </html>
