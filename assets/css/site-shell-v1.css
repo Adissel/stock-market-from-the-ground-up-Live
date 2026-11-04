@@ -9,7 +9,9 @@ body.sm-experience-v7 .site-header .navlinks a:focus-visible{outline:3px solid v
 body.sm-experience-v7 .site-header a:hover{text-decoration-color:var(--sm-shell-accent)}
 body.sm-experience-v7 .card,body.sm-experience-v7 .gu-path-card{transition:border-color .2s ease,box-shadow .2s ease}
 body.sm-experience-v7 .card:focus-within,body.sm-experience-v7 .gu-path-card:focus-visible{border-color:#72becb;box-shadow:0 0 0 2px rgba(74,190,200,.28)}
-@media(max-width:980px){
+/* Match the canonical v1341 navigation breakpoint: 901–980 px must retain
+ * desktop links instead of hiding them without a visible mobile toggle. */
+@media(max-width:900px){
  body.sm-experience-v7 .site-header .wrap.nav{display:flex!important;flex-direction:row!important;align-items:center!important;justify-content:space-between!important;flex-wrap:wrap!important;gap:8px}
  body.sm-experience-v7 .site-header .navlinks{display:none!important;flex-basis:100%!important;order:10;flex-direction:column!important;align-items:stretch!important;gap:4px!important;padding:10px!important;margin:0!important;background:#101f31;border:1px solid #36556b;border-radius:12px;max-height:min(72vh,700px);overflow-y:auto}
  body.sm-experience-v7 .site-header .navlinks.sm-shell-links-open{display:flex!important}
