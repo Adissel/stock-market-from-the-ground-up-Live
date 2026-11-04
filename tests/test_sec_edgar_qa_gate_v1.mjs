@@ -8,7 +8,7 @@ const B='bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
 const now=Date.parse('2026-11-03T18:00:00Z');
 const record={tier:'ADVANCED',status:'active',version:1,expires_at:null};
 const actor={userId:A,c:{base:'https://mock.supabase.co',secret:'service-mock'}};
-const enabled={SEC_EDGAR_BETA_ENABLED:'true'};
+const enabled={SEC_EDGAR_BETA_ENABLED:'true',SEC_EDGAR_USER_AGENT:'Crownlight QA qa@example.org'};
 const publicRelease={...enabled,SEC_EDGAR_GENERAL_RELEASE_APPROVED:'true'};
 const oldFetch=globalThis.fetch;
 let rows=[],calls=[],status=200;
@@ -53,6 +53,14 @@ try{
  test('deny SEC access if master source flag is absent, even if release flag is set',async()=>{
   calls=[];
   await assert.rejects(requireSecSourceRelease(actor,{SEC_EDGAR_GENERAL_RELEASE_APPROVED:'true'}),x=>x.status===503);
+  assert.equal(calls.length,0);
+ });
+ test('SEC contact is required and rejects malicious or malformed declarations',async()=>{
+  calls=[];
+  for(const ua of ['', 'Unknown Tool', 'research@example.org'+String.fromCharCode(10)+'X: yes',
+    'user at host', 'x'.repeat(161)]){
+    await assert.rejects(requireSecSourceRelease(actor,{...enabled,SEC_EDGAR_USER_AGENT:ua}),x=>x.status===503);
+  }
   assert.equal(calls.length,0);
  });
  test('deny missing actor before general release flag',async()=>{
