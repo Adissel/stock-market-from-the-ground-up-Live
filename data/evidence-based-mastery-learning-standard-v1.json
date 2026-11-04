@@ -1,0 +1,53 @@
+{
+  "id": "evidence-based-mastery-learning-v1",
+  "version": "1.0.0",
+  "status": "IMPLEMENTATION_BASELINE_UNGRADED",
+  "effectiveDate": "2026-11-04",
+  "project": "The Stock Market From the Ground Up Learning Academy",
+  "scope": {
+    "canonicalLabs": 419,
+    "bootCampDays": 274,
+    "bootCampPaths": 10
+  },
+  "baseline": {
+    "learningEngine": "v3.3",
+    "labEngine": "v3.2",
+    "officialStages": [
+      "Start",
+      "Learn",
+      "Experiment",
+      "Predict",
+      "Practice",
+      "Assess",
+      "Review",
+      "Transfer",
+      "Results"
+    ],
+    "instructionalSubstagesMayBeAddedWithoutChangingOfficialIds": true
+  },
+  "learningDimensions": [
+    "Knowledge",
+    "Recognition",
+    "Decision-making",
+    "Process"
+  ],
+  "evidencePolicy": {
+    "independent": "Correct first attempted check without recorded stage-specific assistance; instructional observation only",
+    "assisted": "Correct after relevant teaching/hints, not independent",
+    "corrected": "Correct after one or more incorrect attempts",
+    "transfer": "Different case with previously unseen evidence; recording participation alone does not prove mastery",
+    "retention": "Requires later spaced recall; not inferred from immediate success"
+  },
+  "interactionRequirements": {
+    "nonNumericAnswer": "Evidence-linked selected actions, classification, chart interactions or decisions; no mandatory essay",
+    "numericAnswer": "Short numerical entry is allowed for a genuine calculation",
+    "freeExplanation": "Unlimited and never charged",
+    "assessment": "Protected first graded response preserved; no client answer key or unapproved score"
+  },
+  "releaseHolds": [
+    "Graded Academy assessments remain on hold pending independent acceptance",
+    "Lumens mastery rewards remain unpublished pending validation",
+    "Historical data rights and replay verification unchanged"
+  ],
+  "remarks": "Source-of-truth acceptance criterion, not a new membership entitlement, grade, production assessment, or substitute for genuine tester journeys."
+}
