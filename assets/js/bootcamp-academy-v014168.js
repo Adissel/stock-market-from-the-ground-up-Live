@@ -644,7 +644,10 @@
   });
   const optional=node('details');optional.append(node('summary','Optional written reasoning and private reflection'),label,answer,use,
    node('p','Written reflection is optional. To copy notes into your private reflection, write at least 80 characters. Unsaved notes are erased on reload. Formative method checks are not graded mastery.'));
-  mount.append(decision.element,compare,result,optional);
+  const assessmentNotice=node('p','Formative method checks are not graded mastery. This ungraded lesson does not award independent competency or official assessment credit.');
+  assessmentNotice.className='academy-formative-disclosure';
+  assessmentNotice.setAttribute('role','note');
+  mount.append(decision.element,assessmentNotice,compare,result,optional);
   if(d.programCode==='free5')mountFreeLessonStages(mount,d);
  }
 
