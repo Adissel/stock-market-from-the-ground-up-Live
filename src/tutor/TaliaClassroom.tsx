@@ -411,8 +411,9 @@ function Classroom(){
   const requestRecommendation=()=>{
     setPhase('Retry');setMode('question');
     const basis=confidence==='unsure'?'Start with a simpler observation and worked example.':confidence==='developing'?'Ask a new comparison that tests the distinction.':'Ask a more difficult independent transfer question.';
-    setQuestion(('Practice '+dimension+' for '+sessionTopic+'. '+basis+' Focus on '+misconceptionPrompts[misconception]+' Do not grade this response.').slice(0,450));
-    setStatus('Practice recommendation prepared from your selected needs, not inferred mastery or private grades.');
+    const prompt=('Practice '+dimension+' for '+sessionTopic+'. '+basis+' Focus on '+misconceptionPrompts[misconception]+' Do not grade this response.').slice(0,450);
+    void submitTutor(prompt,'question','');
+    setStatus('Requesting a new ungraded practice question from the authenticated Tutor.');
   };
   const [dimension,setDimension]=useState<'Knowledge'|'Recognition'|'Decision'|'Process'>('Recognition');
   const phaseInstructions:Record<Phase,{mode:Mode;prompt:string}>={
@@ -555,6 +556,8 @@ function Classroom(){
   },[]);
   const submitTutor=async(q:string,selectedMode:Mode,learnerInput:string)=>{
     if(busy||!member||!ready)return;
+    if(checkpoint){setStatus('Finish, retry or skip Talia’s current checkpoint before sending a new message.');return}
+    setPlaying(false);
     if(q.length<4||q.length>450){setStatus('Question must contain 4–450 characters.');return}
     if(selectedMode==='review'&&!learnerInput.trim()){setStatus('Provide your reasoning to request an ungraded review.');return}
     if(practiceCase!=='none'&&!/^[-+]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(practiceValue.trim())){
@@ -652,13 +655,12 @@ function Classroom(){
     [...chat].reverse().find(line=>line.who==='member')?.text||'the current topic':'the current topic';
   const continueLesson=(kind:'clarify'|'challenge'|'transfer')=>{
     const subject=latestExchange.slice(0,170);
-    if(kind==='clarify'){
-      setMode('explain');safeSuggest('Continue our previous lesson about '+subject+'. Explain one difficult part more clearly, using a distinct fictional example. Do not assume I understood.');
-    }else if(kind==='challenge'){
-      setMode('question');safeSuggest('Continue our previous lesson about '+subject+'. Ask ONE evidence-based diagnostic question and wait for my attempt before correcting.');
-    }else{
-      setMode('practice');safeSuggest('Continue our previous lesson about '+subject+'. Give a different fictional transfer case and invite NO TRADE as an option; do not grade.');
-    }
+    const nextMode:Mode=kind==='clarify'?'explain':kind==='challenge'?'question':'practice';
+    setMode(nextMode);
+    const prompt=kind==='clarify'?'Continue our previous lesson about '+subject+'. Explain one difficult part more clearly, using a distinct fictional example. Do not assume I understood.':
+      kind==='challenge'?'Continue our previous lesson about '+subject+'. Ask ONE evidence-based diagnostic question and wait for my attempt before correcting.':
+      'Continue our previous lesson about '+subject+'. Give a different fictional transfer case and invite NO TRADE as an option; do not grade.';
+    void submitTutor(prompt.slice(0,450),nextMode,'');
   };
   if(!member)return <main className="tc-main" aria-label="Talia membership access">
     <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / MEMBER TUTOR</p>
@@ -802,10 +804,10 @@ function Classroom(){
       {advancedExperience&&<section className="tp-teaching-loop" aria-label="Progressive ungraded instructional pathway">
         <div className="tp-teaching-loop-heading"><strong>Guided learning cycle</strong><span>Choose a phase; review the prepared question and submit it to the authenticated Tutor.</span></div>
         <div className="tp-teaching-loop-actions">
-          <button type="button" className="tc-secondary" onClick={()=>{setMode('explain');safeSuggest('Teach this concept from first principles with a fully worked fictional example and describe the observable evidence.')}}>1 · Explain & demonstrate</button>
-          <button type="button" className="tc-secondary" onClick={()=>{setMode('question');safeSuggest('Ask me one ungraded diagnostic question about the current concept. Withhold the explanation until I attempt an answer.')}}>2 · Diagnose understanding</button>
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('explain');void submitTutor('Teach this concept from first principles with a fully worked fictional example and describe the observable evidence.','explain','')}}>1 · Explain & demonstrate</button>
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('question');pauseForQuestion()}}>2 · Diagnose understanding</button>
           <button type="button" className="tc-secondary" onClick={()=>{setMode('review');safeSuggest('Identify a misconception in my reasoning, explain why it fails using completed evidence, and guide me toward a correction without giving a protected answer key.')}}>3 · Correct reasoning</button>
-          <button type="button" className="tc-secondary" onClick={()=>{setMode('practice');safeSuggest('Give me a new fictional transfer scenario requiring an independent decision, including NO TRADE as an option. Do not grade it.')}}>4 · Independent transfer</button>
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('practice');void submitTutor('Give me a new fictional transfer scenario requiring an independent decision, including NO TRADE as an option. Do not grade it.','practice','')}}>4 · Independent transfer</button>
         </div>
         <p className="tc-muted">Ungraded teaching aid. These prompts do not advance a Lab stage, generate mastery credits, or record a protected assessment.</p>
       </section>}
@@ -819,7 +821,7 @@ function Classroom(){
         <button type="button" className="tc-secondary" onClick={()=>void loadHistory()} disabled={!member||busy}>Load my saved history</button>
       </div>
       <p className="tc-muted">This classroom uses the existing authenticated Tutor API and approved source materials. It does not use paid model inference, award grades, access protected answer keys, or send future market bars. Saved follow-up context is verified only when the server confirms the member-owned conversation.</p>
-    </section><FictionalChart onQuestion={safeSuggest} memberId={member.id} visible={visible} setVisible={setVisible}
+    </section><FictionalChart onQuestion={q=>void submitTutor(q,'explain','')} memberId={member.id} visible={visible} setVisible={setVisible}
       playing={playing} setPlaying={setPlaying} playSpeed={playSpeed} setPlaySpeed={setPlaySpeed}
       onPauseForQuestion={()=>pauseForQuestion()}/></div>
   </main>;
