@@ -102,12 +102,29 @@ function evaluate(n,row){
  }
  return unknown?null:n.op==='AND';
 }
-function validRow(row){
+function validRow(row,allowSparse=false){
  if(!obj(row)||!/^[A-Z][A-Z0-9.-]{0,11}$/.test(String(row.symbol||'').trim().toUpperCase()))
   return false;
- if(required.some(k=>read(row,k)===null))return false;
- return read(row,'price')>0&&read(row,'volume')>=0&&read(row,'rvol')>=0&&
-  read(row,'float')>0&&read(row,'spread_pct')>=0;
+ // A ticker, a positive observed price and nonnegative reported shares are
+ // mandatory in both modes. The old seven-field contract remains the default.
+ if(read(row,'price')===null||read(row,'price')<=0||
+    read(row,'volume')===null||read(row,'volume')<0)return false;
+ if(!allowSparse)return required.every(k=>read(row,k)!==null)&&
+  read(row,'rvol')>=0&&read(row,'float')>0&&read(row,'spread_pct')>=0;
+ // Omitted optional fields are UNKNOWN when the rule actually needs them.
+ // A supplied but malformed value is rejected, never converted to 0.
+ const positive=['float','market_cap','vwap','prev_close','day_high','day_low'];
+ const nonnegative=['rvol','spread_pct','trades','yesterday_volume'];
+ for(const field of Object.keys(FIELDS)){
+  if(!Object.hasOwn(row,field)||row[field]===null||row[field]==='')continue;
+  const n=read(row,field);
+  if(n===null||(positive.includes(field)&&n<=0)||
+     (nonnegative.includes(field)&&n<0))return false;
+ }
+ const high=read(row,'day_high'),low=read(row,'day_low');
+ if(high!==null&&low!==null&&low>high)return false;
+ if(high!==null&&read(row,'price')>high)return false;
+ return true;
 }
 const DEFAULT_COLUMNS=Object.freeze(['price','change_pct','volume','rvol','float','spread_pct','trades','vwap_distance_pct']);
 function validateView(opt={}){
@@ -150,9 +167,10 @@ function explain(tree,row){
 function analyze(rows,tree,opt={}){
  if(!Array.isArray(rows)||rows.length>2000)throw err('Invalid input or >2,000 records.');
  const expression=validate(tree),view=validateView(opt);
+ const sparseMode=opt.allowSparse===true;
  const hits=[],seen=new Set(),reject={invalidInput:0,duplicateTicker:0,missingEvidence:0,failedRule:0};
  for(const row of rows){
-  if(!validRow(row)){reject.invalidInput++;continue;}
+  if(!validRow(row,sparseMode)){reject.invalidInput++;continue;}
   const symbol=String(row.symbol).trim().toUpperCase();
   if(seen.has(symbol)){reject.duplicateTicker++;continue;}seen.add(symbol);
   const match=evaluate(expression,row);
