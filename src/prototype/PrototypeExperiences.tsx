@@ -206,7 +206,7 @@ function ChartCustomizer(){
   <label>Candle spacing<input aria-label="Candle spacing" type="range" min="0" max="50" step="2" value={style.gap} onChange={e=>patch({gap:Number(e.target.value)})}/><span>{style.gap}%</span></label>
   <label className="cx-structure-toggle"><input aria-label="Show confirmed HH HL LH LL" type="checkbox" checked={style.showStructure} onChange={e=>patch({showStructure:e.target.checked})}/> Confirmed HH / HL / LH / LL</label>
   </div>
-  <details><summary>Indicator colors and line styles</summary><div className="cx-chart-line-grid">{specs.map(ind=><div className="cx-chart-line-row" key={ind.id}><span>{ind.label}</span><input aria-label={ind.label+' line color'} type="color" value={style.colors[ind.id]||'#7f9cff'} onChange={e=>color(ind.id,e.target.value)}/><select aria-label={ind.label+' line type'} value={style.types[ind.id]||'solid'} onChange={e=>line(ind.id,e.target.value as 'solid'|'dashed'|'dotted')}><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div>)}</div></details>
+  <details><summary>Indicator colors and line styles</summary><div className="cx-chart-line-grid">{specs.filter(ind=>ind.id!=='VOLUME').map(ind=><div className="cx-chart-line-row" key={ind.id}><span>{ind.label}</span><input aria-label={ind.label+' line color'} type="color" value={style.colors[ind.id]||'#7f9cff'} onChange={e=>color(ind.id,e.target.value)}/><select aria-label={ind.label+' line type'} value={style.types[ind.id]||'solid'} onChange={e=>line(ind.id,e.target.value as 'solid'|'dashed'|'dotted')}><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div>)}</div></details>
   <p className="cx-small">Visual settings are saved locally in this browser preview. Underlying prices and indicator calculations remain unchanged.</p>
  </section>;
 }
@@ -246,28 +246,28 @@ function PrototypeChartContextMenu({menu,close,setMenu,studio,prefs,appearance,s
   <nav className="cx-context-tabs" aria-label="Chart tool groups"><button aria-pressed={menu.view==='indicators'} onClick={()=>setMenu({...menu,view:'indicators',selected:null,custom:false})}>Indicators</button><button aria-pressed={menu.view==='drawings'} onClick={()=>setMenu({...menu,view:'drawings',selected:null,custom:false})}>Drawings</button></nav>
   {menu.view==='indicators'?<div className="cx-context-columns">
    <div className="cx-context-indicator-list" role="group" aria-label="All 16 computed prototype chart studies">
-    {specs.map(item=><button type="button" key={item.id} data-prototype-indicator={item.id} className={menu.selected===item.id?'is-selected':''} aria-pressed={menu.selected===item.id} aria-disabled={!studyAllowed(studio,item.id)} title={studyAllowed(studio,item.id)?item.family:help}
+    {specs.map(item=><button type="button" key={item.id} data-prototype-indicator={item.id} className={menu.selected===item.id?'is-selected':''} aria-pressed={menu.selected===item.id} aria-disabled={!studyAllowed(studio,item.id)} title={studyAllowed(studio,item.id)?item.id==='VOLUME'?'Click to show or hide volume':item.family:help}
       onMouseEnter={()=>setMenu(m=>m&&m.view==='indicators'?{...m,selected:item.id,custom:false}:m)}
       onFocus={()=>setMenu(m=>m&&m.view==='indicators'?{...m,selected:item.id,custom:false}:m)}
-      onClick={()=>setMenu(m=>m?{...m,selected:item.id,custom:false}:m)}>
+      onClick={()=>{if(item.id==='VOLUME'&&studyAllowed(studio,item.id)){prefs.setEnabled(item.id,!prefs.enabled[item.id]);close();return}setMenu(m=>m?{...m,selected:item.id,custom:false}:m)}}>
       <span>{item.label}</span><small>{studyAllowed(studio,item.id)?prefs.enabled[item.id]?'ACTIVE':'AVAILABLE':'LOCKED · ADVANCED'}</small>
      </button>)}
    </div>
    <div className="cx-context-detail" aria-live="polite">{selected?<><strong>{selected.label}</strong><p>{selected.family} · {selected.placement}</p>
     {!permitted?<p className="cx-context-locked">{help}</p>:<>
      {selected.id==='EMA_FAST'||selected.id==='EMA_SLOW'||selected.id==='EMA_200'?<div className="cx-context-presets">{[9,20,200].map(period=><button key={period} type="button" onClick={()=>activate(period===9?'EMA_FAST':period===20?'EMA_SLOW':'EMA_200',period)} disabled={!studyAllowed(studio,period===9?'EMA_FAST':period===20?'EMA_SLOW':'EMA_200')}>EMA {period}{studio==='Standard'&&period===200?' · Locked':''}</button>)}</div>:null}
-     <button type="button" onClick={()=>activate(selected.id)}>Add / show {selected.label}</button>
-     <button type="button" aria-expanded={menu.custom} onClick={()=>setMenu({...menu,custom:!menu.custom})}>{menu.custom?'Hide custom settings':'Custom settings · calculation and appearance'}</button>
-     {menu.custom&&<div className="cx-context-editor">
+     <button type="button" onClick={()=>{prefs.setEnabled(selected.id,!prefs.enabled[selected.id]);close()}}>{prefs.enabled[selected.id]?'Hide':'Show'} {selected.label}</button>
+     {selected.id!=='VOLUME'&&<button type="button" aria-expanded={menu.custom} onClick={()=>setMenu({...menu,custom:!menu.custom})}>{menu.custom?'Close settings':'Customize'}</button>}
+     {menu.custom&&selected.id!=='VOLUME'&&<div className="cx-context-editor">
        {selected.setting?field(selected.setting,selected.id==='EMA_200'?'EMA long period':selected.label+' period',selected.id==='EMA_200'?100:2,selected.id==='EMA_200'?400:200):null}
        {selected.id==='BB'?field('bbDeviation','Standard-deviation multiplier',.5,4,.1):null}
        {selected.id==='MACD'?<>{field('macdFast','MACD fast',2,50)}{field('macdSlow','MACD slow',3,100)}{field('macdSignal','MACD signal',2,50)}</>:null}
        <label>Line color<input type="color" value={appearance.colors[selected.id]||'#7f9cff'} onChange={e=>changeLine(e.target.value)}/></label>
        <label>Line style<select value={appearance.types[selected.id]||'solid'} onChange={e=>changeStyle(e.target.value as 'solid'|'dashed'|'dotted')}><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></label>
-       <button type="button" onClick={()=>{prefs.setEnabled(selected.id,true);close()}}>Apply to chart</button>
+       <button type="button" onClick={()=>{prefs.setEnabled(selected.id,true);close()}}>Apply</button>
       </div>}
     </>}
-    </>:<p>Hover, focus or select any supported indicator to inspect presets, settings and tier requirements.</p>}
+    </>:null}
    </div>
   </div>:<div className="cx-context-drawings"><strong>Drawing controls</strong><p>Drawing placement is only available where a prototype chart has an implemented time/price drawing adapter. Selecting a tool here does not activate unsupported drawing behavior.</p>{['Horizontal price level','Trendline','Fibonacci levels','Rectangle / range','Annotation'].map((name,i)=><div key={name} className="cx-context-locked">{name} · {studio==='Standard'&&i>0?'Locked · Advanced preview required':'Drawing adapter not yet connected'}</div>)}</div>}
   <p className="cx-context-foot">Fictional revealed OHLCV only · {studio} design preview · no entitlement changes</p>
