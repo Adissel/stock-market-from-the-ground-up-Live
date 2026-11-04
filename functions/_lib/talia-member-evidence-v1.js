@@ -52,6 +52,7 @@ export function authenticLearningEvidence({skills=[],labs=[],academy=[] ,topicCo
   a01:{capability:'Verified prerequisite and topic inventory',evidenceStatus:assessment,
    topic:focus?{code:focus.code,name:topicName,recordedStatus:assessment==='independently_assessed'?focus.status:'Not independently assessed'}:null,
    independentAssessedCompetencies:observed.length,unverifiedCompetencies:pending.length,
+   availableTopics:canonical.map(s=>({code:s.code,name:safe(s.name,100),evidenceStatus:observed.includes(s)?s.status:'Not independently assessed'})),
    interpretation:learningNeed},
   a02:{capability:'Evidence-bounded correction pathway',evidenceStatus:assessment,
    specificMisconceptionDiagnosed:false,
