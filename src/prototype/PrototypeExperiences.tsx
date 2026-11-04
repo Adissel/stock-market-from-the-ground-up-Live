@@ -1272,7 +1272,21 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
  const available=source==='case'&&caseBars.length>0?caseBars:series;
  const count=mode==='talia'?Math.max(1,available.length):Math.max(1,Math.min(reveal,available.length));
  useEffect(()=>{if(mode==='talia'&&caseBars.length>0)setFocus(caseBars.length-1)},[mode,caseBars.length]);
- const focused=Math.min(focus,count-1);
+ // A partial 3m/5m group is still forming. Never label it a completed
+ // observation, supply it to an indicator, or ask Talia to assess it.
+ const completedBars=mode==='talia'
+  ?available.slice(0,Math.floor(available.length/appearance.timeframe)*appearance.timeframe)
+  :available;
+ const chartCount=mode==='talia'?completedBars.length:count;
+ const focused=Math.max(0,Math.min(focus,chartCount-1));
+ const completedGroup=mode==='talia'&&chartCount>0?completedBars.slice(-appearance.timeframe):[];
+ const activeMeasurement=measurement&&mode==='talia'
+  ?completedGroup.length===appearance.timeframe?{
+    index:chartCount/appearance.timeframe,
+    open:completedGroup[0].o,high:Math.max(...completedGroup.map(b=>b.h)),
+    low:Math.min(...completedGroup.map(b=>b.l)),close:completedGroup[completedGroup.length-1].c,
+    interval:appearance.timeframe+'-minute completed candle'
+   }:null:measurement;
  const effectiveStudio:Studio=memberSafe?'Standard':studio;
  const prefs:IndicatorPrefs={settings,enabled,studio:effectiveStudio,
   setSettings:(name,value)=>setSettings(p=>({...p,[name]:value})),
@@ -1303,23 +1317,23 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
     {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.max(1,count-1))} disabled={count===1}>Previous candle</button>}
     {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.min(available.length,count+1))} disabled={count===available.length}>Reveal next candle</button>}
    </div>
-   <div className={measurement?'cx-classic-visual-region cx-classic-has-measurements':'cx-classic-visual-region'}>
-    <EChart kind="price" reveal={count} showVolume={true} showEma={true} showProxy={true}
-     sourceBars={available} focusBar={focused} onSelect={index=>{setFocus(index);onObservedBar?.(Math.floor(index/appearance.timeframe),appearance.timeframe)}} design="quantum" height={mode==='talia'?365:460}/>
-    {measurement&&<aside className="cx-classic-measurements" aria-label="Latest revealed candle price measurements">
-     <div className="cx-measure-heading"><strong>Price measurements</strong><small>Bar {measurement.index} · {measurement.interval}</small></div>
+   <div className={activeMeasurement?'cx-classic-visual-region cx-classic-has-measurements':'cx-classic-visual-region'}>
+    <EChart kind="price" reveal={chartCount} showVolume={true} showEma={true} showProxy={true}
+     sourceBars={completedBars} focusBar={focused} onSelect={index=>{setFocus(index);onObservedBar?.(Math.floor(index/appearance.timeframe),appearance.timeframe)}} design="quantum" height={mode==='talia'?365:460}/>
+    {activeMeasurement&&<aside className="cx-classic-measurements" aria-label="Latest revealed candle price measurements">
+     <div className="cx-measure-heading"><strong>Price measurements</strong><small>Bar {activeMeasurement.index} · {activeMeasurement.interval}</small></div>
      <dl>
-      <div><dt>High</dt><dd>${measurement.high.toFixed(2)}</dd></div>
-      <div><dt>Close</dt><dd>${measurement.close.toFixed(2)}</dd></div>
-      <div><dt>Open</dt><dd>${measurement.open.toFixed(2)}</dd></div>
-      <div><dt>Low</dt><dd>${measurement.low.toFixed(2)}</dd></div>
+      <div><dt>High</dt><dd>${activeMeasurement.high.toFixed(2)}</dd></div>
+      <div><dt>Close</dt><dd>${activeMeasurement.close.toFixed(2)}</dd></div>
+      <div><dt>Open</dt><dd>${activeMeasurement.open.toFixed(2)}</dd></div>
+      <div><dt>Low</dt><dd>${activeMeasurement.low.toFixed(2)}</dd></div>
      </dl>
-     <p className="cx-measure-candle-type">{measurement.close>measurement.open?'Bullish':measurement.close<measurement.open?'Bearish':'Doji'} candle</p>
-     <p>Body ${Math.abs(measurement.close-measurement.open).toFixed(2)} · Range ${(measurement.high-measurement.low).toFixed(2)}</p>
+     <p className="cx-measure-candle-type">{activeMeasurement.close>activeMeasurement.open?'Bullish':activeMeasurement.close<activeMeasurement.open?'Bearish':'Doji'} candle</p>
+     <p>Body ${Math.abs(activeMeasurement.close-activeMeasurement.open).toFixed(2)} · Range ${(activeMeasurement.high-activeMeasurement.low).toFixed(2)}</p>
      <small>Simulated completed candle. No future bars.</small>
     </aside>}
    </div>
-   <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {count} · {mode==='talia'?'Synchronized with Talia’s revealed instructional prefix; the chart cannot disclose a later candle.':'All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.'}</div>
+   <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {chartCount} · {mode==='talia'?chartCount+' of '+available.length+' revealed one-minute bars form fully completed '+appearance.timeframe+'-minute intervals; incomplete interval bars are withheld from chart calculations.':'All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.'}</div>
    <details><summary>Chart appearance · colors, timeframes, candle spacing and levels</summary><ChartCustomizer/></details>
    <IndicatorDock/>
    <PrototypeChartContextMenu menu={menu} close={close} setMenu={setMenu} studio={effectiveStudio}
