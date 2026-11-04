@@ -57,3 +57,20 @@
  .cx-app .cx-tutor-tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 @media(prefers-reduced-motion:reduce){.cx-app .cx-talia *{transition:none!important}}
+
+/* Embedded real homepage ECharts chart controls inside the Prototype Center. */
+.cx-app .cx-home-shared-market .cl-react-toolbar button,
+.cx-app .cx-home-shared-market .cl-react-playback button,
+.cx-app .cx-home-shared-market .cx-pan-controls button{
+ padding:5px 8px;font-size:11px;line-height:1.3;min-height:32px;border-radius:5px;flex:0 1 auto
+}
+/* Teaching copy uses an independent, larger reading scale. */
+.cx-app .cx-talia .cx-coach-typed{font-size:clamp(19px,1.65vw,23px);line-height:1.85}
+.cx-app .cx-talia .cx-coach-evidence{font-size:18px;line-height:1.8}
+.cx-app .cx-tutor-evidence-body>p,.cx-app .cx-tutor-caution,.cx-app .cx-tutor-feedback{font-size:18px;line-height:1.8}
+@media(max-width:750px){
+ .cx-app .cx-home-shared-market .cl-react-toolbar button,
+ .cx-app .cx-home-shared-market .cl-react-playback button,
+ .cx-app .cx-home-shared-market .cx-pan-controls button{min-height:40px}
+ .cx-app .cx-talia .cx-coach-typed{font-size:20px;line-height:1.8}
+}
