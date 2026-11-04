@@ -1,0 +1,67 @@
+name: Talia Classroom Teaching Depth — Seven Plan Matrix and Genuine Member Browser
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/talia-classroom-depth-acceptance-v2.yml'
+      - 'tests/talia-classroom-teaching-depth-v1.test.mjs'
+      - 'tests/talia-classroom-real-member-depth-v2.mjs'
+      - 'functions/_lib/talia-classroom-curriculum-v1.js'
+      - 'functions/_lib/talia-teaching-entitlement-v1.js'
+      - 'functions/api/talia-classroom-curriculum-v1.js'
+      - 'src/tutor/TaliaClassroom.tsx'
+permissions:
+  contents: read
+concurrency:
+  group: talia-classroom-depth-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  hierarchical-authorized-source:
+    name: Seven plan ceilings, six topics, five steps, lifecycle and denial
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax check source-only Cloudflare Function modules
+        run: |
+          node --check functions/_lib/talia-classroom-curriculum-v1.js
+          node --check functions/_lib/talia-teaching-entitlement-v1.js
+          node --check functions/api/talia-classroom-curriculum-v1.js
+          node --check tests/talia-classroom-real-member-depth-v2.mjs
+      - name: Enforce seven-policy matrix and authorization against local first-party API
+        run: node --test tests/talia-classroom-teaching-depth-v1.test.mjs
+  genuine-james-classroom:
+    name: Authenticated James_Test real browser and no-charge lesson API
+    needs: hierarchical-authorized-source
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+      LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+      TALIA_QA_EXPECTED_SHA: ${{ github.sha }}
+      TALIA_QA_ORIGIN: https://stock-market-from-the-ground-up-d1r.pages.dev
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Fail closed without existing encrypted QA identity
+        run: |
+          if test -z "$LAB_QA_EMAIL" || test -z "$LAB_QA_PASSWORD"; then
+            echo "BLOCKED: James_Test browser credentials unavailable; no substitute or forged membership."
+            exit 2
+          fi
+      - name: Install isolated free Chromium runner
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Exact-commit production browser, genuine entitlement and all authorized teaching steps
+        run: node tests/talia-classroom-real-member-depth-v2.mjs
