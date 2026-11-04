@@ -1247,9 +1247,9 @@ function Suite({page}:{page:Page}){
  * already-disclosed case bars; ordinary members use the same calculation and
  * UI components with immutable Standard-only supplemental simulation. The
  * member caller provides no private lesson data or entitlement overrides. */
-type ClassicChartInput={mode:'lab'|'bootcamp';caseBars?:Bar[];memberSafe?:boolean};
-function ClassicClassroomChart({mode,caseBars=[],memberSafe=false}:ClassicChartInput){
- const [source,setSource]=useState<'demo'|'case'>('demo');
+export type ClassicChartInput={mode:'lab'|'bootcamp'|'talia';caseBars?:Bar[];memberSafe?:boolean;onObservedBar?:(index:number)=>void};
+export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObservedBar}:ClassicChartInput){
+ const [source,setSource]=useState<'demo'|'case'>(mode==='talia'?'case':'demo');
  const [reveal,setReveal]=useState(54);
  const [focus,setFocus]=useState(0);
  const [studio,setStudio]=useState<Studio>('Advanced');
@@ -1283,7 +1283,7 @@ function ClassicClassroomChart({mode,caseBars=[],memberSafe=false}:ClassicChartI
   <BarLookContext.Provider value={barLook}><IndicatorContext.Provider value={prefs}>
   <section className="cx-app cx-theme-quantum cx-page-b cx-classic-shared-chart" aria-label="Classic Classroom ECharts workstation"
    onContextMenuCapture={e=>{if(!(e.target as HTMLElement).closest('.cx-chart-grabbable'))return;e.preventDefault();open(e.clientX,e.clientY)}}>
-   <div className="cx-classic-chart-top"><div><strong>Classroom chart · {mode==='bootcamp'?'Boot Camp':'Lab'}</strong>
+   <div className="cx-classic-chart-top"><div><strong>Classroom chart · {mode==='talia'?'Talia':mode==='bootcamp'?'Boot Camp':'Lab'}</strong>
     <p>{memberSafe?'Interactive simulated chart: pan, zoom, study catalog, appearance and timeframe. Advanced calculations remain locked; this never changes account permissions.':'Actual Experience B ECharts controls: zoom, pan, 16 calculated studies, appearance, timeframes, and right-click. Owner-only design preview.'}</p></div>
     <span>SIMULATED · UNGRADED</span></div>
    <div className="cx-classic-chart-controls">
@@ -1297,13 +1297,13 @@ function ClassicClassroomChart({mode,caseBars=[],memberSafe=false}:ClassicChartI
     <label>Bar appearance <select aria-label="Classic chart bar appearance" value={barLook} onChange={e=>setBarLook(e.target.value as BarLook)}>
      {barLooks.map(b=><option key={b.id} value={b.id}>{b.label}</option>)}
     </select></label>
-    <label>Revealed candles <input aria-label="Classic chart revealed candles" type="range" min="1" max={available.length} value={count} onChange={e=>revealTo(Number(e.target.value))}/><output>{count} of {available.length}</output></label>
-    <button type="button" onClick={()=>revealTo(Math.max(1,count-1))} disabled={count===1}>Previous candle</button>
-    <button type="button" onClick={()=>revealTo(Math.min(available.length,count+1))} disabled={count===available.length}>Reveal next candle</button>
+    {mode!=='talia'&&<label>Revealed candles <input aria-label="Classic chart revealed candles" type="range" min="1" max={available.length} value={count} onChange={e=>revealTo(Number(e.target.value))}/><output>{count} of {available.length}</output></label>}
+    {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.max(1,count-1))} disabled={count===1}>Previous candle</button>}
+    {mode!=='talia'&&<button type="button" onClick={()=>revealTo(Math.min(available.length,count+1))} disabled={count===available.length}>Reveal next candle</button>}
    </div>
    <EChart kind="price" reveal={count} showVolume={true} showEma={true} showProxy={true}
-    sourceBars={available} focusBar={focused} onSelect={setFocus} design="quantum" height={460}/>
-   <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {count} · All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.</div>
+    sourceBars={available} focusBar={focused} onSelect={index=>{setFocus(index);onObservedBar?.(index)}} design="quantum" height={460}/>
+   <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {count} · {mode==='talia'?'Synchronized with Talia’s revealed instructional prefix; the chart cannot disclose a later candle.':'All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.'}</div>
    <details><summary>Chart appearance · colors, timeframes, candle spacing and levels</summary><ChartCustomizer/></details>
    <IndicatorDock/>
    <PrototypeChartContextMenu menu={menu} close={close} setMenu={setMenu} studio={effectiveStudio}
