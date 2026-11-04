@@ -49,3 +49,7 @@
  .tc-body .tc-chart{min-height:300px}
 }
 @media(prefers-reduced-motion:reduce){.tc-body .tc-typing-caret{animation:none}}
+
+.tc-body .tc-learning-report{margin:12px 0;padding:12px 14px;border:1px solid #426c82;border-radius:10px;background:#102b3d}
+.tc-body .tc-learning-report summary{cursor:pointer;color:#b7f1e7;font-weight:720}
+.tc-body .tc-learning-report p{margin:8px 0;color:#d8e8ed}
