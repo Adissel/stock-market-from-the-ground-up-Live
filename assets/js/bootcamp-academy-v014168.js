@@ -693,7 +693,7 @@
     ' This is an instructional hint, not an automated correctness grade.';
   });
   const freeDecision=evidenceDecision('Which evidence should you rely on before drawing a conclusion?',d.title,d.day+300);
-  const optionalFree=node('details');optionalFree.append(node('summary','Optional observation notes'),field);
+  const optionalFree=node('details');optionalFree.open=true;optionalFree.append(node('summary','Optional observation notes'),field);
   panels[4].append(freeDecision.element,ask,feedback,optionalFree);
   // Full Lab-inspired teaching sequence, with original simulated Free-only
   // exercises. This preview never overrides book/assessment authorization.
