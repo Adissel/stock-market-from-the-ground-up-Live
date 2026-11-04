@@ -1,0 +1,29 @@
+/* Crownlight shared chart-tool presentation V1.
+ * Applied to non-homepage documents only; no chart evidence, permission,
+ * grading, replay, market data, or authorization code is altered.
+ */
+:root{--cl-chart-tool-ink:#edf8ff;--cl-chart-tool-accent:#5be7aa;--cl-chart-tool-border:#51758d}
+.cx-context-menu,.cl-context-menu{font-family:Inter,system-ui,sans-serif;color:var(--cl-chart-tool-ink)}
+.cx-context-menu{width:min(620px,calc(100vw - 16px));padding:10px}
+.cx-context-menu .cx-context-indicator-list button{min-height:32px;padding:5px 8px}
+.cx-context-menu .cx-context-detail>button,.cx-context-menu .cx-context-presets button{width:auto;max-width:100%;min-height:32px;padding:5px 9px}
+.cx-context-menu .cx-context-columns{grid-template-columns:minmax(170px,245px) minmax(195px,1fr)}
+.cl-context-menu{width:min(620px,calc(100vw - 16px));max-height:min(82vh,660px);gap:5px;padding:8px}
+.cl-context-menu .cl-context-column{flex-basis:160px;gap:4px;padding:4px}
+.cl-context-menu .cl-context-column button{min-height:32px;padding:5px 8px;font-size:12px;line-height:1.4}
+.cl-context-menu .cl-context-title{padding:4px;font-size:12px}
+.cl-context-menu .cl-context-feedback{font-size:12px;padding:5px 8px}
+.cl-tier-echarts-frame .cl-echarts-indicator-controls{gap:5px 9px;padding:8px}
+.cl-tier-echarts-frame .cl-echarts-indicator-controls label{font-size:12px;min-height:32px}
+.cl-tier-echarts-frame .cl-echarts-volume-toggle{width:auto;min-height:32px;padding:5px 9px;font-size:12px;line-height:1.4;border:1px solid #547b91;border-radius:6px;background:#1c344e;color:#eff9ff;cursor:pointer}
+.cl-tier-echarts-frame .cl-echarts-volume-toggle[aria-pressed="true"]{border-color:#5be7aa}
+.cl-tier-echarts-frame .cl-echarts-pane-controls{gap:5px 12px;padding:7px}
+.cl-classroom-chart .cx-classic-chart-controls :is(button,select),.tc-unified-chart .cx-classic-chart-controls :is(button,select){font-size:12px;min-height:34px;padding:5px 9px}
+.tc-unified-chart .cx-pan-controls button,.cl-classroom-chart .cx-pan-controls button{min-height:34px;padding:5px 8px;font-size:12px}
+.tc-body .tc-transcript .tc-message p{font-size:clamp(17px,1.3vw,20px);line-height:1.8;overflow-wrap:anywhere}
+.cl-classroom-chart .cx-classic-chart-note,.tc-unified-chart .cx-classic-chart-note{font-size:15px;line-height:1.7}
+.cl-tier-echarts-frame :is(button,select,input):focus-visible,
+.cx-context-menu :is(button,select,input):focus-visible,
+.cl-context-menu :is(button,select,input):focus-visible{outline:2px solid #aadfff;outline-offset:2px}
+@media(max-width:620px){.cx-context-menu .cx-context-columns{grid-template-columns:1fr}.cl-context-menu{flex-direction:column;overflow:auto;max-height:85vh}.cl-context-menu .cl-context-column{flex-basis:auto;max-height:23vh}.cl-context-menu .cl-context-column button,.cx-context-menu .cx-context-indicator-list button,.cl-tier-echarts-frame .cl-echarts-volume-toggle{min-height:40px}}
+@media(prefers-reduced-motion:reduce){.cl-context-menu *,.cx-context-menu *{animation:none!important;transition:none!important}}
