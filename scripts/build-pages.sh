@@ -66,6 +66,7 @@ node --test tests/crownlight-member-acceptance-phase2-40.test.mjs
 node tests/test_founding_members_public_names.mjs
 node --test tests/home-market-terminal-v1.test.mjs
 node --test tests/community-source-copy-and-disclosure-v1.test.mjs
+node --test tests/sitewide-display-terminology-v1.test.mjs
 node --check assets/js/home-learning-constellation-v1.js
 node --test tests/home-realistic-prototype-constellation-v1.test.mjs
 node --check assets/js/prototype-shared-learning-market-v1.js

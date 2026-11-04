@@ -342,6 +342,7 @@ a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
         .on('head',{element(el){
           el.append('<style id="v1342-access-pending">html body{visibility:hidden!important}</style>',{html:true});
           el.append('<script defer src="/assets/js/auth-boundary.js"></script>',{html:true});
+          el.append('<script defer src="/assets/js/crownlight-display-terminology-v1.js?v=1"></script>',{html:true});
         }})
         .on('body',{element(el){
           el.setAttribute('data-route-access','member');
@@ -372,6 +373,7 @@ a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
         // boundaries still execute, and existing member routes are unaffected.
         if(STANDALONE_VISUAL_ROUTES.has(path)){
           el.append('<script defer src="/assets/js/auth-boundary.js"></script>',{html:true});
+          el.append('<script defer src="/assets/js/crownlight-display-terminology-v1.js?v=1"></script>',{html:true});
           el.append('<script defer src="/assets/js/service-worker.js"></script>',{html:true});
           return;
         }
@@ -428,6 +430,7 @@ a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
         el.append('<link rel="stylesheet" href="/assets/css/sitewide-composition-v014234.css?v=emerald20261027">',{html:true});
         el.append('<link rel="stylesheet" href="/assets/css/accounts-and-lab-preview.css">',{html:true});
         /* admin.html already loads admin-navigation.css; do not duplicate this stylesheet. */
+        el.append('<script defer src="/assets/js/crownlight-display-terminology-v1.js?v=1"></script>',{html:true});
         el.append('<script defer src="/assets/js/service-worker.js"></script>',{html:true});
         // The Lab shares site navigation but its teaching controls must not
         // inherit broad legacy overrides. Reapply the isolated layout last.
