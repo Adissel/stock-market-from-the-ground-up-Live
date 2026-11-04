@@ -51,12 +51,16 @@ function methodDecision({question,topic,kind,seed=0,initial='',onSelect=()=>{}}=
 }
 function classify(d){
  const s=(d.title+' '+d.objective).toLowerCase();
- return /vwap|volume.weighted/.test(s)?'vwap':/candle|chart|volume|indicator|ema|price action|breakout|level|pattern|pullback|scanner|timeframe/.test(s)?'candle':/risk|sizing|spread|percent|quantity/.test(s)?'risk':'research';
+ return /vwap|volume.weighted/.test(s)?'vwap':
+  (d.programCode==='scanners10'||/stock scanner|scanner filters|scanner universe|scanner results/.test(s))?'scanner':
+  /candle|chart|volume|indicator|ema|price action|breakout|level|pattern|pullback|timeframe/.test(s)?'candle':
+  /risk|sizing|spread|percent|quantity/.test(s)?'risk':'research';
 }
 function guidance(d,kind){
  const terms={
   vwap:['Price is dollars per share; volume is shares traded.','Weighted price = sum of price × shares divided by total shares.','Simulated: 200 × $8 + 100 × $10 = $2,600; 300 shares; VWAP ≈ $8.67/share.'],
   candle:['OHLC means open, high, low and close for a defined interval.','Real body = |close − open|; full range = high − low.','Simulated: $31 open, $32 close, $32.50 high, $30.50 low: body $1, range $2, body is 50% of range.'],
+  scanner:['A scanner is a reproducible filter, not a prediction or trade recommendation.','Define the eligible universe, session, timestamp and price/volume conditions before comparing results.','Simulated scanner: a $4.00 reference price rises to $4.40; price change is $0.40 or 10%, but liquidity and catalyst evidence are still unknown.'],
   risk:['Plan the maximum risk before share quantity.','Planned risk per share = |entry − stop|; whole shares = floor(risk budget ÷ risk per share).','Simulated: $20 entry, $19.60 stop, $40 planned risk → 100 shares, excluding slippage, gaps and fees.'],
   research:['Identify the original publisher, evidence and measured period.','Distinguish the source timestamp from a later interpretation of the event.','Simulated: a viral claim about a contract is unverified until a dated original issuer record supports its actual wording.']
  };
@@ -141,6 +145,14 @@ function plan(d){
  };
  if(kind==='vwap')checks[2]={numeric:true,question:'Calculate simulated traded dollars, shares and VWAP.',labels:['Total traded dollars ($)','Total shares','VWAP ($/share)'],expected:[2600,300,8.67],hints:['Multiply $8 × 200 and $10 × 100, then add dollar totals.','Add 200 and 100 shares.','Divide $2,600 by 300 shares; round to cents.']};
  if(kind==='candle')checks[2]={numeric:true,question:'Calculate simulated body, range and body percentage.',labels:['Real body ($)','Full range ($)','Body / range (%)'],expected:[1,2,50],hints:['Body = |$32 close − $31 open|.','Range = $32.50 high − $30.50 low.','Divide $1 body by $2 range, then multiply by 100.']};
+ if(kind==='scanner'){
+  if(d.programCode==='scanners10'&&d.day===2)
+   checks[2]={numeric:true,question:'Compare a new scanner price move: $4.00 to $4.40.',labels:['Dollar price change ($)','Price change (%)'],expected:[.4,10],hints:['Subtract the $4.00 starting price from the $4.40 completed price.','Divide the dollar change by the $4.00 starting price and multiply by 100.']};
+  if(d.programCode==='scanners10'&&d.day===3)
+   checks[2]={numeric:true,question:'Calculate relative volume for matched simulated 5-minute intervals: current 6,000 shares; comparable baseline 3,000.',labels:['Volume difference (shares)','Relative volume (multiple)'],expected:[3000,2],hints:['Subtract the comparable 3,000-share baseline from the 6,000-share observation.','Divide the 6,000 current shares by the matched 3,000 baseline.']};
+  if(d.programCode==='scanners10'&&d.day===6)
+   checks[2]={numeric:true,question:'Calculate a displayed spread for a fictional bid of $10.00 and ask of $10.06.',labels:['Displayed spread ($)','Spread as percent of bid (%)'],expected:[.06,.6],hints:['Ask minus bid is the displayed spread.','Divide displayed spread by the $10.00 bid and multiply by 100. No fill is guaranteed.']};
+ }
  if(kind==='risk')checks[2]={numeric:true,question:'Calculate simulated risk per share and share quantity.',labels:['Risk per share ($)','Whole shares for $40 planned risk'],expected:[.4,100],hints:['Use $20 entry − $19.60 planned stop.','Divide $40 by $0.40/share. Actual loss can exceed planned loss.']};
  return {kind,stages,checks,limitation};
 }
@@ -237,6 +249,39 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
     const update=()=>{const budget=Number(control.value);result.textContent='$'+budget+' budget ÷ $0.40 planned risk/share = '+Math.floor(budget/.4)+' whole shares (simulated teaching example only).'};
     control.addEventListener('input',()=>{interactionStages.add(stage);update()});
     label.append(control);panel.append(label,result);update();
+   }else if(cfg.kind==='scanner'){
+    panel.append(el('h5','Interactive scanner-filter experiment'));
+    panel.append(el('p','Simulated data only. Change one condition and observe what the scan can establish; this is not a live scanner, trading signal, or member-grade assessment.'));
+    const n=day.day,numberExercise={2:['Price at the latest completed observation ($)','4','3.6','4.8','0.1'],
+     3:['Current five-minute share volume','6000','1000','10000','500'],
+     6:['Displayed ask against $10.00 bid ($)','10.06','10.00','10.20','0.01']}[n];
+    if(numberExercise){
+     const [title,initial,min,max,step]=numberExercise;
+     const label=el('label',title),input=el('input');input.type='range';
+     input.min=min;input.max=max;input.step=step;input.value=initial;
+     const outcome=el('output');outcome.setAttribute('role','status');
+     const update=()=>{
+      const value=Number(input.value);
+      outcome.textContent=n===2?'Simulated $4.00 baseline: $'+(value-4).toFixed(2)+' change ('+((value/4-1)*100).toFixed(1)+'%). Verify liquidity and timestamp.':
+       n===3?'Compared with 3,000 shares in a matched interval: '+(value/3000).toFixed(2)+'× relative volume; confirm the baseline.' :
+       'Displayed bid $10.00, ask $'+value.toFixed(2)+': spread $'+(value-10).toFixed(2)+'; fillability is unknown.';
+     };
+     input.addEventListener('input',()=>{interactionStages.add(stage);update()});
+     label.append(input);panel.append(label,outcome);update();
+    }else{
+     const choice=el('fieldset');choice.append(el('legend','Compare two scanner source conditions'));
+     const feedback=el('p','Select a condition to examine the evidence boundary.');feedback.setAttribute('role','status');
+     for(const [code,label,reason] of [
+      ['incomplete','Scan includes mixed sessions, stale quotes or an unspecified universe','The hit list is not comparable. Record source coverage and time boundaries before interpreting it.'],
+      ['defined','Scan specifies eligible symbols, time window, source and filters','The scan is repeatable, but an individual candidate still requires issuer, liquidity and risk checks.']
+     ]){
+      const wrap=el('label'),input=el('input');input.type='radio';
+      input.name='academy-scanner-evidence-'+String(programCode||day.programCode)+'-'+day.day+'-'+stage;
+      input.value=code;input.addEventListener('change',()=>{interactionStages.add(stage);feedback.textContent=reason});
+      wrap.append(input,document.createTextNode(label));choice.append(wrap);
+     }
+     panel.append(choice,feedback);
+    }
    }else{
     panel.append(el('h5','Interactive source-evidence experiment'));
     panel.append(el('p','Simulated claim: a company has announced a new contract. Compare available evidence, not future price outcomes.'));
