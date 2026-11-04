@@ -47,7 +47,9 @@ test('actual Prototype Center workspaces and all eight experiences replace stati
  assert.match(central,/getChartCandles\?\.\(\)/);
  assert.match(proto,/export function mountClassicClassroomChart\(/);
  assert.match(proto,/function ClassicClassroomChart\(/);
- assert.match(proto,/sourceBars=\{available\}/);
+ assert.match(proto,/const completedBars=mode==='talia'/,'Talia chart requires completed candle groups');
+ assert.match(proto,/available\.slice\(0,Math\.floor\(available\.length\/appearance\.timeframe\)\*appearance\.timeframe\)/,'Partial 3m\/5m groups cannot leak into completed evidence');
+ assert.match(proto,/sourceBars=\{completedBars\}/,'ECharts must receive the completed-only source bars');
  assert.match(protoHtml,/prototype-classic-shared-chart-v1\.css/);
  assert.match(central,/disposePrototypeHomeChart\(\)/);
  assert.match(central,/if\(state\.chart\)\{state\.resize\?\.disconnect/);
