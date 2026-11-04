@@ -49,6 +49,8 @@ test('Home loads first-paint guard before all sitewide navigation and presentati
  assert(a>0&&b>a);
  assert.match(home,/main class="gu-premium-home"/);
  assert.match(home,/class="gu-home-terminal"/);
+ assert.match(home,/id="cl-home-initial-loading" role="status" aria-live="polite"/);
+ assert.match(code,/#cl-home-initial-loading/);
 });
 test('Initial public/Classic shell cannot appear before verified state',()=>{
  const h=browser();
