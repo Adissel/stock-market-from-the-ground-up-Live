@@ -1,0 +1,20 @@
+/* Shared Classic Prototype classroom visual language: presentation only. */
+body.gu-shared-classroom{--cl-classroom-bg:#071a2a;--cl-classroom-panel:#102c40;--cl-classroom-edge:#416e80;--cl-classroom-ink:#e9f7ff}
+body.gu-shared-classroom .cl-classroom-banner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding:12px 16px;margin:0 0 14px;border:1px solid var(--cl-classroom-edge);border-radius:10px;background:linear-gradient(115deg,#143a4a,#0b2037);color:#f4fcff}
+body.gu-shared-classroom .cl-classroom-banner strong{font-size:18px}body.gu-shared-classroom .cl-classroom-banner span{font-size:12px;color:#5be7aa;font-weight:700}
+body.gu-shared-classroom #lab-player-content,body.gu-shared-classroom .academy-workspace,body.gu-shared-classroom #player-workspace,body.gu-shared-classroom #academy-lab-slot{min-width:0}
+body.gu-shared-classroom .academy-course-head,body.gu-shared-classroom .academy-classroom-session-head{background:linear-gradient(145deg,#122d41,#0a1d30);border:1px solid var(--cl-classroom-edge);border-radius:11px;padding:clamp(12px,1.6vw,23px)}
+body.gu-shared-classroom .academy-classroom-lesson{background:var(--cl-classroom-bg);border:1px solid var(--cl-classroom-edge);border-radius:12px;padding:clamp(12px,1.5vw,23px)}
+body.gu-shared-classroom .academy-classroom-instruction p,body.gu-shared-classroom #lab-player-content .gu-v33-instructor p,body.gu-shared-classroom #player-workspace .gu-v32 p,body.gu-shared-classroom #academy-lab-slot .gu-v32 p{font-size:clamp(16px,1.1vw,19px);line-height:1.75;overflow-wrap:anywhere}
+body.gu-shared-classroom :is(#lab-player-content,#academy-lab-slot) :is(.gu-v32,.gu-v33,.gu-v34-unified-lesson,.gu-v33-instructor,.gu-v33-support-tabs){max-width:100%;min-width:0}
+body.gu-shared-classroom .cl-classroom-chart{margin:14px 0 19px;border:1px solid var(--cl-classroom-edge);background:linear-gradient(145deg,#102e42,#0a1b2d);border-radius:11px;color:#e9f7ff;overflow:hidden}
+body.gu-shared-classroom .cl-classroom-chart>summary{padding:13px 16px;cursor:pointer;font-size:16px;font-weight:750;line-height:1.5}
+body.gu-shared-classroom .cl-classroom-chart[open]>summary{border-bottom:1px solid #416476}
+body.gu-shared-classroom .cl-classroom-chart-inner{padding:12px 15px 18px}
+body.gu-shared-classroom .cl-classroom-chart-note{font-size:15px;line-height:1.75;max-width:76ch;color:#d5eaf6;margin:0 0 12px}
+body.gu-shared-classroom .cl-classroom-chart-host{min-height:440px;width:100%;background:#071925;border:1px solid #30546b;border-radius:9px;overflow:hidden}
+body.gu-shared-classroom .cl-classroom-chart-status{font-size:13px;color:#b4d6e5}
+body.gu-shared-classroom .cl-classroom-chart .cl-react-toolbar{gap:7px;flex-wrap:wrap}
+body.gu-shared-classroom .cl-classroom-chart .cl-react-toolbar :is(select,button){font-size:13px;min-height:36px;padding:6px 9px}
+@media(max-width:750px){body.gu-shared-classroom .cl-classroom-banner{align-items:flex-start}body.gu-shared-classroom .cl-classroom-chart-inner{padding:10px}body.gu-shared-classroom .cl-classroom-chart .cl-react-toolbar :is(button,select){min-height:42px}}
+@media(prefers-reduced-motion:reduce){body.gu-shared-classroom .cl-classroom-chart *{animation:none!important;transition:none!important}}
