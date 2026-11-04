@@ -16,7 +16,7 @@ test('Readable copy replaces only human-language source terms with accurate simu
  'SIMULATED data; Simulated bar; simulated scenario');
  assert.equal(bridge.translate('official fictitious data'), 'official fictitious data');
  assert.equal(bridge.translate('Scope is fictional_authored, keep engine IDs'),
- 'Scope is simulated_authored, keep engine IDs');
+ 'Scope is fictional_authored, keep engine IDs');
 });
 test('The display-only module never modifies authentication, provider inputs, grading or network APIs',()=>{
  for(const banned of ['fetch(','XMLHttpRequest','localStorage','sessionStorage','innerHTML',
