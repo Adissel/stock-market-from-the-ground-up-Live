@@ -8,7 +8,7 @@
 | GitHub location | `Adissel/stock-market-from-the-ground-up-Live`, branch `feature/talia-real-member-runtime-wave1-20261103` |
 | Filename / type | `docs/qa/2026-11-03_TALIA_PREMIUM_AUTHENTICATED_MEMBER_RUNTIME_WAVE1_v1.md` / Markdown |
 | Google Drive location / Google document ID | No Google Drive file created; no ID assigned; GitHub is the controlling record |
-| Version / date | 1.0 / November 3, 2026 (America/Chicago) |
+| Version / date | 1.1 / November 3, 2026 (America/Chicago) |
 | Status | SOURCE INTEGRATED, MEMBER QA APPROVAL RECORDED; FULL PRODUCTION RELEASE AND INDEPENDENT REVIEW PENDING |
 | Purpose | Integrate actual signed-in member progress, replay and curriculum records into premium Tutor teaching without relying on fabricated QA profiles or client-selected entitlements |
 | Dependencies | `member-tool-access.js`, `competencies.js`, `learning-replay-v01492.js`, `market-tutor-v01492.js`, Supabase grant/competency/Academy/replay tables, original first-party educational guide catalogues |
@@ -68,10 +68,39 @@ The authenticated runtime API `/api/talia-premium-member-v1`:
 4. Start a genuine authorized **fictional** replay on the QA account, lock a practice decision, then verify P01–P03 on a real server cursor; do not create false market fills.
 5. Complete remaining independently audited source review, assistive-technology QA and member entitlement downgrade/revocation acceptance before general premium publication.
 
+
+## Combined Tutor Classroom Interface Patch — v1.1
+
+**Controlling release unit:** One integrated GitHub PR #68, not separate production feature activations.
+
+| Component | Implementation and testable behavior | Release status |
+| --- | --- | --- |
+| Conversation | Existing member-authenticated `POST /api/market-tutor` invoked directly by chart teaching actions, typed composer (Enter sends / Shift+Enter newline), and source-grounded continuation prompts | Branch source implemented, browser acceptance pending |
+| Typing presentation | Progressively reveals the completed server reply at Slow / Normal / Fast / Show Instantly; Show All Text; reduced-motion bypass | Not native streaming model tokens |
+| Fictional chart | One shared, locally revealed 260-bar original teaching fixture; 1/3/5-minute aggregation; ECharts pan/zoom/indicators; high/low/open/close horizontal guides | Not server-owned historical replay |
+| Playback | Auto Play, Pause, manual reveal, speed choices, visibility pause, pause during server waiting and the instructor's displayed explanation | No future candle reveal through educational controls |
+| Checkpoints | Automatic pause on defined revealed fictional bars; MCQ, individual body/range/percentage calculations, three-input trade-print VWAP; feedback, unlimited Retry, free explanation and Skip | Ungraded only; no Lumens consumption |
+| Teaching progression | Ten visible instructional steps distinguish learning tasks; original nine saved stages are untouched | No new mastery/progress records |
+| Membership | One source-grounded Tutor workstation with Foundation always available and explicit server-verified Advanced/Professional/Enterprise betas; no client-side paid access claims | Existing test-only Owner grant, not production tier release |
+| Layout | Chat composer moved adjacent to conversation; original dark terminal, responsive calculator/checkpoint styling; duplicate standalone tier panel disabled | Keyboard/screen reader browser QA still required |
+
+### Evidence and regression
+
+- The scoped source test `tests/talia-live-interactive-v1.test.mjs` was added to `scripts/build-pages.sh`. Existing protected classroom, tier, history, source, chart and subscription tests remain controlling.
+- A successful Pages preview for an earlier integrated commit is evidence of buildability, not proof of every action in an authenticated browser.
+- A fresh, exact latest-commit Cloudflare preview success and complete GitHub CI acceptance are required before any merge.
+- Changes do not activate paid AI inference, monetize explanations, publish protected assessment answers or modify the commercial membership matrix.
+- A complete authenticated test should confirm the correct lessons, all four allowed beta editions, first-principles VWAP and candle mathematics, wrong-answer correction, keyboard focus, auto pause/resume, and distinct second-account access denial.
+
+### Release decision
+
+**Combined source patch created; controlled preview acceptance pending. Production premium-release HOLD remains.** The named test-account grant is time-limited and automatically expires; it does not modify subscriptions, entitlement levels or public access.
+
 ## Revision history
 
 | Version | Date | Change | Status |
 | --- | --- | --- | --- |
+| 1.1 | 2026-11-03 | Consolidated synchronized chart playback, chat, typing, questions, calculations and authenticated premium evidence in one PR #68 | Preview integration; release HOLD |
 | 1.0 | 2026-11-03 | Implemented first authenticated premium member runtime and time-limited audited QA authorization; retains source rights, paid-model and launch holds | Source integrated / limited QA pending |
 
 **Document footer:** SMFGU-TALIA-PREMIUM-RUNTIME-WAVE1-20261103-001 · v1.0 · GitHub controlling version · Owner-approved QA scope · General release HOLD.
