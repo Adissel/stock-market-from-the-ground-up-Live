@@ -123,7 +123,7 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
  const homeSpeed=useRef(0.1);
  const [displaySpeed,setDisplaySpeed]=useState(0.1);
  const [playing,setPlaying]=useState(()=>!startPaused&&!checkpointLocked&&!(window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches));
- const [note,setNote]=useState('Simulated simulation · Not real-time market data');
+ const [note,setNote]=useState('Simulated candles · Not real-time market data');
  const [progress,setProgress]=useState('Preparing simulated candle replay…');
  const chartInstance=useRef<Chart|null>(null);
  const playhead=useRef(1);

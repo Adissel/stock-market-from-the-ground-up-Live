@@ -48,7 +48,7 @@ test('08 Wallet uses current member-visible Lumens branding',()=>{
 test('09 Public chart identifies simulated data and never claims a live feed',()=>{
  const p=read('src/experience/HomeMarketTerminal.tsx');
  assert.ok(p.includes('Simulated market'));
- assert.ok(p.includes('Simulated simulation'));
+ assert.ok(p.includes('Simulated candles'));
  assert.ok(p.includes('Simulated B'));
  assert.ok(p.includes('No live or licensed market feed'));
  assert.ok(p.includes('/practice-data-policy.html'));
