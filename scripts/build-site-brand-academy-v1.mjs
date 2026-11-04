@@ -7,6 +7,7 @@ import {resolve,join} from 'node:path';
 const output=resolve(process.env.GU_SITE_BUILD_DIR||'public');
 const stylesheet='/assets/css/site-brand-academy-v1.css';
 const runtimeScript='/assets/js/site-brand-academy-sync-v1.js';
+const versionedStylesheet=stylesheet+'?v=20261104-sitewide-emerald3';
 if(!existsSync(join(output,'assets/js/site-brand-academy-sync-v1.js')))throw Error('Shared Academy header runtime asset missing');
 if(!existsSync(join(output,'assets/css/site-brand-academy-v1.css')))throw Error('Academy identity CSS is missing');
 const title='<span class="gu-academy-brand-title">THE STOCK MARKET <span>FROM THE GROUND UP</span></span>';
@@ -33,9 +34,14 @@ for(const file of readdirSync(output).filter(x=>x.endsWith('.html')&&!/^google[\
  });
  if(matched){
   withBrand++;
-  if(!html.includes('site-brand-academy-v1.css')){
+  if(/<link\b[^>]*site-brand-academy-v1\.css[^>]*>/i.test(html)){
+   // Upgrade existing homepage or themed-page links, not just missing links.
+   // A stable, old stylesheet URL could otherwise retain the previous colors.
+   html=html.replace(/(<link\b[^>]*\bhref\s*=\s*['"])[^'"]*site-brand-academy-v1\.css(?:\?[^'"]*)?(['"][^>]*>)/gi,
+     (_match,opening,closing)=>opening+versionedStylesheet+closing);
+  }else{
    if(!/<\/head>/i.test(html))throw Error('Academy-branded document lacks head: '+file);
-   html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="'+stylesheet+'?v=20261104-sitewide1"></head>');
+   html=html.replace(/<\/head>/i,'<link rel="stylesheet" href="'+versionedStylesheet+'"></head>');
   }
   if(!/gu-academy-brand-title/.test(html)||!/gu-academy-brand-subtitle/.test(html))
    throw Error('Approved Academy header incomplete: '+file);
