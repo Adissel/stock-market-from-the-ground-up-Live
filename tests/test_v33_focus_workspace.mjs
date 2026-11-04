@@ -126,6 +126,15 @@ class Element{
  insertBefore(item,before){const i=this.children.indexOf(before);this.children.splice(i<0?this.children.length:i,0,item)}
  setAttribute(key,val){this.attrs[key]=String(val)}
  addEventListener(key,fn){this.handlers[key]=fn}
+ querySelector(selector){
+  if(selector!=='input')throw Error('Unsupported DOM test selector: '+selector);
+  const search=items=>{for(const item of items){
+   if(item?.tagName==='input')return item;
+   const child=search(item?.children||[]);
+   if(child)return child;
+  }return null;};
+  return search(this.children);
+ }
  focus(){this.focused=true}
 }
 const doc={createElement:t=>new Element(t),createTextNode:text=>{
