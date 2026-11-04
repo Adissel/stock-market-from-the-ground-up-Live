@@ -18,7 +18,7 @@
    const currentSubtitle=anchor.querySelector('.gu-academy-brand-subtitle');
    if(currentTitle&&currentSubtitle&&
      currentTitle.textContent.replace(/\s+/g,' ').trim()===title+' '+gold&&
-     currentSubtitle.textContent.trim().toUpperCase()===subtitle)return;
+     currentSubtitle.textContent.trim().toUpperCase()===subtitle)continue;
    const heading=document.createElement('span');
    heading.className='gu-academy-brand-title';
    heading.append(document.createTextNode(title+' '));
