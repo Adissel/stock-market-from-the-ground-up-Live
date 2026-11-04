@@ -278,13 +278,42 @@ function draw(){
 function select(id,focus=false){if(!workspace.has(id))return;state.id=id;const x=workspace.get(id);$('pt-title').textContent=x.name;$('pt-group').textContent=x.g;$('pt-desc').textContent=descriptions[id];nav($('pt-search').value);draw();window.dispatchEvent(new CustomEvent('crownlight:prototype-workspace',{detail:{id}}));if(focus)$('pt-title').focus();}
 function candles(){const secured=window.CrownlightPrototypeTeaching?.getChartCandles?.();if(Array.isArray(secured)&&secured.length)return secured;let v=100;const result=[];for(let i=0;i<24;i++){const open=v;v=Math.max(12,v+2.4*Math.sin(i*.71)+1.2*Math.cos(i*.39));result.push({t:'T'+String(i+1).padStart(2,'0'),open:+open.toFixed(2),close:+v.toFixed(2),high:+(Math.max(open,v)+1.6).toFixed(2),low:+(Math.min(open,v)-1.4).toFixed(2),volume:500+((i*97)%700)});}return state.id==='replay'?result.slice(0,state.revealed):result;}
 const chartView={volume:true,proxy:false,grid:true,mode:'analysis'};
-let prototypeHomeChart=null,prototypeHomeContext=null;
+let prototypeHomeChart=null,prototypeHomeContext=null,prototypeHomePending=null,prototypeHomeEpoch=0;
 function disposePrototypeHomeChart(){
- if(prototypeHomeChart){prototypeHomeChart.dispose();prototypeHomeChart=null;prototypeHomeContext=null}
+ prototypeHomeEpoch++;
+ if(prototypeHomeChart){prototypeHomeChart.dispose();prototypeHomeChart=null}
+ prototypeHomeContext=null;prototypeHomePending=null;
+ const host=$('pt-chart');if(host)delete host.dataset.classroomChart;
 }
 function mountedPrototypeHomeChart(){
- return state.user&&['labs','bootcamps'].includes(state.id)&&
-  typeof window.CrownlightHomeMarketTerminal?.mountInto==='function';
+ return !!state.user&&['labs','bootcamps'].includes(state.id);
+}
+function disclosedClassicBars(){
+ const rows=window.CrownlightPrototypeTeaching?.getChartCandles?.();
+ if(!Array.isArray(rows))return [];
+ return rows.slice(0,250).map((c,i)=>({
+  time:String(c.t||'B'+(i+1)),o:Number(c.open),h:Number(c.high),l:Number(c.low),c:Number(c.close),
+  v:Number(c.volume),ema9:0,ema20:0,proxy:0
+ })).filter(x=>[x.o,x.h,x.l,x.c,x.v].every(Number.isFinite)&&x.l<=Math.min(x.o,x.c)&&x.h>=Math.max(x.o,x.c)&&x.v>=0);
+}
+async function mountClassicOwnerClassroom(host){
+ if(prototypeHomeChart&&prototypeHomeContext===state.id){
+  prototypeHomeChart.update({mode:state.id==='bootcamps'?'bootcamp':'lab',caseBars:disclosedClassicBars()});
+  return;
+ }
+ if(prototypeHomePending)return prototypeHomePending;
+ const epoch=++prototypeHomeEpoch;
+ prototypeHomePending=import('/assets/js/prototype-experiences-v1.bundle.js').then(module=>{
+  if(epoch!==prototypeHomeEpoch||!state.user||!mountedPrototypeHomeChart()||!host.isConnected)return;
+  if(typeof module.mountClassicClassroomChart!=='function')throw Error('Experience B shared chart module is unavailable');
+  prototypeHomeChart=module.mountClassicClassroomChart(host,{
+   mode:state.id==='bootcamps'?'bootcamp':'lab',caseBars:disclosedClassicBars()
+  });
+  prototypeHomeContext=state.id;host.dataset.classroomChart='experience-b';
+ }).catch(error=>{
+  if(epoch===prototypeHomeEpoch){$('pt-chart-status').textContent='Shared classroom chart unavailable: '+(error?.message||'component error');}
+ }).finally(()=>{if(epoch===prototypeHomeEpoch)prototypeHomePending=null});
+ return prototypeHomePending;
 }
 function applyChartMetrics(data){
  const last=data[data.length-1],first=data[0];
@@ -314,15 +343,13 @@ async function plot(){
   const chartHost=$('pt-chart');
   if(mountedPrototypeHomeChart()){
    if(state.chart){state.resize?.disconnect();state.resize=null;state.chart.dispose();state.chart=null;chartHost.replaceChildren();}
-   if(!prototypeHomeChart||prototypeHomeContext!==state.id){
-    disposePrototypeHomeChart();
-    prototypeHomeChart=window.CrownlightHomeMarketTerminal.mountInto(chartHost,{context:state.id==='bootcamps'?'bootcamp':'lab',startPaused:false});
-    prototypeHomeContext=state.id;
-   }
-   $('pt-chart-status').textContent='Actual homepage animated React chart: one fictional candle at start; Play/Pause, Replay, speed, timeframe, volume, pan and zoom.';
-   $('pt-chart-mode').textContent='SINGLE-CANDLE FICTIONAL REPLAY';
+   if(prototypeHomeContext&&prototypeHomeContext!==state.id)disposePrototypeHomeChart();
+   await mountClassicOwnerClassroom(chartHost);
+   if(!mountedPrototypeHomeChart())return;
+   $('pt-chart-status').textContent='Experience B chart functions integrated into the Classic classroom: 16 computed studies, zoom, pan, timeframe, chart appearance, and disclosed case comparison. Staff preview only.';
+   $('pt-chart-mode').textContent='SHARED REACT ECHARTS / CLASSROOM';
    const top=$('pt-chart-controls');if(top)top.dataset.sharedReplay='true';
-   for(const k of ['pt-metric-close','pt-metric-change','pt-metric-range','pt-metric-count'])$(k).textContent='SHARED CHART';
+   for(const k of ['pt-metric-close','pt-metric-change','pt-metric-range','pt-metric-count'])$(k).textContent='FICTIONAL';
    return;
   }
   disposePrototypeHomeChart();
