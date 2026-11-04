@@ -1243,12 +1243,12 @@ function Suite({page}:{page:Page}){
  </div></IndicatorContext.Provider></BarLookContext.Provider></ChartAppearanceContext.Provider>;
 }
 
-/** The Classic Owner classroom uses the SAME technical EChart, indicator
- * context menu and appearance components as Experience B. The caller supplies
- * only already-disclosed fictional teaching bars; member lessons never use
- * this staff-only entry point. */
-type ClassicChartInput={mode:'lab'|'bootcamp';caseBars?:Bar[]};
-function ClassicClassroomChart({mode,caseBars=[]}:ClassicChartInput){
+/** Shared Experience B technical chart. Owner preview may compare studios and
+ * already-disclosed case bars; ordinary members use the same calculation and
+ * UI components with immutable Standard-only supplemental simulation. The
+ * member caller provides no private lesson data or entitlement overrides. */
+type ClassicChartInput={mode:'lab'|'bootcamp';caseBars?:Bar[];memberSafe?:boolean};
+function ClassicClassroomChart({mode,caseBars=[],memberSafe=false}:ClassicChartInput){
  const [source,setSource]=useState<'demo'|'case'>('demo');
  const [reveal,setReveal]=useState(54);
  const [focus,setFocus]=useState(0);
@@ -1271,11 +1271,12 @@ function ClassicClassroomChart({mode,caseBars=[]}:ClassicChartInput){
  const available=source==='case'&&caseBars.length>0?caseBars:series;
  const count=Math.max(1,Math.min(reveal,available.length));
  const focused=Math.min(focus,count-1);
- const prefs:IndicatorPrefs={settings,enabled,studio,
+ const effectiveStudio:Studio=memberSafe?'Standard':studio;
+ const prefs:IndicatorPrefs={settings,enabled,studio:effectiveStudio,
   setSettings:(name,value)=>setSettings(p=>({...p,[name]:value})),
   setEnabled:(name,value)=>setEnabled(p=>({...p,[name]:value})),
   reset:()=>{setSettings({...defaults});setEnabled({...defaultVisible})},
-  enableAll:()=>setEnabled(Object.fromEntries(specs.map(item=>[item.id,studyAllowed(studio,item.id)])))};
+  enableAll:()=>setEnabled(Object.fromEntries(specs.map(item=>[item.id,studyAllowed(effectiveStudio,item.id)])))};
  const selectSource=(next:'case'|'demo')=>{setSource(next);setReveal(next==='case'?Math.max(1,caseBars.length):54);setFocus(0)};
  const revealTo=(next:number)=>{setReveal(Math.max(1,Math.min(next,available.length)));setFocus(Math.min(focus,next-1))};
  return <ChartAppearanceContext.Provider value={{style:appearance,setStyle:setAppearance}}>
@@ -1283,16 +1284,16 @@ function ClassicClassroomChart({mode,caseBars=[]}:ClassicChartInput){
   <section className="cx-app cx-theme-quantum cx-page-b cx-classic-shared-chart" aria-label="Classic Classroom ECharts workstation"
    onContextMenuCapture={e=>{if(!(e.target as HTMLElement).closest('.cx-chart-grabbable'))return;e.preventDefault();open(e.clientX,e.clientY)}}>
    <div className="cx-classic-chart-top"><div><strong>Classroom chart · {mode==='bootcamp'?'Boot Camp':'Lab'}</strong>
-    <p>Actual Experience B ECharts controls: zoom, pan, 16 calculated studies, appearance, timeframes, and right-click. Owner-only design preview.</p></div>
+    <p>{memberSafe?'Interactive simulated chart: pan, zoom, study catalog, appearance and timeframe. Advanced calculations remain locked; this never changes account permissions.':'Actual Experience B ECharts controls: zoom, pan, 16 calculated studies, appearance, timeframes, and right-click. Owner-only design preview.'}</p></div>
     <span>SIMULATED · UNGRADED</span></div>
    <div className="cx-classic-chart-controls">
-    <label>Chart evidence <select aria-label="Classic chart evidence source" value={source} onChange={e=>selectSource(e.target.value as 'demo'|'case')}>
-     <option value="demo">Fictional chart design fixture</option>
+    {!memberSafe&&<label>Chart evidence <select aria-label="Classic chart evidence source" value={source} onChange={e=>selectSource(e.target.value as 'demo'|'case')}>
+     <option value="demo">Simulated chart design fixture</option>
      {caseBars.length>0&&<option value="case">Only revealed current case bars ({caseBars.length})</option>}
-    </select></label>
-    <label>Chart Studio design preview <select aria-label="Classic chart edition design preview" value={studio} onChange={e=>setStudio(e.target.value as Studio)}>
+    </select></label>}
+    {!memberSafe&&<label>Chart Studio design preview <select aria-label="Classic chart edition design preview" value={studio} onChange={e=>setStudio(e.target.value as Studio)}>
      {(['Standard','Advanced','Professional'] as Studio[]).map(s=><option key={s}>{s}</option>)}
-    </select></label>
+    </select></label>}
     <label>Bar appearance <select aria-label="Classic chart bar appearance" value={barLook} onChange={e=>setBarLook(e.target.value as BarLook)}>
      {barLooks.map(b=><option key={b.id} value={b.id}>{b.label}</option>)}
     </select></label>
@@ -1302,10 +1303,10 @@ function ClassicClassroomChart({mode,caseBars=[]}:ClassicChartInput){
    </div>
    <EChart kind="price" reveal={count} showVolume={true} showEma={true} showProxy={true}
     sourceBars={available} focusBar={focused} onSelect={setFocus} design="quantum" height={460}/>
-   <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {count} · All calculations use revealed fictional bars only. The design fixture is NOT the protected Lab or Boot Camp case and never supplies assessment answers.</div>
+   <div className="cx-classic-chart-note" role="status">Selected observed candle {focused+1} of {count} · All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.</div>
    <details><summary>Chart appearance · colors, timeframes, candle spacing and levels</summary><ChartCustomizer/></details>
    <IndicatorDock/>
-   <PrototypeChartContextMenu menu={menu} close={close} setMenu={setMenu} studio={studio}
+   <PrototypeChartContextMenu menu={menu} close={close} setMenu={setMenu} studio={effectiveStudio}
     prefs={prefs} appearance={appearance} setAppearance={setAppearance}/>
   </section>
   </IndicatorContext.Provider></BarLookContext.Provider>
