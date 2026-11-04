@@ -12919,7 +12919,7 @@
         "graded": false,
         "noLookahead": true,
         "requiresNewEvidence": true,
-        "prompt": "Classify a new pivot sequence at two cutoffs."
+        "prompt": "New simulated five-minute sequence: a completed swing high at $15.40, a later high at $15.05, and an intervening low at $14.70. At the 10:10 ET cutoff the most recent completed close is $14.85; in a separate 10:20 ET view, an additional completed candle closes at $14.60. With the later candle concealed at 10:10, classify the evidence separately at both cutoffs. Identify when the stated lower-high confirmation condition is met, describe one unresolved limitation, and choose a defensible NO TRADE branch. Neither classification predicts a reversal or proves an executable trade."
       },
       "competencies": [
         "FAILED_BREAKOUT",
