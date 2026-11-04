@@ -14,7 +14,7 @@
    host.textContent='Member chart unavailable.';return;
   }
   const example=d.mode==='custom'||d.mode==='range';
-  host.setAttribute('aria-label',(example?'Illustrative Owner-configured values: ':'Verified aggregate member snapshot: ')+active+
+  host.setAttribute('aria-label',(example?'Owner-configured demonstration values (not actual member totals): ':'Verified aggregate member snapshot: ')+active+
     ' active in the preceding 60 minutes of '+total+' registered accounts.');
   const share=total?Math.round(active/total*100):0;
   const percent=panel.querySelector('[data-percent]');if(percent)percent.textContent=total?share+'%':'—';
@@ -34,7 +34,7 @@
     animation:!quiet,animationDuration:650,backgroundColor:'transparent',
     aria:{enabled:true,description:host.getAttribute('aria-label')},
     tooltip:{show:false},
-    title:{text:share+'%',subtext:example?'ILLUSTRATIVE':'LAST 60 MIN',left:'center',top:'34%',
+    title:{text:share+'%',subtext:example?'':'LAST 60 MIN',left:'center',top:'34%',
      textStyle:{fontSize:32,fontWeight:800,color:'#f6fbff',textShadowBlur:12,textShadowColor:'#4cd9c866'},
      subtextStyle:{fontSize:9,fontWeight:700,color:'#9ec7da'}},
     series:[
@@ -122,12 +122,12 @@
    const badge=panel.querySelector('[data-mode]');
    const example=d.mode==='custom'||d.mode==='range';
    badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE';
-   badge.setAttribute('aria-label',valid?(example?'Illustrative Owner-configured counts, not verified registered or online members':'LIVE DATA; verified membership aggregates'):'Member statistics unavailable');
+   badge.setAttribute('aria-label',valid?(example?'Owner-configured demonstration counts, not verified registered or online members':'LIVE DATA; verified membership aggregates'):'Member statistics unavailable');
    panel.querySelector('[data-online]').textContent=valid?Number(d.online).toLocaleString():'—';
    panel.querySelector('[data-registered]').textContent=valid?Number(d.registered).toLocaleString():'—';
    panel.querySelector('[data-online-label]').textContent='Online members';
    panel.querySelector('[data-registered-label]').textContent='Registered members';
-   const caption=panel.querySelector('[data-caption]');caption.textContent=example?'Illustrative Owner-configured values only. These are not actual membership counts.':'';
+   const caption=panel.querySelector('[data-caption]');caption.textContent=example?'Owner-configured demonstration values only. These are not actual membership counts.':'';
    caption.hidden=!example;
    renderFuture(panel,d.extras);
    if(valid)drawActivity(panel,d);

@@ -8,8 +8,10 @@ test('Member Status metric names are constant and correctly spelled',()=>{
  assert.match(s,/textContent='Registered members'/);
  assert.doesNotMatch(s,/Example online members|Example registered members|EXAMPLE DATA/);
  assert.match(s,/example\?'EXAMPLE':'LIVE DATA'/);
- assert.match(s,/Illustrative Owner-configured values only/);
+ assert.match(s,/Owner-configured demonstration values only/);
  assert.match(s,/not verified registered or online members/);
+ assert.match(s,/subtext:example\?'':'LAST 60 MIN'/);
+ assert.doesNotMatch(s,/EXAMPLE DATA|ILLUSTRATIVE/i);
 });
 test('Core public learning chart wording uses simulated, not unsourced live data',()=>{
  for(const p of ['src/experience/HomeMarketTerminal.tsx','index.html','assets/js/home-learning-constellation-v1.js','assets/js/prototype-shared-learning-market-v1.js','assets/js/crownlight-interactive-evidence-v1.js','assets/js/public-candle-learning-journey-v3.js','assets/js/lab-engine-v32-universal.js','assets/js/learning-indicators-v1.js']){
@@ -26,4 +28,6 @@ test('Real data is never claimed without provenance; policy and legal link remai
  assert.match(page,/“EXAMPLE” badge/);
  assert.match(page,/“Online members”/);
  assert.match(page,/“Registered members”/);
+ assert.match(page,/SIMULATION/);
+ assert.match(page,/The absence of those words/);
 });

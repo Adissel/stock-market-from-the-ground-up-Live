@@ -11,7 +11,7 @@
   1049,1041,1033,1044,1051,1046];
  const upper=[6,4,9,6,8,7,4,10,6,7,5,9];
  const lower=[5,7,4,8,5,6,9,4,7,5,8,6];
- const note='ORIGINAL FICTIONAL PRACTICE — fabricated 2040 timestamps and hypothetical prices. Not actual market history, brokerage fills, a blind replay, or an official grade.';
+ const note='SIMULATED PRACTICE — fabricated 2040 timestamps and hypothetical prices. Not actual market history, brokerage fills, a blind replay, or an official grade.';
  function generate(){
   const start=Date.parse('2040-02-06T14:30:00Z');
   return closeCents.map((close,i)=>{
@@ -25,6 +25,6 @@
   });
  }
  root.GroundUpFictionalSimulatorStarterV1=Object.freeze({
-  source:'ORIGINAL FICTIONAL STARTER (2040)',symbol:'GUSIM',note,generate
+  source:'ORIGINAL SIMULATED STARTER (2040)',symbol:'GUSIM',note,generate
  });
 })(globalThis);
