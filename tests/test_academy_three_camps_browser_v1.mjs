@@ -97,13 +97,13 @@ try{
     assert.equal(await page.locator('.academy-formative-question').count(),12,
      'Twelve original formative questions render for '+code);
     await page.locator('.academy-guided-controls button').nth(1).click();
-    assert.match(await page.locator('.academy-guided-controls + p[role="status"]').innerText(),/twelve day-specific formative questions/);
+    assert.match(await page.locator('.academy-guided-controls + p[role="status"]').innerText(),/Review all twelve evidence-method checks/);
     for(let n=0;n<12;n++){
      const item=page.locator('.academy-formative-question').nth(n);
-     await item.locator('summary').click();
+     await item.locator(':scope > summary').click();
      await item.locator('.academy-guided-method-check input[value="EVIDENCE"]').check();
      await item.getByRole('button',{name:/Check method and review Talia/}).click();
-     assert.match(await item.locator('p[role="status"]').innerText(),/Teaching feedback:/);
+     assert.match(await item.locator('p[role="status"]').innerText(),/Day-specific teaching feedback:/);
     }
     assert.match(await page.locator('.academy-formative-progress').innerText(),/12 of 12/);
     await page.locator('.academy-guided-choice').filter({hasText:lesson.transfer}).locator('input').check();
