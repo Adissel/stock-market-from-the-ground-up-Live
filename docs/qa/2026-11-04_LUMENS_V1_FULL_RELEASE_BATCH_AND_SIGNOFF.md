@@ -8,7 +8,7 @@
 | Google Drive document ID | Not assigned |
 | Filename | `docs/qa/2026-11-04_LUMENS_V1_FULL_RELEASE_BATCH_AND_SIGNOFF.md` |
 | File type | Markdown |
-| Version | 1.1 |
+| Version | 1.2 |
 | Date | November 4, 2026 |
 | Status | **FULL V1 RELEASE NO-GO — engineering batch integrated; independent acceptance outstanding** |
 | Prerequisites | Owner-approved V1 scope; 429 approved learning reward definitions; independent academic case review; existing Supabase and Stripe TEST; James_Test plus a second genuine member; frozen main and Cloudflare exact SHA; applicable consumer/legal review |
@@ -41,13 +41,13 @@ The owner-approved Lumens V1 definition is 11 milestones, with **9 accepted (81.
 - Consolidated source CI success for that commit. Later `808e7d17ee8d7b92d5760470159aa7d692c1f795` has passing engineering CI and a failed credential-dependent browser job.
 - Cloudflare Pages production builds passed for commits `808e7d17ee8d7b92d5760470159aa7d692c1f795` and `2a229617e5b613c91c45c221a28f8d6ba2cd737c`; **not** proof of a frozen final SHA.
 - Read-only Supabase James_Test wallet integrity returned `balanced=true` and 29 available credits. No independently approved protected cases or issued rewards. Separate TEST Stripe refund checks showed 13 Chart Studio Lumens and 1 expired Lumens reservation restored and all 5 specifically tagged TEST payments fully refunded.
-- Authenticated Chromium was genuinely executed: the original run had missing `LAB_QA_*` values. A subsequent run passed the GitHub secret-presence preflight but failed during Supabase password authentication; Auth logs show a 400 `invalid_credentials` event in that window. No authenticated browser result is accepted. No email or password is exposed.
+- Early password-login failures were corrected and the genuine James_Test browser subsequently PASSED, including wallet balance, history, study progress, nav disclosure and future-release gift denial. The second separate authenticated QA identity has not passed, and no passwords or account identifiers are published.
 - `learning_rewards_enabled`, `member_gifts_enabled` and `mixed_checkout_enabled` stay **false** in production. Source policy keeps V2 gifting disabled even if an unrelated database operator toggles gift release flags.
 - Historical draft reward budget is **1,483 Lumens at $0.07 each = $103.81** potential internal eligible discount per fully qualifying member, not an earned credit or payable cash promise.
 
 ## External blockers requiring real evidence
 
-1. **Authentic member sign-in:** Verify that the existing GitHub Actions `LAB_QA_EMAIL` / `LAB_QA_PASSWORD` secrets match the actual confirmed James_Test user. The credentials are present but the password sign-in was rejected; safely rotate/reset the pair through Supabase Auth and GitHub Secrets only as an authorized operational action, never into a public issue, chat or file. A distinct second QA identity must also be configured using `LAB_QA_SECOND_EMAIL` / `LAB_QA_SECOND_PASSWORD`.
+1. **Genuine dual-member identity verification:** James_Test sign-in and private wallet PASS. A distinct second QA account must be configured using `LAB_QA_SECOND_EMAIL` / `LAB_QA_SECOND_PASSWORD` in GitHub Actions Secrets, and real cross-account isolation must pass. Never place account credentials in an issue, source code or this report.
 2. **Genuine independent academic approval:** Map each released protected case to an attributable independent reviewer, rubric, case version and approved revision; preserve official first graded result and do not mint credits by editing tables.
 3. **Full Store and policy:** V1 included credits have an owner-approved 60-day rollover while purchased credits never expire. Existing general nonexpiry copy must be reconciled before release. Applicable licensed legal/consumer/tax review cannot be replaced by technical approvals.
 4. **Payments/financial lifecycle:** Historical Chart Studio and bundle TEST refunds pass; generic checkout, renewal, failed-payment, replay/dispute and entitlement cases remain independently unaccepted.
@@ -74,6 +74,17 @@ At source SHA `7aadafd62f3aa7675ac82543699e557081f53409`, the new combined sourc
 - **CI policy correction:** separate `james-wallet-browser-live-smoke` and `two-member-wallet-isolation` jobs preserve the verified single-member result without waiving the independent two-member gate. The latter remains required by the manual immutable-SHA release job. This does not promote full V1 to GO.
 - **Database reconfirmed:** 429 catalog scopes, zero published rewards, zero mapped independently reviewed protected assessments, zero earned awards, zero peer transfers and zero LIVE Lumen orders; learning issuance and P2P remain explicitly disabled.
 
+## Eight technical batches executed in parallel — November 4
+
+- Source commit [9107f4b](https://github.com/Adissel/stock-market-from-the-ground-up-Live/commit/9107f4b7b3792159f49f52f03998175fd3fbca9c) created `tests/lumens-v1-release-eight-batch-source-20261104.mjs`, a read-only SQL verification and an explicit-not-tested rollback runbook.
+- Source commit [0cb48e6](https://github.com/Adissel/stock-market-from-the-ground-up-Live/commit/0cb48e6f863380d35685c933c9e60a41b451a77b) wired 48 separate source assertions into GitHub CI and the mandatory Cloudflare Pages build, and added genuine signed-in keyboard navigation verification.
+- [Consolidated CI run 41928981464](https://github.com/Adissel/stock-market-from-the-ground-up-Live/actions/runs/41928981464) accepted all 48 source assertions and existing noncharging protected-grade, gift, wallet and webhook fixtures in its engineering job. Other externally dependent jobs are reported separately and do **not** inherit that status.
+- [Genuine browser run 41928981557](https://github.com/Adissel/stock-market-from-the-ground-up-Live/actions/runs/41928981557) passed the James_Test Wallet, private-history, progress, no-gift, guest-denial and keyboard disclosure checks; its dual-member gate remains external and mandatory.
+- Supabase read-only preflight: 429 draft rewards, zero independently approved assessment mappings, zero issued learning awards, zero transfers, zero LIVE Lumen orders, zero recorded paid Founder cycles; 14/30/60 plan prices present. Wallet bounds valid. Founder included-credit expiry parameter values 60/90/150 require reconciliation with the 60-day rollover commitment before paid activation.
+- Stripe TEST previously reconciled five tagged payments, $84.05 gross and $84.05 successful refunds. A provider-only refund match does not establish signed recurring subscription renewals or site entitlement fulfillment.
+- Rollback operations are described in `docs/qa/2026-11-04_LUMENS_V1_ROLLBACK_RUNBOOK.md`, but **no real rollback was executed** and no uninterrupted post-launch monitoring window can yet be accepted because full V1 is not released.
+- The build and CI source gates count as **technical checks, not official milestone approvals**. The controlling official completion remains 9/11 (81.8%); full V1 release is NO-GO.
+
 ## Signoff record
 
 | Authority | Evidence and status | Acceptance |
@@ -90,6 +101,7 @@ At source SHA `7aadafd62f3aa7675ac82543699e557081f53409`, the new combined sourc
 
 | Version | Date | Change |
 | --- | --- | --- |
+| 1.2 | 2026-11-04 | Integrated 48 source checks, real keyboard acceptance, policy and signed-off rollback caveats; full release remains NO-GO |
 | 1.1 | 2026-11-04 | Reran genuine James_Test browser to PASS; isolated missing second-member secret gate from verified browser job; full release remains held |
 | 1.0 | 2026-11-04 | Consolidated full V1 execution matrix, operational evidence, fail-closed scripts, external blockers and exact-SHA release requirements |
 
