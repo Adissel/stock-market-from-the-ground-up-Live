@@ -62,6 +62,15 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Require configured QA secrets before browser setup
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+        run: |
+          if [[ -z "$LAB_QA_EMAIL" || -z "$LAB_QA_PASSWORD" ]]; then
+            echo "::error::BLOCKED: Configure LAB_QA_EMAIL and LAB_QA_PASSWORD in GitHub Actions repository secrets. Never commit credentials."
+            exit 1
+          fi
       - name: Install Chromium for authenticated member verification
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
