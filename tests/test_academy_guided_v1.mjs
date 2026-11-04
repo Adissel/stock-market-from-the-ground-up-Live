@@ -106,7 +106,7 @@ assert(js.includes('REFERENCE_MINUTES'));
 assert(js.includes("isNewCourse"));
 assert(js.includes("Talia’s 12 authored formative practice questions"));
 assert(js.includes("Full 12-question individual authorship and editorial review remain pending"));
-assert(js.includes("response.value.trim().length<20"));
+assert(js.includes("No written response is required."),"Formative evidence decisions cannot require a minimum written response");
 assert(js.includes('No grade or Lumens'));
 for(const phrase of ['academy-advanced-practicum','Advanced application','Review advanced reasoning',
  'Complete and review all twelve day-specific formative questions','reviewedFormative.size!==12',
