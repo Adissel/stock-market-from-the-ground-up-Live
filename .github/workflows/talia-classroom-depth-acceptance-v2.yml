@@ -14,7 +14,7 @@ on:
 permissions:
   contents: read
 concurrency:
-  group: talia-classroom-depth-${{ github.ref }}
+  group: talia-classroom-depth-${{ github.run_id }}
   cancel-in-progress: false
 jobs:
   hierarchical-authorized-source:
