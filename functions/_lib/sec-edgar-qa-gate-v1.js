@@ -25,9 +25,9 @@ export function isActiveSecQaGrant(rows,now=Date.now()){
 export async function requireSecSourceRelease(actor,env){
  if(env.SEC_EDGAR_BETA_ENABLED!=='true')
   throw error('Official SEC source retrieval is not enabled.',503);
+ if(!actor?.c||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(actor.userId||''))
+  throw error('Authenticated SEC member required.',403);
  if(env.SEC_EDGAR_GENERAL_RELEASE_APPROVED==='true')return 'GENERAL_RELEASE';
- if(!actor?.c||!/^[0-9a-f-]{36}$/i.test(actor.userId||''))
-  throw error('Authenticated SEC QA member required.',403);
  const id=encodeURIComponent(actor.userId);
  const rows=await privateJson(actor.c,
   'gu_sec_scanner_tier_grants_v1?select=tier,status,version,expires_at&user_id=eq.'+
