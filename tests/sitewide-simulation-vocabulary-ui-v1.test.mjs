@@ -71,3 +71,15 @@ test('Additional static memberships, marketing and learning pages display truthf
  const visible=dashboard.replace(/scope=fictional/gi,'');
  assert.doesNotMatch(visible,/\bfictional\b|\billustrative\b/i,'Dashboard wording is updated without rewriting replay URLs');
 });
+
+test('All authored static HTML visible text and accessibility labels are free of deprecated wording',async()=>{
+ const {readdirSync}=await import('node:fs');
+ for(const p of readdirSync('.').filter(x=>x.endsWith('.html'))){
+  const html=read(p).replace(/<script\b[^>]*>[\s\S]*?<\/script\s*>/gi,' ')
+   .replace(/<style\b[^>]*>[\s\S]*?<\/style\s*>/gi,' ')
+   .replace(/<!--[\s\S]*?-->/g,' ');
+  const visible=html.replace(/<[^>]*>/g,' ');
+  const accessible=[...html.matchAll(/\b(?:aria-label|title|placeholder|alt)="([^"]*)"/gi)].map(x=>x[1]).join(' ');
+  assert.doesNotMatch(visible+' '+accessible,/\b(?:fictional|illustrative)\b/i,p);
+ }
+});
