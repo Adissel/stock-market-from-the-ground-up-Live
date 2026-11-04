@@ -50,7 +50,8 @@ test('Responsive prototype layout includes safe math/source disclaimers and acce
   assert.ok(css.includes(part),part);
  assert.match(html,/Check my ungraded answer/);
  assert.match(html,/No formal grade or Lumens are used/);
- assert.match(html,/original fictional examples/);
+ assert.match(html,/original simulated examples/);
+ assert.match(html,/SIMULATED · STAFF DESIGN VIEW/);
  assert.match(html,/role="status" aria-live="polite"/);
  assert.match(html,/market=lab/);
  assert.doesNotMatch(source,/localStorage|sessionStorage|service_role|stripe|checkout|protectedAnswer|assessmentResults|marketBuy/);
