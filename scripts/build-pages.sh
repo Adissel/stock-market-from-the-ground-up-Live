@@ -24,6 +24,7 @@ if [[ "${CF_PAGES:-0}" == "1" && "${SMFGU_PAGES_LOG_WRAPPED:-0}" != "1" ]]; then
 fi
 # Validate public navigation before lengthy integration suites; surface broken-link diagnostics in retained build logs.
 node --test tests/tool-registry-navigation-fallback-v1.test.mjs
+node --test tests/watchlist-offline-credential-boundary-v1.test.mjs
 node --test tests/home-stable-first-paint-v1.test.mjs
 # Dedicated React chart classrooms must not load legacy global DOM/CSS enhancers.
 node --test tests/runtime-owned-talia-v1.test.mjs
