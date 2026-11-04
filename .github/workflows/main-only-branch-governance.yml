@@ -1,0 +1,71 @@
+name: Enforce sole main branch
+on:
+  create:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/main-only-branch-governance.yml
+permissions:
+  contents: write
+jobs:
+  main-only:
+    if: github.repository == 'Adissel/stock-market-from-the-ground-up-Live'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TARGET_BRANCH: ${{ github.event.ref }}
+      TARGET_REF_TYPE: ${{ github.event.ref_type }}
+    steps:
+      - name: Audit main or archive and remove newly created non-main branch
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request, urllib.error, urllib.parse
+          repo=os.environ["GITHUB_REPOSITORY"]
+          if repo!="Adissel/stock-market-from-the-ground-up-Live":raise RuntimeError("Unexpected repository")
+          root="https://api.github.com/repos/"+repo
+          headers={"Authorization":"Bearer "+os.environ["GH_TOKEN"],"Accept":"application/vnd.github+json","X-GitHub-Api-Version":"2022-11-28","User-Agent":"main-only-governance"}
+          def call(method,path,obj=None):
+              data=None if obj is None else json.dumps(obj).encode()
+              request=urllib.request.Request(root+path,method=method,data=data,headers=headers)
+              with urllib.request.urlopen(request,timeout=30) as result:
+                  raw=result.read()
+              return json.loads(raw) if raw else None
+          def ref(name):return urllib.parse.quote(name,safe="/")
+          def note(text):
+              print(text,flush=True)
+              with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as f:f.write(text+"\n")
+          event=os.environ["GITHUB_EVENT_NAME"]
+          if event=="push":
+              branches=call("GET","/branches?per_page=100")
+              names=[b["name"] for b in branches]
+              note("## Main-only branch policy audit")
+              note("Branches: "+", ".join(names))
+              if names!=["main"]:raise RuntimeError("Repository contains non-main branches")
+              note("**PASS: only main exists.**")
+              sys.exit(0)
+          if event!="create" or os.environ.get("TARGET_REF_TYPE")!="branch":sys.exit(0)
+          name=os.environ.get("TARGET_BRANCH","")
+          if not name or name=="main":sys.exit(0)
+          current=call("GET","/git/ref/heads/"+ref(name))
+          sha=current["object"]["sha"]
+          main=call("GET","/git/ref/heads/main")["object"]["sha"]
+          note("## Rejected non-main branch: "+name)
+          if sha!=main:
+              tag="archive/auto-main-only/"+name+"/"+sha[:12]
+              path="/git/ref/tags/"+ref(tag)
+              try:
+                  saved=call("GET",path)
+                  if saved["object"]["sha"]!=sha:raise RuntimeError("Archive tag collision")
+              except urllib.error.HTTPError as err:
+                  if err.code!=404:raise
+                  call("POST","/git/refs",{"ref":"refs/tags/"+tag,"sha":sha})
+              check=call("GET",path)
+              if check["object"]["sha"]!=sha:raise RuntimeError("Branch tip not archived")
+              note("Unique branch tip archived as "+tag)
+          latest=call("GET","/git/ref/heads/"+ref(name))
+          if latest["object"]["sha"]!=sha:raise RuntimeError("Branch changed during safety check; refusing deletion")
+          call("DELETE","/git/refs/heads/"+ref(name))
+          note("Deleted non-main branch "+name+". All development must use main.")
+          PY
