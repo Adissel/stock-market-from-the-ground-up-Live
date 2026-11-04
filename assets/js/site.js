@@ -281,3 +281,39 @@ const stylesheet=document.createElement('link');stylesheet.rel='stylesheet';styl
 const sync=()=>{document.body?.classList.add('cl-spectrum');document.body?.classList.remove('cl-atelier')};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',sync,{once:true});else sync();
 })();
+
+
+/* Sitewide discovery repair: restore public links only on three legacy pages
+ * whose static navigation containers were empty. Staff/member access remains
+ * enforced by the existing server routes and is never granted here. */
+(()=>{
+ 'use strict';
+ const page=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+ if(!new Set(['tools.html','membership.html','advanced-tool.html']).has(page))return;
+ const fill=()=>{
+  const nav=document.querySelector('.site-header .navlinks');
+  if(!nav||nav.dataset.guPublicNavigationRestored==='1')return;
+  // Only restore a menu with no substantive route links: never replace a live menu.
+  const hasNavigation=[...nav.querySelectorAll('a[href]')].some(a=>
+   /(?:^|\/)(?:books|learn|labs|bootcamp-academy|tools|store)(?:\.html)?(?:[?#]|$)/i.test(a.getAttribute('href')||''));
+  if(hasNavigation)return;
+  const destinations=[
+   ['/books.html','Books'],
+   ['/learn.html','Learning System'],
+   ['/labs.html','Lab Registry'],
+   ['/bootcamp-academy.html','Boot Camps'],
+   ['/tools.html','Tools'],
+   ['/store.html','Store']
+  ];
+  const frag=document.createDocumentFragment();
+  for(const [href,label] of destinations){
+   const a=document.createElement('a');
+   a.href=href;a.textContent=label;a.dataset.guPublicNavEntry='1';frag.appendChild(a);
+  }
+  nav.insertBefore(frag,nav.querySelector('.gu-nav-signin,.gu-nav-register')||null);
+  if(!nav.getAttribute('aria-label'))nav.setAttribute('aria-label','Website navigation');
+  nav.dataset.guPublicNavigationRestored='1';
+ };
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',fill,{once:true});
+ else fill();
+})();
