@@ -39,7 +39,8 @@ try{
   return{ok:!error&&!!data?.session?.access_token,id:data?.user?.id};
  },{access_token:login.access_token,refresh_token:login.refresh_token});
  assert.equal(session.id,login.user.id);
- await page.goto(origin+'/dashboard.html?tab=wallet',{waitUntil:'domcontentloaded',timeout:30000});
+ const navigation=await page.goto(origin+'/dashboard.html?tab=wallet',{waitUntil:'domcontentloaded',timeout:30000});
+ console.log('Dashboard navigation: '+JSON.stringify({path:new URL(page.url()).pathname,httpStatus:navigation?.status()||null}));
  await page.waitForFunction(()=>{
   const total=document.getElementById('sparks-wallet-total')?.textContent?.trim()||'';
   const status=document.getElementById('sparks-wallet-status')?.textContent||'';
@@ -49,9 +50,13 @@ try{
    hasWallet:!!document.getElementById('member-sparks-wallet'),
    totalSet:!!document.getElementById('sparks-wallet-total')?.textContent?.match(/\\d/),
    statusText:(document.getElementById('sparks-wallet-status')?.textContent||'').slice(0,150),
-   memberContentShown:!document.getElementById('dashboard-content')?.hidden
+   hasDashboardContent:!!document.getElementById('dashboard-content'),
+   memberContentShown:document.getElementById('dashboard-content')?.hidden===false,
+   authRequired:document.body?.dataset.authRequired==='true',
+   hasAuthClient:typeof window.getSupabaseClient==='function',
+   hasSignInIdentifier:!!document.querySelector('#login-identifier')
   }));
-  console.error('Wallet interface state without member data: '+JSON.stringify(state));
+  console.error('Wallet interface state without member data: '+JSON.stringify({...state,finalPath:new URL(page.url()).pathname}));
   throw error;
  });
  const wNode=page.locator('#member-sparks-wallet');
