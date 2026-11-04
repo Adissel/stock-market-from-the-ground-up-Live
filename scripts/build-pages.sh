@@ -4,6 +4,9 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 # Enforce the unchanged LIVE safety gate *before* expensive static checks.
 # This file is also executed directly by the fast deterministic flag-matrix test.
 source scripts/_lib/live-build-guard.sh
+# Isolated payment-boundary acceptance: synthetic signed events only; no LIVE requests.
+node tests/test_james_live_zero_reconciliation_20261104.mjs
+node tests/test_v014058_live_fulfillment.mjs
 # Cloudflare retains only a bounded prefix of very verbose TAP output. Run the
 # identical build once in a child process and emit a useful terminal tail so a
 # late Pages-only failure is diagnosable. Other CI/local runs keep full output.
