@@ -62,6 +62,25 @@ function field(parent,label,value='',type='textarea'){
  if(type==='textarea'){input.rows=3;input.maxLength=1500}else{input.type='number';input.step='any';input.inputMode='decimal'}
  input.value=value;wrap.append(input);parent.append(wrap);return input;
 }
+// Non-numerical practice uses an evidence-method decision, never a required essay.
+// The returned result is only formative; official Assess remains server-owned.
+function evidenceDecision(parent,question,topic,seed=0,initial=''){
+ const api=root.GroundUpLearningResponseChoiceV1;
+ const spec=api?.build?.({prompt:question,topic,seed})||null;
+ const group=el('fieldset');group.className='gu-v33-evidence-check';
+ group.append(el('legend',question));
+ let selected='';
+ if(spec)for(const option of spec.options){
+  const label=el('label'),input=el('input');input.type='radio';
+  input.name='gu-v33-evidence-'+seed;input.value=option.code;
+  input.checked=initial===option.label;
+  if(input.checked)selected=option.code;
+  input.addEventListener('change',()=>{selected=option.code});
+  label.append(input,document.createTextNode(option.label));group.append(label);
+ }else group.append(el('p','Evidence choices unavailable. No progress will be recorded.'));
+ parent.append(group);
+ return ()=>api?.evaluate?.(spec,selected)||{accepted:false,reason:'Interactive method check unavailable. No grade was changed.'};
+}
 function mathDiagnostic(kind,value){
  const n=Number(value);
  if(kind==='candle'){
@@ -1041,13 +1060,34 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    mountHomeMarketReplay(body,false);
   }else if(stage===3){
    showVisual(3);
-   appendParagraph(body,'Predict or describe the next relevant observation before seeing any subsequent market evidence. State what would invalidate your interpretation.');
-   const t=field(body,'Your prediction, evidence, and invalidation',prediction);
-   t.disabled=predictionLocked;
-   if(predictionLocked)answerStatus('Prediction locked for this local attempt. It cannot be changed in this step.',true);
-   else body.append(button('Lock my prediction',()=>{
-    if(t.value.trim().length<15){mark('Explain your reasoning in at least 15 characters.');return}
-    prediction=t.value.trim();predictionLocked=true;render();mark('Prediction locked; future data remains unavailable.');
+   appendParagraph(body,'Before seeing any future evidence, select a conditional prediction or an explicit insufficient-evidence judgment. All predictions are ungraded and may be wrong; uncertainty is an acceptable decision.');
+   const group=el('fieldset');group.className='gu-v33-prediction-choice';
+   group.append(el('legend','What do you expect from the next unseen observation?'));
+   const choices=kind==='vwap'?[
+    'A later completed close may be above its then-calculated VWAP.',
+    'A later completed close may be below its then-calculated VWAP.',
+    'Insufficient evidence to predict the next close confidently.'
+   ]:kind==='candle'?[
+    'The next completed candle may close above its open.',
+    'The next completed candle may close below its open.',
+    'Insufficient evidence to predict the next candle confidently.'
+   ]:[
+    'The selected study condition may become observable in the next case.',
+    'The selected condition may not become observable in the next case.',
+    'Insufficient evidence to predict the next outcome confidently.'
+   ];
+   let selected=prediction;
+   choices.forEach((value,index)=>{
+    const label=el('label'),input=el('input');input.type='radio';
+    input.name='gu-v33-prediction-'+stage;input.value=value;input.checked=prediction===value;
+    input.disabled=predictionLocked;input.addEventListener('change',()=>{selected=value});
+    label.append(input,document.createTextNode(value));group.append(label);
+   });
+   body.append(group);
+   if(predictionLocked)answerStatus('Prediction locked for this attempt. Future evidence remains concealed.',true);
+   else body.append(button('Lock my conditional prediction',()=>{
+    if(!selected){mark('Select a prediction or insufficient evidence before locking.');return}
+    prediction=selected;predictionLocked=true;render();mark('Your conditional prediction is locked. It is not an assessment score.');
     if(guidedAuto&&stage===3)nextStage(true);
    }));
    if(mode==='guided'||mode==='practice')freeExplanation();
@@ -1090,13 +1130,15 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
     renderEvidenceDiagnosis(body);
     renderMethodSteps(body);
    }else{
-    const t=field(body,'Your independent observation and reasoning',practice);
-    t.disabled=practiceResolved;
-    if(!practiceResolved)body.append(button('Record ungraded practice',()=>{
-     practice=t.value.trim();if(practice.length<20){mark('Explain your reasoning in at least 20 characters.');return}
-     practiceResolved=true;render();
-    }));
-    else answerStatus('Practice recorded for self-study. Reviewed grading is separate.',true);
+    if(!practiceResolved){
+     const check=evidenceDecision(body,'Which approach uses the available evidence correctly for this practice case?',topic,stage*100+4);
+     body.append(button('Check my practice decision',()=>{
+      const result=check();
+      if(!result.accepted){mark(result.reason);return}
+      practice=result.answer;practiceResolved=true;render();
+      mark('Formative evidence-method decision completed, not graded mastery.');
+     }));
+    }else answerStatus('Ungraded method decision completed. Actual competency assessment remains separate.',true);
     freeExplanation();guidedHelp();mistakeHelp();
    }
    // Original research cases add optional real-world reasoning without
@@ -1118,11 +1160,13 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    appendParagraph(body,'Limitations: '+(subject?.limit||guide.limit));
    if(special)stepList(special.steps);
    mistakeHelp();
-   const f=field(body,'Reflect: what did you misunderstand or learn?',reflection);
-   if(!selfReview)body.append(button('Record review and continue',()=>{
-    reflection=f.value.trim();if(reflection.length<15){mark('Write at least 15 characters to explain what you learned.');return}
-    selfReview=true;render();
-   }));else answerStatus('Review recorded locally. It is not a competency grade.',true);
+   if(!selfReview){
+    const check=evidenceDecision(body,'How should you correct an earlier mistake and verify your interpretation?',topic,stage*100+6);
+    body.append(button('Check my review decision',()=>{
+     const result=check();if(!result.accepted){mark(result.reason);return}
+     reflection=result.answer;selfReview=true;render();
+    }));
+   }else answerStatus('Review recorded locally. It is not a competency grade.',true);
   }else if(stage===7){
    // A controlled replay owns its own chronological chart; avoid an
    // unrelated weighted-groups illustration above the replay question.
@@ -1152,12 +1196,14 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
     detail(body,'Explain Transfer Concept',[subject?.why||guide.procedure,'Use genuinely different prices or evidence so memorizing the previous answer is insufficient.']);
    }else{
     appendParagraph(body,'New case: '+guide.selfCheck);
-    const f=field(body,'New evidence, contrasting interpretation and decision',transfer);
-    f.disabled=transferResolved;
-    if(!transferResolved)body.append(button('Record independent transfer reflection',()=>{
-     transfer=f.value.trim();if(transfer.length<25){mark('Include at least 25 characters of evidence and reasoning.');return}
-     transferResolved=true;render();
-    }));else answerStatus('New-case reflection completed locally, not graded.',true);
+    if(!transferResolved){
+     const check=evidenceDecision(body,'Which evidence-based method should be applied to this new case?',topic,stage*100+7);
+     body.append(button('Check my transfer decision',()=>{
+      const result=check();if(!result.accepted){mark(result.reason);return}
+      transfer=result.answer;transferResolved=true;render();
+      mark('Transfer method checked (ungraded). Genuine transfer mastery has not been established.');
+     }));
+    }else answerStatus('New-case evidence method reviewed locally, not graded mastery.',true);
     freeExplanation();
    }
   }else{
