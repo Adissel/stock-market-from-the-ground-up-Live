@@ -48,13 +48,13 @@ try{
  await stage(6);await choose(false);await next.click();await stage(6);
  assert.match(await host.locator('.academy-guided-feedback').innerText(),/Not yet/i);
  await choose(true);await next.click();await stage(7);await next.click();await stage(8);
- assert.match(await host.locator('.academy-guided-content').innerText(),/New simulated evidence.*\\$24\\.00/s);
+ assert.match(await host.locator('.academy-guided-content').innerText(),/New simulated evidence.*\$24\.00/s);
  await choose(true);await next.click();await stage(9);
  const report=await host.locator('.academy-guided-evidence-report').innerText();
- assert.match(report,/teaching assistance\\s*1/i);
- assert.match(report,/Corrected after feedback\\s*2/i);
- assert.match(report,/Decision-making[\\s\\S]*corrective retry/i);
- assert.match(report,/Process and transfer[\\s\\S]*first unassisted method check/i);
+ assert.match(report,/teaching assistance\s*1/i);
+ assert.match(report,/Corrected after feedback\s*2/i);
+ assert.match(report,/Decision-making[\s\S]*corrective retry/i);
+ assert.match(report,/Process and transfer[\s\S]*first unassisted method check/i);
  assert.match(report,/No member grades are written/);
  assert.equal(await host.locator('textarea[required]').count(),0);
  console.log('PASS component browser: wrong numerical answer, Talia teaching, free retry, changed risk slider, independent first selections, wrong assessment, correction and unfamiliar transfer; ungraded local-only.');
