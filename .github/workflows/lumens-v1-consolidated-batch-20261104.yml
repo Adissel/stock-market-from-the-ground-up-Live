@@ -7,6 +7,9 @@ on:
       - '.github/workflows/lumens-v1-consolidated-batch-20261104.yml'
       - 'tests/lumens-v1-consolidated-20261104.mjs'
       - 'tests/lumens-v1-batch-readiness-20261104.mjs'
+      - 'tests/lumens-v1-static-dashboard-wallet-contract.mjs'
+      - 'assets/js/member-lumen-wallet-widget-v1.js'
+      - 'dashboard.html'
       - 'tests/live-lumen-server-catalog-parity-v1.mjs'
       - 'tests/live-lumen-two-account-isolation-v1.mjs'
       - 'docs/qa/2026-11-04_LUMENS_V1_FULL_RELEASE_BATCH_AND_SIGNOFF.md'
@@ -46,6 +49,8 @@ jobs:
         run: node tests/lumens-v1-consolidated-20261104.mjs
       - name: Audit complete 60-gate V1 register and fail-closed release status
         run: node tests/lumens-v1-batch-readiness-20261104.mjs
+      - name: Static Dashboard balance, session isolation and rollover disclosure
+        run: node tests/lumens-v1-static-dashboard-wallet-contract.mjs
       - name: Existing dedicated protected-grade, mixed-order and wallet tests
         run: |
           node tests/test_lumen_learning_gifts_and_academy_progress_v1.mjs

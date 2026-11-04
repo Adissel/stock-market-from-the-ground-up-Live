@@ -40,8 +40,21 @@ try{
  },{access_token:login.access_token,refresh_token:login.refresh_token});
  assert.equal(session.id,login.user.id);
  await page.goto(origin+'/dashboard.html?tab=wallet',{waitUntil:'domcontentloaded',timeout:30000});
- await page.waitForFunction(()=>document.querySelector('[data-member-lumen-wallet]')?.textContent?.includes('Lumens available'),null,{timeout:35000});
- const wNode=page.locator('[data-member-lumen-wallet]');
+ await page.waitForFunction(()=>{
+  const total=document.getElementById('sparks-wallet-total')?.textContent?.trim()||'';
+  const status=document.getElementById('sparks-wallet-status')?.textContent||'';
+  return /^\\d{1,3}(,\\d{3})*$/.test(total)&&/verified/i.test(status);
+ },null,{timeout:35000}).catch(async error=>{
+  const state=await page.evaluate(()=>({
+   hasWallet:!!document.getElementById('member-sparks-wallet'),
+   totalSet:!!document.getElementById('sparks-wallet-total')?.textContent?.match(/\\d/),
+   statusText:(document.getElementById('sparks-wallet-status')?.textContent||'').slice(0,150),
+   memberContentShown:!document.getElementById('dashboard-content')?.hidden
+  }));
+  console.error('Wallet interface state without member data: '+JSON.stringify(state));
+  throw error;
+ });
+ const wNode=page.locator('#member-sparks-wallet');
  const diagnostic=await wNode.evaluate(el=>({
   clientRectCount:el.getClientRects().length,
   isVisible:el.checkVisibility({checkOpacity:true,checkVisibilityCSS:true}),
@@ -53,7 +66,9 @@ try{
  }));
  console.log('Wallet visibility diagnostic (no amount or account content): '+JSON.stringify(diagnostic));
  const wallet=await wNode.textContent();
- assert.match(wallet,/Crownlight Lumens/);assert.match(wallet,/Included:/);assert.match(wallet,/Purchased:/);
+ assert.match(wallet,/Your Lumens balance/);
+ assert.match(wallet,/Included/);assert.match(wallet,/Purchased/);
+ assert.match(await page.locator('#sparks-wallet-status').innerText(),/verified/i);
  assert(diagnostic.isVisible,'Wallet populated but hidden; diagnose dashboard CSS/auth layout');
  await page.waitForFunction(()=>!!document.querySelector('[data-member-lumen-history] h3'),null,{timeout:35000});
  assert.match(await page.locator('[data-member-lumen-history]').innerText(),/Recent Lumen wallet activity/);
