@@ -1,0 +1,28 @@
+/* Crownlight Prototype Center / React ECharts price-chart contextual controls.
+   Fixed portal remains visible above all Owner/Admin preview overlays. */
+.cx-context-menu{position:fixed;z-index:2147483000;box-sizing:border-box;width:min(760px,calc(100vw - 16px));max-height:min(82vh,720px);overflow:auto;background:linear-gradient(146deg,#0b172b,#10253b 65%,#15142f);border:1px solid #7973c5;border-radius:13px;color:#eaf8ff;box-shadow:0 24px 70px #000d;padding:12px;font-family:Inter,system-ui,Arial,sans-serif;font-size:13px}
+.cx-context-menu *{box-sizing:border-box}
+.cx-context-head,.cx-context-tabs{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:8px}
+.cx-context-head strong{color:#f5d68d;letter-spacing:.045em;font-size:12px}
+.cx-context-menu button{min-height:38px;border:1px solid #476380;border-radius:7px;padding:7px 10px;background:#1b304a;color:#f0f8ff;font:inherit;cursor:pointer;text-align:left}
+.cx-context-menu button:hover,.cx-context-menu button:focus-visible{outline:2px solid #c7a8ff;outline-offset:1px;border-color:#a58ef9;background:#324468}
+.cx-context-menu button:disabled,.cx-context-menu button[aria-disabled="true"]{opacity:.83;border-color:#75536d;color:#f6c99d;cursor:default}
+.cx-context-tabs{justify-content:flex-start}
+.cx-context-tabs button[aria-pressed="true"]{background:#4b3777;border-color:#a897ee}
+.cx-context-columns{display:grid;grid-template-columns:minmax(200px,1fr) minmax(210px,1fr);gap:12px}
+.cx-context-indicator-list{overflow-y:auto;max-height:440px;display:flex;flex-direction:column;gap:5px;padding:3px}
+.cx-context-indicator-list button{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.cx-context-indicator-list small{font-size:10px;letter-spacing:.02em;white-space:nowrap;color:#f5cf99}
+.cx-context-indicator-list .is-selected{border-color:#b7a6fb;background:#36345d}
+.cx-context-detail{min-height:180px;display:flex;flex-direction:column;gap:9px;max-height:440px;overflow:auto;padding:7px 4px}
+.cx-context-detail>strong{color:#f7d28e;font-size:15px}
+.cx-context-detail p{margin:0;line-height:1.5;color:#c2d8e9}
+.cx-context-detail .cx-context-locked,.cx-context-drawings .cx-context-locked{color:#ffcf9f;background:#33263b;padding:9px;border:1px solid #704d65;border-radius:8px}
+.cx-context-presets{display:flex;flex-wrap:wrap;gap:6px}
+.cx-context-editor{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;padding:8px;border:1px solid #4c557e;border-radius:8px;background:#101c38}
+.cx-context-editor label{display:flex;flex-direction:column;gap:5px;font-size:12px;color:#ebf4ff}
+.cx-context-editor input,.cx-context-editor select{width:100%;min-width:0;height:38px;border:1px solid #54718e;border-radius:6px;background:#122c45;color:#eff6ff;padding:5px}
+.cx-context-drawings{display:grid;gap:8px}
+.cx-context-foot{margin:12px 0 0;padding-top:8px;border-top:1px solid #415a79;color:#c1d3e9;font-size:11px}
+@media(max-width:620px){.cx-context-menu{max-height:84vh}.cx-context-columns{grid-template-columns:1fr}.cx-context-indicator-list{max-height:180px}.cx-context-detail{max-height:250px}.cx-context-editor{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.cx-context-menu *{transition:none!important;animation:none!important}}
