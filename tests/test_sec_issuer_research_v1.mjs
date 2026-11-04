@@ -47,7 +47,7 @@ assert.equal(f.find(x=>x.metric==='Total assets').available,false);
 assert.throws(()=>normalizeFacts({...facts,cik:4},identity,filings.filings),/different company/);
 const env={SUPABASE_URL:'https://mock.supabase.co',SUPABASE_PUBLISHABLE_KEY:'testpublic',
  SUPABASE_SECRET_KEY:'testsecret',SEC_EDGAR_USER_AGENT:'Crownlight Research research@example.org',
- SEC_EDGAR_BETA_ENABLED:'true'};
+ SEC_EDGAR_BETA_ENABLED:'true',SEC_EDGAR_GENERAL_RELEASE_APPROVED:'true'};
 const user='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
 const old=globalThis.fetch;
 let accesses=0,secRequests=0,entitled=true,budgetCalls=0,budgetGranted=true;
