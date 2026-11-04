@@ -22,9 +22,17 @@ export function isActiveSecQaGrant(rows,now=Date.now()){
  return row.status==='active';
 }
 
+export function secSourceContact(env){
+ const contact=String(env?.SEC_EDGAR_USER_AGENT||'').trim();
+ if(contact.length<12||contact.length>160||/[\\r\\n]/.test(contact)||
+    !/[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}/i.test(contact))
+  throw error('SEC source requires a configured contact-identifying User-Agent.',503);
+ return contact;
+}
 export async function requireSecSourceRelease(actor,env){
  if(env.SEC_EDGAR_BETA_ENABLED!=='true')
   throw error('Official SEC source retrieval is not enabled.',503);
+ secSourceContact(env);
  if(!actor?.c||!/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(actor.userId||''))
   throw error('Authenticated SEC member required.',403);
  if(env.SEC_EDGAR_GENERAL_RELEASE_APPROVED==='true')return 'GENERAL_RELEASE';
