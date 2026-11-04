@@ -3,7 +3,7 @@
  * access decisions, source retrieval, quotas and history remain server-owned.
  * No provider call, broker execution, official grade or private rubric access.
  */
-import React,{useCallback,useEffect,useRef,useState} from 'react';
+import React,{useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {ClassicClassroomChart} from '../prototype/PrototypeExperiences';
 
@@ -131,6 +131,10 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
   const [timeframe,setTimeframe]=useState<1|3|5>(1);
   const [compare,setCompare]=useState(false);
   const prototype=typeof window!=='undefined'&&isTaliaAdvancedRoute();
+  const sharedBars=useMemo(()=>REPLAY.slice(0,visible).map((bar,i)=>({
+    time:'B'+String(i+1).padStart(3,'0'),o:bar[0],c:bar[1],l:bar[2],h:bar[3],
+    v:syntheticVolume(bar,i),ema9:0,ema20:0,proxy:0
+  })),[visible]);
   const [study,setStudy]=useState<'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap'>('ema9');
   const [zoom,setZoom]=useState(100);
   const [showVolume,setShowVolume]=useState(true);
@@ -279,10 +283,7 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
     </div>}
     {prototype?<div className="tc-unified-chart" aria-label="Talia synchronized Classic technical chart">
       <ClassicClassroomChart mode="talia" memberSafe={true}
-       caseBars={REPLAY.slice(0,visible).map((bar,i)=>({
-        time:'B'+String(i+1).padStart(3,'0'),o:bar[0],c:bar[1],l:bar[2],h:bar[3],
-        v:syntheticVolume(bar,i),ema9:0,ema20:0,proxy:0
-       }))}
+       caseBars={sharedBars}
        onObservedBar={index=>{
         if(index>=visible)return;
         const bar=REPLAY[index];
