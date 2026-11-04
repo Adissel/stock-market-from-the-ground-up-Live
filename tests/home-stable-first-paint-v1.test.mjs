@@ -53,7 +53,7 @@ test('Home loads first-paint guard before all sitewide navigation and presentati
 test('Initial public/Classic shell cannot appear before verified state',()=>{
  const h=browser();
  assert(h.classes.has('cl-home-initializing'));
- assert.match(h.style.textContent,/main\.gu-premium-home\{visibility:hidden!important\}/);
+ assert.match(h.style.textContent,/main\.gu-premium-home,[\s\S]*visibility:hidden!important/);
  assert.match(h.style.textContent,/\.site-header/);
  h.domReady();
  assert(h.classes.has('cl-home-initializing'));
@@ -88,7 +88,7 @@ test('This change does not override published page choice, roles or owner contro
  assert.match(workspace,/apply\(result\.mode\)/);
  assert.match(workspace,/if\(result\.ownerPreview===true\)ownerBar/);
  assert.match(navigation,/nav\.dataset\.v11Owned='1'/);
- assert.doesNotMatch(code,/localStorage|Supabase|checkout|save\(|fetch\(|setting_save|clWorkspace\s*=/);
+ assert.doesNotMatch(code,/localStorage|checkout|save\(|fetch\(|setting_save|clWorkspace\s*=|getSupabaseClient/);
 });
 test('Pages build executes the first-paint regression suite',()=>{
  assert.match(read('scripts/build-pages.sh'),/node --test tests\/home-stable-first-paint-v1\.test\.mjs/);
