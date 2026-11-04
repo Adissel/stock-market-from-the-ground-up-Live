@@ -185,7 +185,7 @@ function Terminal(){
   </div>
   <div ref={host} className="cl-react-plot" role="region" tabIndex={0} onKeyDown={event=>{if(inspect(event.key))event.preventDefault()}}
    aria-label="Interactive fictional OHLCV training chart. Press Left or Right arrow to inspect a candle, Home for first candle, End for last candle; mouse wheel to zoom."/>
-  <div className="cl-react-progress" aria-live="off">{progress}</div>
+  <div className="cl-react-progress" aria-live="off"><span>{progress}</span><small>Accelerated fictional replay. Candle timeframes represent simulated market minutes, not elapsed wall-clock time.</small></div>
   <div className="cl-react-bottom"><span role="status">{note}</span><a href="/simulator.html">Open full Chart Studio</a></div>
  </div>;
 }
