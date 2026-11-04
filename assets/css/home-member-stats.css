@@ -216,3 +216,7 @@
 
 /* The card's sole heading remains visible on mobile; no demonstration header slot. */
 .gu-premium-home .gu-home-right-rail .gu-terminal-top>span:first-child:last-child{display:inline-flex!important;align-items:center;color:#e6f3ff!important}
+
+/* The restored statistics rail must not make the interactive React chart behave like a link. */
+.gu-premium-home .gu-home-right-rail .gu-home-terminal.sm-v5-chart{cursor:default;transition:none;transform:none}
+@media(hover:hover){.gu-premium-home .gu-home-right-rail .gu-home-terminal.sm-v5-chart:hover{transform:none;box-shadow:none}}
