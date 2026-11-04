@@ -11,7 +11,7 @@ test('Customization is available only on the staff prototype and never authorize
  assert.match(ts,/import \{ClassicClassroomChart\} from '\.\.\/prototype\/PrototypeExperiences'/);
  assert.match(ts,/<ClassicClassroomChart mode="talia" memberSafe=\{true\}/);
  assert.match(ts,/caseBars=\{sharedBars\}/);
- assert.match(ts,/if\(index>=visible\)return/);
+ assert.match(ts,/if\(group\.length!==interval\)return/);
  assert.match(ts,/false&&<div className="tc-row tp-chart-tools"/,'Legacy duplicated controls are not mounted');
  assert.match(ts,/type="color"/);assert.match(ts,/moveOnMouseMove:true/);
  assert.match(ts,/onQuestion\('Teach the '/);
