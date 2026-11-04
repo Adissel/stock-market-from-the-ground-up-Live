@@ -43,11 +43,17 @@ try{
  assert.equal(v.header,'visible');assert.equal(v.main,'visible');
  assert.equal(v.mode,'continuous');
  assert.equal(await page.locator('#cl-home-initial-loading').evaluate(el=>getComputedStyle(el).display),'none');
+ // Check actual shipped CSS after the first-paint guard has released.
+ // DOM readiness alone does not establish that asynchronous styles have finished.
+ await page.waitForLoadState('load');
  const cols=await page.locator('.gu-home-stage-grid').evaluate(el=>{
-  const [left,right]=getComputedStyle(el).gridTemplateColumns.split(' ').map(parseFloat);
-  return {left,right};
+  const style=getComputedStyle(el);
+  const [left,right]=style.gridTemplateColumns.trim().split(/\\s+/).map(parseFloat);
+  return {left,right,display:style.display,columns:style.gridTemplateColumns};
  });
- assert(cols.left>cols.right*1.8,'Published Continuous Desk must retain its saved asymmetric chart layout');
+ assert(cols.display==='grid' && Number.isFinite(cols.left) && Number.isFinite(cols.right)
+   && cols.left>cols.right*1.8,
+   'Published Continuous Desk must retain its saved asymmetric chart layout: '+JSON.stringify(cols));
  console.log('PASS Chromium: Home never flashes public/Classic markup before settled Owner navigation and published Continuous Desk');
 
  await page.reload({waitUntil:'domcontentloaded'});
