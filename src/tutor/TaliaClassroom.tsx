@@ -284,10 +284,16 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
     {prototype?<div className="tc-unified-chart" aria-label="Talia synchronized Classic technical chart">
       <ClassicClassroomChart mode="talia" memberSafe={true}
        caseBars={sharedBars}
-       onObservedBar={index=>{
-        if(index>=visible)return;
-        const bar=REPLAY[index];
-        onQuestion(('Talia, explain the completed simulated candle '+(index+1)+' using only the '+visible+' candles I have already revealed. Open '+bar[0].toFixed(2)+', high '+bar[3].toFixed(2)+', low '+bar[2].toFixed(2)+', close '+bar[1].toFixed(2)+'. Discuss observable price structure; do not disclose future bars or protected answers.').slice(0,450));
+       onObservedBar={(index,interval)=>{
+        // The selected ECharts index is an AGGREGATED completed timeframe
+        // candle, not the index of a one-minute source bar. Never inspect an
+        // unfinished group or any source bar after the Talia reveal boundary.
+        const group=REPLAY.slice(index*interval,Math.min(visible,(index+1)*interval));
+        if(group.length!==interval)return;
+        const opening=group[0][0],closing=group[group.length-1][1];
+        const high=Math.max(...group.map(bar=>bar[3]));
+        const low=Math.min(...group.map(bar=>bar[2]));
+        onQuestion(('Talia, explain completed simulated '+interval+'-minute candle '+(index+1)+' using only '+visible+' revealed one-minute observations. Open '+opening.toFixed(2)+', high '+high.toFixed(2)+', low '+low.toFixed(2)+', close '+closing.toFixed(2)+'. Discuss actual observed structure, not future prices or protected answers.').slice(0,450));
        }}/>
      </div>:<div className="tc-chart" ref={host} role="img" onPointerUpCapture={releasePointer} onPointerCancelCapture={releasePointer} aria-label={'Simulated price chart of '+Math.floor(visible/timeframe)+' complete '+timeframe+'-minute candlesticks'} />}
     <p className="tc-muted" role="status">{prototype?'Shared Crownlight technical chart synchronized to Talia’s '+visible+' revealed simulated one-minute candles. Volume is a synthetic proxy, never observed market volume. Studies respect warmup and tier locks.':status}</p>
