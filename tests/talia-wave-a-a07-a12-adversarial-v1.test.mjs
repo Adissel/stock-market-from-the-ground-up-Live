@@ -200,3 +200,13 @@ test('A11 — original 30 competency IDs preserved with four non-award instructi
  assert.match(ui,/Do not grade or award mastery/);
  assert.match(ui,/allowModel:false,saveHistory:/);
 });
+
+// V1 lock: identity isolation must not silently change the first sign-in preference.
+test('initial sign-in preserves existing Version 1 history choice, but account transitions clear it',()=>{
+ const source=readFileSync(new URL('../assets/js/market-tutor.js',import.meta.url),'utf8');
+ const signIn=source.split("if(event==='SIGNED_IN'&&newId!==TUTOR.user?.id){")[1];
+ assert.ok(signIn,'SIGNED_IN transition must exist');
+ assert.doesNotMatch(signIn.split('TUTOR.identityEpoch++')[0],/tutor-save-history.*checked=false/);
+ assert.match(source,/if\(event==='SIGNED_OUT'\|\|\(oldId&&newId&&oldId!==newId\)\)/);
+ assert.match(source,/\$\('tutor-save-history'\)\.checked=false/);
+});
