@@ -81,10 +81,52 @@ const labHandoff=(()=>{
 })();
 const labQuestion=(q:string)=>labHandoff
   ?('Lab '+labHandoff.id+'. Learning Journey stage: '+labHandoff.stage+'. '+q).slice(0,450):q;
-function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;memberId:string}){
+type LessonKind='candles'|'body-range'|'vwap';
+type FictionalTrade={shares1:number;price1:number;shares2:number;price2:number};
+type LessonQuestion={id:string;kind:'choice'|'numeric'|'vwap';title:string;prompt:string;options?:string[];correct?:number;calculationStep?:0|1|2;trade?:FictionalTrade;hint:string};
+const displayStages=['Welcome','Percentage basics','Candle experiment','Calculate the body','Calculate the range','Calculate the percentage','Independent practice','Review and retry','Transfer challenge','Learning report'] as const;
+const cleanNumber=(x:string)=>{const n=Number(x.trim());return x.trim()!==''&&Number.isFinite(n)?n:null};
+const closeNumber=(actual:number|null,expected:number,tolerance=.011)=>actual!==null&&Math.abs(actual-expected)<=tolerance;
+function originalQuestion(kind:LessonKind,bar:number[],index:number):LessonQuestion{
+ if(kind==='vwap'){
+   const cases:FictionalTrade[]=[
+     {shares1:200,price1:8,shares2:100,price2:10},
+     {shares1:150,price1:9,shares2:250,price2:11},
+     {shares1:120,price1:12,shares2:180,price2:15}
+   ];
+   const trade=cases[index<=8?0:index<=10?1:2];
+   return{id:'vwap-'+index,kind:'vwap',trade,title:'Work out a different fictional transaction VWAP',
+     prompt:'Two original fictional groups traded: '+trade.shares1+' shares at $'+trade.price1+
+       ' and '+trade.shares2+' shares at $'+trade.price2+'. Enter traded dollars, total shares and VWAP independently.',
+     hint:'Multiply each price by its own number of shares, add the dollar totals, then divide by combined shares. This trade-print example is not bar-based proxy VWAP.'};
+ }
+ if(kind==='body-range'){
+   const step:0|1|2=index<=8?0:index<=10?1:2;
+   const titles=['Calculate the real body','Calculate the full candle range','Calculate the body as a percentage'];
+   const prompts=[
+     'Calculate |close − open| for this completed fictional candle. This is the absolute height of the real body, in dollars.',
+     'Calculate high − low for this completed fictional candle. The wick extremes determine the complete range, in dollars.',
+     'After learning body and range separately, calculate (real body ÷ full range) × 100. Enter a percentage, not a decimal fraction.'
+   ];
+   return{id:'body-'+index,kind:'numeric',calculationStep:step,title:titles[step],
+     prompt:'Completed fictional candle: open $'+bar[0].toFixed(2)+', high $'+bar[3].toFixed(2)+', low $'+bar[2].toFixed(2)+', close $'+bar[1].toFixed(2)+'. '+prompts[step],
+     hint:'Real body = |close − open|. Full range = high − low. Body percentage = (body ÷ full range) × 100.'};
+ }
+ return{id:'candle-'+index,kind:'choice',title:'Read the completed candle',
+   prompt:'Which statement can you justify from the revealed fictional candle without predicting the next one?',
+   options:['The candle guarantees the next price direction.',
+    'The observed open, high, low and close describe this completed interval only.',
+    'A green body guarantees buyers will control the following interval.',
+    'The wick proves the exact transaction sequence inside the interval.'],
+   correct:1,hint:'Separate what has already been observed from what remains unknown. OHLC does not establish intrabar transaction order.'};
+}
+function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
+ onQuestion:(q:string)=>void;memberId:string;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
+ playing:boolean;setPlaying:React.Dispatch<React.SetStateAction<boolean>>;playSpeed:number;setPlaySpeed:React.Dispatch<React.SetStateAction<number>>;
+ onPauseForQuestion:()=>void
+}){
   const host=useRef<HTMLDivElement|null>(null);
   const chartRef=useRef<ChartInstance|null>(null);
-  const [visible,setVisible]=useState(7);
   const [timeframe,setTimeframe]=useState<1|3|5>(1);
   const [compare,setCompare]=useState(false);
   const prototype=typeof window!=='undefined'&&isTaliaAdvancedRoute();
@@ -182,7 +224,16 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
           }},
           series:[{type:'candlestick',name:'Fictional completed bars',
             data:shown,itemStyle:{color:prototype?bull:'#38c6a6',color0:prototype?bear:'#e37779',borderColor:prototype?bull:'#38c6a6',borderColor0:prototype?bear:'#e37779',borderWidth:1.5,shadowBlur:prototype?4:0,shadowColor:'#145a67'},
-            markLine:prototype&&showStructure?{symbol:'none',lineStyle:{color:'#668ba1',type:'dashed'},data:[{yAxis:Math.max(...shown.map(r=>r[3])),name:'Visible high'},{yAxis:Math.min(...shown.map(r=>r[2])),name:'Visible low'}]}:undefined,
+            markLine:prototype?{symbol:'none',silent:true,lineStyle:{color:'#668ba1',type:'dashed',width:1,opacity:.7},
+              data:[
+                ...(showStructure?[{yAxis:Math.max(...shown.map(r=>r[3])),name:'Visible swing high',label:{show:false}},
+                  {yAxis:Math.min(...shown.map(r=>r[2])),name:'Visible swing low',label:{show:false}}]:[]),
+                ...([['Open',shown.at(-1)?.[0]],['High',shown.at(-1)?.[3]],['Low',shown.at(-1)?.[2]],['Close',shown.at(-1)?.[1]]] as [string,number|undefined][])
+                  .filter((x):x is [string,number]=>typeof x[1]==='number')
+                  .map(([name,value])=>({yAxis:value,name:name+' $'+value.toFixed(2),
+                    label:{show:true,position:'insideEndTop',formatter:name+' $'+value.toFixed(2),fontSize:10,color:'#e4f8f6'},
+                    lineStyle:{color:name==='High'||name==='Low'?'#7ebbd9':'#63bfae',type:'dotted',opacity:.6}}))
+              ]}:undefined,
             markPoint:prototype&&annotation!==null&&Math.floor(annotation/timeframe)<shown.length?{symbol:'pin',symbolSize:42,label:{formatter:'Study',color:'#091827'},data:[{coord:[Math.floor(annotation/timeframe),shown[Math.floor(annotation/timeframe)][1]],value:'Study'}]}:undefined},
             ...(prototype&&study!=='none'?[{type:'line',name:study==='sma3'?'SMA 3':study.toUpperCase(),data:study==='ema9'?ema(9):study==='ema20'?ema(20):study==='ema200'?ema(200):study==='vwap'?vwap:overlay,showSymbol:false,connectNulls:false,lineStyle:{width:2,color:'#e9bc72'},itemStyle:{color:'#e9bc72'},smooth:false}]:[]),
             ...(prototype&&compare?[9,20,200].map(period=>({type:'line',name:'EMA '+period,data:ema(period),showSymbol:false,connectNulls:false,lineStyle:{width:period===200?2.8:2,color:period===9?'#f4ce79':period===20?'#80b9ff':'#ed86cd'},itemStyle:{color:'#f4ce79'},smooth:false})):[]),
@@ -239,19 +290,109 @@ function FictionalChart({onQuestion,memberId}:{onQuestion:(q:string)=>void;membe
       </table></div>
     </details>}
     <div className="tc-row">
-      {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 completed fictional bars for EMA 200</button>}
-      {prototype&&<button type="button" className="tc-secondary" onClick={()=>setVisible(v=>Math.max(7,v-1))} disabled={visible<=7}>Step back one bar</button>}
-      <button type="button" onClick={()=>setVisible(v=>Math.min(REPLAY.length,v+1))} disabled={visible===REPLAY.length}>Reveal next fictional bar</button>
-      <button type="button" className="tc-secondary" onClick={()=>{setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7&&timeframe===1&&zoom===100&&annotation===null}>Reset</button>
+      {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 completed fictional bars for EMA 200</button>}
+      {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(v=>Math.max(7,v-1))}} disabled={visible<=7}>Step back one bar</button>}
+      <button type="button" onClick={()=>{setPlaying(false);setVisible(v=>Math.min(REPLAY.length,v+1))}} disabled={visible===REPLAY.length}>Reveal next fictional bar</button>
+      <button type="button" onClick={()=>setPlaying(v=>!v)} disabled={visible>=REPLAY.length} aria-pressed={playing} aria-label={playing?'Pause automatic fictional candle playback':'Start automatic fictional candle playback'}>{playing?'Pause':'Auto Play'}</button>
+      <label className="tc-playback-speed">Playback speed <select value={playSpeed} onChange={e=>setPlaySpeed(Number(e.target.value))} aria-label="Fictional playback speed"><option value={3000}>Slow</option><option value={1600}>Normal</option><option value={750}>Fast</option></select></label>
+      <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);onPauseForQuestion()}}>Pause for a question</button>
+      <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7&&timeframe===1&&zoom===100&&annotation===null}>Reset</button>
       <button type="button" className="tc-secondary" onClick={()=>onQuestion(('The latest revealed fictional bar is '+visible+' with open '+latest[0].toFixed(2)+', high '+latest[3].toFixed(2)+', low '+latest[2].toFixed(2)+', close '+latest[1].toFixed(2)+'. Guide me through one observation question using only these completed bars; do not reveal later candles.').slice(0,450))}>Ask Talia about this candle</button>
     </div>
   </section>;
+}
+/** Original fictional ungraded teaching questions: never protected answer keys.
+ * The checkpoint's local checks pause the chart and produce personalized
+ * corrective feedback. Nothing is persisted as a formal grade or mastery.
+ */
+function TeachingCheckpoint({checkpoint,bar,onComplete,onFeedback,onSkip}:{
+ checkpoint:LessonQuestion;bar:number[];
+ onComplete:(reply:string,feedback:string)=>void;onFeedback:(feedback:string)=>void;onSkip:()=>void
+}){
+ const [choice,setChoice]=useState<number|null>(null);
+ const [fields,setFields]=useState(['','','']);
+ const [feedback,setFeedback]=useState('');
+ const [tries,setTries]=useState(0);
+ const [showExplanation,setShowExplanation]=useState(false);
+ const numerical=checkpoint.kind==='numeric'||checkpoint.kind==='vwap';
+ const names=checkpoint.kind==='vwap'?['Total traded dollars ($)','Total shares','VWAP ($ per share)']:
+   ['Real body ($)','Full candle range ($)','Body as percentage of range (%)'];
+ const trade=checkpoint.trade;
+ const vwapValue=trade?(trade.price1*trade.shares1+trade.price2*trade.shares2)/(trade.shares1+trade.shares2):0;
+ const expected=checkpoint.kind==='vwap'&&trade?[
+    trade.price1*trade.shares1+trade.price2*trade.shares2,
+    trade.shares1+trade.shares2,vwapValue]:
+  [Math.abs(bar[1]-bar[0]),bar[3]-bar[2],
+    bar[3]===bar[2]?0:Math.abs(bar[1]-bar[0])/(bar[3]-bar[2])*100];
+ const explanation=checkpoint.kind==='vwap'&&trade?(
+    trade.shares1+' × $'+trade.price1+' = $'+(trade.shares1*trade.price1).toFixed(2)+
+    '; '+trade.shares2+' × $'+trade.price2+' = $'+(trade.shares2*trade.price2).toFixed(2)+
+    '. Total traded dollars = $'+expected[0].toFixed(2)+
+    '. Total shares = '+expected[1]+'. VWAP = $'+expected[0].toFixed(2)+' ÷ '+expected[1]+
+    ' = $'+vwapValue.toFixed(4)+' per share. These are original fictional transactions, not a bar-based proxy.'
+  ):
+ checkpoint.kind==='numeric'?'Body is the absolute close-minus-open difference. Range is high minus low. Divide body by range and multiply by 100 for the percentage; never use close/open as the denominator.':
+ 'A completed OHLC candle describes observed prices in its interval. It cannot prove the next candle, the order of intra-bar transactions, or any trading outcome.';
+ const check=(e:React.FormEvent)=>{
+  e.preventDefault();setTries(n=>n+1);
+  let correct=false;let reply='';let diagnostic='';
+  if(checkpoint.kind==='choice'){
+   if(choice===null){setFeedback('Choose an answer before continuing.');return}
+   correct=choice===checkpoint.correct;reply=checkpoint.options?.[choice]||'';
+   diagnostic=correct?'Correct observation: OHLC is evidence about a completed period, not a prediction.':
+    'Not quite. A finished candle tells you its prices, but not the next direction or exact intrabar order. Review the other options and try again.';
+  }else{
+   const values=fields.map(cleanNumber);
+   const matches=expected.map((v,i)=>closeNumber(values[i],v,i===2&&checkpoint.kind==='vwap'?0.02:0.011));
+   correct=checkpoint.kind==='numeric'?matches[checkpoint.calculationStep??0]===true:matches.every(Boolean);
+   reply=names.map((k,i)=>checkpoint.kind==='numeric'&&i!==checkpoint.calculationStep?'':k+': '+fields[i]).filter(Boolean).join('; ');
+   diagnostic=correct?(checkpoint.kind==='numeric'?'This separate candle calculation is correct.':'All three fictional transaction calculations are correct.'):
+    matches.map((valid,i)=>checkpoint.kind==='numeric'&&i!==checkpoint.calculationStep?'':valid?names[i]+': correct.':names[i]+': check your arithmetic and units.').filter(Boolean).join(' ');
+  }
+  if(correct){setFeedback(diagnostic);onComplete(reply,diagnostic+' '+explanation)}
+  else{setFeedback(diagnostic);onFeedback(diagnostic)}
+ };
+ return <section className="tc-checkpoint" aria-labelledby="tc-checkpoint-heading">
+  <div className="tc-row tc-row-between"><h3 id="tc-checkpoint-heading">Talia's teaching checkpoint</h3><span className="tc-pill">Playback paused · ungraded</span></div>
+  <p><strong>{checkpoint.title}</strong></p><p>{checkpoint.prompt}</p>
+  <form onSubmit={check} className="tc-checkpoint-form">
+   {checkpoint.kind==='choice'?<fieldset><legend>Choose the supported observation</legend>
+     {(checkpoint.options||[]).map((option,i)=><label className="tc-checkpoint-option" key={i}>
+       <input type="radio" name={checkpoint.id} checked={choice===i} onChange={()=>setChoice(i)}/>
+       <span>{option}</span>
+     </label>)}</fieldset>:
+     <fieldset><legend>Work through the three calculations separately</legend>
+       {names.map((name,i)=>(checkpoint.kind==='vwap'||i===checkpoint.calculationStep)&&<label key={name} className="tc-equation-field">{name}
+         <input value={fields[i]} onChange={e=>setFields(old=>old.map((x,j)=>i===j?e.target.value.slice(0,22):x))}
+           inputMode="decimal" placeholder={i===2?'Calculate last':'Enter your result'} aria-label={name}/>
+       </label>)}
+     </fieldset>}
+   <div className="tc-row"><button type="submit">Check my answer</button>
+    <button className="tc-secondary" type="button" onClick={()=>setShowExplanation(v=>!v)}>{showExplanation?'Hide explanation':'Explain this concept — Free'}</button>
+    <button className="tc-secondary" type="button" onClick={onSkip}>Skip this ungraded checkpoint</button></div>
+  </form>
+  {feedback&&<p role="status" className="tc-checkpoint-feedback">{feedback} {tries>1?'You can retry without losing credit.':''}</p>}
+  {showExplanation&&<div className="tc-worked-lesson" role="note"><strong>Worked explanation</strong>
+     <p>{checkpoint.hint}</p><p>{explanation}</p><p>No Lumens are required for explanations or retries.</p></div>}
+ </section>;
 }
 function Classroom(){
   const advancedExperience=isTaliaAdvancedRoute();
   const [member,setMember]=useState<Member|null>(null);
   const [ready,setReady]=useState(false);
   const [chat,setChat]=useState<ChatLine[]>(DEFAULT);
+  const [visible,setVisible]=useState(7);
+  const [playing,setPlaying]=useState(false);
+  const [playSpeed,setPlaySpeed]=useState(1600);
+  const [lessonKind,setLessonKind]=useState<LessonKind|null>(null);
+  const [checkpoint,setCheckpoint]=useState<LessonQuestion|null>(null);
+  const [stageIndex,setStageIndex]=useState(0);
+  const [studyReport,setStudyReport]=useState({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
+  const [typingSpeed,setTypingSpeed]=useState(28);
+  const [typingId,setTypingId]=useState<string|null>(null);
+  const [typedCount,setTypedCount]=useState(0);
+  const [activeEdition,setActiveEdition]=useState('FOUNDATION');
+  const [premiumEvidence,setPremiumEvidence]=useState<Record<string,Record<string,unknown>>|null>(null);
   const [dock,setDock]=useState<'split'|'chart'|'tutor'>('split');
   const [dockWidth,setDockWidth]=useState(400);
   const [question,setQuestion]=useState(initialQuestion);
@@ -291,8 +432,9 @@ function Classroom(){
   const requestRecommendation=()=>{
     setPhase('Retry');setMode('question');
     const basis=confidence==='unsure'?'Start with a simpler observation and worked example.':confidence==='developing'?'Ask a new comparison that tests the distinction.':'Ask a more difficult independent transfer question.';
-    setQuestion(('Practice '+dimension+' for '+sessionTopic+'. '+basis+' Focus on '+misconceptionPrompts[misconception]+' Do not grade this response.').slice(0,450));
-    setStatus('Practice recommendation prepared from your selected needs, not inferred mastery or private grades.');
+    const prompt=('Practice '+dimension+' for '+sessionTopic+'. '+basis+' Focus on '+misconceptionPrompts[misconception]+' Do not grade this response.').slice(0,450);
+    void submitTutor(prompt,'question','');
+    setStatus('Requesting a new ungraded practice question from the authenticated Tutor.');
   };
   const [dimension,setDimension]=useState<'Knowledge'|'Recognition'|'Decision'|'Process'>('Recognition');
   const phaseInstructions:Record<Phase,{mode:Mode;prompt:string}>={
@@ -319,6 +461,9 @@ function Classroom(){
   const reset=useCallback((id:string|null)=>{
     epoch.current++;pending.current?.abort();pending.current=null;
     identity.current=id;setMember(null);setChat(DEFAULT);
+    setPlaying(false);setVisible(7);setLessonKind(null);setCheckpoint(null);setStageIndex(0);
+    setStudyReport({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
+    setActiveEdition('FOUNDATION');setPremiumEvidence(null);setTypingId(null);setTypedCount(0);
     setConversationId(null);setConversationLabel('');setSave(false);
     setQuestion('');setReasoning('');setMode('explain');setBusy(false);setPhase('Observe');setAttempts(0);setSessionTopic('Reading completed candles');
     setMisconception('observation');setConfidence('unsure');setDimension('Recognition');setPerspective('Understand');setMethod('I DO');setStatus(id?'Member identity changed. Verifying the new session...':'Signed out. Private Tutor content was cleared.');
@@ -370,17 +515,81 @@ function Classroom(){
     void init();
     return ()=>{live=false;epoch.current++;pending.current?.abort();unsubscribe?.()};
   },[reset]);
-  useEffect(()=>{log.current?.scrollTo({top:log.current.scrollHeight,behavior:'auto'})},[chat,busy]);
+  useEffect(()=>{log.current?.scrollTo({top:log.current.scrollHeight,behavior:'auto'})},[chat,busy,typedCount]);
+  useEffect(()=>{
+    const latest=chat[chat.length-1];
+    if(latest?.who!=='talia'||latest.id===typingId)return;
+    setTypingId(latest.id);
+    setTypedCount(window.matchMedia?.('(prefers-reduced-motion: reduce)').matches?latest.text.length:0);
+  },[chat,typingId]);
+  useEffect(()=>{
+    const latest=chat[chat.length-1];
+    if(!latest||latest.who!=='talia'||latest.id!==typingId||typedCount>=latest.text.length)return;
+    const step=typingSpeed===0?latest.text.length:typingSpeed===12?5:typingSpeed===28?3:1;
+    const timer=window.setTimeout(()=>setTypedCount(v=>Math.min(latest.text.length,v+step)),typingSpeed===0?0:typingSpeed);
+    return()=>window.clearTimeout(timer);
+  },[chat,typingId,typedCount,typingSpeed]);
+  const appendInstructor=useCallback((message:string,label='Original fictional teaching')=>{
+    setChat(prev=>[...prev,{id:crypto.randomUUID(),who:'talia',text:message,label}]);
+  },[]);
+  const pauseForQuestion=useCallback((kind:LessonKind|null=lessonKind,at=visible)=>{
+    const selected=kind||'candles';
+    setPlaying(false);setCheckpoint(originalQuestion(selected,REPLAY[at-1],at));
+    setChat(x=>[...x,{id:crypto.randomUUID(),who:'talia',text:'Playback paused at completed fictional candle '+at+'. '+originalQuestion(selected,REPLAY[at-1],at).prompt,label:'Ungraded learner checkpoint'}]);
+  },[lessonKind,visible]);
+  const startLesson=(kind:LessonKind)=>{
+    setLessonKind(kind);setPlaying(false);setVisible(7);setCheckpoint(null);setStageIndex(0);
+    setStudyReport({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
+    const intro=kind==='vwap'?'We will build fictional trade-print VWAP by multiplying price and volume, adding totals, then dividing. Watch the completed candles separately; their volume proxy is not a real trade-print VWAP.':
+      kind==='body-range'?'We will identify open, high, low and close, then calculate body, range and body percentage as three separate steps. The chart will pause for your arithmetic.':
+      'We will watch completed fictional candles. I will ask what you can observe and what cannot be predicted. The chart pauses while you answer.';
+    appendInstructor(intro);setStatus('Interactive teaching started. Playback is controlled by Talia’s checkpoints.');setPlaying(true);
+  };
+  useEffect(()=>{
+    if(!playing||!member||busy||checkpoint)return;
+    const lastTutor=chat.at(-1);
+    if(lastTutor?.who==='talia'&&lastTutor.id===typingId&&typedCount<lastTutor.text.length)return;
+    if(document.hidden){setPlaying(false);return;}
+    const timer=window.setTimeout(()=>{
+      const next=Math.min(REPLAY.length,visible+1);
+      setVisible(next);
+      if(next>=REPLAY.length){setPlaying(false);appendInstructor('The fictional replay is complete. Review one new transfer case or restart the lesson.');return;}
+      if(next===8||next%5===0){
+        setPlaying(false);setStageIndex(i=>Math.min(9,i+1));
+        const kind=lessonKind||'candles',q=originalQuestion(kind,REPLAY[next-1],next);
+        setCheckpoint(q);
+        appendInstructor('Playback paused at candle '+next+'. '+q.prompt,'Ungraded learner checkpoint');
+      }
+    },playSpeed);
+    return()=>window.clearTimeout(timer);
+  },[playing,member,busy,checkpoint,visible,playSpeed,lessonKind,appendInstructor,chat,typingId,typedCount]);
+  useEffect(()=>{const hidden=()=>{if(document.hidden)setPlaying(false)};document.addEventListener('visibilitychange',hidden);return()=>document.removeEventListener('visibilitychange',hidden)},[]);
+  const checkpointCompleted=(answer:string,feedback:string)=>{
+    setStudyReport(r=>({...r,completed:r.completed+1,latest:checkpoint?.title||'Completed ungraded exercise'}));
+    setChat(lines=>[...lines,{id:crypto.randomUUID(),who:'member',text:answer,label:'Ungraded practice'},
+      {id:crypto.randomUUID(),who:'talia',text:feedback+' Playback will resume with the next revealed fictional candle.',label:'Original fictional corrective explanation'}]);
+    setCheckpoint(null);setStageIndex(i=>Math.min(9,i+1));setPlaying(true);
+  };
+  const checkpointFeedback=(feedback:string)=>{
+    setStudyReport(r=>({...r,retries:r.retries+1,latest:checkpoint?.title||'Ungraded corrective practice'}));
+    appendInstructor(feedback+' Try again, request a free explanation, or skip this ungraded practice.');
+  };
+  const checkpointSkipped=()=>{
+    setStudyReport(r=>({...r,skipped:r.skipped+1,latest:checkpoint?.title||'Skipped ungraded exercise'}));
+    appendInstructor('This ungraded question was skipped. Skipping does not prove proficiency or award credits. We will resume on the next fictional candle.');
+    setCheckpoint(null);setPlaying(true);
+  };
   const getToken=useCallback(async()=>{
     if(!client.current||!identity.current)return null;
     const result=(await client.current.auth.getSession()).data.session;
     return result?.user.id===identity.current?result.access_token:null;
   },[]);
-  const send=async(e:React.FormEvent)=>{
-    e.preventDefault();const q=question.trim();
+  const submitTutor=async(q:string,selectedMode:Mode,learnerInput:string)=>{
     if(busy||!member||!ready)return;
+    if(checkpoint){setStatus('Finish, retry or skip Talia’s current checkpoint before sending a new message.');return}
+    setPlaying(false);
     if(q.length<4||q.length>450){setStatus('Question must contain 4–450 characters.');return}
-    if(mode==='review'&&!reasoning.trim()){setStatus('Provide your reasoning to request an ungraded review.');return}
+    if(selectedMode==='review'&&!learnerInput.trim()){setStatus('Provide your reasoning to request an ungraded review.');return}
     if(practiceCase!=='none'&&!/^[-+]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(practiceValue.trim())){
       setStatus('Enter one finite decimal result for the selected fictional calculation.');return;
     }
@@ -393,7 +602,7 @@ function Classroom(){
       const access=await getToken();if(!access)throw Error('Member session expired. Please sign in.');
       const res=await fetch('/api/market-tutor',{method:'POST',cache:'no-store',credentials:'same-origin',signal:controller.signal,
         headers:{authorization:'Bearer '+access,'content-type':'application/json'},
-        body:JSON.stringify({question:labQuestion(instructionalQuestion(q)),mode,learnerAnswer:reasoning.trim().slice(0,1800),
+        body:JSON.stringify({question:labQuestion(instructionalQuestion(q)),mode:selectedMode,learnerAnswer:learnerInput.trim().slice(0,1800),
           requestId:crypto.randomUUID(),allowModel:false,saveHistory:currentSave,conversationId:thread,
           ...(practiceCase!=='none'?{formativePractice:{caseId:practiceCase,submitted:practiceValue.trim(),labId:labHandoff?.id||'TALIA_CLASSROOM'}}:{})})});
       const result=await res.json().catch(()=>null);
@@ -414,6 +623,7 @@ function Classroom(){
       if(version===epoch.current&&identity.current===targetId){setBusy(false);pending.current=null}
     }
   };
+  const send=(e:React.FormEvent)=>{e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())};
   const newConversation=async()=>{
     if(!member||busy)return;
     const title=window.prompt('Private conversation title (maximum 80 characters):','Learning session');
@@ -452,17 +662,40 @@ function Classroom(){
     }catch(e){if(version===epoch.current)setStatus(e instanceof Error?e.message:'Unable to load history.')}
   };
   const safeSuggest=useCallback((q:string)=>{setQuestion(q.slice(0,450));setStatus('Review the suggested question, then send it to Talia.');},[]);
+  const teachFocus=()=>void submitTutor(('Teach '+sessionTopic+' using only the visible '+visible+
+    ' fictional completed candles. Explain one observation, one calculation and one limitation before asking me a question.').slice(0,450),'explain','');
+  const selectEdition=async(target:string)=>{
+    if(!member||busy)return;
+    if(target==='FOUNDATION'){
+      setActiveEdition('FOUNDATION');setPremiumEvidence(null);
+      appendInstructor('Foundation teaching is available to every eligible signed-in member. You can ask questions, practice fictional calculations and follow the guided chart lesson without purchasing explanations.','Foundation instruction');
+      setStatus('Foundation teaching selected. No premium beta grant required.');return;
+    }
+    const uid=member.id,version=epoch.current;
+    try{
+      const token=await getToken();if(!token)throw Error('Your member session expired.');
+      const res=await fetch('/api/talia-premium-member-v1?tier='+encodeURIComponent(target),{
+        headers:{authorization:'Bearer '+token,accept:'application/json'},cache:'no-store'});
+      const data=await res.json().catch(()=>null);
+      if(version!==epoch.current||identity.current!==uid)return;
+      const verified=await getToken();if(verified!==token)return;
+      if(!res.ok||data?.ok!==true||data.scope!=='AUTHENTICATED_MEMBER_BETA'||data.tier!==target)
+        throw Error('This edition is not authorized for the current member beta account.');
+      setActiveEdition(target);setPremiumEvidence(data.features||{});
+      appendInstructor('Your authenticated '+target+' educational evidence is available for this session. Select a documented teaching topic below. No private grades or cross-member progress are disclosed.','Verified private edition context');
+      setStatus('Authenticated '+target+' member beta. The server has verified this edition.');
+    }catch(e){setPremiumEvidence(null);setActiveEdition('FOUNDATION');setStatus(e instanceof Error?e.message:'Member tier validation failed.')}
+  };
   const latestExchange=chat.length>=3&&chat[chat.length-1]?.who==='talia'?
     [...chat].reverse().find(line=>line.who==='member')?.text||'the current topic':'the current topic';
   const continueLesson=(kind:'clarify'|'challenge'|'transfer')=>{
     const subject=latestExchange.slice(0,170);
-    if(kind==='clarify'){
-      setMode('explain');safeSuggest('Continue our previous lesson about '+subject+'. Explain one difficult part more clearly, using a distinct fictional example. Do not assume I understood.');
-    }else if(kind==='challenge'){
-      setMode('question');safeSuggest('Continue our previous lesson about '+subject+'. Ask ONE evidence-based diagnostic question and wait for my attempt before correcting.');
-    }else{
-      setMode('practice');safeSuggest('Continue our previous lesson about '+subject+'. Give a different fictional transfer case and invite NO TRADE as an option; do not grade.');
-    }
+    const nextMode:Mode=kind==='clarify'?'explain':kind==='challenge'?'question':'practice';
+    setMode(nextMode);
+    const prompt=kind==='clarify'?'Continue our previous lesson about '+subject+'. Explain one difficult part more clearly, using a distinct fictional example. Do not assume I understood.':
+      kind==='challenge'?'Continue our previous lesson about '+subject+'. Ask ONE evidence-based diagnostic question and wait for my attempt before correcting.':
+      'Continue our previous lesson about '+subject+'. Give a different fictional transfer case and invite NO TRADE as an option; do not grade.';
+    void submitTutor(prompt.slice(0,450),nextMode,'');
   };
   if(!member)return <main className="tc-main" aria-label="Talia membership access">
     <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / MEMBER TUTOR</p>
@@ -477,16 +710,95 @@ function Classroom(){
     <div className="tc-terminal-controls" role="toolbar" aria-label="Workspace layout"><div className="tc-terminal-identity"><strong>CROWNLIGHT / MARKET LEARNING TERMINAL</strong><span>Completed-candle training · private instructor dock</span></div><div className="tc-terminal-switches"><button type="button" onClick={()=>setDock('split')} aria-pressed={dock==='split'}>Split workspace</button><button type="button" onClick={()=>setDock('chart')} aria-pressed={dock==='chart'}>Chart focus</button><button type="button" onClick={()=>setDock('tutor')} aria-pressed={dock==='tutor'}>Instructor focus</button></div><label className="tc-terminal-size">Instructor width <input aria-label="Instructor dock width" type="range" min="320" max="560" step="20" value={dockWidth} onChange={e=>setDockWidth(Number(e.target.value))}/></label></div><div className={'tc-grid tc-terminal-grid tc-terminal-'+dock} style={{'--tc-instructor-width':dockWidth+'px'} as React.CSSProperties}><section className="tc-chat" aria-labelledby="tc-chat-title">
       <div className="tc-chat-top"><div><h2 id="tc-chat-title">Talia Mercer <span className="tc-teaching-label">Personal learning instructor</span></h2><p className="tc-muted">{conversationLabel||'Source-grounded member session · AI provider disabled'}</p></div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
       <ol className="tc-transcript" ref={log} role="log" aria-label="Talia conversation transcript" aria-live="polite" aria-relevant="additions">
-        {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong><p>{m.text}</p>{m.label&&<small>{m.label}</small>}</li>)}
+        {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong>
+          <p>{m.id===typingId?<><span className="tc-screen-reader-only">{m.text}</span><span aria-hidden="true">{m.text.slice(0,typedCount)}{typedCount<m.text.length&&<span className="tc-typing-caret">▌</span>}</span></>:m.text}</p>
+          {m.label&&<small>{m.label}</small>}</li>)}
       </ol>
-      {busy&&<p className="tc-wait" role="status">Talia is preparing the explanation… <button type="button" onClick={()=>pending.current?.abort()}>Stop</button></p>}
-      <div className="tc-chipbar" aria-label="Example questions">
-        {EXAMPLES.map(item=><button type="button" key={item} onClick={()=>safeSuggest(item)}>{item}</button>)}
+      <div className="tc-typing-controls"><label>Text display speed <select aria-label="Talia typing speed" value={typingSpeed} onChange={e=>setTypingSpeed(Number(e.target.value))}>
+        <option value={56}>Slow</option><option value={28}>Normal</option><option value={12}>Fast</option><option value={0}>Show instantly</option></select></label>
+        <button type="button" className="tc-secondary" onClick={()=>{const last=chat.at(-1);if(last?.who==='talia')setTypedCount(last.text.length)}}>Show all text</button>
+        {typingId&&typedCount<(chat.at(-1)?.text.length||0)&&<span role="status" className="tc-muted">Talia is displaying her explanation…</span>}
       </div>
+      {busy&&<p className="tc-wait" role="status">Talia is preparing a source-grounded reply… <button type="button" onClick={()=>pending.current?.abort()}>Stop</button></p>}
+      <form onSubmit={send} className="tc-composer">
+        <label htmlFor="tc-question">Your question or follow-up</label>
+        <textarea id="tc-question" value={question} onChange={e=>setQuestion(e.target.value)}
+          onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())}}}
+          maxLength={450} rows={3} placeholder="Message Talia… Enter to send · Shift+Enter for a new line" disabled={!member||busy||!!checkpoint}/>
+        <div className="tc-row"><label htmlFor="tc-mode">Teaching mode</label>
+          <select id="tc-mode" value={mode} onChange={e=>setMode(e.target.value as Mode)} disabled={!member||busy||(lessonKind!==null&&stageIndex>=3)}>
+            <option value="explain">Explain concept</option><option value="question">Guided self-check</option>
+            <option value="review">Review reasoning (ungraded)</option><option value="practice">Recommend practice</option>
+          </select><span className="tc-muted">{question.length}/450</span>
+        </div>
+        {mode==='review'&&<><label htmlFor="tc-reasoning">Your reasoning (ungraded)</label>
+          <textarea id="tc-reasoning" value={reasoning} onChange={e=>setReasoning(e.target.value)} maxLength={1800} rows={3} disabled={!member||busy}/>
+          <fieldset><legend>Optional verified fictional calculation</legend>
+            <label htmlFor="tc-practice-case">Practice case</label>
+            <select id="tc-practice-case" value={practiceCase} onChange={e=>{
+              const next=e.target.value as typeof practiceCase;setPracticeCase(next);setPracticeValue('');
+              if(next==='canonical_candle_body_pct')setQuestion('Review my fictional candle body percentage calculation.');
+              if(next==='canonical_vwap_trade_groups')setQuestion('Review my fictional volume weighted average price calculation.');
+            }} disabled={!member||busy}>
+              <option value="none">No numerical verification</option>
+              <option value="canonical_candle_body_pct">Candle: O 31, H 32.50, L 30.50, C 32 — body % of range</option>
+              <option value="canonical_vwap_trade_groups">VWAP: 200 shares at $8, 100 shares at $10</option>
+            </select>
+            {practiceCase!=='none'&&<><label htmlFor="tc-practice-value">Your numerical result</label>
+              <input id="tc-practice-value" inputMode="decimal" value={practiceValue} onChange={e=>setPracticeValue(e.target.value.slice(0,24))} disabled={!member||busy}/>
+              <p className="tc-muted">Talia recomputes this public fictional case on the server, explains a verified known error when the number supports one, then gives a different transfer case. This is not an official grade.</p></>}
+          </fieldset></>}
+        <div className="tc-row tc-row-between">
+          <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
+          <button type="submit" disabled={!member||busy||!!checkpoint||question.trim().length<4}>Send to Talia</button>
+        </div>
+        {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
+      </form>
+      <div className="tc-chipbar" aria-label="Example questions">
+        {EXAMPLES.map(item=><button type="button" key={item} disabled={busy||!!checkpoint} onClick={()=>void submitTutor(item,'explain','')}>{item}</button>)}
+      </div>
+      {advancedExperience&&<section className="tc-live-lesson" aria-label="Talia synchronized interactive lesson">
+        <div className="tc-row tc-row-between"><h3>Teach with the chart</h3><span className="tc-pill">Original fictional · ungraded</span></div>
+        <p>Talia reveals completed candles, types explanations and pauses automatically for multiple-choice or numerical questions. Free corrections and unlimited practice retries are available.</p>
+        <div className="tc-row">
+          <button type="button" onClick={()=>startLesson('candles')} disabled={busy}>Start candle-reading lesson</button>
+          <button type="button" onClick={()=>startLesson('body-range')} disabled={busy}>Start body, range & percentage</button>
+          <button type="button" onClick={()=>startLesson('vwap')} disabled={busy}>Start VWAP calculation</button>
+        </div>
+        <div className="tc-row tc-row-between"><span>Lesson: {lessonKind||'Select a teaching sequence'}</span>
+          <span role="status">{playing?'Chart playing':checkpoint?'Paused for your answer':'Chart paused'} · {visible} revealed candles</span></div>
+        {lessonKind&&<><div className="tc-stage-grid" aria-label="Ten displayed lesson steps, nine saved Learning Engine stages">
+          {displayStages.map((item,i)=><span key={item} className={i===stageIndex?'tc-stage-active':''}>{i+1}. {item}</span>)}
+        </div><p className="tc-muted">Ten visible instructional steps; the approved nine-stage Learning Engine and protected progress are unchanged. This demonstration creates no official grade.</p></>}
+        <details className="tc-learning-report"><summary>My learning report — ungraded activity only</summary>
+          <p>Completed practice checkpoints: {studyReport.completed} · Corrective retries: {studyReport.retries} · Skipped: {studyReport.skipped}</p>
+          <p>Latest activity: {studyReport.latest}</p>
+          <p>These are temporary in-tab practice counters, not a saved Assessment, official proficiency measure, entitlement change or Lumens award.</p>
+        </details>
+        {checkpoint&&<TeachingCheckpoint key={checkpoint.id} checkpoint={checkpoint} bar={REPLAY[visible-1]}
+          onComplete={checkpointCompleted} onFeedback={checkpointFeedback} onSkip={checkpointSkipped}/>}
+        {!checkpoint&&lessonKind&&<p className="tc-muted">Use Auto Play to continue. You can pause, zoom, inspect the accessible candle table, or ask Talia a follow-up at any point.</p>}
+      </section>}
+      {advancedExperience&&<section className="tc-premium-bridge" aria-label="Authenticated Tutor tier teaching">
+        <h3>Personalized Tutor editions <span className="tc-pill">{activeEdition}</span></h3>
+        <p className="tc-muted">Beta features are available only after the server confirms your signed-in membership. These controls do not change subscriptions or publish premium features.</p>
+        <div className="tc-row">{(['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE'] as const).map(edition=>
+          <button key={edition} type="button" className="tc-secondary" aria-pressed={activeEdition===edition} disabled={busy}
+            onClick={()=>void selectEdition(edition)}>{edition.charAt(0)+edition.slice(1).toLowerCase()}</button>)}</div>
+        {premiumEvidence&&Object.entries(premiumEvidence).map(([id,feature])=>{
+          const prompt=[feature.coachingPrompt,feature.lessonPrompt,feature.studyPrompt,feature.nextPrompt,feature.prompt]
+            .find(x=>typeof x==='string'&&x.length>=12&&x.length<=450);
+          return <details key={id} className="tc-premium-topic"><summary>{id} · {String(feature.capability||'Verified study evidence')}</summary>
+            <p className="tc-muted">Authenticated source evidence; independent learning assessments and market rights are not inferred.</p>
+            {typeof prompt==='string'&&<button type="button" disabled={busy||!!checkpoint} onClick={()=>void submitTutor(prompt,'explain','')}>Discuss this evidence with Talia</button>}
+          </details>;
+        })}
+      </section>}
       {advancedExperience&&<section className="tp-instruction-engine" aria-label="Six-phase guided lesson">
         <div className="tp-instruction-header"><div><strong>Guided lesson pathway</strong><p>Instructor-directed practice, not a grade or verified mastery record.</p></div><span>{attempts} Tutor exchanges in this session</span></div>
         <div className="tp-instruction-controls">
           <label>Current study focus<input value={sessionTopic} maxLength={90} onChange={e=>setSessionTopic(e.target.value)} aria-label="Current study focus"/></label>
+          <button type="button" className="tc-secondary" onClick={teachFocus} disabled={busy||!!checkpoint}>Teach this focus now</button>
           <label>Practice dimension<select value={dimension} onChange={e=>setDimension(e.target.value as typeof dimension)}>
             <option>Knowledge</option><option>Recognition</option><option>Decision</option><option>Process</option>
           </select></label>
@@ -514,7 +826,7 @@ function Classroom(){
         <div className="tc-row"><button type="button" className="tc-secondary" onClick={requestCorrection} disabled={busy}>Help me correct this</button>
           <button type="button" className="tc-secondary" onClick={requestRecommendation} disabled={busy}>Recommend my next practice</button></div>
         <div className="tp-instruction-steps" role="group" aria-label="Instruction phases">
-          {phases.map((p,i)=><button type="button" key={p} aria-pressed={phase===p} onClick={()=>preparePhase(p)} disabled={busy}><span>{String(i+1).padStart(2,'0')}</span>{p}</button>)}
+          {phases.map((p,i)=><button type="button" key={p} aria-pressed={phase===p} onClick={()=>{preparePhase(p);if(p==='Attempt'||p==='Retry')pauseForQuestion();else if(p!=='Correct')void submitTutor((sessionTopic+'. '+phaseInstructions[p].prompt).slice(0,450),phaseInstructions[p].mode,'')}} disabled={busy}><span>{String(i+1).padStart(2,'0')}</span>{p}</button>)}
         </div>
         <p className="tc-muted">Current instructional lens: {dimension} · {perspective} · {method}. Select a phase to prepare an editable question. Only the existing authenticated Tutor API can provide the explanation; this prototype does not assign scores.</p>
       </section>}
@@ -532,53 +844,27 @@ function Classroom(){
       {advancedExperience&&<section className="tp-teaching-loop" aria-label="Progressive ungraded instructional pathway">
         <div className="tp-teaching-loop-heading"><strong>Guided learning cycle</strong><span>Choose a phase; review the prepared question and submit it to the authenticated Tutor.</span></div>
         <div className="tp-teaching-loop-actions">
-          <button type="button" className="tc-secondary" onClick={()=>{setMode('explain');safeSuggest('Teach this concept from first principles with a fully worked fictional example and describe the observable evidence.')}}>1 · Explain & demonstrate</button>
-          <button type="button" className="tc-secondary" onClick={()=>{setMode('question');safeSuggest('Ask me one ungraded diagnostic question about the current concept. Withhold the explanation until I attempt an answer.')}}>2 · Diagnose understanding</button>
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('explain');void submitTutor('Teach this concept from first principles with a fully worked fictional example and describe the observable evidence.','explain','')}}>1 · Explain & demonstrate</button>
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('question');pauseForQuestion()}}>2 · Diagnose understanding</button>
           <button type="button" className="tc-secondary" onClick={()=>{setMode('review');safeSuggest('Identify a misconception in my reasoning, explain why it fails using completed evidence, and guide me toward a correction without giving a protected answer key.')}}>3 · Correct reasoning</button>
-          <button type="button" className="tc-secondary" onClick={()=>{setMode('practice');safeSuggest('Give me a new fictional transfer scenario requiring an independent decision, including NO TRADE as an option. Do not grade it.')}}>4 · Independent transfer</button>
+          <button type="button" className="tc-secondary" onClick={()=>{setMode('practice');void submitTutor('Give me a new fictional transfer scenario requiring an independent decision, including NO TRADE as an option. Do not grade it.','practice','')}}>4 · Independent transfer</button>
         </div>
         <p className="tc-muted">Ungraded teaching aid. These prompts do not advance a Lab stage, generate mastery credits, or record a protected assessment.</p>
       </section>}
-      <form onSubmit={send} className="tc-composer">
-        <label htmlFor="tc-question">Your question or follow-up</label>
-        <textarea id="tc-question" value={question} onChange={e=>setQuestion(e.target.value)} maxLength={450} rows={3} placeholder="Ask Talia to explain a concept, show an example, or clarify a mistake" disabled={!member||busy}/>
-        <div className="tc-row"><label htmlFor="tc-mode">Teaching mode</label>
-          <select id="tc-mode" value={mode} onChange={e=>setMode(e.target.value as Mode)} disabled={!member||busy}>
-            <option value="explain">Explain concept</option><option value="question">Guided self-check</option>
-            <option value="review">Review reasoning (ungraded)</option><option value="practice">Recommend practice</option>
-          </select><span className="tc-muted">{question.length}/450</span>
-        </div>
-        {mode==='review'&&<><label htmlFor="tc-reasoning">Your reasoning (ungraded)</label>
-          <textarea id="tc-reasoning" value={reasoning} onChange={e=>setReasoning(e.target.value)} maxLength={1800} rows={3} disabled={!member||busy}/>
-          <fieldset><legend>Optional verified fictional calculation</legend>
-            <label htmlFor="tc-practice-case">Practice case</label>
-            <select id="tc-practice-case" value={practiceCase} onChange={e=>{
-              const next=e.target.value as typeof practiceCase;setPracticeCase(next);setPracticeValue('');
-              if(next==='canonical_candle_body_pct')setQuestion('Review my fictional candle body percentage calculation.');
-              if(next==='canonical_vwap_trade_groups')setQuestion('Review my fictional volume weighted average price calculation.');
-            }} disabled={!member||busy}>
-              <option value="none">No numerical verification</option>
-              <option value="canonical_candle_body_pct">Candle: O 31, H 32.50, L 30.50, C 32 — body % of range</option>
-              <option value="canonical_vwap_trade_groups">VWAP: 200 shares at $8, 100 shares at $10</option>
-            </select>
-            {practiceCase!=='none'&&<><label htmlFor="tc-practice-value">Your numerical result</label>
-              <input id="tc-practice-value" inputMode="decimal" value={practiceValue} onChange={e=>setPracticeValue(e.target.value.slice(0,24))} disabled={!member||busy}/>
-              <p className="tc-muted">Talia recomputes this public fictional case on the server, explains a verified known error when the number supports one, then gives a different transfer case. This is not an official grade.</p></>}
-          </fieldset></>}
-        <div className="tc-row tc-row-between">
-          <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
-          <button type="submit" disabled={!member||busy||question.trim().length<4}>Ask Talia</button>
-        </div>
-        {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
-      </form>
+
       <p className="tc-status" role="status" aria-live="polite">{status}</p>
       <div className="tc-row tc-actions">
-        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setPracticeCase('none');setPracticeValue('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setPerspective('Understand');setMethod('I DO');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
+        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setPracticeCase('none');setPracticeValue('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setPerspective('Understand');setMethod('I DO');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);
+          setPlaying(false);setVisible(7);setLessonKind(null);setCheckpoint(null);setStageIndex(0);
+          setStudyReport({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
+          setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
         <button type="button" className="tc-secondary" onClick={()=>void newConversation()} disabled={!member||busy}>Create private conversation</button>
         <button type="button" className="tc-secondary" onClick={()=>void loadHistory()} disabled={!member||busy}>Load my saved history</button>
       </div>
       <p className="tc-muted">This classroom uses the existing authenticated Tutor API and approved source materials. It does not use paid model inference, award grades, access protected answer keys, or send future market bars. Saved follow-up context is verified only when the server confirms the member-owned conversation.</p>
-    </section><FictionalChart onQuestion={safeSuggest} memberId={member.id}/></div>
+    </section><FictionalChart onQuestion={q=>void submitTutor(q,'explain','')} memberId={member.id} visible={visible} setVisible={setVisible}
+      playing={playing} setPlaying={setPlaying} playSpeed={playSpeed} setPlaySpeed={setPlaySpeed}
+      onPauseForQuestion={()=>pauseForQuestion()}/></div>
   </main>;
 }
 const host=document.getElementById('talia-classroom-root');if(host)createRoot(host).render(<Classroom/>);

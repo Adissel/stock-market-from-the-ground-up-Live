@@ -100,7 +100,9 @@ test('Starting new Tutor topic aborts outstanding requests and resets all ungrad
  const source=read('src/tutor/TaliaClassroom.tsx');
  const marker=source.indexOf('New unsaved topic</button>');
  assert.ok(marker>0,'New unsaved topic action must exist');
- const action=source.slice(marker-520,marker);
+ const start=source.lastIndexOf('onClick={()=>{pending.current?.abort();epoch.current++',marker);
+  assert.ok(start>0,'New topic reset handler must begin with request cancellation');
+  const action=source.slice(start,marker);
  for(const token of ['pending.current?.abort()','epoch.current++',"setQuestion('')","setReasoning('')","setPhase('Observe')",'setAttempts(0)',"setMisconception('observation')","setConfidence('unsure')",'setConversationId(null)','setSave(false)'])
   assert.ok(action.includes(token),'Topic reset must include '+token);
 });

@@ -1,0 +1,58 @@
+/* Talia unified member classroom — source-grounded fictional teaching only.
+ * Preserves shared nine-stage learning records, signed-in history and approved tiers.
+ * Does not imply a streaming LLM, graded assessment or historical replay license.
+ */
+.tc-body .tc-chat{display:flex;flex-direction:column;gap:12px}
+.tc-body .tc-transcript{min-height:260px;max-height:min(42vh,440px);gap:10px;scrollbar-gutter:stable}
+.tc-body .tc-composer{order:0;margin:0;display:grid;gap:9px;background:#081e30;border:1px solid #438479;padding:14px}
+.tc-body .tc-composer textarea{min-height:76px}
+.tc-body .tc-live-lesson,.tc-body .tc-premium-bridge{border:1px solid #3e6c78;border-radius:14px;padding:18px;background:linear-gradient(155deg,#092638,#092031)}
+.tc-body .tc-live-lesson h3,.tc-body .tc-premium-bridge h3{font-size:1rem;margin:0 0 10px;color:#baf4e7}
+.tc-body .tc-live-lesson p,.tc-body .tc-premium-bridge p{line-height:1.6;color:#c7dbe9}
+.tc-body .tc-live-lesson>.tc-row{margin:10px 0}
+.tc-body .tc-typing-controls{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;padding:7px 0}
+.tc-body .tc-typing-controls label{display:flex;align-items:center;gap:8px;font-size:.78rem;color:#cbe4e9}
+.tc-body .tc-typing-caret{color:#93f5dc;font-weight:800;animation:tc-blink .8s step-end infinite}
+@keyframes tc-blink{50%{opacity:0}}
+.tc-body .tc-checkpoint{border:2px solid #76d6b9;border-radius:12px;background:#0d2c3c;padding:18px;margin-top:14px;box-shadow:0 0 0 4px #42c0ac17}
+.tc-body .tc-checkpoint h3{margin:0;font-size:1rem}
+.tc-body .tc-checkpoint form{display:grid;gap:12px}
+.tc-body .tc-checkpoint fieldset{border:1px solid #51758a;border-radius:10px;padding:14px;margin:0}
+.tc-body .tc-checkpoint legend{font-weight:700;color:#c3eff2;padding:0 7px}
+.tc-body .tc-checkpoint-option{display:flex;align-items:flex-start;gap:11px;background:#14364a;padding:11px;border-radius:8px;margin:8px 0;line-height:1.5;cursor:pointer}
+.tc-body .tc-checkpoint-option input{margin-top:4px;min-width:18px;min-height:18px;accent-color:#6fdfc1}
+.tc-body .tc-equation-field{display:grid;grid-template-columns:minmax(170px,1fr) minmax(110px,.65fr);gap:12px;align-items:center;line-height:1.4;margin:10px 0}
+.tc-body .tc-equation-field input{width:100%;min-height:42px;font-variant-numeric:tabular-nums}
+.tc-body .tc-checkpoint-feedback{border-left:3px solid #e9c87e;background:#273746;padding:12px;color:#ffeabc}
+.tc-body .tc-worked-lesson{padding:14px;border:1px solid #5d8797;border-radius:10px;background:#102c3f}
+.tc-body .tc-worked-lesson p{margin:6px 0;color:#e6f2f7}
+.tc-body .tc-stage-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:6px;margin:12px 0}
+.tc-body .tc-stage-grid span{min-width:0;word-break:normal;overflow-wrap:anywhere;border:1px solid #44657b;border-radius:7px;background:#16354a;padding:10px 7px;font-size:.72rem;line-height:1.4}
+.tc-body .tc-stage-grid .tc-stage-active{background:#175f61;border-color:#67d9c3;color:#fff;font-weight:750}
+.tc-body .tc-premium-topic{border-top:1px solid #35566a;padding:9px 0}
+.tc-body .tc-premium-topic summary{color:#c2f8e8;cursor:pointer;font-weight:650}
+.tc-body .tc-premium-bridge .tc-pill{display:inline-block;margin-left:8px}
+.tc-body .tc-playback-speed{display:inline-flex;align-items:center;gap:8px}
+.tc-body .tc-chart-panel>.tc-row:last-child{align-items:center}
+.tc-body .tc-chat .tc-chipbar{margin:5px 0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.tc-body .tc-chat .tc-chipbar button{text-align:left}
+.tc-body .tc-chat .tc-status{margin:6px 0}
+.tc-body .tc-checkpoint-option:focus-within{outline:3px solid #9be8e2;outline-offset:2px}
+.tc-body #talia-member-beta{display:none!important}
+@media(max-width:1200px){.tc-body .tc-stage-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media(max-width:900px){.tc-body .tc-stage-grid{grid-template-columns:repeat(5,minmax(0,1fr))}.tc-body .tc-transcript{max-height:400px}}
+@media(max-width:620px){.tc-body .tc-live-lesson,.tc-body .tc-premium-bridge,.tc-body .tc-checkpoint{padding:12px}
+ .tc-body .tc-stage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .tc-body .tc-equation-field{grid-template-columns:1fr;gap:4px}
+ .tc-body .tc-chat .tc-chipbar{grid-template-columns:1fr}
+ .tc-body .tc-checkpoint-option{padding:10px}
+ .tc-body .tc-chart{min-height:300px}
+}
+@media(prefers-reduced-motion:reduce){.tc-body .tc-typing-caret{animation:none}}
+
+.tc-body .tc-learning-report{margin:12px 0;padding:12px 14px;border:1px solid #426c82;border-radius:10px;background:#102b3d}
+.tc-body .tc-learning-report summary{cursor:pointer;color:#b7f1e7;font-weight:720}
+.tc-body .tc-learning-report p{margin:8px 0;color:#d8e8ed}
+
+/* Avoid a character-by-character announcement flood: full text is accessible once. */
+.tc-body .tc-screen-reader-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
