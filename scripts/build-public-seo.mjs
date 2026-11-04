@@ -26,12 +26,12 @@ const candidates=[
 // Curated copy mirrors each existing public page; do not invent sales availability.
 const metadata={
  index:{
-  title:'The Stock Market: From the Ground Up | Training Academy',
-  description:'The Stock Market: From the Ground Up Training Academy offers free beginner guides, fictional candlestick practice and five guided Foundations lessons. No purchase is required to begin.'
+  title:'The Stock Market From the Ground Up Learning Academy',
+  description:'The Stock Market From the Ground Up Learning Academy offers free beginner guides, fictional candlestick practice and five guided Foundations lessons. No purchase is required to begin.'
  },
  about:{
   title:'About J. S. Grant | Stock Market Education',
-  description:'Meet author J. S. Grant and learn how The Stock Market: From the Ground Up teaches market mechanics, charts, research, risk and decision practice.'
+  description:'Meet author J. S. Grant and learn how The Stock Market From the Ground Up Learning Academy teaches market mechanics, charts, research, risk and decision practice.'
  },
  books:{
   title:'Stock Market Foundations Books I–III | J. S. Grant',
@@ -62,7 +62,7 @@ const metadata={
   description:'Find guidance for account access, stock-market books, learning Labs, memberships, educational tools and connected market-data features.'
  },
  philosophy:{
-  title:'Our Teaching Philosophy | The Stock Market: From the Ground Up',
+  title:'Our Teaching Philosophy | The Stock Market From the Ground Up Learning Academy',
   description:'Learn how the four steps—Learn, Understand, Practice, Trade—support foundational knowledge, evidence-based practice and repeatable decisions.'
  },
  'how-stock-market-works':{
@@ -157,7 +157,7 @@ for(const name of candidates){
   const publisher={'@type':'Organization',name:'Crown & Lantern Press'};
   const schema=name==='index'?{
    '@context':'https://schema.org','@graph':[
-    {'@type':'WebSite',name:'The Stock Market: From the Ground Up — Training Academy',alternateName:'The Stock Market: From the Ground Up',url:origin+'/'},
+    {'@type':'WebSite',name:'The Stock Market From the Ground Up Learning Academy',alternateName:'The Stock Market: From the Ground Up',url:origin+'/'},
     {'@type':'Organization',name:'Crown & Lantern Press',url:origin+'/about'}
    ]
   }:{
