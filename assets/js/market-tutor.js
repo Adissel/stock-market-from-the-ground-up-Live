@@ -761,7 +761,7 @@ async function initTutor(){
    }
    if(event==='USER_UPDATED'&&session?.user?.id===TUTOR.user?.id){TUTOR.user=session.user;void refreshAiServiceStatus();}
    if(event==='SIGNED_IN'&&newId!==TUTOR.user?.id){
-    $('tutor-save-history').checked=false;
+    // Keep the initial Version 1 history-choice default; account-switch/sign-out already clear it.
     TUTOR.identityEpoch++;TUTOR.user=session.user;
     $('tutor-ask').disabled=!TUTOR.ready;$('tutor-stop').disabled=true;$('tutor-retry').disabled=true;
     TUTOR.conversations=[];TUTOR.currentConversationId=null;renderConversationList();
