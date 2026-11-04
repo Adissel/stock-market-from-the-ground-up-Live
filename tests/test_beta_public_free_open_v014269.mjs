@@ -8,7 +8,7 @@ test('free beta signup is visibly available but is not payment or founder reserv
  assert.match(site,/href="founding600\.html"/);
  assert.match(site,/Create a Free Account/);
  assert.match(site,/href="candle-practice\.html"/);
- assert.match(site,/No purchase is required to start/);
+ assert.match(site,/before deciding whether you need books, a membership, or additional tools/,'Homepage preserves free-first signup without implying a purchase');
  // The Founding CTA is intentionally gated; do not mistake hidden paid
  // enrollment for unavailable Free educational registration.
  assert.match(site,/href="founding600\.html" data-founder-offer-link hidden/);
