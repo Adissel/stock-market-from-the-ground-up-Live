@@ -14,6 +14,7 @@ try{
  const html=body=>'<!doctype html><html lang="en"><head><title>Books unchanged</title></head><body>'+body+'</body></html>';
  writeFileSync(join(root,'index.html'),html(header+'<main><p>Book series: THE STOCK MARKET: FROM THE GROUND UP.</p></main>'));
  writeFileSync(join(root,'dashboard.html'),html(header+'<main>Private member progress</main>'));
+ writeFileSync(join(root,'existing.html'),html(header+'<main>Already linked design</main>').replace('</head>','<link rel="stylesheet" href="/assets/css/site-brand-academy-v1.css"></head>'));
  const legacy='<header class="site-header"><a class="brand gu-academy-brand" href="index.html"><span class="gu-academy-brand-title">THE STOCK MARKET: <span>FROM THE GROUND UP</span></span><span class="gu-academy-brand-subtitle">Training Academy</span></a></header>';
  writeFileSync(join(root,'legacy.html'),html(legacy));
  writeFileSync(join(root,'other.html'),html('<header><a class="brand" href="/other">Different product</a></header>'));
@@ -22,6 +23,7 @@ try{
  assert.equal(invoke().status,0,'First academy build must succeed');
  const first=readFileSync(join(root,'index.html'),'utf8');
  const member=readFileSync(join(root,'dashboard.html'),'utf8');
+ const existing=readFileSync(join(root,'existing.html'),'utf8');
  assert.match(first,/gu-academy-brand-title/);
  assert.match(first,/gu-academy-brand-subtitle">LEARNING ACADEMY<\/span>/);
  assert.match(member,/gu-academy-brand-subtitle">LEARNING ACADEMY<\/span>/);
@@ -30,6 +32,12 @@ try{
  assert.equal((first.match(/site-brand-academy-v1\.css/g)||[]).length,1);
  assert.equal((first.match(/site-brand-academy-sync-v1\.js/g)||[]).length,1,
   'Exactly one shared runtime header safeguard');
+ assert.match(existing,/site-brand-academy-v1\.css\?v=20261104-sitewide-emerald3/,
+  'Existing stylesheet URL must be cache-busted, not left on old colors');
+ assert.equal((existing.match(/site-brand-academy-v1\.css/g)||[]).length,1,
+  'No duplicate branding stylesheets on existing template');
+ assert.match(first,/site-brand-academy-sync-v1\.js\?v=20261104-global3/,
+  'Runtime script version must refresh after signin/Owner style changes');
  assert.equal((member.match(/site-brand-academy-sync-v1\.js/g)||[]).length,1,
   'Member website headers must load shared runtime safeguard');
  assert.equal((first.match(/gu-academy-brand-subtitle/g)||[]).length,1);
