@@ -1227,6 +1227,33 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    appendParagraph(skillBox,'These four dimensions use the existing 30-competency framework. This ungraded lesson does not invent mastery percentages. Reviewed assessments and your authorized Skill Development profile provide the official evidence.');
    skillBox.append(button('View Skill Development',()=>{location.href='skills.html'}));
    body.append(skillBox);
+   // Evidence-based mastery standard: these are observed instructional actions,
+   // distinct from official Knowledge/Recognition/Decision/Process grades.
+   const observationsPanel=el('section');observationsPanel.className='gu-v33-skill-summary gu-v33-formative-evidence';
+   observationsPanel.append(el('h3','What your learning activities demonstrated'));
+   const observed=el('dl');observed.className='gu-v33-observed-dimensions';
+   const dimensionRows=[
+    ['Knowledge',calculateDone?'Guided calculation completed; accuracy and help must be checked separately.':'Guided calculation not completed.'],
+    ['Recognition',predictionLocked?'An evidence-based prediction was recorded before progressing; correctness not independently established.':'No prediction evidence recorded.'],
+    ['Decision-making',!practiceResolved?'No checked practice decision yet.':
+      practiceAssisted?'Completed with additional teaching or an assisted answer.':
+      practiceCount>0?'Completed after '+practiceCount+' corrective attempt(s).':
+      'Completed this practice case without a recorded correction.'],
+    ['Process and transfer',!transferResolved?'Unfamiliar-case exercise not yet completed.':
+      transferCount>0?'Ungraded transfer exercise completed after '+transferCount+' retry/retries.':
+      'Ungraded transfer exercise completed; independent mastery requires separate case validation.']
+   ];
+   for(const [name,description] of dimensionRows){
+    const row=el('div');row.append(el('dt',name),el('dd',description));observed.append(row);
+   }
+   observationsPanel.append(observed);
+   appendParagraph(observationsPanel,'These observations measure participation and corrective practice only. They are not graded competencies or verified retention. Review on a different case and return after a delay to test lasting understanding.');
+   if(practiceAssisted||practiceCount>0||transferCount>0){
+    observationsPanel.append(button('Review the method with Talia',()=>{stage=6;render()}));
+   }else{
+    observationsPanel.append(button('Revisit the unfamiliar case',()=>{stage=7;render()}));
+   }
+   body.append(observationsPanel);
    const recorded=el('section');recorded.className='gu-v33-grade-outlet';
    recorded.setAttribute('aria-label','Your graded assessment history');
    body.append(recorded);
