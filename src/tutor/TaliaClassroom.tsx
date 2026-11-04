@@ -5,6 +5,7 @@
  */
 import React,{useCallback,useEffect,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
+import {ClassicClassroomChart} from '../prototype/PrototypeExperiences';
 
 type Mode='explain'|'question'|'review'|'practice';
 type ChatLine={id:string;who:'member'|'talia';text:string;label?:string};
@@ -260,7 +261,7 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
   return <section className="tc-chart-panel" aria-label="Optional fictional completed-candle teaching chart">
     <div className="tc-row tc-row-between"><h2>Market analysis workspace</h2><span className="tc-pill">FICTIONAL / REVEALED PREFIX</span></div>
     <p>Inspect only the completed fictional candles revealed at this exercise boundary. This static demonstration keeps its synthetic fixture in client code; it is not a secure historical replay, protected assessment, or market-data feed.</p>
-    {prototype&&<div className="tc-row tp-chart-tools" aria-label="Chart analysis controls">
+    {false&&<div className="tc-row tp-chart-tools" aria-label="Superseded chart controls; use shared Classic technical chart">
       <label>Completed-bar study <select value={study} onChange={e=>setStudy(e.target.value as 'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap')}><option value="ema3">EMA 3</option><option value="sma3">SMA 3</option><option value="ema9">EMA 9</option><option value="ema20">EMA 20 (requires 20 bars)</option><option value="ema200">EMA 200 (requires 200 bars)</option><option value="vwap">Fictional proxy VWAP</option><option value="none">No overlay</option></select></label>
       <label>Completed interval <select value={timeframe} onChange={e=>setTimeframe(Number(e.target.value) as 1|3|5)}><option value={1}>1 minute</option><option value={3}>3 minutes</option><option value={5}>5 minutes</option></select></label>
       <label>Visible window <select value={zoom} onChange={e=>setZoom(Number(e.target.value))}><option value={100}>All revealed bars</option><option value={70}>70%</option><option value={45}>45%</option><option value={20}>20% detail</option></select></label>
@@ -276,8 +277,19 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
       <button type="button" className="tc-secondary" onClick={()=>setAnnotation(null)} disabled={annotation===null}>Clear annotation</button>
       <button type="button" className="tc-secondary" onClick={()=>onQuestion('Teach the '+(study==='none'?'candle structure':study.toUpperCase())+' on this '+timeframe+'-minute chart using only '+visible+' revealed one-minute bars. Explain indicator warmup and any confirmed HH/HL/LH/LL labels without future candles.')}>Teach this chart</button>
     </div>}
-    <div className="tc-chart" ref={host} role="img" onPointerUpCapture={releasePointer} onPointerCancelCapture={releasePointer} aria-label={'Fictional price chart of '+Math.floor(visible/timeframe)+' complete '+timeframe+'-minute candlesticks'} />
-    <p className="tc-muted" role="status">{status}{prototype?' Volume is a synthetic proxy, not observed trading volume. EMA 20 and 200 require enough complete timeframe bars; the right buffer contains no future data.':''}</p>
+    {prototype?<div className="tc-unified-chart" aria-label="Talia synchronized Classic technical chart">
+      <ClassicClassroomChart mode="talia" memberSafe={true}
+       caseBars={REPLAY.slice(0,visible).map((bar,i)=>({
+        time:'B'+String(i+1).padStart(3,'0'),o:bar[0],c:bar[1],l:bar[2],h:bar[3],
+        v:syntheticVolume(bar,i),ema9:0,ema20:0,proxy:0
+       }))}
+       onObservedBar={index=>{
+        if(index>=visible)return;
+        const bar=REPLAY[index];
+        onQuestion(('Talia, explain the completed simulated candle '+(index+1)+' using only the '+visible+' candles I have already revealed. Open '+bar[0].toFixed(2)+', high '+bar[3].toFixed(2)+', low '+bar[2].toFixed(2)+', close '+bar[1].toFixed(2)+'. Discuss observable price structure; do not disclose future bars or protected answers.').slice(0,450));
+       }}/>
+     </div>:<div className="tc-chart" ref={host} role="img" onPointerUpCapture={releasePointer} onPointerCancelCapture={releasePointer} aria-label={'Simulated price chart of '+Math.floor(visible/timeframe)+' complete '+timeframe+'-minute candlesticks'} />}
+    <p className="tc-muted" role="status">{prototype?'Shared Crownlight technical chart synchronized to Talia’s '+visible+' revealed simulated one-minute candles. Volume is a synthetic proxy, never observed market volume. Studies respect warmup and tier locks.':status}</p>
     <table className="tc-candle-table"><caption>Latest visible completed candle (base one-minute source)</caption>
       <thead><tr><th>Bar</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></thead>
       <tbody><tr><td>{visible}</td><td>{latest[0].toFixed(2)}</td><td>{latest[3].toFixed(2)}</td><td>{latest[2].toFixed(2)}</td><td>{latest[1].toFixed(2)}</td></tr></tbody>
