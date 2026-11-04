@@ -29,12 +29,26 @@ try{
  await page.waitForFunction(()=>document.querySelector('.cl-react-plot canvas')!==null,{timeout:12000});
  assert.equal(errors.length,0,'No React or ECharts page errors');
  const rect=await plot.boundingBox();assert(rect,'Real chart is sized');
- let tooltip=false;
- for(const portion of [.5,.6,.4,.7]){
-  await page.mouse.move(rect.x+rect.width*portion,rect.y+rect.height*.42);
-  try{await page.locator('.cl-market-tooltip').waitFor({state:'visible',timeout:1400});tooltip=true;break}catch{}
- }
- assert(tooltip,'Real mouse hover must show candle inspection tooltip');
+ // The approved single-candle reveal starts with one forming candle and a
+ // substantial empty right buffer. An arbitrary center hover targets EMPTY
+ // future time, not a visible candle. Use the actual ECharts price/time
+ // coordinate so this remains a genuine physical Chromium mouse hover.
+ const location=await page.evaluate(()=>{
+  const host=document.querySelector('.cl-react-plot');
+  const instance=window.echarts?.getInstanceByDom(host);
+  const series=instance?.getOption()?.series?.[0]?.data?.[0];
+  if(!instance||!Array.isArray(series)||series.length<4)return null;
+  const index=0,close=Number(series[1]);
+  if(!Number.isFinite(close))return null;
+  const x=instance.convertToPixel({xAxisIndex:0},index);
+  const y=instance.convertToPixel({yAxisIndex:0},close);
+  return Number.isFinite(x)&&Number.isFinite(y)?{x,y}:null;
+ });
+ assert(location,'An actual revealed forming candle must have plot coordinates');
+ await page.mouse.move(rect.x+location.x,rect.y+location.y);
+ await page.locator('.cl-market-tooltip').waitFor({state:'visible',timeout:2400});
+ const tooltip=await page.locator('.cl-market-tooltip').isVisible();
+ assert(tooltip,'Real mouse hover over the observed candle must show its OHLCV tooltip');
  const value=await page.locator('.cl-market-tooltip').innerText();
  for(const text of ['Open','High','Low','Close','Volume','Fictional'])assert(value.includes(text),text+' is visible on hover');
  assert(!/\d+\.\d{3,}/.test(value),'Tooltip must not expose unrounded values');
