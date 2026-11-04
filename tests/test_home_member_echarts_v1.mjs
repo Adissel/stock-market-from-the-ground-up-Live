@@ -8,12 +8,12 @@ for(const p of ['/assets/js/home-community.js','/assets/js/crownlight-echarts-lo
 assert(js.includes('<h2>Member Status</h2>'),'The member status heading is restored');
 assert(js.includes("fetch('/api/home-member-stats-v01353?action=public'"),'Only existing aggregate endpoint');
 assert(js.includes('window.CrownlightECharts.load()'),'Use first-party local ECharts loader');
-assert(js.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE'"),'Archived renderer distinguishes illustrative versus verified data');
+assert(js.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE'):'UNAVAILABLE'"),'Archived renderer distinguishes illustrative versus verified data');
 assert(!js.includes('gu-stat-provenance')&&!js.includes('data-source-info'),'No statistics information tooltip or icon');
 assert(!js.includes('Sample statistics'),'No sample-statistics caption');
 assert(js.includes("textContent='Online members'")&&js.includes("textContent='Registered members'"),
  'Owner-approved public metric names are displayed consistently');
-assert(js.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE'"),
+assert(js.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE'):'UNAVAILABLE'"),
  'Illustrative figures retain an explicit EXAMPLE badge');
 assert(js.includes('Owner-configured demonstration values only. These are not actual membership counts.'),
  'Renamed fields may never imply that example values are verified accounts');
@@ -46,6 +46,7 @@ assert(api.includes("if(s.mode==='custom')return send({ok:true,show:true"),'Owne
 assert(api.includes("if(s.mode==='range'){"),'Owner-configured changing-range mode is supported');
 assert(api.includes("mode:'live',registered,online:"),'Verified live aggregate mode remains available');
 assert(js.includes("const example=d.mode==='custom'||d.mode==='range'"),'Illustrative ECharts snapshots use explicit source metadata');
+assert(js.includes("'LIVE DATA; verified membership aggregates'"),'Accessible text preserves verified live source distinction');
 assert(js.includes("badge.setAttribute('aria-label'"),'Selected source remains disclosed accessibly without a visual tooltip');
 assert(js.includes('aria-label'),'Source disclosure is accessible');
 assert(style.includes('background:transparent!important'),'Homepage statistics have no metric cards');
