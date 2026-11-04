@@ -82,14 +82,24 @@ const labHandoff=(()=>{
 const labQuestion=(q:string)=>labHandoff
   ?('Lab '+labHandoff.id+'. Learning Journey stage: '+labHandoff.stage+'. '+q).slice(0,450):q;
 type LessonKind='candles'|'body-range'|'vwap';
-type LessonQuestion={id:string;kind:'choice'|'numeric'|'vwap';title:string;prompt:string;options?:string[];correct?:number;calculationStep?:0|1|2;hint:string};
+type FictionalTrade={shares1:number;price1:number;shares2:number;price2:number};
+type LessonQuestion={id:string;kind:'choice'|'numeric'|'vwap';title:string;prompt:string;options?:string[];correct?:number;calculationStep?:0|1|2;trade?:FictionalTrade;hint:string};
 const displayStages=['Welcome','Percentage basics','Candle experiment','Calculate the body','Calculate the range','Calculate the percentage','Independent practice','Review and retry','Transfer challenge','Learning report'] as const;
 const cleanNumber=(x:string)=>{const n=Number(x.trim());return x.trim()!==''&&Number.isFinite(n)?n:null};
 const closeNumber=(actual:number|null,expected:number,tolerance=.011)=>actual!==null&&Math.abs(actual-expected)<=tolerance;
 function originalQuestion(kind:LessonKind,bar:number[],index:number):LessonQuestion{
- if(kind==='vwap')return{id:'vwap-'+index,kind:'vwap',title:'Work out a fictional transaction VWAP',
-   prompt:'Two fictional groups traded: 200 shares at $8 and 100 shares at $10. Enter the dollar total, total shares and VWAP separately.',
-   hint:'Multiply each trade price by its shares. Add the dollar values, then divide by the total shares. The trade-print example is not bar-based proxy VWAP.'};
+ if(kind==='vwap'){
+   const cases:FictionalTrade[]=[
+     {shares1:200,price1:8,shares2:100,price2:10},
+     {shares1:150,price1:9,shares2:250,price2:11},
+     {shares1:120,price1:12,shares2:180,price2:15}
+   ];
+   const trade=cases[index<=8?0:index<=10?1:2];
+   return{id:'vwap-'+index,kind:'vwap',trade,title:'Work out a different fictional transaction VWAP',
+     prompt:'Two original fictional groups traded: '+trade.shares1+' shares at $'+trade.price1+
+       ' and '+trade.shares2+' shares at $'+trade.price2+'. Enter traded dollars, total shares and VWAP independently.',
+     hint:'Multiply each price by its own number of shares, add the dollar totals, then divide by combined shares. This trade-print example is not bar-based proxy VWAP.'};
+ }
  if(kind==='body-range'){
    const step:0|1|2=index<=8?0:index<=10?1:2;
    const titles=['Calculate the real body','Calculate the full candle range','Calculate the body as a percentage'];
@@ -307,10 +317,20 @@ function TeachingCheckpoint({checkpoint,bar,onComplete,onFeedback,onSkip}:{
  const numerical=checkpoint.kind==='numeric'||checkpoint.kind==='vwap';
  const names=checkpoint.kind==='vwap'?['Total traded dollars ($)','Total shares','VWAP ($ per share)']:
    ['Real body ($)','Full candle range ($)','Body as percentage of range (%)'];
- const expected=checkpoint.kind==='vwap'?[2600,300,2600/300]:
+ const trade=checkpoint.trade;
+ const vwapValue=trade?(trade.price1*trade.shares1+trade.price2*trade.shares2)/(trade.shares1+trade.shares2):0;
+ const expected=checkpoint.kind==='vwap'&&trade?[
+    trade.price1*trade.shares1+trade.price2*trade.shares2,
+    trade.shares1+trade.shares2,vwapValue]:
   [Math.abs(bar[1]-bar[0]),bar[3]-bar[2],
     bar[3]===bar[2]?0:Math.abs(bar[1]-bar[0])/(bar[3]-bar[2])*100];
- const explanation=checkpoint.kind==='vwap'?'200 × $8 = $1,600; 100 × $10 = $1,000. The traded-dollar total is $2,600 and there are 300 shares. VWAP = $2,600 ÷ 300 = $8.6667 per share. This example uses fictional transactions, not a bar-based proxy.':
+ const explanation=checkpoint.kind==='vwap'&&trade?(
+    trade.shares1+' × $'+trade.price1+' = $'+(trade.shares1*trade.price1).toFixed(2)+
+    '; '+trade.shares2+' × $'+trade.price2+' = $'+(trade.shares2*trade.price2).toFixed(2)+
+    '. Total traded dollars = $'+expected[0].toFixed(2)+
+    '. Total shares = '+expected[1]+'. VWAP = $'+expected[0].toFixed(2)+' ÷ '+expected[1]+
+    ' = $'+vwapValue.toFixed(4)+' per share. These are original fictional transactions, not a bar-based proxy.'
+  ):
  checkpoint.kind==='numeric'?'Body is the absolute close-minus-open difference. Range is high minus low. Divide body by range and multiply by 100 for the percentage; never use close/open as the denominator.':
  'A completed OHLC candle describes observed prices in its interval. It cannot prove the next candle, the order of intra-bar transactions, or any trading outcome.';
  const check=(e:React.FormEvent)=>{
@@ -326,7 +346,7 @@ function TeachingCheckpoint({checkpoint,bar,onComplete,onFeedback,onSkip}:{
    const matches=expected.map((v,i)=>closeNumber(values[i],v,i===2&&checkpoint.kind==='vwap'?0.02:0.011));
    correct=checkpoint.kind==='numeric'?matches[checkpoint.calculationStep??0]===true:matches.every(Boolean);
    reply=names.map((k,i)=>checkpoint.kind==='numeric'&&i!==checkpoint.calculationStep?'':k+': '+fields[i]).filter(Boolean).join('; ');
-   diagnostic=correct?'Each of the three calculations is correct for this original fictional case.':
+   diagnostic=correct?(checkpoint.kind==='numeric'?'This separate candle calculation is correct.':'All three fictional transaction calculations are correct.'):
     matches.map((valid,i)=>checkpoint.kind==='numeric'&&i!==checkpoint.calculationStep?'':valid?names[i]+': correct.':names[i]+': check your arithmetic and units.').filter(Boolean).join(' ');
   }
   if(correct){setFeedback(diagnostic);onComplete(reply,diagnostic+' '+explanation)}
@@ -367,6 +387,7 @@ function Classroom(){
   const [lessonKind,setLessonKind]=useState<LessonKind|null>(null);
   const [checkpoint,setCheckpoint]=useState<LessonQuestion|null>(null);
   const [stageIndex,setStageIndex]=useState(0);
+  const [studyReport,setStudyReport]=useState({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
   const [typingSpeed,setTypingSpeed]=useState(28);
   const [typingId,setTypingId]=useState<string|null>(null);
   const [typedCount,setTypedCount]=useState(0);
@@ -441,6 +462,7 @@ function Classroom(){
     epoch.current++;pending.current?.abort();pending.current=null;
     identity.current=id;setMember(null);setChat(DEFAULT);
     setPlaying(false);setVisible(7);setLessonKind(null);setCheckpoint(null);setStageIndex(0);
+    setStudyReport({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
     setActiveEdition('FOUNDATION');setPremiumEvidence(null);setTypingId(null);setTypedCount(0);
     setConversationId(null);setConversationLabel('');setSave(false);
     setQuestion('');setReasoning('');setMode('explain');setBusy(false);setPhase('Observe');setAttempts(0);setSessionTopic('Reading completed candles');
@@ -517,6 +539,7 @@ function Classroom(){
   },[lessonKind,visible]);
   const startLesson=(kind:LessonKind)=>{
     setLessonKind(kind);setPlaying(false);setVisible(7);setCheckpoint(null);setStageIndex(0);
+    setStudyReport({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
     const intro=kind==='vwap'?'We will build fictional trade-print VWAP by multiplying price and volume, adding totals, then dividing. Watch the completed candles separately; their volume proxy is not a real trade-print VWAP.':
       kind==='body-range'?'We will identify open, high, low and close, then calculate body, range and body percentage as three separate steps. The chart will pause for your arithmetic.':
       'We will watch completed fictional candles. I will ask what you can observe and what cannot be predicted. The chart pauses while you answer.';
@@ -542,12 +565,17 @@ function Classroom(){
   },[playing,member,busy,checkpoint,visible,playSpeed,lessonKind,appendInstructor,chat,typingId,typedCount]);
   useEffect(()=>{const hidden=()=>{if(document.hidden)setPlaying(false)};document.addEventListener('visibilitychange',hidden);return()=>document.removeEventListener('visibilitychange',hidden)},[]);
   const checkpointCompleted=(answer:string,feedback:string)=>{
+    setStudyReport(r=>({...r,completed:r.completed+1,latest:checkpoint?.title||'Completed ungraded exercise'}));
     setChat(lines=>[...lines,{id:crypto.randomUUID(),who:'member',text:answer,label:'Ungraded practice'},
       {id:crypto.randomUUID(),who:'talia',text:feedback+' Playback will resume with the next revealed fictional candle.',label:'Original fictional corrective explanation'}]);
     setCheckpoint(null);setStageIndex(i=>Math.min(9,i+1));setPlaying(true);
   };
-  const checkpointFeedback=(feedback:string)=>appendInstructor(feedback+' Try again, request a free explanation, or skip this ungraded practice.');
+  const checkpointFeedback=(feedback:string)=>{
+    setStudyReport(r=>({...r,retries:r.retries+1,latest:checkpoint?.title||'Ungraded corrective practice'}));
+    appendInstructor(feedback+' Try again, request a free explanation, or skip this ungraded practice.');
+  };
   const checkpointSkipped=()=>{
+    setStudyReport(r=>({...r,skipped:r.skipped+1,latest:checkpoint?.title||'Skipped ungraded exercise'}));
     appendInstructor('This ungraded question was skipped. Skipping does not prove proficiency or award credits. We will resume on the next fictional candle.');
     setCheckpoint(null);setPlaying(true);
   };
@@ -742,6 +770,11 @@ function Classroom(){
         {lessonKind&&<><div className="tc-stage-grid" aria-label="Ten displayed lesson steps, nine saved Learning Engine stages">
           {displayStages.map((item,i)=><span key={item} className={i===stageIndex?'tc-stage-active':''}>{i+1}. {item}</span>)}
         </div><p className="tc-muted">Ten visible instructional steps; the approved nine-stage Learning Engine and protected progress are unchanged. This demonstration creates no official grade.</p></>}
+        <details className="tc-learning-report"><summary>My learning report — ungraded activity only</summary>
+          <p>Completed practice checkpoints: {studyReport.completed} · Corrective retries: {studyReport.retries} · Skipped: {studyReport.skipped}</p>
+          <p>Latest activity: {studyReport.latest}</p>
+          <p>These are temporary in-tab practice counters, not a saved Assessment, official proficiency measure, entitlement change or Lumens award.</p>
+        </details>
         {checkpoint&&<TeachingCheckpoint key={checkpoint.id} checkpoint={checkpoint} bar={REPLAY[visible-1]}
           onComplete={checkpointCompleted} onFeedback={checkpointFeedback} onSkip={checkpointSkipped}/>}
         {!checkpoint&&lessonKind&&<p className="tc-muted">Use Auto Play to continue. You can pause, zoom, inspect the accessible candle table, or ask Talia a follow-up at any point.</p>}
