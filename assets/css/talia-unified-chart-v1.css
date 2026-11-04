@@ -1,0 +1,23 @@
+/* Crownlight Talia: identical technical chart and compact controls as Classic Labs.
+   Chart displays only the Tutor's already-revealed simulated price prefix. */
+.tc-body .tc-unified-chart{width:100%;min-width:0;margin:12px 0 18px}
+.tc-body .tc-unified-chart .cx-app{width:100%;max-width:none;min-width:0;box-sizing:border-box;padding:10px;border:1px solid #42667c;border-radius:12px;background:linear-gradient(140deg,#0c2234,#111c33);color:#ecf9ff}
+.tc-body .tc-unified-chart .cx-classic-chart-top{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;padding:7px 10px;border-bottom:1px solid #365e71}
+.tc-body .tc-unified-chart .cx-classic-chart-top strong{font-size:17px;color:#f3fcff}
+.tc-body .tc-unified-chart .cx-classic-chart-top p{margin:5px 0;font-size:15px;line-height:1.65;color:#d8edf5}
+.tc-body .tc-unified-chart .cx-classic-chart-top>span{font-size:11px;color:#5be7aa}
+.tc-body .tc-unified-chart .cx-classic-chart-controls{display:flex;align-items:center;flex-wrap:wrap;gap:6px;margin:8px 0;padding:6px}
+.tc-body .tc-unified-chart .cx-classic-chart-controls label{display:grid;gap:4px;min-width:160px;font-size:13px}
+.tc-body .tc-unified-chart .cx-classic-chart-controls select,
+.tc-body .tc-unified-chart .cx-classic-chart-controls input{background:#112e45;color:#eaf8ff;border:1px solid #4b748a;padding:6px;min-height:34px}
+.tc-body .tc-unified-chart .cx-classic-chart-controls button,.tc-body .tc-unified-chart .cx-pan-controls button{width:auto;min-height:32px;padding:5px 9px;font-size:12px;line-height:1.35}
+.tc-body .tc-unified-chart .cx-classic-chart-note{font-size:15px;line-height:1.7;color:#e4f7ff;border-left:3px solid #5be7aa;padding:9px 12px}
+.tc-body .tc-unified-chart .cx-classic-shared-chart>details{margin:12px 0;padding:9px;border:1px solid #436e87;border-radius:8px}
+.tc-body .tc-unified-chart .cx-classic-shared-chart>details summary{font-size:15px;color:#eaf9ff}
+.tc-body .tc-unified-chart .cx-indicator-workbench{margin:12px 0;padding:12px;min-width:0}
+.tc-body .tc-unified-chart .cx-chart-grabbable{min-width:0}
+.tc-body .tc-chart-panel>.tp-chart-tools{display:none!important}
+.tc-body .tc-chart-panel>.tc-muted{font-size:15px;line-height:1.65}
+@media(max-width:700px){.tc-body .tc-unified-chart .cx-classic-chart-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.tc-body .tc-unified-chart .cx-classic-chart-controls label{min-width:0}.tc-body .tc-unified-chart .cx-pan-controls button{min-height:40px}}
+@media(max-width:450px){.tc-body .tc-unified-chart .cx-classic-chart-controls{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.tc-body .tc-unified-chart *{animation:none!important;transition:none!important}}
