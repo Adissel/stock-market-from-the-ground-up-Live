@@ -1,0 +1,37 @@
+name: Talia Four-Tier Staff QA — source-only release hold
+on:
+  push:
+    paths:
+      - 'functions/api/talia-tier-qa-v1.js'
+      - 'assets/js/talia-tier-qa-v1.js'
+      - 'assets/css/talia-tier-qa-v1.css'
+      - 'talia-tutor-prototype.html'
+      - 'tests/talia-four-tier-staff-qa-v1.test.mjs'
+      - '.github/workflows/talia-four-tier-staff-qa-v1.yml'
+  pull_request:
+    paths:
+      - 'functions/api/talia-tier-qa-v1.js'
+      - 'assets/js/talia-tier-qa-v1.js'
+      - 'assets/css/talia-tier-qa-v1.css'
+      - 'talia-tutor-prototype.html'
+      - 'tests/talia-four-tier-staff-qa-v1.test.mjs'
+      - '.github/workflows/talia-four-tier-staff-qa-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  qa-source-and-staff-denial:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Syntax and protected source-only preview tests
+        run: |
+          node --check functions/api/talia-tier-qa-v1.js
+          node --check assets/js/talia-tier-qa-v1.js
+          node --test tests/talia-four-tier-staff-qa-v1.test.mjs tests/talia-tier-research-contracts-v1.test.mjs tests/talia-tier-remaining3-source-v1.test.mjs tests/talia-tutor-prototype-v1.test.mjs
