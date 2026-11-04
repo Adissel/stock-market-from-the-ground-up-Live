@@ -22,6 +22,7 @@ function safeLink(label,href){
 function action(label,href){const a=make('a',label);a.className='kal-action';a.href=href;return a}
 function showError(title,description,kind,requiredPlans=[]){
  content.replaceChildren();content.hidden=true;sources.hidden=true;outline.replaceChildren();el('kal-outline-panel').hidden=true;
+ const classroom=el('kal-talia-classroom');if(classroom){classroom.replaceChildren();classroom.hidden=true;}
  message.hidden=false;message.replaceChildren(make('h2',title),make('p',description));
  const options=make('div');
  if(kind==='sign-in')options.append(action('Sign in to read','/account.html'));
@@ -127,6 +128,11 @@ async function load(){
    history.replaceState(null,'','/knowledge-article.html?slug='+encodeURIComponent(a.slug));
   renderMarkdown(a.body_markdown,a.title);
   content.hidden=false;message.hidden=true;
+  // Server already authenticated the member and authorized this exact published article.
+  const classroom=el('kal-talia-classroom');
+  if(classroom){try{window.CrownlightKnowledgeLesson?.mount({article:a,element:classroom});}
+   catch{classroom.replaceChildren();classroom.hidden=true;}}
+
   const list=el('kal-source-list');list.replaceChildren();
   for(const s of a.sources||[]){
    if(!s||typeof s.url!=='string'||!s.url.startsWith('https://'))continue;
