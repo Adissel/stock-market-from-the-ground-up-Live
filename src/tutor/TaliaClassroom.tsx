@@ -26,7 +26,7 @@ type ChartInstance={
   getOption?:()=>{dataZoom?:Array<{start?:number;end?:number}>};
   dispatchAction?:(action:unknown)=>void
 };
-type ChartApi={init:(el:HTMLElement)=>ChartInstance};
+type ChartApi={init:(el:HTMLElement,theme?:string,opts?:object)=>ChartInstance;connect?:(group:string)=>void};
 declare global{
   interface Window{
     getSupabaseClient:()=>Promise<AuthClient>;
