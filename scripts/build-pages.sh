@@ -73,6 +73,13 @@ node --test tests/community-source-copy-and-disclosure-v1.test.mjs
 node --test tests/sitewide-simulation-vocabulary-ui-v1.test.mjs
 node --test tests/sitewide-display-terminology-v1.test.mjs
 node --check assets/js/home-learning-constellation-v1.js
+# Member-facing evidence response contract: choices for decisions, typed inputs only for calculations.
+node --check assets/js/learning-response-choice-v1.js
+node --check assets/js/lab-v33-instructor.js
+node --check assets/js/lab-engine-v32-universal.js
+node --check assets/js/academy-guided-v1.js
+node --check assets/js/bootcamp-academy-v014168.js
+node --test tests/learning-interactive-response-policy-v1.test.mjs
 node --test tests/home-realistic-prototype-constellation-v1.test.mjs
 node --check assets/js/prototype-shared-learning-market-v1.js
 node --test tests/prototype-shared-learning-market-v1.test.mjs
