@@ -16,6 +16,7 @@ try{
    await analyticsChoice.getByRole('button',{name:'Decline analytics'}).click();
    assert.equal(await analyticsChoice.isVisible(),false,'Declining optional analytics closes the panel');
   }
+  await page.addScriptTag({url:base+'/assets/js/learning-response-choice-v1.js'});
   await page.addScriptTag({url:base+'/assets/js/lab-engine-v32-universal.js'});
   await page.evaluate(async()=>{
    const target=document.createElement('section');target.id='universal-test';document.body.append(target);
@@ -45,11 +46,16 @@ try{
   const predictionStatus=page.locator('#universal-test [role="status"]').filter({hasText:'Lock your prediction before continuing.'});
   assert.equal(await predictionStatus.count(),1,'Prediction feedback must have one accessible status announcement');
   assert.match(await predictionStatus.innerText(),/Lock your prediction/);
-  await page.locator('#universal-test textarea').fill('Future continuation is not known, and crossing below the level would invalidate my hypothesis.');
-  await page.getByRole('button',{name:'Lock my prediction'}).click();
+  // The shared ungraded engine uses structured formative choices, not an essay.
+  await page.locator('#universal-test .gu-v33-prediction-choice')
+    .getByRole('radio',{name:/Insufficient evidence to predict the next outcome confidently/}).check();
+  await page.getByRole('button',{name:'Lock my conditional prediction'}).click();
   await page.getByRole('button',{name:'Next learning stage'}).click();
-  await page.locator('#universal-test textarea').fill('I can only use values already observed; I must define units, comparison and invalidation.');
-  await page.getByRole('button',{name:'Record ungraded practice'}).click();
+  await page.locator('#universal-test').getByRole('heading',{name:'Practice',exact:true}).waitFor();
+  const evidence=page.locator('#universal-test .gu-v33-evidence-check');
+  assert.equal(await evidence.getByRole('radio').count(),3);
+  await evidence.locator('input[value="EVIDENCE"]').check();
+  await page.getByRole('button',{name:'Check my practice decision'}).click();
   await page.getByRole('button',{name:'Next learning stage'}).click();
   await page.locator('#universal-test').getByRole('heading',{name:'Assess',exact:true}).waitFor();
   assert.match(await page.locator('#universal-test').innerText(),/server-graded question bank/);
