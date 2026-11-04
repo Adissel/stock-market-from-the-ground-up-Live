@@ -1,5 +1,5 @@
 /* Homepage reuses the same dimensional Learning Constellation as the
- * Owner Prototype Center, with a public-safe presentation and no staff UI. */
+ * Owner Prototype Center, with a public-safe presentation, simulated educational examples and no staff UI. */
 (()=>{'use strict';
  const host=document.getElementById('pt-experiences-root');
  if(!host||!document.getElementById('learning-constellation'))return;
