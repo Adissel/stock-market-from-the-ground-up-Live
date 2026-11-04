@@ -48,3 +48,19 @@
 #gu-bc-additional-guide>.academy-guided-ten{padding:12px}
 .academy-additional-lesson-practice #academy-guided-host,
 #gu-bc-additional-guide #gu-bc-guided{padding:0 12px 12px}
+
+/* Evidence-based mastery V1: optional hands-on experiments, no grading UI. */
+.academy-guided-method-lab{margin:14px 0;padding:14px;border:1px solid #436d7a;border-radius:10px;background:#071c2a;min-width:0}
+.academy-guided-method-lab h5{margin:0 0 9px;color:#c7f8ec}
+.academy-guided-method-lab label{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:8px 4px;min-height:44px}
+.academy-guided-method-lab input[type=range]{width:min(100%,410px);accent-color:#5fdec2;min-height:36px}
+.academy-guided-method-lab input[type=radio]{width:18px;height:18px;accent-color:#64ecc5}
+.academy-guided-method-lab input:focus-visible{outline:3px solid #f5dfa3;outline-offset:3px}
+.academy-guided-method-lab fieldset{padding:10px;border:1px solid #426172;border-radius:8px;min-width:0}
+.academy-guided-method-lab output,.academy-guided-method-lab [role=status]{display:block;color:#e7f8f4;line-height:1.5;margin:7px 0}
+.academy-guided-mastery-dimensions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:9px;margin:12px 0}
+.academy-guided-mastery-dimensions>div{padding:10px;border:1px solid #40617a;border-radius:8px;min-width:0;background:#0a2435}
+.academy-guided-mastery-dimensions dt{font-weight:700;color:#e3f6f3}
+.academy-guided-mastery-dimensions dd{margin:5px 0 0;color:#bfd2da;overflow-wrap:anywhere}
+@media(max-width:680px){.academy-guided-mastery-dimensions{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){.academy-guided-method-lab *, .academy-guided-mastery-dimensions *{transition:none!important;animation:none!important}}
