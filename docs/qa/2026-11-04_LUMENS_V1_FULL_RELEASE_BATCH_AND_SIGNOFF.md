@@ -8,7 +8,7 @@
 | Google Drive document ID | Not assigned |
 | Filename | `docs/qa/2026-11-04_LUMENS_V1_FULL_RELEASE_BATCH_AND_SIGNOFF.md` |
 | File type | Markdown |
-| Version | 1.2 |
+| Version | 1.3 |
 | Date | November 4, 2026 |
 | Status | **FULL V1 RELEASE NO-GO — engineering batch integrated; independent acceptance outstanding** |
 | Prerequisites | Owner-approved V1 scope; 429 approved learning reward definitions; independent academic case review; existing Supabase and Stripe TEST; James_Test plus a second genuine member; frozen main and Cloudflare exact SHA; applicable consumer/legal review |
@@ -85,6 +85,22 @@ At source SHA `7aadafd62f3aa7675ac82543699e557081f53409`, the new combined sourc
 - Rollback operations are described in `docs/qa/2026-11-04_LUMENS_V1_ROLLBACK_RUNBOOK.md`, but **no real rollback was executed** and no uninterrupted post-launch monitoring window can yet be accepted because full V1 is not released.
 - The build and CI source gates count as **technical checks, not official milestone approvals**. The controlling official completion remains 9/11 (81.8%); full V1 release is NO-GO.
 
+## Final combined batch executions — November 4
+
+**One full production policy defect corrected, not a full commercial launch.** Founder included grants previously never expired while the governing membership policy requires 60-day post-term rollover. [Migration 20261104](https://github.com/Adissel/stock-market-from-the-ground-up-Live/blob/main/supabase/migrations/20261104_founder_included_60day_rollover_v1.sql) was applied successfully to the connected Supabase production database after verifying that no Founder paid cycles, Founder member records, or Founder credit buckets existed. The three Founder plan prices, percentages and included grant quantities were preserved. All three now use `sparks_expiry_after_term_days=60`. The signed-invoice function now records and reports `p_period_end + 60 days`; purchased and manual credit buckets remain nonexpiring. The legacy expiration constraint was replaced with a scoped compatible check. Other non-Founder included issuers may still require a separate term audit before full platform release.
+
+**Reversible transactional QA passed:** The James_Test read-only wallet summary counted a newly inserted, unexpired included-credit bucket, excluded an expired included bucket, and the revised constraint rejected expiring purchased/manual buckets in a transaction that was explicitly rolled back. A separate verification returned **zero persisted QA rows**, and James_Test remained at **29 Lumens**.
+
+**Member access and other completed gates:** Consolidated GitHub engineering job passed 48 noncharging source assertions plus dedicated grading, gifting, ledger, quote and webhook source/fixture cases. The genuine Chromium James_Test run also passed the signed-in Dashboard wallet, history, student progress, anonymous denial, and keyboard Enter-toggle disclosure. Real two-user isolation remains blocked by the second authentic member credential pair, and this failure is deliberately retained in the consolidated release dependency graph.
+
+**Stripe branding completed:** Three historical "Crownlight Sparks" products were renamed to "Crownlight Lumens" in both the LIVE and TEST Stripe accounts. Exact existing product IDs, price IDs and configured prices were preserved. LIVE Starter (10), Practice (30), Extended Practice (75) remain respectively $3.99, $9.99 and $19.99. No customer charges or refunds were initiated by the rename; checkout activation remains unapproved.
+
+**Operational controls:** `docs/qa/2026-11-04_LUMENS_V1_ROLLBACK_RUNBOOK.md` describes incident authorization, Cloudflare Pages rollback, main-only revert, ledger preservation and postchange smoke checks. This is not a completed real rollback rehearsal. The "Crownlight Release Watch" condition-monitoring automation was created with a daily cadence and is instructed to report only meaningful release changes or regressions, never activate features.
+
+**Still not releasable:** Zero real protected-case approvals and graded awards; zero paid Founder lifecycles; missing second authenticated QA account, sitewide consumer/legal review, general paid renewal/recovery/refund and acceptance, complete accessibility and actual isolated rollback verification. The exact immutable main SHA remains changing under other concurrent development.
+
+**Official decision: NO-GO for full Lumens V1.** Existing noncharging and independently accepted beta functionality can remain available. V2 gifting, protected graded awards, and general LIVE mixed checkout are NOT released. The controlling accepted milestone count remains **9/11 (81.8%)**; these technical improvements do not award independent signoffs.
+
 ## Signoff record
 
 | Authority | Evidence and status | Acceptance |
@@ -101,6 +117,7 @@ At source SHA `7aadafd62f3aa7675ac82543699e557081f53409`, the new combined sourc
 
 | Version | Date | Change |
 | --- | --- | --- |
+| 1.3 | 2026-11-04 | Implemented Founder 60-day rollover, transaction rollback QA, Stripe TEST/LIVE Lumens rebrand and release watch; full release NO-GO |
 | 1.2 | 2026-11-04 | Integrated 48 source checks, real keyboard acceptance, policy and signed-off rollback caveats; full release remains NO-GO |
 | 1.1 | 2026-11-04 | Reran genuine James_Test browser to PASS; isolated missing second-member secret gate from verified browser job; full release remains held |
 | 1.0 | 2026-11-04 | Consolidated full V1 execution matrix, operational evidence, fail-closed scripts, external blockers and exact-SHA release requirements |
