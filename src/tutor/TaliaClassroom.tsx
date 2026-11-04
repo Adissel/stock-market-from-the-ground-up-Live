@@ -82,7 +82,7 @@ const labHandoff=(()=>{
 const labQuestion=(q:string)=>labHandoff
   ?('Lab '+labHandoff.id+'. Learning Journey stage: '+labHandoff.stage+'. '+q).slice(0,450):q;
 type LessonKind='candles'|'body-range'|'vwap';
-type LessonQuestion={id:string;kind:'choice'|'numeric'|'vwap';title:string;prompt:string;options?:string[];correct?:number;hint:string};
+type LessonQuestion={id:string;kind:'choice'|'numeric'|'vwap';title:string;prompt:string;options?:string[];correct?:number;calculationStep?:0|1|2;hint:string};
 const displayStages=['Welcome','Percentage basics','Candle experiment','Calculate the body','Calculate the range','Calculate the percentage','Independent practice','Review and retry','Transfer challenge','Learning report'] as const;
 const cleanNumber=(x:string)=>{const n=Number(x.trim());return x.trim()!==''&&Number.isFinite(n)?n:null};
 const closeNumber=(actual:number|null,expected:number,tolerance=.011)=>actual!==null&&Math.abs(actual-expected)<=tolerance;
@@ -90,9 +90,18 @@ function originalQuestion(kind:LessonKind,bar:number[],index:number):LessonQuest
  if(kind==='vwap')return{id:'vwap-'+index,kind:'vwap',title:'Work out a fictional transaction VWAP',
    prompt:'Two fictional groups traded: 200 shares at $8 and 100 shares at $10. Enter the dollar total, total shares and VWAP separately.',
    hint:'Multiply each trade price by its shares. Add the dollar values, then divide by the total shares. The trade-print example is not bar-based proxy VWAP.'};
- if(kind==='body-range')return{id:'body-'+index,kind:'numeric',title:'Calculate body, range and body percentage',
-   prompt:'Completed fictional candle: open $'+bar[0].toFixed(2)+', high $'+bar[3].toFixed(2)+', low $'+bar[2].toFixed(2)+', close $'+bar[1].toFixed(2)+'. Calculate three values separately.',
-   hint:'Real body = |close − open|. Full range = high − low. Body percentage = (body ÷ full range) × 100.'};
+ if(kind==='body-range'){
+   const step:0|1|2=index<=8?0:index<=10?1:2;
+   const titles=['Calculate the real body','Calculate the full candle range','Calculate the body as a percentage'];
+   const prompts=[
+     'Calculate |close − open| for this completed fictional candle. This is the absolute height of the real body, in dollars.',
+     'Calculate high − low for this completed fictional candle. The wick extremes determine the complete range, in dollars.',
+     'After learning body and range separately, calculate (real body ÷ full range) × 100. Enter a percentage, not a decimal fraction.'
+   ];
+   return{id:'body-'+index,kind:'numeric',calculationStep:step,title:titles[step],
+     prompt:'Completed fictional candle: open $'+bar[0].toFixed(2)+', high $'+bar[3].toFixed(2)+', low $'+bar[2].toFixed(2)+', close $'+bar[1].toFixed(2)+'. '+prompts[step],
+     hint:'Real body = |close − open|. Full range = high − low. Body percentage = (body ÷ full range) × 100.'};
+ }
  return{id:'candle-'+index,kind:'choice',title:'Read the completed candle',
    prompt:'Which statement can you justify from the revealed fictional candle without predicting the next one?',
    options:['The candle guarantees the next price direction.',
@@ -314,11 +323,11 @@ function TeachingCheckpoint({checkpoint,bar,onComplete,onFeedback,onSkip}:{
     'Not quite. A finished candle tells you its prices, but not the next direction or exact intrabar order. Review the other options and try again.';
   }else{
    const values=fields.map(cleanNumber);
-   const matches=expected.map((v,i)=>closeNumber(values[i],v,i===2&&checkpoint.kind==='vwap'?.02:.011));
-   correct=matches.every(Boolean);
-   reply=names.map((k,i)=>k+': '+fields[i]).join('; ');
+   const matches=expected.map((v,i)=>closeNumber(values[i],v,i===2&&checkpoint.kind==='vwap'?0.02:0.011));
+   correct=checkpoint.kind==='numeric'?matches[checkpoint.calculationStep??0]===true:matches.every(Boolean);
+   reply=names.map((k,i)=>checkpoint.kind==='numeric'&&i!==checkpoint.calculationStep?'':k+': '+fields[i]).filter(Boolean).join('; ');
    diagnostic=correct?'Each of the three calculations is correct for this original fictional case.':
-    matches.map((valid,i)=>valid?names[i]+': correct.':names[i]+': check your arithmetic and units.').join(' ');
+    matches.map((valid,i)=>checkpoint.kind==='numeric'&&i!==checkpoint.calculationStep?'':valid?names[i]+': correct.':names[i]+': check your arithmetic and units.').filter(Boolean).join(' ');
   }
   if(correct){setFeedback(diagnostic);onComplete(reply,diagnostic+' '+explanation)}
   else{setFeedback(diagnostic);onFeedback(diagnostic)}
@@ -333,7 +342,7 @@ function TeachingCheckpoint({checkpoint,bar,onComplete,onFeedback,onSkip}:{
        <span>{option}</span>
      </label>)}</fieldset>:
      <fieldset><legend>Work through the three calculations separately</legend>
-       {names.map((name,i)=><label key={name} className="tc-equation-field">{name}
+       {names.map((name,i)=>(checkpoint.kind==='vwap'||i===checkpoint.calculationStep)&&<label key={name} className="tc-equation-field">{name}
          <input value={fields[i]} onChange={e=>setFields(old=>old.map((x,j)=>i===j?e.target.value.slice(0,22):x))}
            inputMode="decimal" placeholder={i===2?'Calculate last':'Enter your result'} aria-label={name}/>
        </label>)}
