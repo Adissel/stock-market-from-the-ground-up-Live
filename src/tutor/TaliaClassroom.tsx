@@ -8,6 +8,10 @@ import {createRoot} from 'react-dom/client';
 import {ClassicClassroomChart} from '../prototype/PrototypeExperiences';
 
 type Mode='explain'|'question'|'review'|'practice';
+type TeachingDepth='FOUNDATION'|'ADVANCED'|'PROFESSIONAL'|'ENTERPRISE';
+type LessonPhase='explain'|'demonstrate'|'practice'|'correct'|'transfer';
+type CurriculumAccess={maximumDepth:TeachingDepth;allowedDepths:TeachingDepth[];
+ lessons:Array<{id:string;title:string;chart:boolean}>;ok:true};
 type ChatLine={id:string;who:'member'|'talia';text:string;label?:string};
 type Member={id:string;access:string};
 type SupabaseSession={access_token:string;user:{id:string}};
@@ -416,6 +420,12 @@ function Classroom(){
   const [playing,setPlaying]=useState(false);
   const [playSpeed,setPlaySpeed]=useState(1600);
   const [lessonKind,setLessonKind]=useState<LessonKind|null>(null);
+  const [teachingCatalog,setTeachingCatalog]=useState<CurriculumAccess|null>(null);
+  const [teachingTopic,setTeachingTopic]=useState('candlesticks');
+  const [teachingDepth,setTeachingDepth]=useState<TeachingDepth>('FOUNDATION');
+  const [teachingPhase,setTeachingPhase]=useState<LessonPhase>('explain');
+  const [teachingStarted,setTeachingStarted]=useState(false);
+  const [teachingAccessError,setTeachingAccessError]=useState('');
   const [checkpoint,setCheckpoint]=useState<LessonQuestion|null>(null);
   const [stageIndex,setStageIndex]=useState(0);
   const [studyReport,setStudyReport]=useState({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
@@ -491,6 +501,8 @@ function Classroom(){
     epoch.current++;pending.current?.abort();pending.current=null;
     identity.current=id;setMember(null);setChat(DEFAULT);
     setPlaying(false);setVisible(7);setLessonKind(null);setCheckpoint(null);setStageIndex(0);
+    setTeachingCatalog(null);setTeachingTopic('candlesticks');setTeachingDepth('FOUNDATION');
+    setTeachingPhase('explain');setTeachingStarted(false);setTeachingAccessError('');
     setStudyReport({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
     setActiveEdition('FOUNDATION');setPremiumEvidence(null);setTypingId(null);setTypedCount(0);
     setConversationId(null);setConversationLabel('');setSave(false);
@@ -652,6 +664,68 @@ function Classroom(){
       if(version===epoch.current&&identity.current===targetId){setBusy(false);pending.current=null}
     }
   };
+
+  useEffect(()=>{
+    if(!member?.id||!member.access)return;
+    let live=true;const uid=member.id,version=epoch.current;
+    const load=async()=>{
+      try{
+        const token=await getToken();if(!token)throw Error('Your member session expired.');
+        const response=await fetch('/api/talia-classroom-curriculum-v1',{
+          method:'GET',cache:'no-store',headers:{authorization:'Bearer '+token}});
+        const result=await response.json().catch(()=>null);
+        if(!live||version!==epoch.current||identity.current!==uid)return;
+        if(!response.ok||result?.ok!==true||!Array.isArray(result.allowedDepths)||
+           !Array.isArray(result.lessons)||!result.allowedDepths.includes('FOUNDATION'))
+          throw Error('Teaching choices could not be verified for this account.');
+        setTeachingCatalog(result as CurriculumAccess);
+        setTeachingAccessError('');
+        setTeachingDepth(prev=>result.allowedDepths.includes(prev)?prev:'FOUNDATION');
+      }catch(e){
+        if(live&&version===epoch.current&&identity.current===uid){
+          setTeachingCatalog(null);
+          setTeachingAccessError(e instanceof Error?e.message:'Teaching choices unavailable.');
+        }
+      }
+    };
+    void load();
+    return()=>{live=false};
+  },[member?.id,member?.access,getToken]);
+  const teachSelected=async(phase:LessonPhase)=>{
+    if(!member||!ready||busy||checkpoint||!teachingCatalog||
+       !teachingCatalog.allowedDepths.includes(teachingDepth))return;
+    const uid=member.id,version=epoch.current,topic=teachingTopic,depth=teachingDepth;
+    const title=teachingCatalog.lessons.find(x=>x.id===topic)?.title;
+    if(!title)return;
+    setPlaying(false);
+    const controller=new AbortController();pending.current=controller;setBusy(true);
+    setTeachingPhase(phase);setTeachingAccessError('');
+    setStatus('Talia is preparing '+title+' at '+depth.toLowerCase()+' depth...');
+    try{
+      const access=await getToken();if(!access)throw Error('Member session expired.');
+      const response=await fetch('/api/talia-classroom-curriculum-v1',{
+        method:'POST',cache:'no-store',credentials:'same-origin',signal:controller.signal,
+        headers:{authorization:'Bearer '+access,'content-type':'application/json'},
+        body:JSON.stringify({topic,depth,phase})});
+      const result=await response.json().catch(()=>null);
+      if(version!==epoch.current||identity.current!==uid||controller.signal.aborted)return;
+      if(!response.ok||result?.ok!==true||typeof result.answer!=='string')
+        throw Error(response.status===403?'Your membership does not authorize that teaching depth.':
+          result?.error||'Verified teaching material unavailable.');
+      setChat(old=>[...old,{id:crypto.randomUUID(),who:'member',
+        text:(phase==='explain'?'Start':phase==='demonstrate'?'Show a worked example':phase==='practice'?'Give me practice':phase==='correct'?'Correct my understanding':'Try a transfer case')+' — '+title+' ('+depth.toLowerCase()+')'},
+        {id:crypto.randomUUID(),who:'talia',text:result.answer.slice(0,7000),
+         label:'Original '+depth.toLowerCase()+' teaching · '+phase+' · ungraded'}]);
+      setTeachingStarted(true);setSessionTopic(title);
+      setStatus('Talia completed the '+phase+' step. Select another teaching step or ask a question.');
+    }catch(e){
+      if(version===epoch.current&&identity.current===uid)
+        setStatus(controller.signal.aborted?'Teaching request stopped.':
+          e instanceof Error?e.message:'Teaching request unavailable.');
+    }finally{
+      if(version===epoch.current&&identity.current===uid){setBusy(false);pending.current=null}
+    }
+  };
   const send=(e:React.FormEvent)=>{e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())};
   const newConversation=async()=>{
     if(!member||busy)return;
@@ -735,6 +809,34 @@ function Classroom(){
   </main>;
   return <main className="tc-main">
     <header className="tc-top tc-student-page-intro"><h1>Talia Classroom</h1><p>Study the chart with Talia. Only completed simulated candles are shown.</p></header>
+    <section className="tc-teaching-selector" aria-labelledby="tc-teach-selector-title">
+      <div className="tc-teaching-selector-heading"><h2 id="tc-teach-selector-title">Choose what Talia teaches</h2>
+        <span className="tc-muted">Original lessons · no grades or trading signals</span></div>
+      <div className="tc-teaching-choices">
+        <label htmlFor="tc-teaching-topic">Lesson topic
+          <select id="tc-teaching-topic" value={teachingTopic} onChange={e=>{setTeachingTopic(e.target.value);setTeachingStarted(false);setTeachingPhase('explain')}} disabled={!teachingCatalog||busy}>
+            {(teachingCatalog?.lessons||[{id:'candlesticks',title:'Reading candlesticks',chart:true}]).map(t=>
+              <option key={t.id} value={t.id}>{t.title}</option>)}
+          </select>
+        </label>
+        <label htmlFor="tc-teaching-depth">Teaching depth
+          <select id="tc-teaching-depth" value={teachingDepth} onChange={e=>{setTeachingDepth(e.target.value as TeachingDepth);setTeachingStarted(false);setTeachingPhase('explain')}} disabled={!teachingCatalog||busy}>
+            {(['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE'] as const).map(t=>
+              <option key={t} value={t} disabled={!teachingCatalog?.allowedDepths.includes(t)}>{t.charAt(0)+t.slice(1).toLowerCase()}{!teachingCatalog?.allowedDepths.includes(t)?' · Requires entitlement':''}</option>)}
+          </select>
+        </label>
+        <button type="button" className="tc-teaching-start" onClick={()=>void teachSelected('explain')} disabled={!teachingCatalog||busy||!!checkpoint}>Start teaching</button>
+      </div>
+      {teachingCatalog?<div className="tc-teaching-progress">
+        <span>Included with your Tutor access: up to {teachingCatalog.maximumDepth.charAt(0)+teachingCatalog.maximumDepth.slice(1).toLowerCase()}.</span>
+        <span>Higher-tier members may select any lower teaching depth.</span></div>:
+        <p className="tc-teaching-access" role="status">{teachingAccessError||'Checking your available lessons and membership teaching depth...'}</p>}
+      {teachingStarted&&<div className="tc-teaching-steps" role="group" aria-label="Talia lesson steps">
+        {([['explain','Explain'],['demonstrate','Demonstrate'],['practice','Practice'],['correct','Correct'],['transfer','Transfer']] as Array<[LessonPhase,string]>).map(([step,label])=>
+          <button type="button" key={step} aria-pressed={teachingPhase===step} disabled={busy||!!checkpoint}
+            onClick={()=>void teachSelected(step)}>{label}</button>)}
+      </div>}
+    </section>
     {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
     <div className="tc-grid tc-terminal-grid tc-terminal-split tc-student-workspace">
       <FictionalChart onQuestion={q=>void submitTutor(q,'explain','')} memberId={member.id} visible={visible} setVisible={setVisible}
