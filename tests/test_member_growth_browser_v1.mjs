@@ -8,6 +8,9 @@ const origin='https://stock-market-from-the-ground-up-d1r.pages.dev';
 const newPages=['/candle-practice.html','/free-foundations-challenge.html','/market-vs-limit-orders.html','/support-resistance-basics.html'];
 const entryPages=['/','/learn.html','/lab-samples.html','/create-account.html'];
 const pages=[...newPages,...entryPages];
+// Cloudflare Pages serves public .html files using extensionless SEO canonicals.
+// Keep the browser acceptance aligned with scripts/build-public-seo.mjs.
+const publicCanonicalFor=path=>origin+(path==='/'?'/':path.replace(/\.html$/,''));
 const report={title:'SMFGU Free Member Growth V1: anonymous production browser acceptance',
  checkedAt:new Date().toISOString(),scope:'Chromium 390px and 1440px; 4 new public pages + 4 entry points',
  cases:[],failures:[],quiz:null,limits:['No real signup submitted','No payments or member data accessed','No claim of Google indexing or successful social distribution']};
@@ -43,7 +46,8 @@ try{
     assert(state.textChars>150,'Educational main content missing');
     assert(!state.overflow,'Unwanted horizontal overflow');
     if(newPages.includes(path)||path!=='/create-account.html'){
-      assert.equal(state.canonical,origin+path,'Public canonical must match');
+      assert.equal(state.canonical,publicCanonicalFor(path),
+        'Public canonical must use the extensionless Cloudflare Pages route');
       assert(!/noindex/i.test(state.robots),'Discovery page accidentally noindex');
     }else{assert(/noindex/i.test(state.robots),'Private registration must remain noindex');}
     if(newPages.includes(path)){

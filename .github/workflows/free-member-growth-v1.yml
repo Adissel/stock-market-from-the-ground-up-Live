@@ -18,6 +18,23 @@ on:
       - 'free-foundations-challenge.html'
       - 'market-vs-limit-orders.html'
       - 'support-resistance-basics.html'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/free-member-growth-v1.yml'
+      - 'tests/test_member_growth_v1.mjs'
+      - 'tests/test_member_growth_browser_v1.mjs'
+      - 'scripts/build-public-seo.mjs'
+      - 'assets/js/public-candle-practice-v1.js'
+      - 'assets/js/public-candle-learning-journey-v3.js'
+      - 'assets/css/public-candle-workstation-v2.css'
+      - 'assets/css/teaching-full-width-v1.css'
+      - 'tests/test_teaching_full_width_v1.mjs'
+      - 'assets/js/public-share-v1.js'
+      - 'candle-practice.html'
+      - 'free-foundations-challenge.html'
+      - 'market-vs-limit-orders.html'
+      - 'support-resistance-basics.html'
 permissions:
   contents: read
 concurrency:

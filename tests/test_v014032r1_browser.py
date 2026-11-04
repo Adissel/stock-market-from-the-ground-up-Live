@@ -1,10 +1,9 @@
 """Browser source contract without touching accounts or billing providers."""
 from pathlib import Path
-from shutil import which
 from playwright.sync_api import sync_playwright
 source=(Path(__file__).resolve().parents[1]/'assets/js/admin-password-confirm-v01432r1.js').read_text()
 with sync_playwright() as p:
- browser=p.chromium.launch(headless=True,executable_path=which('chromium') or None,args=['--no-sandbox'])
+ browser=p.chromium.launch(headless=True,args=['--no-sandbox'],timeout=60000)
  page=browser.new_page(viewport={'width':320,'height':680})
  page.set_content('<!doctype html><html><head></head><body><main id="admin-app">Admin</main></body></html>')
  # Browser is about:blank; bypass the real route guard for this isolated test.

@@ -1,0 +1,344 @@
+{
+  "documentControl": {
+    "id": "SMFGU-SEC-SCANNER-TIERS-001",
+    "project": "THE STOCK MARKET: FROM THE GROUND UP",
+    "filename": "data/crownlight-sec-scanner-tiers-v1.json",
+    "fileType": "JSON",
+    "version": "1.0",
+    "date": "2026-11-03",
+    "status": "SOURCE-LEVEL CANDIDATE — NOT TIER RELEASE",
+    "googleDriveLocation": "Not created",
+    "googleDriveDocumentId": null,
+    "purpose": "Source-verified and acceptance-gated standalone SEC scanner tier catalog",
+    "dependencies": [
+      "functions/api/sec-issuer-research-v1.js",
+      "assets/js/crownlight-scanner-sec-evidence-v1.js",
+      "assets/js/watchlist-sec-research-v1.js",
+      "data/crownlight-scanner-sec-catalyst-research-v1.json"
+    ]
+  },
+  "product": {
+    "id": "CROWNLIGHT_SEC_SCANNER",
+    "name": "Crownlight SEC Filing Scanner & Research",
+    "separateFromStockScanner": true,
+    "pricing": "NOT_APPROVED_OR_CHANGED",
+    "liveStatus": "NOT_RELEASED",
+    "existingGateway": "WATCHLIST_WORKBENCH",
+    "accessMode": "EXISTING_ENTITLED_WORKBENCH_ONLY",
+    "dedicatedTierServerGrants": "NOT_IMPLEMENTED",
+    "screenshotsAreStockPresets": true,
+    "marketWideSecFeed": "NOT_IMPLEMENTED",
+    "oneIssuerPerAuthorizedRequest": true,
+    "windowHours": [
+      24,
+      72
+    ],
+    "supportedPrimarySources": [
+      "SEC_EDGAR_SUBMISSIONS",
+      "SEC_XBRL_COMPANYFACTS"
+    ],
+    "dataRights": "SEC fair access and appropriate reuse review required"
+  },
+  "tiers": [
+    {
+      "id": "BASIC",
+      "name": "Basic",
+      "purpose": "Issuer identity and accessible official filing discovery",
+      "features": [
+        {
+          "id": "SEC_IDENTITY",
+          "state": "SOURCE_PRESENT",
+          "source": "functions/_lib/sec-issuer-normalize-v1.js"
+        },
+        {
+          "id": "SEC_FILING_CHRONOLOGY",
+          "state": "SOURCE_PRESENT",
+          "source": "assets/js/watchlist-sec-research-v1.js"
+        },
+        {
+          "id": "SEC_SOURCE_LINKS",
+          "state": "SOURCE_PRESENT",
+          "source": "functions/_lib/sec-issuer-normalize-v1.js"
+        }
+      ],
+      "milestones": [
+        {
+          "id": "B1",
+          "description": "Ticker-to-CIK identity is checked against official index",
+          "sourceEvidencePresent": true
+        },
+        {
+          "id": "B2",
+          "description": "Read-only official filing links and recent chronology are normalized",
+          "sourceEvidencePresent": true
+        },
+        {
+          "id": "B3",
+          "description": "Authenticated Workbench access and SEC API request budget guard",
+          "sourceEvidencePresent": true
+        },
+        {
+          "id": "B4",
+          "description": "Missing issuer and missing exact time handled without inference",
+          "sourceEvidencePresent": true
+        },
+        {
+          "id": "B5",
+          "description": "SEC Basic membership grant and free-tier eligibility accepted",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "B6",
+          "description": "Independent SEC Basic tier gate test and billing matrix",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "B7",
+          "description": "Two-account/browser accessibility acceptance",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "B8",
+          "description": "Exact-SHA production deployment signed off",
+          "sourceEvidencePresent": false
+        }
+      ],
+      "sourceMilestones": 4,
+      "sourcePercent": 50,
+      "productionAccepted": false,
+      "memberEntitlementAssigned": false
+    },
+    {
+      "id": "PLUS",
+      "name": "Plus",
+      "purpose": "Filing-form criteria, retrospective acceptance windows and evidence explanation",
+      "features": [
+        {
+          "id": "FILING_ACCEPTED_24H",
+          "state": "SOURCE_PRESENT",
+          "source": "assets/js/crownlight-scanner-sec-evidence-v1.js"
+        },
+        {
+          "id": "FILING_ACCEPTED_72H",
+          "state": "SOURCE_PRESENT",
+          "source": "assets/js/crownlight-scanner-sec-evidence-v1.js"
+        },
+        {
+          "id": "FILING_FORM",
+          "state": "SOURCE_CHANGE_PENDING_CI",
+          "source": "assets/js/crownlight-scanner-sec-brief-v4.js"
+        }
+      ],
+      "milestones": [
+        {
+          "id": "P1",
+          "description": "UTC acceptance-time 24h/72h research evaluator",
+          "sourceEvidencePresent": true
+        },
+        {
+          "id": "P2",
+          "description": "Future/unknown/invalid observations are excluded rather than guessed",
+          "sourceEvidencePresent": true
+        },
+        {
+          "id": "P3",
+          "description": "Filing-form UI and case tests pass exact-commit CI",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "P4",
+          "description": "Plus entitlement enforced on the server",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "P5",
+          "description": "Source time versus first public dissemination disclosed in browser QA",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "P6",
+          "description": "Member account switching and request-budget tests in live beta",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "P7",
+          "description": "Plus feature and pricing assignment approved via existing membership controls",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "P8",
+          "description": "Exact-SHA Plus production release signed off",
+          "sourceEvidencePresent": false
+        }
+      ],
+      "sourceMilestones": 2,
+      "sourcePercent": 25,
+      "productionAccepted": false,
+      "memberEntitlementAssigned": false
+    },
+    {
+      "id": "ADVANCED",
+      "name": "Advanced",
+      "purpose": "Reported SEC financial observations, period-labeled visualizations, independent teaching",
+      "features": [
+        {
+          "id": "SEC_XBRL_COMPANY_FACTS",
+          "state": "SOURCE_PRESENT",
+          "source": "functions/_lib/sec-issuer-normalize-v1.js"
+        },
+        {
+          "id": "SEC_REPORTED_FACT_CHARTS",
+          "state": "SOURCE_PRESENT",
+          "source": "assets/js/watchlist-sec-research-v1.js"
+        },
+        {
+          "id": "AUDITED_PERIOD_COMPARISON",
+          "state": "NOT_IMPLEMENTED",
+          "source": null
+        }
+      ],
+      "milestones": [
+        {
+          "id": "A1",
+          "description": "Seven controlled financial metrics from original XBRL company facts",
+          "sourceEvidencePresent": true
+        },
+        {
+          "id": "A2",
+          "description": "Period-labeled ECharts and accessible numeric fallback",
+          "sourceEvidencePresent": true
+        },
+        {
+          "id": "A3",
+          "description": "Restatement-aware comparable period calculations independently reviewed",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "A4",
+          "description": "Advanced entitlement enforced by server",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "A5",
+          "description": "SEC-source provenance and legal distribution review",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "A6",
+          "description": "Financial research handoff with Talia evidence links",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "A7",
+          "description": "Two-account browser/regression acceptance",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "A8",
+          "description": "Exact-SHA Advanced production release signed off",
+          "sourceEvidencePresent": false
+        }
+      ],
+      "sourceMilestones": 2,
+      "sourcePercent": 25,
+      "productionAccepted": false,
+      "memberEntitlementAssigned": false
+    },
+    {
+      "id": "PROFESSIONAL",
+      "name": "Professional",
+      "purpose": "Comparative SEC research and governed workflow without unjustified live monitoring",
+      "features": [
+        {
+          "id": "MULTI_ISSUER_COMPARISON",
+          "state": "NOT_IMPLEMENTED",
+          "source": null
+        },
+        {
+          "id": "SOURCED_COMPARATIVE_REPORTS",
+          "state": "NOT_IMPLEMENTED",
+          "source": null
+        },
+        {
+          "id": "CONTINUOUS_FILING_ALERTS",
+          "state": "ON_HOLD",
+          "source": null
+        }
+      ],
+      "milestones": [
+        {
+          "id": "R1",
+          "description": "Multi-issuer identity-safe comparison designed and implemented",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "R2",
+          "description": "Cross-company XBRL taxonomy/period comparability acceptance",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "R3",
+          "description": "Multi-issuer SEC global budget, caching, and failure-mode acceptance",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "R4",
+          "description": "Evidence-linked original Talia research report reviewed",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "R5",
+          "description": "Continuous alerts design reviewed against available source rights and $0 cost",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "R6",
+          "description": "Professional entitlements and TEST subscription lifecycle approved",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "R7",
+          "description": "Two-account security, accessibility, and source provenance acceptance",
+          "sourceEvidencePresent": false
+        },
+        {
+          "id": "R8",
+          "description": "Exact-SHA Professional production release signed off",
+          "sourceEvidencePresent": false
+        }
+      ],
+      "sourceMilestones": 0,
+      "sourcePercent": 0,
+      "productionAccepted": false,
+      "memberEntitlementAssigned": false
+    }
+  ],
+  "sourceScorecard": {
+    "sourceMilestones": 8,
+    "totalMilestones": 32,
+    "sourcePercent": 25,
+    "releaseAcceptedPercent": 0,
+    "warning": "Source presence is not evidence of independent executed QA, SEC tier grants, billing acceptance, or commercial release"
+  },
+  "controls": {
+    "noClientSuppliedTierAuthorization": true,
+    "noSECAPIBypass": true,
+    "noUnauthenticatedFreeLookup": true,
+    "noMarketWideAutomaticScanner": true,
+    "noLIVEPricesChanged": true,
+    "noChampionConfigChanges": true,
+    "noStockPresetChanges": true,
+    "noGradedAwards": true,
+    "noTradingSignals": true,
+    "noEstimatedPublicDissemination": true,
+    "unknownTimestampsFailClosed": true,
+    "founderAccessPreserved": true
+  },
+  "unresolved": [
+    "Create server-enforced dedicated membership/SEC product grants without overriding existing WATCHLIST_WORKBENCH entitlement",
+    "Independent browser QA with two users and owner test identity",
+    "CI and exact deployed SHA",
+    "Confirm SEC per-feature availability, fair-access compliance and accessibility",
+    "Independent Professional multi-issuer architecture and source-rights review"
+  ]
+}
