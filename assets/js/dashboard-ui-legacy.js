@@ -427,13 +427,24 @@
       };
       empty('Verifying your private Lumens wallet…');
       try{
-        const data=await api('/api/member-sparks-balance');
+        // Use the already authenticated Wallet-tab session. The generic
+        // helper would re-enter Supabase session locks before making any GET.
+        const response=await fetch('/api/member-sparks-balance',{
+          method:'GET',cache:'no-store',
+          headers:{authorization:'Bearer '+session.access_token},
+          signal:AbortSignal.timeout(20000)
+        });
+        if(!response.ok)throw Error('Wallet service unavailable');
+        const data=await response.json();
         const balance=data?.wallet||{};
         const valid=n=>Number.isSafeInteger(n)&&n>=0&&n<=1000000000;
         if(data?.ok!==true||!['available','included','purchased','manual'].every(k=>valid(balance[k]))||
            balance.included+balance.purchased+balance.manual!==balance.available)
           throw Error('Unreconciled private wallet');
-        const active=await getSession();
+        const active=await Promise.race([
+          getSession(),
+          new Promise(resolve=>setTimeout(()=>resolve(null),8000))
+        ]);
         if(active?.user?.id!==session.user.id){
           empty('Account changed; private wallet was not displayed.');
           return;
