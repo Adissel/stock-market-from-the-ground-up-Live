@@ -2,6 +2,13 @@
 # Noncharging 2026-10-30 owner acceptance sweep: execute existing QA on main; no payment or live member mutation.
 name: Crownlight Watchlist Intelligence V3 Integrated Acceptance
 on:
+  # Verify offline regression fixes before integration; do not require LIVE credentials.
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/watchlist-regression-diff-v2.mjs'
+      - 'tests/watchlist-offline-credential-boundary-v1.test.mjs'
+      - '.github/workflows/watchlist-v3-integrated-acceptance.yml'
   workflow_dispatch:
   push:
     branches: [main]
