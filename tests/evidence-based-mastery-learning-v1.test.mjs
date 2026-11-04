@@ -99,3 +99,25 @@ test('Boot Camp reflection notes are optional at every input length; no 40/80-ch
  assert.match(source,/if\(!answer\)/);
  assert.doesNotMatch(source,/answer\.length<40|written\.length<80|\.value\.trim\(\)\.length<80/);
 });
+
+test('first 16 corrected Lab transfer cases are distinct evidence-driven exercises without lookahead or grades',()=>{
+ const curriculum=JSON.parse(read('data/lab-teaching-bridges-v014168.json'));
+ const IDs=["DT-C36-L02","F3-C04-L01","F3-C04-L02","F3-C04-L03","F3-C05-L01","F3-C05-L02","F3-C05-L03","F3-C05-L04","F3-C06-L01","F3-C06-L02","F3-C06-L03","F3-C06-L04","F3-C06-L05","F3-C06-L06","DT-C37-L03","DT-C38-L02"];
+ assert.equal(curriculum.canonicalLabCount,419);
+ assert.equal(Object.keys(curriculum.entries).length,419);
+ assert.equal(new Set(IDs).size,16);
+ const prompts=new Set();
+ for(const id of IDs){
+  const entry=curriculum.entries[id];
+  assert.ok(entry,'Unknown canonical Lab '+id);
+  const t=entry.transfer;
+  assert.equal(t.graded,false,id);
+  assert.equal(t.noLookahead,true,id);
+  assert.equal(t.requiresNewEvidence,true,id);
+  assert.ok(t.prompt.length>=330,'Transfer needs a complete unfamiliar case: '+id);
+  assert.match(t.prompt,/completed|cutoff|observation/i,id);
+  assert.match(t.prompt,/simulated|fictional/i,id);
+  prompts.add(t.prompt);
+ }
+ assert.equal(prompts.size,16,'No template text repeated between corrected cases');
+});
