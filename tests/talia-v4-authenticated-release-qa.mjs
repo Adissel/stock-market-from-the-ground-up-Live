@@ -55,7 +55,7 @@ try{
  }
  assert(deployed,'Exact deployment verification did not pass');
  mark('Verified immutable deployment source SHA','PASS','Pages manifest equals pinned source commit '+SHA.slice(0,8));
- for(const path of ['/talia-classroom.html','/talia-tutor-prototype.html','/assets/css/talia-terminal-v4.css?v=20261102','/assets/js/talia-classroom-v1.bundle.js?v=20261104-student-desk2']){
+ for(const path of ['/talia-classroom.html','/talia-tutor-prototype.html','/assets/css/talia-terminal-v4.css?v=20261102','/assets/js/talia-classroom-v1.bundle.js?v=20261104-teaching-curriculum1']){
   const res=await fetch(ORIGIN+path,{signal:AbortSignal.timeout(25000)});
   assert.equal(res.status,200,'Release asset status '+res.status+' for '+path);
   const body=await res.text();
