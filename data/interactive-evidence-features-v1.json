@@ -1,0 +1,292 @@
+{
+  "version": "1.0.0",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "status": "proposal_backlog_with_phase1_ungraded_sources",
+  "date": "2026-11-03",
+  "architecture": "One shared Learning Engine v3.3 and Lab Engine v3.2; no alternate progress, data rights, entitlements, payment rail or grading",
+  "implementationNote": "A feature appearing here is not a production or Beta acceptance. UI/code/test evidence is recorded separately.",
+  "groups": [
+    {
+      "area": "Candlestick and market reading",
+      "features": [
+        {
+          "id": "01",
+          "name": "Candle Anatomy Explorer",
+          "package": "P1",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "02",
+          "name": "Candle-by-Candle Investigation",
+          "package": "P1",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "03",
+          "name": "Market Structure Builder",
+          "package": "P1",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "04",
+          "name": "Multi-Timeframe Microscope",
+          "package": "P1",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "05",
+          "name": "Pattern Comparison Lab",
+          "package": "P1",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "06",
+          "name": "Wick and Rejection Investigator",
+          "package": "P1",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        }
+      ]
+    },
+    {
+      "area": "Technical indicator learning",
+      "features": [
+        {
+          "id": "07",
+          "name": "EMA Calculation Workshop",
+          "package": "P2",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "08",
+          "name": "VWAP Transaction Explorer",
+          "package": "P2",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "09",
+          "name": "RSI Momentum Explorer",
+          "package": "P2",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "10",
+          "name": "MACD Construction Lab",
+          "package": "P2",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "11",
+          "name": "Bollinger Band Experiment",
+          "package": "P2",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "12",
+          "name": "Indicator Disagreement Lab",
+          "package": "P2",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        }
+      ]
+    },
+    {
+      "area": "Trading mechanics and risk",
+      "features": [
+        {
+          "id": "13",
+          "name": "Level II Market Depth Explorer",
+          "package": "P4",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "14",
+          "name": "Bid–Ask Spread Laboratory",
+          "package": "P4",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "15",
+          "name": "Order Type Visualizer",
+          "package": "P4",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "16",
+          "name": "Risk and Reward Geometry",
+          "package": "P4",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "17",
+          "name": "Position Sizing Math Workshop",
+          "package": "P4",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "18",
+          "name": "Slippage and Liquidity Explorer",
+          "package": "P4",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        }
+      ]
+    },
+    {
+      "area": "Fundamental research",
+      "features": [
+        {
+          "id": "19",
+          "name": "SEC Filing Investigator",
+          "package": "P5",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "20",
+          "name": "Financial Statement Explorer",
+          "package": "P5",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "21",
+          "name": "Earnings Report Analyzer",
+          "package": "P5",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "22",
+          "name": "Valuation Assumption Lab",
+          "package": "P5",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "23",
+          "name": "Corporate Actions Explorer",
+          "package": "P5",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "24",
+          "name": "Research Evidence Board",
+          "package": "P5",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        }
+      ]
+    },
+    {
+      "area": "Talia teaching interactions",
+      "features": [
+        {
+          "id": "25",
+          "name": "Talia Guided Chart Tour",
+          "package": "P3",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "26",
+          "name": "Explain Your Reasoning",
+          "package": "P3",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "27",
+          "name": "Ask Talia Why",
+          "package": "P3",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "28",
+          "name": "Find the Missing Evidence",
+          "package": "P3",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "29",
+          "name": "Show the Counterexample",
+          "package": "P3",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "30",
+          "name": "Mistake Reconstruction",
+          "package": "P3",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        }
+      ]
+    },
+    {
+      "area": "Continuity and collaboration",
+      "features": [
+        {
+          "id": "31",
+          "name": "Personal Evidence Journal",
+          "package": "P6",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "32",
+          "name": "Competency Skill Map",
+          "package": "P6",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "33",
+          "name": "Interactive Learning Roadmap",
+          "package": "P6",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "34",
+          "name": "Review My Mistakes",
+          "package": "P6",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "35",
+          "name": "Case Study Discussion Board",
+          "package": "P6",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        },
+        {
+          "id": "36",
+          "name": "Personal Learning Experiment Builder",
+          "package": "P6",
+          "status": "proposed",
+          "releaseGate": "independent_acceptance_required"
+        }
+      ]
+    }
+  ]
+}

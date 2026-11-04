@@ -1,0 +1,23 @@
+.cl-evidence{margin:1.5rem 0;border:1px solid #456679;border-radius:16px;background:linear-gradient(155deg,#0a2332,#091520);color:#e7f3fa}
+.cl-evidence summary{cursor:pointer;padding:1rem 1.25rem;font-weight:750;color:#f4d696}
+.cl-evidence summary:focus-visible,.cl-evidence button:focus-visible,.cl-evidence input:focus-visible,.cl-evidence select:focus-visible,.cl-evidence textarea:focus-visible{outline:3px solid #f8d27d;outline-offset:3px}
+.cl-evidence-body{padding:0 1.25rem 1.25rem;max-width:100%;overflow-wrap:break-word}
+.cl-evidence-body>label,.cl-evidence-controls label,.cl-evidence-reflection label{display:block;font-weight:650;margin:.65rem 0}
+.cl-evidence select,.cl-evidence input,.cl-evidence textarea{font:inherit;background:#142e3f;color:#f4fcff;border:1px solid #68869b;border-radius:8px;padding:.45rem;max-width:100%}
+.cl-evidence input[type=range]{width:100%;accent-color:#4ce1c5;padding:0}
+.cl-evidence button{min-height:44px;min-width:44px;padding:.55rem .85rem;border-radius:8px;background:#18485e;border:1px solid #7ea6b8;color:#fff;font:inherit;cursor:pointer}
+.cl-evidence button:disabled{cursor:not-allowed;opacity:.58}
+.cl-evidence-viewport{margin-top:1rem}
+.cl-evidence-actions{display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
+.cl-evidence-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.6rem 1.25rem}
+.cl-evidence-controls output{font-variant-numeric:tabular-nums;color:#f5cc78}
+.cl-evidence-candle{display:block;width:min(100%,480px);height:auto;max-height:360px;margin:1rem auto;background:#092032;border:1px solid #37556b;border-radius:12px}
+.cl-evidence-chart{width:100%;height:310px;min-width:0}
+.cl-evidence-table{width:100%;border-collapse:collapse;margin:1rem 0;font-variant-numeric:tabular-nums}
+.cl-evidence-table caption{text-align:left;font-weight:700;margin-bottom:.4rem}
+.cl-evidence-table th,.cl-evidence-table td{border:1px solid #456477;padding:.55rem .7rem;text-align:left}
+.cl-evidence-table th{background:#1d394b}
+.cl-evidence-reflection{border-top:1px solid #456679;margin-top:1rem;padding-top:.7rem}
+.cl-evidence-reflection textarea{display:block;width:100%;min-height:90px}
+@media(max-width:640px){.cl-evidence-body{padding:0 .65rem 1rem}.cl-evidence-controls{grid-template-columns:1fr}.cl-evidence-table{display:block;overflow-x:auto;white-space:nowrap}.cl-evidence-chart{height:260px}}
+@media(prefers-reduced-motion:reduce){.cl-evidence *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}

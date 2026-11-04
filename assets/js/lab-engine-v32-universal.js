@@ -855,6 +855,13 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
   });
   proceed.className='btn gu-v44-calc-next';proceed.disabled=!passed;coach.append(proceed);
   wrap.append(visual,coach);body.append(wrap);
+  // A separate optional fictional-only investigation. The canonical stage,
+  // access check, active lesson, calculation gate and persisted progress own this view.
+  if(!academyScope&&['candle','vwap'].includes(visualType)&&['guided','practice'].includes(mode)){
+   const evidenceHost=el('section');evidenceHost.className='gu-v44-evidence-investigation';body.append(evidenceHost);
+   const evidenceSession=root.CrownlightInteractiveEvidenceV1?.mount?.({target:evidenceHost,kind:visualType,mode,labId});
+   if(evidenceSession)echartsControllers.push(evidenceSession);
+  }
   mountHomeMarketReplay(body,true);
   previous.disabled=false;next.disabled=true;
   autoStatus.textContent='Calculate / Analyze pauses here until the member completes the method check. This is ungraded learning.';
