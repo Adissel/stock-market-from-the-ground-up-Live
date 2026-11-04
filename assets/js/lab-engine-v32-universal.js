@@ -1233,7 +1233,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    observationsPanel.append(el('h3','What your learning activities demonstrated'));
    const observed=el('dl');observed.className='gu-v33-observed-dimensions';
    const dimensionRows=[
-    ['Knowledge',calculateDone?'Guided calculation completed; accuracy and help must be checked separately.':'Guided calculation not completed.'],
+    ['Knowledge',calculateDone?'Guided calculation completed; accuracy and help must be checked separately.':'No guided calculation observed in this active view; a restored draft may contain earlier work.'],
     ['Recognition',predictionLocked?'An evidence-based prediction was recorded before progressing; correctness not independently established.':'No prediction evidence recorded.'],
     ['Decision-making',!practiceResolved?'No checked practice decision yet.':
       practiceAssisted?'Completed with additional teaching or an assisted answer.':
