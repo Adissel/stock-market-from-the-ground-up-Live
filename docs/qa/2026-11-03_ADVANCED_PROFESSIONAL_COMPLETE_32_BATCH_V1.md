@@ -9,7 +9,7 @@
 | Repository | Adissel/stock-market-from-the-ground-up-Live |
 | Filename | docs/qa/2026-11-03_ADVANCED_PROFESSIONAL_COMPLETE_32_BATCH_V1.md |
 | File type | Markdown (.md) |
-| Version | 1.0 |
+| Version | 1.1 |
 | Prepared on | 2026-11-03 |
 | Status | Consolidated source correction and automated QA candidate; premium commercial release HOLD |
 | Dependencies | Learning v3.3 Basic, Lab v3.2 Basic, 419 canonical Labs, 30 competencies, member grants, Supabase RLS, Cloudflare, GitHub, Stripe TEST and independent rights review |
@@ -137,10 +137,19 @@ The acting owner/admin may perform development and routine source QA. They canno
 **Independent editorial and assistive-technology review:** Pending.
 **Four formal edition-specific release decisions:** HOLD.
 
+## 9A. Owner editor, Tutor and Lab source dependency reconciliation
+
+The repository already includes an owner-only version-assignment editor at functions/api/admin-learning-engine-versions.js and assets/js/admin-learning-engine-versions-v1.js, with read-only member resolver functions/api/member-learning-engine-versions.js. Its source tests exercise owner authorization, atomic revision compare-and-swap and audited write behavior. This source existence does not prove an actual owner sign-in, save/reload, stale denial or UI accessibility; gate G16 remains OPEN.
+
+Talia Tutor membership editions have a separate product/version entitlement system; an Advanced or Professional Learning/Lab grant must not automatically grant a paid or unpublished Talia upgrade. The unified CI now reruns tests/learning-engine-member-versions-api-v1.test.mjs, tests/learning-engine-member-versions-v1.test.mjs and tests/talia-membership-editions-v1.test.mjs.
+
+The 419 Lab body-quality regression is included in the exact PR-head source gate, but no independent acceptance for each authored Lab or source-rights clearance is inferred. Founder beta broad-access expectations and disabled production Premium flags remain a policy tension requiring a controlled, independently accepted solution.
+
 ## 9. Revision history
 
 | Version | Date | Description | Status |
 |---|---|---|---|
+| 1.1 | 2026-11-03 | Owner version editor, Talia tier, 419 Lab and founder-release dependencies reconciled in unified QA | Source QA candidate |
 | 1.0 | 2026-11-03 | All 32 requirements and 20 shared gates consolidated; long-frame replay and VWAP methodology corrections; one regression workflow | Source QA candidate |
 
 Footer: SMFGU-LELAB-AP-32-20261103 | Controlled source register, not an independently approved Premium release.
