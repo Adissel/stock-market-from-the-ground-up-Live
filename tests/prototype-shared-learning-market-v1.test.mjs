@@ -40,7 +40,7 @@ test('Shared engine provides the actual homepage candle animation, not a duplica
  assert.match(source,/api\.mountInto\(host,\{context:selected,startPaused:false\}\)/);
  for(const feature of ['partialMinute(index:number,ticks:number)','revealedBars(cfg.frame,playhead.current)',
   'Replay speed','0.1×','0.5×','3×','Timeframe','1m','3m','5m','zoomOnMouseWheel:true',
-  'moveOnMouseMove:true','Open','High','Low','Close','Fictional volume'])
+  'moveOnMouseMove:true','Open','High','Low','Close','Simulated volume'])
    assert.ok(home.includes(feature),feature);
  assert.doesNotMatch(source,/CrownlightLearningEChartsV1\.mount|createRoot\(|\.setOption\(/);
 });
