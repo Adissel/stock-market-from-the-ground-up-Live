@@ -45,11 +45,13 @@ test('08 Wallet uses current member-visible Lumens branding',()=>{
   assert.match(read(path),/Lumens/);
  }
 });
-test('09 Public chart labels all data fictional',()=>{
+test('09 Public chart identifies simulated data and never claims a live feed',()=>{
  const p=read('src/experience/HomeMarketTerminal.tsx');
- assert.ok(p.includes('Fictional market'));
- assert.ok(p.includes('Fictional simulation'));
- assert.ok(p.includes('Fictional B'));
+ assert.ok(p.includes('Simulated market'));
+ assert.ok(p.includes('Simulated simulation'));
+ assert.ok(p.includes('Simulated B'));
+ assert.ok(p.includes('No live or licensed market feed'));
+ assert.ok(p.includes('/practice-data-policy.html'));
  assert.doesNotMatch(p,/service_role|\bfetch\(/);
 });
 test('10 Dashboard chart displays real member statistics',()=>{
