@@ -173,3 +173,13 @@ html body.tc-body .tc-student-workspace .tc-advanced-tutor-options[open]>summary
  html body.tc-body .tc-student-workspace .tc-playback-primary button{min-height:42px}
  html body.tc-body .tc-student-workspace .tc-transcript{max-height:320px}
 }
+
+html body.tc-body .tc-student-workspace .tc-example-questions,
+html body.tc-body .tc-student-workspace .tc-guided-lesson{border:1px solid #345e72;border-radius:9px;margin:8px 0;padding:9px;background:#0d2738}
+html body.tc-body .tc-student-workspace .tc-example-questions>summary,
+html body.tc-body .tc-student-workspace .tc-guided-lesson>summary{color:#d2eefa;cursor:pointer;font-weight:650;font-size:14px;line-height:1.5}
+html body.tc-body .tc-student-workspace .tc-example-questions .tc-chipbar{display:flex;flex-wrap:wrap;padding:8px 0 0}
+html body.tc-body .tc-student-workspace .tc-guided-lesson .tc-live-lesson{margin:8px 0 0;padding:8px;border:0;box-shadow:none}
+html body.tc-body .tc-student-workspace .tc-guided-lesson .tc-live-lesson>p{font-size:13px;line-height:1.65}
+html body.tc-body .tc-student-workspace .tc-advanced-tutor-options[hidden]{display:none}
+html body.tc-body .tc-student-workspace :is(.tc-example-questions,.tc-guided-lesson,.tc-advanced-tutor-options) summary:focus-visible{outline:2px solid #a6f1ec;outline-offset:3px}
