@@ -463,7 +463,7 @@
    const notice=node('p');notice.setAttribute('role','status');
    copy.addEventListener('click',()=>{
     const answer=response.value.trim();
-    if(answer.length<40){notice.textContent='Write at least 40 characters of your own reasoning first.';return}
+    if(!answer){notice.textContent='Writing is optional. Enter a brief note only if you want to copy it to your private reflection.';return}
     const field=get('academy-reflection'),addition='Day '+d.day+' beta self-check: '+answer;
     const composed=(field.value.trim()?field.value.trim()+'\n\n':'')+addition;
     if(composed.length>2000){notice.textContent='Your private reflection would exceed 2,000 characters. Shorten it before copying.';return}
@@ -581,17 +581,17 @@
   const result=node('div');result.setAttribute('role','status');
   result.setAttribute('aria-live','polite');
   const use=node('button','Add reasoning to my private reflection');
-  use.type='button';use.className='btn secondary';use.disabled=answer.value.trim().length<80;
+  use.type='button';use.className='btn secondary';use.disabled=!answer.value.trim();
   answer.addEventListener('input',()=>{
    const value=answer.value;
    if(value.trim())selfCheckDrafts.set(dayIndex,value);
    else selfCheckDrafts.delete(dayIndex);
-   use.disabled=value.trim().length<80;result.replaceChildren();
+   use.disabled=!value.trim();result.replaceChildren();
    updateDays();
   });
   use.addEventListener('click',()=>{
    const written=answer.value.trim();
-   if(written.length<80){result.replaceChildren(node('p','Write at least 80 characters of original reasoning before adding it to your private reflection.'));return}
+   if(!written){result.replaceChildren(node('p','Writing is optional. Enter a note only if you want to add it to your private reflection.'));return}
    const reflection=get('academy-reflection');
    if(!reflection)return;
    const existing=reflection.value.trim();
