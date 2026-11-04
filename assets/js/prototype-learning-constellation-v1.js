@@ -71,6 +71,7 @@ export function mountLearningConstellation(host,options={}){
   root.classList.add('lc-app--public');
   root.querySelector('.lc-head .lc-eyebrow').textContent='CROWNLIGHT · INTERACTIVE LEARNING CONSTELLATION';
   root.querySelector('.lc-head p').textContent='Explore the nine learning stages, the 419-Lab network, ten Boot Camp paths and Talia\'s source-based indicator guides. Select a node to explore the teaching evidence.';
+  root.querySelector('.lc-guard b').textContent='SIMULATED / INSTRUCTIONAL';
   const heading=root.querySelector('.lc-head h1');
   const levelTwo=document.createElement('h2');levelTwo.innerHTML=heading.innerHTML;heading.replaceWith(levelTwo);
   const side=root.querySelector('.lc-head-side');side.replaceChildren();
