@@ -1,0 +1,15 @@
+/* Owner/Admin-only source evidence panel — never member-facing entitlement UI. */
+.tqa-panel{margin:18px 0 24px;padding:18px;border:1px solid #476c93;border-radius:14px;background:linear-gradient(135deg,#0b1629,#14283d);color:#e5f2ff}
+.tqa-panel h2{margin:0 0 7px;color:#f4f9ff;font-size:1.28rem}
+.tqa-boundary,.tqa-panel .tqa-subtitle{color:#c5d7e5;line-height:1.6;margin:5px 0 12px}
+.tqa-selector{display:flex;flex-wrap:wrap;gap:9px;margin:16px 0}
+.tqa-selector button{border:1px solid #6885a5;background:#1a3650;color:#eef7ff;border-radius:9px;min-width:110px;padding:9px 16px;font-weight:700}
+.tqa-selector button[aria-pressed="true"]{color:#111f2b;background:#b4e9e5;border-color:#b4e9e5}
+.tqa-selector button:focus-visible,.tqa-feature summary:focus-visible{outline:3px solid #f5d47a;outline-offset:4px}
+.tqa-feature{margin:8px 0;padding:12px;border:1px solid #3e647f;border-radius:10px;background:#111e31}
+.tqa-feature h4{margin:0 0 10px;color:#f0f6fd;font-size:1rem}
+.tqa-feature summary{cursor:pointer;font-weight:600;color:#b4e9e5}
+.tqa-json{font:0.83rem/1.55 ui-monospace,monospace;white-space:pre-wrap;overflow-wrap:anywhere;background:#071522;border:1px solid #334d64;border-radius:7px;padding:12px;max-height:330px;overflow:auto;color:#dbe6f0}
+.tqa-panel [data-tqa-status]{font-weight:600;color:#f6df9f}
+@media(max-width:600px){.tqa-panel{padding:12px}.tqa-selector button{flex:1 1 42%;min-width:0}.tqa-json{font-size:0.74rem}}
+@media(prefers-reduced-motion:reduce){.tqa-panel *{scroll-behavior:auto!important;transition:none!important}}
