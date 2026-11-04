@@ -6,7 +6,7 @@ import {onRequest as ownerRequest} from '../functions/api/owner-sec-scanner-tier
 import {onRequest as originalRequest} from '../functions/api/sec-issuer-research-v1.js';
 const A='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',B='bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb';
 const env={SUPABASE_URL:'https://mock.supabase.co',SUPABASE_PUBLISHABLE_KEY:'publish',
- SUPABASE_SECRET_KEY:'private',SEC_EDGAR_USER_AGENT:'Crownlight SEC Research research@example.org',SEC_EDGAR_BETA_ENABLED:'true'};
+ SUPABASE_SECRET_KEY:'private',SEC_EDGAR_USER_AGENT:'Crownlight SEC Research research@example.org',SEC_EDGAR_BETA_ENABLED:'true',SEC_EDGAR_GENERAL_RELEASE_APPROVED:'true'};
 const T='2026-11-03T18:00:00Z';
 const idx={0:{cik_str:789019,title:'Gusim Original Inc',ticker:'GUSIM'}};
 const sample={cik:789019,name:'Gusim Original Inc',tickers:['GUSIM'],exchanges:['Nasdaq'],
