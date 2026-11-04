@@ -1,0 +1,28 @@
+name: Crownlight Site-wide Visible Copy Inventory
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sitewide-simulation-copy-audit-v1.yml'
+      - 'scripts/qa/sitewide-simulation-copy-audit-v1.mjs'
+permissions:
+  contents: read
+jobs:
+  source-visible-vocabulary:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/qa/sitewide-simulation-copy-audit-v1.mjs
+      - uses: actions/upload-artifact@v4
+        with:
+          name: sitewide-visible-copy-inventory-v1
+          path: artifacts/site-copy/visible-terminology-inventory-v1.json
+          if-no-files-found: error
+          retention-days: 30
