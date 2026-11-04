@@ -65,7 +65,7 @@ function marketTooltip(params:unknown,bars:readonly Bar[],indicator:readonly (nu
  const cells=rows.map(([name,value])=>`<div class="cl-market-tooltip-row"><span>${name}</span><strong>${price(value)}</strong></div>`).join('');
  const observed=indicator[index];
  const indicatorRow=study!=='none'&&observed!==null&&Number.isFinite(observed)?
-  `<div class="cl-market-tooltip-row cl-market-tooltip-study"><span>${study==='ema9'?'EMA 9':'SMA 20'}</span><strong>${price(observed)}</strong></div>`:'';
+  `<div class="cl-market-tooltip-row cl-market-tooltip-study"><span>${study==='sma20'?'SMA 20':study==='ema20'?'EMA 20':study==='vwap'?'VWAP proxy':'EMA 9'}</span><strong>${price(observed)}</strong></div>`:'';
  return `<div class="cl-market-tooltip"><div class="cl-market-tooltip-heading"><span>Candle B${String(index+1).padStart(2,'0')}</span><span style="color:${color}">Fictional</span></div>${cells}<div class="cl-market-tooltip-row"><span>Volume</span><strong>${Math.round(bar.volume).toLocaleString('en-US')}</strong></div>${indicatorRow}</div>`;
 }
 
