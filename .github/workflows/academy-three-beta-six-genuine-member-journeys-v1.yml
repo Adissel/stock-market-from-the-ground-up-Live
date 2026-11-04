@@ -53,7 +53,7 @@ jobs:
             echo "A failure means missing identity/invitation, stale fixture, actual API/DB failure or permissions; it MUST NOT be treated as genuine acceptance."
             echo "No LIVE money, rewards, grades, reviewer claims or production member impersonation authorized."
           } >/tmp/academy-three-six-qa.md
-          gh issue comment 157 --repo "$GITHUB_REPOSITORY" --body-file /tmp/academy-three-six-qa.md
+          gh issue comment 83 --repo "$GITHUB_REPOSITORY" --body-file /tmp/academy-three-six-qa.md
       - name: Fail closed when six authenticated day checkpoints are incomplete
         if: steps.journeys.outcome != 'success'
         run: exit 1
