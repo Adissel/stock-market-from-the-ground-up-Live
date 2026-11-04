@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {betaTesterAllowed,onRequest} from '../functions/api/talia-premium-member-v1.js';
+import {betaTesterAllowed,ownerApprovedTesterGrant,onRequest} from '../functions/api/talia-premium-member-v1.js';
 import {betaTier,authenticLearningEvidence,authenticReplayEvidence,authenticEnterpriseEvidence,tierIndex}
  from '../functions/_lib/talia-member-evidence-v1.js';
 const read=p=>readFileSync(p,'utf8');
@@ -25,6 +25,18 @@ test('Member beta allowlist is exact, flag-gated and rejects malformed or ambigu
  assert.equal(betaTesterAllowed({TALIA_PREMIUM_BETA_ENABLED:'true',TALIA_PREMIUM_BETA_USER_IDS:member+','+member},member),false);
  assert.equal(betaTesterAllowed({TALIA_PREMIUM_BETA_ENABLED:'true',TALIA_PREMIUM_BETA_USER_IDS:'James_Test'},member),false);
  assert.equal(betaTesterAllowed({TALIA_PREMIUM_BETA_ENABLED:'true',TALIA_PREMIUM_BETA_USER_IDS:member},'not-a-uuid'),false);
+});
+test('Owner-audited active QA plan grant expires, cannot alter commercial plans, and rejects inactive grants',()=>{
+ const now=Date.parse('2026-11-04T00:00:00Z');
+ const q={version:1,status:'owner_approved_qa_only',scope:'OWN_MEMBER_RECORDS',noBillingChanges:true,allTiers:true,expiresAt:'2026-11-10T00:00:00Z'};
+ const g={plan_code:'FOUNDING_60',status:'active',starts_at:'2026-11-01T00:00:00Z',ends_at:null,metadata:{talia_member_runtime_beta_v1:q}};
+ assert.deepEqual(ownerApprovedTesterGrant([g],'FOUNDING_60',now),{allowed:true,allTiers:true});
+ assert.equal(ownerApprovedTesterGrant([g],'FOUNDING_30',now),null);
+ assert.equal(ownerApprovedTesterGrant([{...g,status:'canceled'}],'FOUNDING_60',now),null);
+ assert.equal(ownerApprovedTesterGrant([{...g,metadata:{talia_member_runtime_beta_v1:{...q,expiresAt:'2026-11-03T00:00:00Z'}}}],'FOUNDING_60',now),null);
+ assert.equal(ownerApprovedTesterGrant([{...g,metadata:{talia_member_runtime_beta_v1:{...q,noBillingChanges:false}}}],'FOUNDING_60',now),null);
+ assert.equal(ownerApprovedTesterGrant([{...g,metadata:{talia_member_runtime_beta_v1:{...q,expiresAt:'2027-11-03T00:00:00Z'}}}],'FOUNDING_60',now),null);
+ assert.equal(ownerApprovedTesterGrant([{...g,metadata:{}}],'FOUNDING_60',now),null);
 });
 test('Unassessed member is not labeled deficient or independently graded',()=>{
  const skills=[{code:'VWAP_CONTEXT',name:'VWAP Context',status:'Not Yet Assessed',independentAssessments:0,completeAssessments:0},
