@@ -14,8 +14,13 @@ const response=await fetch(sburl+'/auth/v1/token?grant_type=password',{method:'P
  headers:{apikey:key,'content-type':'application/json'},body:JSON.stringify({email,password}),
  signal:AbortSignal.timeout(25000)});
 const login=await response.json().catch(()=>({}));
-if(!response.ok||!login.access_token||!login.refresh_token)
- throw Error('BLOCKED: Genuine Supabase Auth did not accept existing QA credentials');
+if(!response.ok||!login.access_token||!login.refresh_token){
+ const safeCode=String(login.error_code||login.code||login.error||'unspecified')
+  .toLowerCase().replace(/[^a-z0-9_]/g,'').slice(0,48);
+ throw Error('BLOCKED: Genuine QA sign-in HTTP '+response.status+
+  ' / reason '+safeCode+' / token='+Boolean(login.access_token)+
+  ' / refresh='+Boolean(login.refresh_token)+'. Check the GitHub QA secret identity and current Supabase Auth configuration.');
+}
 assert.equal(login.user?.id,'f42f9301-18e6-43a3-8531-32d371fd22c1');
 const browser=await chromium.launch({headless:true,args:['--no-sandbox']});
 try{
