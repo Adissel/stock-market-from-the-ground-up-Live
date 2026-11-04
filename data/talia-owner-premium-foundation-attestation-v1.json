@@ -1,0 +1,97 @@
+{
+  "schema": "smfgu.talia.owner-attestation.v1",
+  "documentId": "SMFGU-TALIA-OWNER-ATTEST-20261103-001",
+  "version": "1.0",
+  "dateLocal": "2026-11-03",
+  "project": "The Stock Market: From the Ground Up — Talia Market Tutor",
+  "repository": "Adissel/stock-market-from-the-ground-up-Live",
+  "source": "Owner's explicit November 3, 2026 instructions in ChatGPT; no independent witness, uploaded test evidence or authenticated QA report supplied",
+  "status": "OWNER_APPROVAL_AND_SELF_VERIFICATION_ATTESTED__INDEPENDENT_AND_TECHNICAL_GATES_UNCHANGED",
+  "ownerDecision": {
+    "acceptsPremiumFeatureSpecificationAndOwnerEditorialApproval": true,
+    "acceptsFoundationPublicationFromOwnerPerspective": true,
+    "acceptsPremiumMemberRuntimeFromOwnerPerspective": true,
+    "personallyAttestsVerification": true,
+    "statements": [
+      "I accept all the Tutor premium features, Foundation publication approvals, and Premium member-runtime",
+      "I also verify it all"
+    ],
+    "premiumFeatureIds": [
+      "A01",
+      "A02",
+      "A03",
+      "P01",
+      "P02",
+      "P03",
+      "E01",
+      "E02",
+      "E03"
+    ],
+    "foundationDraftScope": 600,
+    "provenance": "User instruction/owner declaration; not an independently reproduced test",
+    "authoritativeFor": [
+      "owner signoff intent",
+      "owner attestation of review",
+      "owner content approval decision"
+    ],
+    "notEvidenceFor": [
+      "independent editorial signoff",
+      "exact-commit authenticated browser and API passage",
+      "server entitlement enforcement",
+      "two-account privacy isolation",
+      "accessibility acceptance",
+      "market-data and content licensing clearance",
+      "Cloudflare deployed SHA identity",
+      "new AI spending authorization",
+      "completed CI and production release gates"
+    ]
+  },
+  "operationalReconciliation": {
+    "featureSourcePositions": {
+      "supported": 15,
+      "total": 15
+    },
+    "ownerAttestedPremiumFeatures": {
+      "count": 9,
+      "total": 9
+    },
+    "ownerAttestedFoundationPublication": {
+      "count": 600,
+      "total": 600
+    },
+    "independentlyAuthenticatedPremiumFeatureAcceptance": {
+      "count": 0,
+      "total": 9,
+      "evidenceStatus": "unchanged until real-member tests"
+    },
+    "v4OperationalAcceptance": {
+      "accepted": 2,
+      "total": 5,
+      "evidenceStatus": "unchanged"
+    },
+    "independentFoundationPublicationAcceptance": {
+      "accepted": 0,
+      "total": 600,
+      "evidenceStatus": "unchanged"
+    },
+    "productionReleaseStatus": "HOLD_PENDING_INDEPENDENT_AND_TECHNICAL_EVIDENCE"
+  },
+  "safeguards": [
+    "Do not rewrite productionFeatureAccepted/authenticatedTierAccepted/independentEditorialAccepted fields to true based only on owner attestation.",
+    "Do not deploy or unlock premium feature flags, rewrite membership tier grants, alter paid providers, or publish content without separate release verification.",
+    "Preserve all 600 original drafts, source snapshots, all existing member history, no-cost Basic teaching, and ungraded assessment boundaries."
+  ],
+  "controllingReferences": [
+    "data/talia-four-edition-evidence-audit-v1.json",
+    "data/talia-owner-draft-acceptance-600-v1.json",
+    "data/talia-chat-mode-p7-premium-nine-v1.json",
+    "docs/qa/SMFGU-TALIA-V4-OAT-001-v1-20261102.md",
+    "docs/qa/2026-11-03_TALIA_CHATMODE_P10_CODEX_HANDOFF_RELEASE_v1.md"
+  ],
+  "googleDrive": {
+    "location": null,
+    "fileId": null,
+    "newDriveFileRequired": false
+  },
+  "revisedOnNextIndependentEvidence": true
+}
