@@ -205,7 +205,16 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
           }},
           series:[{type:'candlestick',name:'Fictional completed bars',
             data:shown,itemStyle:{color:prototype?bull:'#38c6a6',color0:prototype?bear:'#e37779',borderColor:prototype?bull:'#38c6a6',borderColor0:prototype?bear:'#e37779',borderWidth:1.5,shadowBlur:prototype?4:0,shadowColor:'#145a67'},
-            markLine:prototype&&showStructure?{symbol:'none',lineStyle:{color:'#668ba1',type:'dashed'},data:[{yAxis:Math.max(...shown.map(r=>r[3])),name:'Visible high'},{yAxis:Math.min(...shown.map(r=>r[2])),name:'Visible low'}]}:undefined,
+            markLine:prototype?{symbol:'none',silent:true,lineStyle:{color:'#668ba1',type:'dashed',width:1,opacity:.7},
+              data:[
+                ...(showStructure?[{yAxis:Math.max(...shown.map(r=>r[3])),name:'Visible swing high',label:{show:false}},
+                  {yAxis:Math.min(...shown.map(r=>r[2])),name:'Visible swing low',label:{show:false}}]:[]),
+                ...([['Open',shown.at(-1)?.[0]],['High',shown.at(-1)?.[3]],['Low',shown.at(-1)?.[2]],['Close',shown.at(-1)?.[1]]] as [string,number|undefined][])
+                  .filter((x):x is [string,number]=>typeof x[1]==='number')
+                  .map(([name,value])=>({yAxis:value,name:name+' $'+value.toFixed(2),
+                    label:{show:true,position:'insideEndTop',formatter:name+' $'+value.toFixed(2),fontSize:10,color:'#e4f8f6'},
+                    lineStyle:{color:name==='High'||name==='Low'?'#7ebbd9':'#63bfae',type:'dotted',opacity:.6}}))
+              ]}:undefined,
             markPoint:prototype&&annotation!==null&&Math.floor(annotation/timeframe)<shown.length?{symbol:'pin',symbolSize:42,label:{formatter:'Study',color:'#091827'},data:[{coord:[Math.floor(annotation/timeframe),shown[Math.floor(annotation/timeframe)][1]],value:'Study'}]}:undefined},
             ...(prototype&&study!=='none'?[{type:'line',name:study==='sma3'?'SMA 3':study.toUpperCase(),data:study==='ema9'?ema(9):study==='ema20'?ema(20):study==='ema200'?ema(200):study==='vwap'?vwap:overlay,showSymbol:false,connectNulls:false,lineStyle:{width:2,color:'#e9bc72'},itemStyle:{color:'#e9bc72'},smooth:false}]:[]),
             ...(prototype&&compare?[9,20,200].map(period=>({type:'line',name:'EMA '+period,data:ema(period),showSymbol:false,connectNulls:false,lineStyle:{width:period===200?2.8:2,color:period===9?'#f4ce79':period===20?'#80b9ff':'#ed86cd'},itemStyle:{color:'#f4ce79'},smooth:false})):[]),
@@ -665,6 +674,40 @@ function Classroom(){
         {typingId&&typedCount<(chat.at(-1)?.text.length||0)&&<span role="status" className="tc-muted">Talia is displaying her explanation…</span>}
       </div>
       {busy&&<p className="tc-wait" role="status">Talia is preparing a source-grounded reply… <button type="button" onClick={()=>pending.current?.abort()}>Stop</button></p>}
+      <form onSubmit={send} className="tc-composer">
+        <label htmlFor="tc-question">Your question or follow-up</label>
+        <textarea id="tc-question" value={question} onChange={e=>setQuestion(e.target.value)}
+          onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())}}}
+          maxLength={450} rows={3} placeholder="Message Talia… Enter to send · Shift+Enter for a new line" disabled={!member||busy||!!checkpoint}/>
+        <div className="tc-row"><label htmlFor="tc-mode">Teaching mode</label>
+          <select id="tc-mode" value={mode} onChange={e=>setMode(e.target.value as Mode)} disabled={!member||busy||(lessonKind!==null&&stageIndex>=3)}>
+            <option value="explain">Explain concept</option><option value="question">Guided self-check</option>
+            <option value="review">Review reasoning (ungraded)</option><option value="practice">Recommend practice</option>
+          </select><span className="tc-muted">{question.length}/450</span>
+        </div>
+        {mode==='review'&&<><label htmlFor="tc-reasoning">Your reasoning (ungraded)</label>
+          <textarea id="tc-reasoning" value={reasoning} onChange={e=>setReasoning(e.target.value)} maxLength={1800} rows={3} disabled={!member||busy}/>
+          <fieldset><legend>Optional verified fictional calculation</legend>
+            <label htmlFor="tc-practice-case">Practice case</label>
+            <select id="tc-practice-case" value={practiceCase} onChange={e=>{
+              const next=e.target.value as typeof practiceCase;setPracticeCase(next);setPracticeValue('');
+              if(next==='canonical_candle_body_pct')setQuestion('Review my fictional candle body percentage calculation.');
+              if(next==='canonical_vwap_trade_groups')setQuestion('Review my fictional volume weighted average price calculation.');
+            }} disabled={!member||busy}>
+              <option value="none">No numerical verification</option>
+              <option value="canonical_candle_body_pct">Candle: O 31, H 32.50, L 30.50, C 32 — body % of range</option>
+              <option value="canonical_vwap_trade_groups">VWAP: 200 shares at $8, 100 shares at $10</option>
+            </select>
+            {practiceCase!=='none'&&<><label htmlFor="tc-practice-value">Your numerical result</label>
+              <input id="tc-practice-value" inputMode="decimal" value={practiceValue} onChange={e=>setPracticeValue(e.target.value.slice(0,24))} disabled={!member||busy}/>
+              <p className="tc-muted">Talia recomputes this public fictional case on the server, explains a verified known error when the number supports one, then gives a different transfer case. This is not an official grade.</p></>}
+          </fieldset></>}
+        <div className="tc-row tc-row-between">
+          <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
+          <button type="submit" disabled={!member||busy||!!checkpoint||question.trim().length<4}>Send to Talia</button>
+        </div>
+        {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
+      </form>
       <div className="tc-chipbar" aria-label="Example questions">
         {EXAMPLES.map(item=><button type="button" key={item} disabled={busy||!!checkpoint} onClick={()=>void submitTutor(item,'explain','')}>{item}</button>)}
       </div>
@@ -757,40 +800,7 @@ function Classroom(){
         </div>
         <p className="tc-muted">Ungraded teaching aid. These prompts do not advance a Lab stage, generate mastery credits, or record a protected assessment.</p>
       </section>}
-      <form onSubmit={send} className="tc-composer">
-        <label htmlFor="tc-question">Your question or follow-up</label>
-        <textarea id="tc-question" value={question} onChange={e=>setQuestion(e.target.value)}
-          onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())}}}
-          maxLength={450} rows={3} placeholder="Message Talia… Enter to send · Shift+Enter for a new line" disabled={!member||busy||!!checkpoint}/>
-        <div className="tc-row"><label htmlFor="tc-mode">Teaching mode</label>
-          <select id="tc-mode" value={mode} onChange={e=>setMode(e.target.value as Mode)} disabled={!member||busy||(lessonKind!==null&&stageIndex>=3)}>
-            <option value="explain">Explain concept</option><option value="question">Guided self-check</option>
-            <option value="review">Review reasoning (ungraded)</option><option value="practice">Recommend practice</option>
-          </select><span className="tc-muted">{question.length}/450</span>
-        </div>
-        {mode==='review'&&<><label htmlFor="tc-reasoning">Your reasoning (ungraded)</label>
-          <textarea id="tc-reasoning" value={reasoning} onChange={e=>setReasoning(e.target.value)} maxLength={1800} rows={3} disabled={!member||busy}/>
-          <fieldset><legend>Optional verified fictional calculation</legend>
-            <label htmlFor="tc-practice-case">Practice case</label>
-            <select id="tc-practice-case" value={practiceCase} onChange={e=>{
-              const next=e.target.value as typeof practiceCase;setPracticeCase(next);setPracticeValue('');
-              if(next==='canonical_candle_body_pct')setQuestion('Review my fictional candle body percentage calculation.');
-              if(next==='canonical_vwap_trade_groups')setQuestion('Review my fictional volume weighted average price calculation.');
-            }} disabled={!member||busy}>
-              <option value="none">No numerical verification</option>
-              <option value="canonical_candle_body_pct">Candle: O 31, H 32.50, L 30.50, C 32 — body % of range</option>
-              <option value="canonical_vwap_trade_groups">VWAP: 200 shares at $8, 100 shares at $10</option>
-            </select>
-            {practiceCase!=='none'&&<><label htmlFor="tc-practice-value">Your numerical result</label>
-              <input id="tc-practice-value" inputMode="decimal" value={practiceValue} onChange={e=>setPracticeValue(e.target.value.slice(0,24))} disabled={!member||busy}/>
-              <p className="tc-muted">Talia recomputes this public fictional case on the server, explains a verified known error when the number supports one, then gives a different transfer case. This is not an official grade.</p></>}
-          </fieldset></>}
-        <div className="tc-row tc-row-between">
-          <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
-          <button type="submit" disabled={!member||busy||!!checkpoint||question.trim().length<4}>Send to Talia</button>
-        </div>
-        {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
-      </form>
+
       <p className="tc-status" role="status" aria-live="polite">{status}</p>
       <div className="tc-row tc-actions">
         <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setPracticeCase('none');setPracticeValue('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setPerspective('Understand');setMethod('I DO');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);
