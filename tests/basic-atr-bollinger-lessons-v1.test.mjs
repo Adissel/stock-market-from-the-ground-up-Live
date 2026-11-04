@@ -11,7 +11,7 @@ test('both lessons preserve authored curriculum and add complete indicator-workb
  for(const [id,study] of [['DT-C19-L03','atr'],['F3-C07-L04','bollinger']]){
   const row=bridge[id];assert.equal(row.indicatorLesson.studyId,study);assert.match(row.indicatorLesson.mappingStatus,/EDITORIAL_REVIEW_PENDING/);
   assert.equal(row.indicatorLesson.historicalData,false);assert.equal(row.indicatorLesson.officialGrade,false);
-  const lesson=math.definitions[study];assert.match(lesson.workedPrompt,/Fictional/i);assert.match(lesson.transferPrompt,/NEW fictional/i);
+  const lesson=math.definitions[study];assert.match(lesson.workedPrompt,/Simulated/i);assert.match(lesson.transferPrompt,/NEW simulated/i);
   assert(lesson.intro.length>60);assert(lesson.limitation.length>80);assert.equal(lesson.units,'USD/share');
   assert(row.tabs.understand.length>=3);assert(row.tabs.apply.length>=3);assert(row.tabs.mistake.length>=3);
   assert.equal(row.transfer.graded,false);assert.equal(row.transfer.noLookahead,true);assert.equal(row.transfer.requiresNewEvidence,true);
