@@ -65,12 +65,25 @@ class E{
  insertBefore(x,y){const i=this.children.indexOf(y);if(i<0)this.append(x);else this.children.splice(i,0,x)}
  setAttribute(k,v){this.attrs[k]=String(v)}
  addEventListener(k,fn){this.handlers[k]=fn}
- focus(){}
+ querySelector(selector){
+  if(selector!=='input')throw Error('Unsupported DOM test selector: '+selector);
+  const find=node=>{
+   for(const child of node.children||[]){
+    if(child?.tagName==='input')return child;
+    const nested=child&&typeof child==='object'?find(child):null;
+    if(nested)return nested;
+   }
+   return null;
+  };
+  return find(this);
+ }
+ focus(){this.focused=true}
 }
 const doc={createElement:t=>new E(t),createTextNode:t=>{const x=new E('text');x.textContent=t;return x}};
 const world=createContext({document:doc,console});
 new Script(read('assets/js/lab-v33-instruction-content.js')).runInContext(world);
 new Script(read('assets/js/lab-v34-interactive-lessons.js')).runInContext(world);
+new Script(read('assets/js/learning-response-choice-v1.js')).runInContext(world);
 new Script(instructor).runInContext(world);
 const walk=n=>[n,...(n.children||[]).flatMap(walk)];
 let passed=0;
@@ -81,19 +94,24 @@ const teacher=world.GroundUpLabV33Instructor.create({
 const nodes=walk(teacher.element);
 const action=nodes.find(n=>n.textContent==='Check my understanding');
 const prompt=nodes.find(n=>n.className==='gu-v33-instructor-prompt');
-const answer=nodes.find(n=>n.tagName==='textarea'&&n.placeholder?.includes('evidence'));
+const choicePanel=nodes.find(n=>n.className==='gu-v33-evidence-decision');
 const submit=nodes.find(n=>n.tagName==='button'&&n.textContent==='Submit answer');
 const feedback=nodes.find(n=>n.className==='gu-v33-instructor-reply');
-assert(action&&answer&&submit&&feedback&&prompt);
+assert(action&&choicePanel&&submit&&feedback&&prompt,'Current classroom method-check controls must exist');
 action.handlers.click();
 assert.match(prompt.textContent,/Which prices determine/);
-answer.value='High and low';
+assert.equal(choicePanel.hidden,false,'Evidence choices appear after deliberate understanding check');
 await submit.handlers.click();
-assert.equal(passed,0,'An incorrect formative explanation cannot advance');
-assert.match(feedback.textContent,/important part missing|Not yet/i,'Incorrect reasoning must receive actionable correction without awarding progress');
-answer.value='The body connects the open and close prices for a completed candle interval.';
-await submit.handlers.click();
-assert.equal(passed,1,'Accepted understanding must advance exactly once');
+assert.equal(passed,0,'Missing choice must not advance');
+assert.match(feedback.textContent,/Choose an evidence-handling response/i);
+const radio=code=>walk(choicePanel).find(n=>n.tagName==='input'&&n.type==='radio'&&n.value===code);
+const wrong=radio('FORECAST'),correct=radio('EVIDENCE');
+assert(wrong&&correct,'Original evidence-choice alternatives must be visible');
+wrong.handlers.change();await submit.handlers.click();
+assert.equal(passed,0,'An incorrect evidence-handling method cannot advance');
+assert.match(feedback.textContent,/Not yet/i,'Incorrect selection receives retry guidance');
+correct.handlers.change();await submit.handlers.click();
+assert.equal(passed,1,'Accepted evidence-handling method advances once, without mastery credit');
 assert.equal(typeof teacher.teachWorkedStep,'function');
 assert.equal(typeof teacher.teachSupplement,'function');
 assert.equal(world.GroundUpLabV33Instructor.create({stage:3}),null);
