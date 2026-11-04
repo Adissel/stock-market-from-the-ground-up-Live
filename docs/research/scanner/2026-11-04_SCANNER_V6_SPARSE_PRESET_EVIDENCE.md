@@ -45,3 +45,6 @@ Footer: Technical implementation is not a licensed market-data feed, legal opini
 
 ## Existing sitewide CI drift repair — November 4
 The source-acceptance workflow expected old homepage Member Status cache-version strings and the old visible LIVE DATA badge. Current main already loads `home-community.js?v=20261104-verified-live1` and `home-member-stats.css?v=20261104-live-compact1`, displays the compact LIVE label and retains a full accessible LIVE DATA source description. The updated test checks the exact implemented versions and accessible provenance, EXAMPLE and UNAVAILABLE handling; no member counts or homepage functionality are modified. This cross-workstream CI repair does not receive scanner milestone credit.
+
+## Git reference and CI integrity
+The branch was restored after an external ref disappearance; only a green check set against the final, attached PR head can authorize merging. The restored branch still contains the identical scanner code and the strict source-contract fixes; private account and production release gates remain pending.
