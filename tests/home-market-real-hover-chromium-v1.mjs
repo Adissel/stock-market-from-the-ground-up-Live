@@ -29,6 +29,13 @@ try{
  await page.waitForFunction(()=>document.querySelector('.cl-react-plot canvas')!==null,{timeout:12000});
  assert.equal(errors.length,0,'No React or ECharts page errors');
  const rect=await plot.boundingBox();assert(rect,'Real chart is sized');
+ const initialAxis=await page.evaluate(()=>{
+  const chart=window.echarts.getInstanceByDom(document.querySelector('.cl-react-plot'));
+  const option=chart.getOption();
+  return {slots:option.xAxis[0].data.length,observed:option.series[0].data.filter(Array.isArray).length};
+ });
+ assert.equal(initialAxis.observed,1,'Only the one forming candle is initially observed');
+ assert(initialAxis.slots>=45&&initialAxis.slots<=72,'Desktop opens with compact bar pitch and empty future slots');
  // The approved single-candle reveal starts with one forming candle and a
  // substantial empty right buffer. An arbitrary center hover targets EMPTY
  // future time, not a visible candle. Use the actual ECharts price/time
@@ -73,6 +80,11 @@ try{
  await page.getByRole('button',{name:'Replay',exact:true}).click();
  await page.waitForFunction(()=>document.querySelector('.cl-react-progress')?.textContent?.includes('Forming B01'));
  await page.setViewportSize({width:390,height:800});
+ await page.waitForFunction(()=>{
+  const plot=document.querySelector('.cl-react-plot');
+  const chart=plot&&window.echarts?.getInstanceByDom(plot);
+  return chart&&chart.getOption().xAxis[0].data.length<=30;
+ },null,{timeout:5000});
  const selects=page.locator('.cl-react-toolbar select');
  assert.equal(await selects.count(),4,'The public homepage exposes four selectors and automatic candle-speed alternation');
  for(let i=0;i<3;i++){const b=await selects.nth(i).boundingBox();assert(b&&b.x>=0&&b.x+b.width<=392,'Mobile control remains inside viewport');}

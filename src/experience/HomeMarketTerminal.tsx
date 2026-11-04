@@ -155,7 +155,11 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
   const chart=chartInstance.current;if(!chart)return;
   const cfg=settings.current,bars=revealedBars(cfg.frame,playhead.current);
   shown.current=bars;focusIndex.current=Math.min(focusIndex.current,bars.length-1);
-  const rightBuffer=bars.length<12?12:8;
+  // Keep early candles close together at every viewport width. Empty future
+  // slots are only spacing, never completed or preloaded OHLCV observations.
+  const plotWidth=host.current?.clientWidth||900;
+  const targetSlots=Math.max(22,Math.min(72,Math.ceil(plotWidth/18)));
+  const rightBuffer=Math.max(8,targetSlots-bars.length);
   const labels=bars.map((_,i)=>'B'+String(i+1).padStart(2,'0'))
    .concat(Array.from({length:rightBuffer},()=> ' '));
   const padding=Array(rightBuffer).fill('-');
@@ -218,7 +222,7 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
     if(!api||!host.current||disposed)throw Error('Chart library unavailable');
     chart=api.init(host.current);chartInstance.current=chart;
     paint(true);
-    observer=new ResizeObserver(()=>chart?.resize());observer.observe(host.current);
+    observer=new ResizeObserver(()=>{chart?.resize();paint();});observer.observe(host.current);
     setNote('Interactive simulated OHLCV · Forming candles · Wheel to zoom · Drag to pan');
    }catch{if(!disposed)setNote('Interactive library unavailable. Open Chart Studio for practice.')}
   };

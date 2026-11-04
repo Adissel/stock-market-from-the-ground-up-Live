@@ -14,7 +14,7 @@ const labels=[
  'data-product-code="MARKET_SIMULATOR"',
  'simulator-beta-scope-heading',
  '4 MiB CSV','20,000 OHLCV candles',
- 'fictional teaching candles','not independently verified',
+ 'simulated teaching candles','not independently verified',
  'Browser-imported CSVs','brokerage execution platform',
  'do not reveal which occurred first',
  'verified historical','published',
