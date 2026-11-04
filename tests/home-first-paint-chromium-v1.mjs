@@ -8,9 +8,7 @@ import {chromium} from 'playwright';
 const base=process.env.SITEWIDE_TEST_BASE||'http://127.0.0.1:8765';
 const html=readFileSync('index.html','utf8')
  .replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,tag=>
-  tag.includes('home-stable-first-paint-v1.js')?tag:'')
- .replace('</head>','<link rel="stylesheet" href="/assets/css/crownlight-page-workspace-v2.css">'+
-  '<link rel="stylesheet" href="/assets/css/crownlight-page-style-visibility-v3.css"></head>');
+  tag.includes('home-stable-first-paint-v1.js')?tag:'');
 const browser=await chromium.launch({headless:true,args:['--no-sandbox','--disable-dev-shm-usage']});
 const page=await browser.newPage({viewport:{width:1620,height:920}});
 const visibility=()=>page.evaluate(()=>{
