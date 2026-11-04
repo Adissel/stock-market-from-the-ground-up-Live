@@ -1,7 +1,7 @@
 /* Read-only public-copy provenance audit; no database access or credentials. */
 import {readFileSync,readdirSync,appendFileSync} from 'node:fs';
 import path from 'node:path';
-const roots=['.','assets/js','src','functions'];
+const roots=['.']; // Root recursion visits each allowed source exactly once.
 const hits=[];
 const blocked=new Set(['node_modules','.git','tests','docs','data','supabase','workers','public']);
 function walk(folder,depth=0){
