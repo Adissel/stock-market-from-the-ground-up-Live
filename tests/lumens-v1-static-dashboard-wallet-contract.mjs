@@ -31,6 +31,10 @@ assert.match(legacy,/balance\.included\+balance\.purchased\+balance\.manual!==ba
  'Credit bucket totals must reconcile before presentation');
 assert.match(legacy,/\['wallet','Crownlight Lumens Wallet'\]/);
 assert.match(legacy,/if\(preservedWalletPanel\)host\.appendChild\(preservedWalletPanel\)/);
+assert(test.includes(String.raw`return /^\d{1,3}(,\d{3})*$/.test(total)`),
+ 'Genuine browser balance regex must match digits, not a literal backslash-d');
+assert(test.includes(String.raw`match(/\d/)`),
+ 'Safe browser failure diagnostic must detect ordinary decimal digits');
 assert.match(test,/#member-sparks-wallet/);
 assert.match(test,/sparks-wallet-total/);
 assert.doesNotMatch(html,/<small>never expires<\/small>/,

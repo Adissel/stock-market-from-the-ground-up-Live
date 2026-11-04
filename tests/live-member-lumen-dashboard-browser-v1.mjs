@@ -52,11 +52,11 @@ try{
  await page.waitForFunction(()=>{
   const total=document.getElementById('sparks-wallet-total')?.textContent?.trim()||'';
   const status=document.getElementById('sparks-wallet-status')?.textContent||'';
-  return /^\\d{1,3}(,\\d{3})*$/.test(total)&&/verified/i.test(status);
+  return /^\d{1,3}(,\d{3})*$/.test(total)&&/verified/i.test(status);
  },null,{timeout:35000}).catch(async error=>{
   const state=await page.evaluate(()=>({
    hasWallet:!!document.getElementById('member-sparks-wallet'),
-   totalSet:!!document.getElementById('sparks-wallet-total')?.textContent?.match(/\\d/),
+   totalSet:!!document.getElementById('sparks-wallet-total')?.textContent?.match(/\d/),
    statusText:(document.getElementById('sparks-wallet-status')?.textContent||'').slice(0,150),
    hasDashboardContent:!!document.getElementById('dashboard-content'),
    memberContentShown:document.getElementById('dashboard-content')?.hidden===false,
