@@ -80,7 +80,7 @@ html body.tc-body .tc-chart-panel>.tc-row:last-child button{width:auto;padding:6
 html body.tc-body .tc-chart-panel>.tc-row:last-child label{font-size:12px}
 @media(max-width:970px){
  html body.tc-body .tc-terminal-grid.tc-terminal-split{grid-template-columns:minmax(0,1fr)}
- html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chart-panel{grid-column:1;grid-row:1;position:sticky;top:0;z-index:2;max-height:min(46dvh,410px);overflow:auto}
+ html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chart-panel{grid-column:1;grid-row:1;position:sticky;top:88px;z-index:2;max-height:min(43dvh,350px);overflow:auto}
  html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chat{grid-column:1;grid-row:2}
  html body.tc-body .tc-terminal-grid .tc-transcript{max-height:300px}
 }
@@ -89,6 +89,8 @@ html body.tc-body .tc-chart-panel>.tc-row:last-child label{font-size:12px}
  html body.tc-body .tc-top h1{font-size:22px}
  html body.tc-body .tc-terminal-controls{padding:7px}
  html body.tc-body .tc-terminal-grid>.tc-chart-panel,html body.tc-body .tc-terminal-grid>.tc-chat{padding:9px}
+ html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chart-panel{position:static;top:auto;max-height:none;overflow:visible}
+ html body.tc-body .tc-unified-chart .cx-chart-grabbable{height:280px!important}
  html body.tc-body .tc-unified-chart .cx-classic-visual-region{grid-template-columns:minmax(0,1fr)}
  html body.tc-body .tc-unified-chart .cx-classic-measurements dl{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:10px;margin:6px 0}
  html body.tc-body .tc-unified-chart .cx-classic-measurements dl>div{padding:5px 0}
