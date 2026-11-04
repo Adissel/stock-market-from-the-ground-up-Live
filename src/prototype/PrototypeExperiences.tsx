@@ -7,6 +7,7 @@
  */
 import React,{useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot,type Root} from 'react-dom/client';
+import {createPortal} from 'react-dom';
 
 type Page='a'|'b'|'c';
 type Topic='vwap'|'candle';
@@ -203,6 +204,69 @@ function ChartCustomizer(){
   <details><summary>Indicator colors and line styles</summary><div className="cx-chart-line-grid">{specs.map(ind=><div className="cx-chart-line-row" key={ind.id}><span>{ind.label}</span><input aria-label={ind.label+' line color'} type="color" value={style.colors[ind.id]||'#7f9cff'} onChange={e=>color(ind.id,e.target.value)}/><select aria-label={ind.label+' line type'} value={style.types[ind.id]||'solid'} onChange={e=>line(ind.id,e.target.value as 'solid'|'dashed'|'dotted')}><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></div>)}</div></details>
   <p className="cx-small">Visual settings are saved locally in this browser preview. Underlying prices and indicator calculations remain unchanged.</p>
  </section>;
+}
+type PrototypeMenu={x:number;y:number;view:'indicators'|'drawings';selected:string|null;custom:boolean};
+function PrototypeChartContextMenu({menu,close,setMenu,studio,prefs,appearance,setAppearance}:{
+ menu:PrototypeMenu|null;close:()=>void;setMenu:React.Dispatch<React.SetStateAction<PrototypeMenu|null>>;
+ studio:Studio;prefs:IndicatorPrefs;appearance:ChartAppearance;setAppearance:React.Dispatch<React.SetStateAction<ChartAppearance>>;
+}){
+ const box=useRef<HTMLDivElement>(null);
+ useEffect(()=>{
+  if(!menu)return;
+  const key=(event:KeyboardEvent)=>{if(event.key==='Escape'){event.preventDefault();close()}};
+  const outside=(event:PointerEvent)=>{if(box.current&&!box.current.contains(event.target as Node))close()};
+  document.addEventListener('keydown',key);document.addEventListener('pointerdown',outside,true);
+  return()=>{document.removeEventListener('keydown',key);document.removeEventListener('pointerdown',outside,true)};
+ },[menu,close]);
+ useEffect(()=>{
+  if(!menu||!box.current)return;
+  const el=box.current;
+  el.style.left=Math.max(8,Math.min(menu.x,window.innerWidth-el.offsetWidth-8))+'px';
+  el.style.top=Math.max(8,Math.min(menu.y,window.innerHeight-Math.min(el.offsetHeight,window.innerHeight-16)-8))+'px';
+ },[menu]);
+ if(!menu)return null;
+ const selected=specs.find(x=>x.id===menu.selected);
+ const permitted=selected?studyAllowed(studio,selected.id):false;
+ const help='Locked in Standard preview — Advanced or Professional Chart Studio required. This design preview never grants membership access.';
+ const changeLine=(color:string)=>selected&&setAppearance(a=>({...a,colors:{...a.colors,[selected.id]:color}}));
+ const changeStyle=(type:'solid'|'dashed'|'dotted')=>selected&&setAppearance(a=>({...a,types:{...a.types,[selected.id]:type}}));
+ const field=(key:string,label:string,min:number,max:number,step=1)=><label key={key} className="cx-context-setting">{label}<input type="number" min={min} max={max} step={step} value={prefs.settings[key]??min} onChange={e=>prefs.setSettings(key,Math.max(min,Math.min(max,Number(e.target.value)||min)))}/></label>;
+ const activate=(id:string,period?:number)=>{
+  if(!studyAllowed(studio,id)){setMenu(m=>m?{...m,selected:id}:m);return}
+  if(period!==undefined){const study=specs.find(x=>x.id===id);if(study?.setting)prefs.setSettings(study.setting,period)}
+  prefs.setEnabled(id,true);close();
+ };
+ return createPortal(<div ref={box} className="cx-context-menu" role="dialog" aria-modal="false" aria-label="Prototype chart indicator context menu" style={{left:8,top:8}} onContextMenu={e=>e.preventDefault()}>
+  <div className="cx-context-head"><strong>CROWNLIGHT / CHART TOOLS</strong><button type="button" aria-label="Close chart menu" onClick={close}>×</button></div>
+  <nav className="cx-context-tabs" aria-label="Chart tool groups"><button aria-pressed={menu.view==='indicators'} onClick={()=>setMenu({...menu,view:'indicators',selected:null,custom:false})}>Indicators</button><button aria-pressed={menu.view==='drawings'} onClick={()=>setMenu({...menu,view:'drawings',selected:null,custom:false})}>Drawings</button></nav>
+  {menu.view==='indicators'?<div className="cx-context-columns">
+   <div className="cx-context-indicator-list" role="group" aria-label="All 16 computed prototype chart studies">
+    {specs.map(item=><button type="button" key={item.id} data-prototype-indicator={item.id} className={menu.selected===item.id?'is-selected':''} aria-pressed={menu.selected===item.id} aria-disabled={!studyAllowed(studio,item.id)} title={studyAllowed(studio,item.id)?item.family:help}
+      onMouseEnter={()=>setMenu(m=>m&&m.view==='indicators'?{...m,selected:item.id,custom:false}:m)}
+      onFocus={()=>setMenu(m=>m&&m.view==='indicators'?{...m,selected:item.id,custom:false}:m)}
+      onClick={()=>setMenu(m=>m?{...m,selected:item.id,custom:false}:m)}>
+      <span>{item.label}</span><small>{studyAllowed(studio,item.id)?prefs.enabled[item.id]?'ACTIVE':'AVAILABLE':'LOCKED · ADVANCED'}</small>
+     </button>)}
+   </div>
+   <div className="cx-context-detail" aria-live="polite">{selected?<><strong>{selected.label}</strong><p>{selected.family} · {selected.placement}</p>
+    {!permitted?<p className="cx-context-locked">{help}</p>:<>
+     {selected.id==='EMA_FAST'||selected.id==='EMA_SLOW'||selected.id==='EMA_200'?<div className="cx-context-presets">{[9,20,200].map(period=><button key={period} type="button" onClick={()=>activate(period===9?'EMA_FAST':period===20?'EMA_SLOW':'EMA_200',period)} disabled={!studyAllowed(studio,period===9?'EMA_FAST':period===20?'EMA_SLOW':'EMA_200')}>EMA {period}{studio==='Standard'&&period===200?' · Locked':''}</button>)}</div>:null}
+     <button type="button" onClick={()=>activate(selected.id)}>Add / show {selected.label}</button>
+     <button type="button" aria-expanded={menu.custom} onClick={()=>setMenu({...menu,custom:!menu.custom})}>{menu.custom?'Hide custom settings':'Custom settings · calculation and appearance'}</button>
+     {menu.custom&&<div className="cx-context-editor">
+       {selected.setting?field(selected.setting,selected.id==='EMA_200'?'EMA long period':selected.label+' period',selected.id==='EMA_200'?100:2,selected.id==='EMA_200'?400:200):null}
+       {selected.id==='BB'?field('bbDeviation','Standard-deviation multiplier',.5,4,.1):null}
+       {selected.id==='MACD'?<>{field('macdFast','MACD fast',2,50)}{field('macdSlow','MACD slow',3,100)}{field('macdSignal','MACD signal',2,50)}</>:null}
+       <label>Line color<input type="color" value={appearance.colors[selected.id]||'#7f9cff'} onChange={e=>changeLine(e.target.value)}/></label>
+       <label>Line style<select value={appearance.types[selected.id]||'solid'} onChange={e=>changeStyle(e.target.value as 'solid'|'dashed'|'dotted')}><option value="solid">Solid</option><option value="dashed">Dashed</option><option value="dotted">Dotted</option></select></label>
+       <button type="button" onClick={()=>{prefs.setEnabled(selected.id,true);close()}}>Apply to chart</button>
+      </div>}
+    </>}
+    </>:<p>Hover, focus or select any supported indicator to inspect presets, settings and tier requirements.</p>}
+   </div>
+  </div>:<div className="cx-context-drawings"><strong>Drawing controls</strong><p>Drawing placement is only available where a prototype chart has an implemented time/price drawing adapter. Selecting a tool here does not activate unsupported drawing behavior.</p>{['Horizontal price level','Trendline','Fibonacci levels','Rectangle / range','Annotation'].map((name,i)=><div key={name} className="cx-context-locked">{name} · {studio==='Standard'&&i>0?'Locked · Advanced preview required':'Drawing adapter not yet connected'}</div>)}</div>}
+  <p className="cx-context-foot">Fictional revealed OHLCV only · {studio} design preview · no entitlement changes</p>
+ </div>,document.body);
 }
 function IndicatorDock(){
  const prefs=React.useContext(IndicatorContext);
@@ -409,6 +473,8 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
  },[kind,reveal,showVolume,showEma,showProxy,focusBar,design,settings,enabled,actualHeight,syncGroup,chartRole,barLook,appearance,forming]);
  return <div className="cx-interactive-chart">
  {kind==='price'&&<div className="cx-pan-controls" role="toolbar" aria-label="Chart navigation and panning">
+    <button type="button" aria-label="Open chart indicator context menu" onClick={e=>{const r=e.currentTarget.getBoundingClientRect();window.dispatchEvent(new CustomEvent('crownlight:prototype-chart-menu',{detail:{x:r.left,y:r.bottom+6,view:'indicators'}}))}}>Indicators menu</button>
+    <button type="button" aria-label="Open chart drawing controls" onClick={e=>{const r=e.currentTarget.getBoundingClientRect();window.dispatchEvent(new CustomEvent('crownlight:prototype-chart-menu',{detail:{x:r.left,y:r.bottom+6,view:'drawings'}}))}}>Drawings</button>
     <span>DRAG CHART TO PAN · SCROLL WHEEL TO ZOOM · RANGE SLIDER TO NAVIGATE</span>
     <button aria-label="Pan chart left" onClick={()=>moveWindow(-1)}>← Pan</button>
     <button aria-label="Pan chart right" onClick={()=>moveWindow(1)}>Pan →</button>
@@ -1109,6 +1175,19 @@ function Suite({page}:{page:Page}){
  const [planCode,setPlanCode]=useState('FREE'),[studio,setStudio]=useState<Studio>('Standard'),[design,setDesign]=useState<Design>('quantum');
  const [selectedEditions,setSelectedEditions]=useState<{learning:EngineEdition;lab:EngineEdition;tutor:EngineEdition}>(editionPolicy.FREE);
  const [topic,setTopic]=useState<Topic>('vwap'),[stage,setStage]=useState(2),[reveal,setReveal]=useState(1),[volume,setVolume]=useState(true),[ema,setEma]=useState(true),[proxy,setProxy]=useState(true),[focus,setFocus]=useState(0);
+ const [chartMenu,setChartMenu]=useState<PrototypeMenu|null>(null);
+ const closeChartMenu=useCallback(()=>setChartMenu(null),[]);
+ const openChartMenu=useCallback((x:number,y:number,view:'indicators'|'drawings'='indicators')=>{
+  setChartMenu({x,y,view,selected:null,custom:false});
+ },[]);
+ useEffect(()=>{
+  const command=(event:Event)=>{
+   const d=(event as CustomEvent<{x:number;y:number;view:'indicators'|'drawings'}>).detail;
+   if(d&&Number.isFinite(d.x)&&Number.isFinite(d.y))openChartMenu(d.x,d.y,d.view);
+  };
+  window.addEventListener('crownlight:prototype-chart-menu',command);
+  return()=>window.removeEventListener('crownlight:prototype-chart-menu',command);
+ },[openChartMenu]);
  const [indicatorSettings,setIndicatorSettings]=useState<Record<string,number>>({...defaults});
  const [indicatorEnabled,setIndicatorEnabled]=useState<Record<string,boolean>>({...defaultVisible});
  const setSettings=(key:string,value:number)=>setIndicatorSettings(old=>({...old,[key]:Number.isFinite(value)?value:defaults[key]}));
@@ -1120,7 +1199,13 @@ function Suite({page}:{page:Page}){
  const theme=page==='b'?'quantum':design;
  const safeSetReveal=(v:number)=>{setReveal(v);setFocus(x=>Math.min(x,v-1));};
  const props={plan,studio,design:theme,topic,setTopic,stage,setStage,reveal,setReveal:safeSetReveal,volume,setVolume,ema,setEma,proxy,setProxy,focus:Math.min(focus,reveal-1),setFocus};
- return <ChartAppearanceContext.Provider value={{style:chartAppearance,setStyle:setChartAppearance}}><BarLookContext.Provider value={barLook}><IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page}><LayoutStudio page={page}/>
+ return <ChartAppearanceContext.Provider value={{style:chartAppearance,setStyle:setChartAppearance}}><BarLookContext.Provider value={barLook}><IndicatorContext.Provider value={indicatorPrefs}><div className={'cx-app cx-theme-'+design+' cx-page-'+page} onContextMenuCapture={e=>{
+  const target=e.target as HTMLElement;
+  if(!target.closest('.cx-chart-grabbable,.cx-home-shared-market'))return;
+  e.preventDefault();openChartMenu(e.clientX,e.clientY);
+ }}><LayoutStudio page={page}/>
+  <PrototypeChartContextMenu menu={chartMenu} close={closeChartMenu} setMenu={setChartMenu}
+   studio={studio} prefs={indicatorPrefs} appearance={chartAppearance} setAppearance={setChartAppearance}/>
   <header className="cx-top"><div className="cx-logo"><span className="cx-mark">CL</span><div><span>THE STOCK MARKET: FROM THE GROUND UP</span><strong>CROWNLIGHT / EXPERIENCE LABORATORY</strong></div></div><div className="cx-top-actions"><span>STAFF / READ ONLY</span><a className="cx-constellation-cta" href="/prototype.html?experience=map">NEW · Learning Constellation</a><a href="/prototype.html?view=classic">Classic Builder</a><a className="cx-exit-link" href="/admin.html">Exit prototype</a></div></header>
   <nav className="cx-pages" aria-label="Three prototype pages">{([['a','OPTION A','Six-design master workbench'],['b','OPTION B','Three flagship applications'],['c','OPTION C','Membership comparison']] as const).map(([k,t,s])=><a key={k} href={'/prototype.html?experience='+k} aria-current={page===k?'page':undefined}><b>{t}</b><small>{s}</small></a>)}</nav>
   <div className="cx-bar"><div><div className="cx-overline">CROWNLIGHT / PRODUCT EXPERIENCE · V12</div><h1>{page==='a'?'Chart Studio. From observation to decision.':page==='b'?'Three research and teaching workstations.':'Every membership. Full-quality teaching.'}</h1><p>{page==='a'?'Working market-style charts, 16 calculated studies, fictional replay, and integrated Talia teaching.':page==='b'?'Three distinct ECharts workstations, complete with interactive learning and chart controls.':'Compare authentic product concepts, not simulated entitlements or checkout.'}</p></div><span className="cx-beta">INTERNAL · FICTIONAL · READ ONLY</span></div>
