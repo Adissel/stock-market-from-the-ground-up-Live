@@ -1,0 +1,36 @@
+/* Crownlight Prototype Classic Labs + Boot Camps — shared Experience B chart.
+ * Only inside the authenticated Owner/Admin Prototype Center.
+ */
+#pt-root #pt-chart[data-classroom-chart="experience-b"]{height:auto!important;min-height:540px!important;overflow:visible!important;background:#081a2a}
+#pt-root #pt-chart .cx-classic-shared-chart{padding:12px;border:1px solid #40647b;border-radius:12px;background:#091c2c;min-width:0}
+#pt-root #pt-chart .cx-classic-chart-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;padding:10px 12px;border-bottom:1px solid #375b70}
+#pt-root #pt-chart .cx-classic-chart-top strong{font-size:18px;color:#eefaff}
+#pt-root #pt-chart .cx-classic-chart-top p{font-size:15px;line-height:1.6;color:#d0e6f0;margin:6px 0}
+#pt-root #pt-chart .cx-classic-chart-top>span{font-size:11px;color:#62e6bd;white-space:nowrap}
+#pt-root #pt-chart .cx-classic-chart-controls{display:flex;flex-wrap:wrap;align-items:flex-end;gap:8px;padding:12px}
+#pt-root #pt-chart .cx-classic-chart-controls label{display:grid;gap:5px;color:#d8eff6;font-size:12px;min-width:140px}
+#pt-root #pt-chart .cx-classic-chart-controls label:has(input[type=range]){min-width:min(230px,100%)}
+#pt-root #pt-chart .cx-classic-chart-controls select,#pt-root #pt-chart .cx-classic-chart-controls input{color:#f0fbff;background:#103047;border:1px solid #49748a;border-radius:6px;padding:7px;font-size:13px;min-height:36px;max-width:100%}
+#pt-root #pt-chart .cx-classic-chart-controls button{padding:6px 10px;font-size:12px;min-height:36px}
+#pt-root #pt-chart .cx-classic-chart-note{color:#cae4f1;line-height:1.65;font-size:14px;padding:10px 13px;border-left:3px solid #64e2c5;background:#113147}
+#pt-root #pt-chart .cx-classic-shared-chart>details{padding:10px;margin:12px 0;border:1px solid #3d677d;background:#0c2539;border-radius:8px}
+#pt-root #pt-chart .cx-classic-shared-chart>details>summary{font-size:15px;font-weight:750;color:#e6fbfb;cursor:pointer}
+#pt-root #pt-chart .cx-classic-shared-chart .cx-indicator-workbench{margin:14px 0;padding:14px;min-width:0}
+#pt-root #pt-chart .cx-classic-shared-chart .cx-pan-controls{padding:8px;gap:5px}
+#pt-root #pt-chart .cx-classic-shared-chart .cx-pan-controls button{min-height:34px;font-size:12px;padding:6px 8px}
+#pt-root #pt-chart .cx-classic-shared-chart .cx-interactive-chart{min-width:0}
+#pt-root #pt-experience[data-workspace="labs"] .pt-chart-controls,
+#pt-root #pt-experience[data-workspace="bootcamps"] .pt-chart-controls,
+#pt-root #pt-experience[data-workspace="labs"] .pt-inspector-head,
+#pt-root #pt-experience[data-workspace="bootcamps"] .pt-inspector-head,
+#pt-root #pt-experience[data-workspace="labs"] #pt-bar-inspector,
+#pt-root #pt-experience[data-workspace="bootcamps"] #pt-bar-inspector{display:none}
+@media(max-width:700px){
+ #pt-root #pt-chart .cx-classic-chart-top{flex-direction:column}
+ #pt-root #pt-chart .cx-classic-chart-controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+ #pt-root #pt-chart .cx-classic-chart-controls label{min-width:0}
+ #pt-root #pt-chart .cx-classic-chart-controls button{min-height:42px}
+ #pt-root #pt-chart .cx-classic-shared-chart .cx-pan-controls button{min-height:42px}
+}
+@media(max-width:440px){#pt-root #pt-chart .cx-classic-chart-controls{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){#pt-root #pt-chart .cx-classic-shared-chart *{animation:none!important;transition:none!important}}
