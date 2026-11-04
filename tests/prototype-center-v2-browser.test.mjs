@@ -206,6 +206,20 @@ try{
   await page.locator('[data-prototype-case]').waitFor({state:'visible'});
   await page.locator('#pt-nav button:has-text("Interactive Labs")').click();
   await page.locator('[data-prototype-case]').waitFor({state:'visible'});
+  // Classic Owner classroom now uses the exact 16-study React technical chart
+  // from Experience B, while protected case evidence remains in its own host.
+  const sharedChart=page.locator('#pt-chart .cx-classic-shared-chart');
+  await sharedChart.waitFor({state:'visible',timeout:20000});
+  assert.equal(await sharedChart.locator('.cx-chart-grabbable').count(),1,
+   'Classic Labs must mount the shared price chart, not an old duplicate simulator');
+  await sharedChart.locator('.cx-chart-grabbable').click({button:'right',position:{x:90,y:90}});
+  const menu=page.getByRole('dialog',{name:'Prototype chart indicator context menu'});
+  await menu.waitFor({state:'visible',timeout:8000});
+  assert.equal(await menu.locator('[data-prototype-indicator]').count(),16,
+   'Classic Labs must expose the same full computed study catalog as Experience B');
+  await menu.getByRole('button',{name:'Close chart menu'}).click();
+  await menu.waitFor({state:'hidden'});
+
   assert.match(await page.locator('[data-prototype-case]').textContent(),/Ungraded guided check/);
   await page.locator('[data-prototype-case] select[aria-label="Choose fictional instructional case"]').selectOption('1');
   assert.match(await page.locator('[data-prototype-case]').textContent(),/Visible 2 of 4 candles/);
