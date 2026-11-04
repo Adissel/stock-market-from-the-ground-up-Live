@@ -80,6 +80,7 @@ node --check assets/js/lab-engine-v32-universal.js
 node --check assets/js/academy-guided-v1.js
 node --check assets/js/bootcamp-academy-v014168.js
 node --test tests/learning-interactive-response-policy-v1.test.mjs
+node --test tests/evidence-based-mastery-learning-v1.test.mjs
 node --test tests/home-realistic-prototype-constellation-v1.test.mjs
 node --check assets/js/prototype-shared-learning-market-v1.js
 node --test tests/prototype-shared-learning-market-v1.test.mjs
