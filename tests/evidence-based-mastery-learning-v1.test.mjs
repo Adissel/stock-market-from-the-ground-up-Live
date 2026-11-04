@@ -12,7 +12,7 @@ test('approved nine-stage engine stays frozen; new quality standard is observati
  assert.equal(policy.status,'IMPLEMENTATION_BASELINE_UNGRADED');
  assert.deepEqual(policy.baseline.officialStages,['Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results']);
  assert.deepEqual(policy.learningDimensions,['Knowledge','Recognition','Decision-making','Process']);
- for(const token of ["'Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results'",'Official competency mastery'])assert.ok(lab.includes(token),token);
+ for(const token of ["'Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results'",'Independent competency mastery'])assert.ok(lab.includes(token),token);
  assert.match(guided,/Formative only\. Never unlock a Lab, give a grade/);
  assert.doesNotMatch(guided,/service_role|privateAnswerKey|\/api\/grade/i);
  assert.match(lab,/server-graded question bank after editorial acceptance/);
