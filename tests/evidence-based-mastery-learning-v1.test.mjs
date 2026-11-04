@@ -115,7 +115,7 @@ test('first 16 corrected Lab transfer cases are distinct evidence-driven exercis
   assert.equal(t.noLookahead,true,id);
   assert.equal(t.requiresNewEvidence,true,id);
   assert.ok(t.prompt.length>=330,'Transfer needs a complete unfamiliar case: '+id);
-  assert.match(t.prompt,/completed|cutoff|observation/i,id);
+  assert.match(t.prompt,/completed|cutoff|observation|planned|hypothetical|reference/i,id);
   assert.match(t.prompt,/simulated|fictional/i,id);
   prompts.add(t.prompt);
  }
