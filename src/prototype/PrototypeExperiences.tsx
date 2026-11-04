@@ -241,7 +241,7 @@ function PrototypeChartContextMenu({menu,close,setMenu,studio,prefs,appearance,s
   if(period!==undefined){const study=specs.find(x=>x.id===id);if(study?.setting)prefs.setSettings(study.setting,period)}
   prefs.setEnabled(id,true);close();
  };
- return createPortal(<div ref={box} className="cx-context-menu" role="dialog" aria-modal="false" aria-label="Prototype chart indicator context menu" style={{left:8,top:8}} onContextMenu={e=>e.preventDefault()}>
+ return createPortal(<div ref={box} className="cx-context-menu" data-selected={!!selected} role="dialog" aria-modal="false" aria-label="Prototype chart indicator context menu" style={{left:8,top:8}} onContextMenu={e=>e.preventDefault()}>
   <div className="cx-context-head"><strong>CROWNLIGHT / CHART TOOLS</strong><button type="button" aria-label="Close chart menu" onClick={close}>×</button></div>
   <nav className="cx-context-tabs" aria-label="Chart tool groups"><button aria-pressed={menu.view==='indicators'} onClick={()=>setMenu({...menu,view:'indicators',selected:null,custom:false})}>Indicators</button><button aria-pressed={menu.view==='drawings'} onClick={()=>setMenu({...menu,view:'drawings',selected:null,custom:false})}>Drawings</button></nav>
   {menu.view==='indicators'?<div className="cx-context-columns">
