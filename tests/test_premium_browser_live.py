@@ -88,6 +88,11 @@ with sync_playwright() as pw:
                     if width==940:
                         assert page.locator('.site-header .navlinks').is_visible(),(
                             'Legacy 980px breakpoint hid canonical desktop navigation at 940px')
+                    if width in [900,390]:
+                        page.locator('#v1341-mobile-menu').wait_for(state='visible',timeout=8500)
+                        assert page.locator('#v1341-mobile-menu').get_attribute('aria-label') in [
+                            'Open site navigation','Close site navigation'
+                        ],'Mobile menu lacks accessible navigation label'
                     assert page.locator('.site-header .sm-shell-menu').count()==0,(
                         'Legacy site-shell inserted a competing Home navigation controller')
                     assert page.locator('#v1341-mobile-menu').count()<=1,(
