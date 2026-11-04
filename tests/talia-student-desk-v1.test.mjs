@@ -71,9 +71,9 @@ test('Talia chart consumes only its revealed bar prefix for full plotted data an
 
 test('member and staff Tutor routes reuse one stylesheet and versioned build without changing homepage',()=>{
  const member=read('talia-classroom.html'),staff=read('talia-tutor-prototype.html'),gate=read('assets/js/talia-prototype-gate-v1.js');
- for(const h of [member,staff])assert.match(h,/talia-student-desk-v1\.css\?v=20261104-student-desk2/);
- assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk2/);
- assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk2/);
+ for(const h of [member,staff])assert.match(h,/talia-student-desk-v1\.css\?v=20261104-teaching-curriculum1/);
+ assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261104-teaching-curriculum1/);
+ assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261104-teaching-curriculum1/);
  assert.match(staff,/data-route-access="staff"/);
  assert.match(gate,/control_panel\.access/);
  assert.doesNotMatch(read('index.html'),/talia-student-desk-v1\.css/);
