@@ -149,19 +149,19 @@ const gates=[
   "talia-spectrum-v1.css"
  ],
  [
-  "Talia chart-first control",
+  "Talia chart-first student workspace",
   "src/tutor/TaliaClassroom.tsx",
-  "tc-terminal-controls"
+  "tc-student-workspace"
  ],
  [
-  "Talia tutor layout",
+  "Talia Tutor reading panel",
   "src/tutor/TaliaClassroom.tsx",
-  "setDock('tutor')"
+  "tc-transcript"
  ],
  [
-  "Talia chart focus",
+  "Talia compact chart evidence",
   "src/tutor/TaliaClassroom.tsx",
-  "setDock('chart')"
+  "tc-chart-heading"
  ],
  [
   "Talia visible-only candle data",
