@@ -1,0 +1,1465 @@
+{
+  "schema": "smfgu.talia.kdb.interactive.batch.v1",
+  "documentId": "SMFGU-TALIA-KDB-BATCH04-20261104",
+  "date": "2026-11-04",
+  "version": "1.0",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "projectId": "oxihglyfgzywsupnyicb",
+  "batch": 4,
+  "numberOfLessons": 50,
+  "trainingSurface": "Talia Classroom / Knowledge Database",
+  "status": "INTERACTIVE_SOURCE_LINKED_BETA_NOT_INDEPENDENTLY_APPROVED",
+  "source": "published visible gu_knowledge_articles_v1; content fetched after existing per-member authorization",
+  "lessons": [
+    {
+      "ordinal": 117,
+      "slug": "research-study-strategy-red-green-scanner",
+      "title": "Red to Green Scanner — evidence and risk research",
+      "subject": "Strategy Research / Scanner",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 118,
+      "slug": "research-study-strategy-squeeze-scanner",
+      "title": "Squeeze Candidate Scanner — evidence and risk research",
+      "subject": "Strategy Research / Scanner",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 119,
+      "slug": "research-study-strategy-day-three-squeeze",
+      "title": "Day Three Squeeze — evidence and risk research",
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 120,
+      "slug": "research-study-strategy-friday-squeeze",
+      "title": "Friday Squeeze Phenomenon — evidence and risk research",
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 121,
+      "slug": "research-study-strategy-panic-point-break",
+      "title": "Panic Point Break — evidence and risk research",
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 122,
+      "slug": "research-study-strategy-short-squeeze",
+      "title": "Short Squeeze or Capital Wave — evidence and risk research",
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 123,
+      "slug": "research-study-strategy-abcd",
+      "title": "ABCD Pattern — evidence and risk research",
+      "subject": "Strategy Research / Structure",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 124,
+      "slug": "research-study-strategy-resistance-breakout",
+      "title": "Resistance Breakout — evidence and risk research",
+      "subject": "Strategy Research / Technical Breakout",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 125,
+      "slug": "research-study-strategy-trendline-break",
+      "title": "Trendline Breakout — evidence and risk research",
+      "subject": "Strategy Research / Technical Breakout",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 126,
+      "slug": "research-study-strategy-ema21-pullback",
+      "title": "21 EMA Confluence Pullback — evidence and risk research",
+      "subject": "Strategy Research / Technical Pullback",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 127,
+      "slug": "research-study-strategy-support-bounce",
+      "title": "Support Bounce — evidence and risk research",
+      "subject": "Strategy Research / Technical Reversal",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 128,
+      "slug": "research-study-strategy-space-theme",
+      "title": "Space Theme Screening Workflow — evidence and risk research",
+      "subject": "Strategy Research / Theme Scanner",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 129,
+      "slug": "research-study-strategy-backside-short",
+      "title": "Backside Trend Break Short — evidence and risk research",
+      "subject": "Strategy Research / Trend Breakdown",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 130,
+      "slug": "research-study-strategy-alpha-anomaly",
+      "title": "Alpha Dark Anomaly Workflow — evidence and risk research",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learningLevel": "professional",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 131,
+      "slug": "research-study-strategy-alpha-manual",
+      "title": "Alpha Manual Override Workflow — evidence and risk research",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 132,
+      "slug": "research-study-strategy-flux-afternoon",
+      "title": "FLUX Afternoon Continuation — evidence and risk research",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 133,
+      "slug": "research-study-strategy-iris-score",
+      "title": "IRIS Score and Trigger Workflow — evidence and risk research",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learningLevel": "professional",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 134,
+      "slug": "research-study-strategy-oracle-double-tap",
+      "title": "Oracle Double Tap — evidence and risk research",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learningLevel": "professional",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 135,
+      "slug": "research-study-strategy-oracle-signal",
+      "title": "Oracle Signal Workflow — evidence and risk research",
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learningLevel": "professional",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 136,
+      "slug": "research-study-watch-alert-trigger",
+      "title": "Alerts versus validated entries — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 137,
+      "slug": "research-study-watch-risk-first-score",
+      "title": "Candidate quality without unsafe composite scoring — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 138,
+      "slug": "research-study-watch-universe-build",
+      "title": "Choose the correct security universe — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 139,
+      "slug": "research-study-watch-catalyst-scan",
+      "title": "Company catalyst verification queue — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 140,
+      "slug": "research-study-watch-multi-timeframe-watch",
+      "title": "Context setup and execution timeframe alignment — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 141,
+      "slug": "research-study-watch-candidate-state",
+      "title": "Discovery watch qualification and execution state machine — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 142,
+      "slug": "research-study-watch-dynamic-snapshot",
+      "title": "Dynamic scan snapshots and reproducibility — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 143,
+      "slug": "research-study-watch-event-calendar",
+      "title": "Earnings splits dividends offerings and economic events — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 144,
+      "slug": "research-study-watch-historical-runners",
+      "title": "Former runners and multi-day cohort lifecycle — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 145,
+      "slug": "research-study-watch-halt-ssr-borrow",
+      "title": "Halt LULD SSR and short-locate monitoring — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 146,
+      "slug": "research-study-watch-liquidity-scan",
+      "title": "Liquidity spread and dollar-volume gate — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 147,
+      "slug": "research-study-watch-relative-volume-scan",
+      "title": "Matched-time relative volume scanner — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 148,
+      "slug": "research-study-watch-strategy-lanes",
+      "title": "Multiple named strategy-specific watchlists — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 149,
+      "slug": "research-study-watch-no-trade-ledger",
+      "title": "No-trade and rejected candidate journal — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 150,
+      "slug": "research-study-watch-premarket-scan",
+      "title": "Premarket gappers with session isolation — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 151,
+      "slug": "research-study-watch-level-map",
+      "title": "Preplanned PMH PDH HOD LOD and VWAP levels — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 152,
+      "slug": "research-study-watch-rank-review-queue",
+      "title": "Prioritization and next-check scheduling — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 153,
+      "slug": "research-study-watch-identity-corporate",
+      "title": "Resolve identity splits and share changes — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 154,
+      "slug": "research-study-watch-discovery-filters",
+      "title": "Scanner inclusion exclusion and Boolean groups — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 155,
+      "slug": "research-study-watch-sector-relative",
+      "title": "Sector ETFs peers and benchmark-relative watchlist — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 156,
+      "slug": "research-study-watch-data-freshness",
+      "title": "Source timestamp and feed freshness — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 157,
+      "slug": "research-study-watch-watchlist-purpose",
+      "title": "Watchlist research purpose and time horizon — evidence and risk research",
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 4,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 158,
+      "slug": "knowledge-b003-call-intrinsic-extrinsic",
+      "title": "Call Intrinsic Value Versus Time Value",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 159,
+      "slug": "knowledge-b003-options-assignment-obligation",
+      "title": "Exercise, Assignment, and Option Contract Obligations",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 160,
+      "slug": "knowledge-b003-futures-tick-margin",
+      "title": "Futures Tick Value Versus Performance Bond",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 161,
+      "slug": "knowledge-b003-put-expiration-payoff",
+      "title": "Long Put Payoff and Premium at Expiration",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 162,
+      "slug": "knowledge-b003-greeks-local-approximation",
+      "title": "Options Greeks as Local Sensitivities",
+      "subject": "Derivatives / Contract Mechanics and Risk",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 163,
+      "slug": "knowledge-b002-account-cash-versus-buying-power",
+      "title": "Available Cash Versus Account Buying Power",
+      "subject": "Foundations / Accounts and Execution",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 164,
+      "slug": "knowledge-b002-risk-tolerance-time-horizon",
+      "title": "Investment Time Horizon and Risk Tolerance",
+      "subject": "Foundations / Financial Decisions",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 165,
+      "slug": "knowledge-b002-operating-cash-flow-versus-profit",
+      "title": "Operating Cash Flow Versus Reported Profit",
+      "subject": "Foundations / Financial Statements",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 166,
+      "slug": "knowledge-b002-income-statement-basic-arithmetic",
+      "title": "Revenue, Expenses, and Net Income",
+      "subject": "Foundations / Financial Statements",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    }
+  ]
+}
