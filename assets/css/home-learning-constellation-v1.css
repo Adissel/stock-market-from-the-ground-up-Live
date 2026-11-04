@@ -1,0 +1,35 @@
+/* Public, no-account Constellation: an accessible nine-step teaching teaser.
+ * Full Owner Learning Constellation remains protected on /prototype.html.
+ */
+.gu-lc-public{background:radial-gradient(ellipse at 28% 35%,#103d45 0%,transparent 49%),radial-gradient(ellipse at 85% 90%,#243354 0%,transparent 42%),#08131f;color:#e9f6fb;overflow:hidden}
+.gu-lc-public-wrap{padding-top:5px;padding-bottom:7px}
+.gu-lc-public-head{display:flex;justify-content:space-between;align-items:start;gap:24px;flex-wrap:wrap}
+.gu-lc-public-head h2{color:#ecf9ff;letter-spacing:-.035em;font-size:clamp(1.6rem,3.5vw,3rem);margin:5px 0 10px}
+.gu-lc-public-head h2 em{font-style:normal;background:linear-gradient(95deg,#50dfc1,#d6acff);background-clip:text;-webkit-background-clip:text;color:transparent}
+.gu-lc-public-head p{color:#bcd3df;max-width:68ch;line-height:1.6}
+.gu-lc-public-facts{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.gu-lc-public-facts span{padding:8px 13px;border:1px solid #477381;border-radius:9px;color:#d6e9f3;background:#0e2938;font-size:.76rem}
+.gu-lc-public-facts b{color:#b9ffe5;font-variant-numeric:tabular-nums}
+.gu-lc-public-grid{display:grid;grid-template-columns:minmax(0,1.4fr) minmax(300px,.8fr);gap:23px;align-items:stretch;margin-top:20px}
+.gu-lc-public-map{position:relative;min-width:0;overflow:hidden;border:1px solid #2e6775;border-radius:16px;background:radial-gradient(circle at center,#10334a 0%,#071c2c 52%,#060f19 100%);padding:23px;min-height:300px}
+.gu-lc-public-map::before{content:"";position:absolute;inset:9%;border:1px solid #45b79a38;border-radius:50%;transform:rotate(-18deg) scaleX(1.14);pointer-events:none}
+.gu-lc-public-orbit{position:absolute;inset:12%;border:1px dashed #66a4c53a;border-radius:50%;pointer-events:none;transform:rotate(22deg) scaleX(1.13)}
+.gu-lc-public-stages{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:13px;align-items:stretch;z-index:1}
+.gu-lc-public-stages button{display:flex;flex-direction:column;align-items:start;justify-content:space-between;gap:8px;min-width:0;min-height:76px;padding:12px 13px;color:#d6eef4;background:#102f41e8;border:1px solid #416b7e;border-radius:10px;font:650 .88rem/1.3 system-ui,sans-serif;cursor:pointer;text-align:left;transition:transform .15s,background .15s,border-color .15s}
+.gu-lc-public-stages button b{color:#8ee8d3;font-size:.75rem;font-variant-numeric:tabular-nums}
+.gu-lc-public-stages button:hover{background:#174054;transform:translateY(-2px)}
+.gu-lc-public-stages button[aria-pressed=true]{background:#155652;border:1px solid #87f8da;box-shadow:0 0 0 2px #5ccfaf31}
+.gu-lc-public-stages button:focus-visible{outline:3px solid #ffe3a0;outline-offset:2px}
+.gu-lc-public-boundary{position:relative;color:#a9cbce;font-size:.72rem;line-height:1.5;margin:15px 0 0}
+.gu-lc-public-detail{min-width:0;padding:22px 23px;border:1px solid #3d7080;border-radius:16px;background:linear-gradient(140deg,#123048,#0b2033)}
+.gu-lc-public-kicker{font-weight:800;font-size:.76rem;color:#85e5cc;letter-spacing:.13em}
+.gu-lc-public-detail h3{font-size:clamp(1.18rem,2.1vw,1.55rem);line-height:1.3;color:#effcf7;margin:10px 0}
+.gu-lc-public-detail p{line-height:1.65;color:#c5dbe6}
+.gu-lc-public-try{margin:16px 0;padding:14px;background:#09263b;border-left:3px solid #64c9b3;border-radius:7px}
+.gu-lc-public-try strong{color:#e1f6ee}
+.gu-lc-public-detail .actions{display:flex;flex-wrap:wrap;gap:10px;margin:18px 0}
+.gu-lc-public-detail .actions .btn{font-size:.8rem;white-space:normal}
+.gu-lc-public-detail small{color:#a4bfcd;display:block;line-height:1.6}
+@media(max-width:900px){.gu-lc-public-grid{grid-template-columns:1fr}.gu-lc-public-map{min-height:260px}.gu-lc-public-head{display:block}}
+@media(max-width:450px){.gu-lc-public-map{padding:12px}.gu-lc-public-stages{gap:8px}.gu-lc-public-stages button{padding:9px;min-height:65px;font-size:.73rem}.gu-lc-public-detail{padding:16px}}
+@media(prefers-reduced-motion:reduce){.gu-lc-public-stages button{transition:none}.gu-lc-public-stages button:hover{transform:none}}
