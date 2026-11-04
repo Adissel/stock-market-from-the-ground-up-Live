@@ -111,4 +111,4 @@ try{
   assert.match(src,/advancedToolContext\(env,request,'WATCHLIST_WORKBENCH'\)/);
   assert.match(sec,/secTierContext\(env,request\)/);
  });
-}finally{globalThis.fetch=old}
+}finally{globalThis.fetch=oldFetch}
