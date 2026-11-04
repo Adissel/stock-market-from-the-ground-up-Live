@@ -42,7 +42,13 @@ test('only the public homepage varies automatic speed between 0.1x and 0.4x',()=
 test('actual Prototype Center workspaces and all eight experiences replace static primary charts',()=>{
  assert.match(central,/function mountedPrototypeHomeChart\(\)/);
  assert.match(central,/\['labs','bootcamps'\]\.includes\(state\.id\)/);
- assert.match(central,/window\.CrownlightHomeMarketTerminal\.mountInto\(chartHost/);
+ assert.match(central,/module\.mountClassicClassroomChart\(host/);
+ assert.match(central,/caseBars:disclosedClassicBars\(\)/);
+ assert.match(central,/getChartCandles\?\.\(\)/);
+ assert.match(proto,/export function mountClassicClassroomChart\(/);
+ assert.match(proto,/function ClassicClassroomChart\(/);
+ assert.match(proto,/sourceBars=\{available\}/);
+ assert.match(protoHtml,/prototype-classic-shared-chart-v1\.css/);
  assert.match(central,/disposePrototypeHomeChart\(\)/);
  assert.match(central,/if\(state\.chart\)\{state\.resize\?\.disconnect/);
  assert.match(proto,/function HomeMarketEmbed\(/);
