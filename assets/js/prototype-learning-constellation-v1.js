@@ -24,8 +24,9 @@ const modes={journey:'Learning Journey',labs:'Lab Network',academy:'Boot Camp At
 const clamp=(x,a,b)=>Math.max(a,Math.min(b,x));
 const pretty=x=>String(x).replace(/_/g,' ').toLowerCase().replace(/\b[a-z]/g,c=>c.toUpperCase());
 
-export function mountLearningConstellation(host){
- if(!host)throw Error('Owner/Admin prototype host required');
+export function mountLearningConstellation(host,options={}){
+ const publicPreview=options.publicPreview===true;
+ if(!host)throw Error('Learning Constellation host required');
  const root=document.createElement('section');root.className='lc-app';
  root.innerHTML='<div class="lc-head"><div><span class="lc-eyebrow">CROWNLIGHT · VOLUMETRIC LEARNING GALAXY / PROTOTYPE V4</span>'+
  '<h1>THE LEARNING <em>CONSTELLATION</em></h1><p>Explore the full nine-stage learning journey, source-linked 419 Labs, ten Boot Camp paths and Talia teaching guides. The public homepage presents a limited educational showcase; this dimensional map stays protected.</p></div>'+
@@ -64,6 +65,18 @@ export function mountLearningConstellation(host){
  '<p data-lc="detail"></p></div><div class="lc-facts"><span class="lc-eyebrow">SOURCE EVIDENCE</span>'+
  '<ul data-lc="evidence"></ul></div><footer><b>EXPLAIN / TEACH IS ALWAYS FREE</b>'+
  '<p>Uses real curriculum indexes; no key exposure or future candle data.</p></footer></aside></div>';
+ // Public homepage reuses the exact dimensional map and its data-only nodes.
+ // Staff-only Prototype navigation remains inaccessible from this presentation.
+ if(publicPreview){
+  root.classList.add('lc-app--public');
+  root.querySelector('.lc-head .lc-eyebrow').textContent='CROWNLIGHT · INTERACTIVE LEARNING CONSTELLATION';
+  root.querySelector('.lc-head p').textContent='Explore the nine learning stages, the 419-Lab network, ten Boot Camp paths and Talia\'s source-based indicator guides. Select a node to explore the teaching evidence.';
+  const heading=root.querySelector('.lc-head h1');
+  const levelTwo=document.createElement('h2');levelTwo.innerHTML=heading.innerHTML;heading.replaceWith(levelTwo);
+  const side=root.querySelector('.lc-head-side');side.replaceChildren();
+  const label=document.createElement('strong');label.className='lc-live';
+  label.textContent='INTERACTIVE · EDUCATIONAL';side.append(label);
+ }
  host.replaceChildren(root);
  const q=n=>root.querySelector('[data-lc="'+n+'"]');
  const canvas=q('canvas'),world=q('world'),points=q('points'),svg=root.querySelector('.lc-edges'),galaxyCanvas=q('galaxy');
