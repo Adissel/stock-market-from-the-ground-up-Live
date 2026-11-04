@@ -645,6 +645,7 @@ async function ask(){
     'Stopped waiting in this browser. The server might already have reserved AI capacity; no retry will use a paid provider automatically.':
     e.message+(e.status===403?' Visit the Membership page to review access.':''),'error');
  }finally{
+  // Keep the member's Profile preference after each Tutor request.
   // A stale member request may never clear or re-enable the new member's UI.
   if(TUTOR.identityEpoch===submittingEpoch&&TUTOR.user?.id===submittingUser&&
      TUTOR.abortController===controller){

@@ -38,6 +38,7 @@ jobs:
           node --test tests/talia-final-main-source-crosswalk-v1.test.mjs
           node --test tests/talia-wave-a-core-gates-v1.test.mjs
           node --test tests/talia-wave-a-a07-a12-adversarial-v1.test.mjs
+          node --test tests/talia-unified-all-waves-source-gates-v1.test.mjs
           node scripts/qa/talia-foundation-source-quality-v1.mjs
           node --test tests/talia-historical-filing-availability-v1.test.mjs
           node tests/talia-classroom-instructional-methods-v1.test.mjs
