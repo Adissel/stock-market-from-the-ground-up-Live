@@ -31,6 +31,8 @@ try{
  await stage(0);await next.click();await stage(1);await next.click();await stage(2);
  const numbers=host.locator('.academy-guided-numeric input[type=number]');
  assert.equal(await numbers.count(),2);
+ const labels=await numbers.evaluateAll(inputs=>inputs.map(input=>String(input.getAttribute('aria-label')||input.labels?.[0]?.textContent||'').trim()));
+ assert(labels.every(name=>name.length>5),'Numeric input needs an accessible name');
  await numbers.nth(0).fill('9');await numbers.nth(1).fill('9');
  await next.click();await stage(2);
  assert.match(await host.locator('.academy-guided-feedback').innerText(),/Not yet/i);
@@ -43,6 +45,10 @@ try{
  const initial=await host.locator('.academy-guided-method-lab output').innerText();
  await slider.evaluate(e=>{e.value='80';e.dispatchEvent(new Event('input',{bubbles:true}))});
  assert.notEqual(await host.locator('.academy-guided-method-lab output').innerText(),initial);
+ const keyboardBefore=await host.locator('.academy-guided-method-lab output').innerText();
+ await slider.focus();await page.keyboard.press('ArrowRight');
+ assert.notEqual(await host.locator('.academy-guided-method-lab output').innerText(),keyboardBefore,
+  'Range control must respond to keyboard arrows');
  await next.click();await stage(4);await choose(true);await next.click();
  await stage(5);await choose(true);await next.click();
  await stage(6);await choose(false);await next.click();await stage(6);
@@ -57,5 +63,10 @@ try{
  assert.match(report,/Process and transfer[\s\S]*first unassisted method check/i);
  assert.match(report,/No member grades are written/);
  assert.equal(await host.locator('textarea[required]').count(),0);
- console.log('PASS component browser: wrong numerical answer, Talia teaching, free retry, changed risk slider, independent first selections, wrong assessment, correction and unfamiliar transfer; ungraded local-only.');
+ assert(await page.evaluate(()=>matchMedia('(prefers-reduced-motion: reduce)').matches),
+  'Browser reduced-motion preference was not honored');
+ await page.setViewportSize({width:390,height:844});
+ const sizes=await page.evaluate(()=>({viewport:innerWidth,document:document.documentElement.scrollWidth}));
+ assert(sizes.document<=sizes.viewport+12,'Ungraded classroom has mobile horizontal overflow: '+JSON.stringify(sizes));
+ console.log('PASS component browser: wrong numerical answer, Talia teaching, free retry, changed risk slider, independent first selections, wrong assessment, correction and unfamiliar transfer; ungraded local-only; accessible numeric labels, keyboard risk slider and 390px mobile smoke.');
 }finally{await browser.close()}
