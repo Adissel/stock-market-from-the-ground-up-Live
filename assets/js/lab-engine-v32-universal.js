@@ -80,13 +80,13 @@ function mathDiagnostic(kind,value){
 }
 const synthetic=Object.freeze({
  candle:{o:31,h:32.5,l:30.5,c:32,answer:50,units:'%',title:'Candlestick real body as a percentage of full range',
- description:'An illustrative candle opens at $31.00, has a high of $32.50 and low of $30.50 in an unknown order, and closes at $32.00. Calculate how much of its full range is body.',
+ description:'An simulated candle opens at $31.00, has a high of $32.50 and low of $30.50 in an unknown order, and closes at $32.00. Calculate how much of its full range is body.',
  steps:['Body (bullish):\nClose − Open = Body\n$32.00 (Close) − $31.00 (Open) = $1.00 (Body).','Full range:\nHigh − Low = Full Range\n$32.50 (High) − $30.50 (Low) = $2.00 (Range).','Body-to-range ratio:\nBody ÷ Full Range = Ratio\n$1.00 (Body) ÷ $2.00 (Range) = 0.50.','Convert to a percentage:\nRatio × 100 = Body Percentage\n0.50 × 100 = 50%.'],
- transfer:{prompt:'New illustrative candle: Open $12.40, High $12.70, Low $11.90, Close $12.10. What percentage of its full range is the real body?',answer:37.5}},
+ transfer:{prompt:'New simulated candle: Open $12.40, High $12.70, Low $11.90, Close $12.10. What percentage of its full range is the real body?',answer:37.5}},
  vwap:{answer:2600/300,units:'USD/share',title:'Trade-price volume-weighted average',
- description:'Two illustrative trade groups: 200 shares at $8 and 100 shares at $10. Calculate VWAP (dollars per share) to two decimal places.',
+ description:'Two simulated trade groups: 200 shares at $8 and 100 shares at $10. Calculate VWAP (dollars per share) to two decimal places.',
  steps:['First traded value: 200 shares × $8 = $1,600.','Second traded value: 100 shares × $10 = $1,000.','Combined traded value = $1,600 + $1,000 = $2,600.','Combined volume = 200 + 100 = 300 shares.','VWAP = $2,600 ÷ 300 shares ≈ $8.67/share.'],
- transfer:{prompt:'New illustrative trades: 150 shares at $12 and 50 shares at $16. What is their VWAP?',answer:13}}
+ transfer:{prompt:'New simulated trades: 150 shares at $12 and 50 shares at $16. What is their VWAP?',answer:13}}
 });
 function validNumber(input,n){return input.trim()!==''&&Number.isFinite(Number(input))&&Math.abs(Number(input)-n)<.016}
 // Curated prerequisites reference existing canonical competency guides only.
@@ -580,7 +580,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    throw Error('Crownlight Lumens is unavailable for this exercise.');
   const steps=root.GroundUpLabV34InteractiveLessons?.practiceFor?.(kind)||[];
   if(steps.length!==3||!Number.isInteger(index)||index<0||index>=steps.length)
-   throw Error('Only reviewed illustrative practice steps support Crownlight Lumens.');
+   throw Error('Only reviewed simulated practice steps support Crownlight Lumens.');
   const step=steps[index];
   const id=String(index)+'/'+step.id;
   let requestId=passRequests.get(id);
@@ -686,12 +686,12 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    }
   }
   // Lesson-specific instruction stays inside the existing 9-stage journey.
-  // Only authored illustrative bars are used here; protected GUSIM bars stay on the replay server.
+  // Only authored simulated bars are used here; protected GUSIM bars stay on the replay server.
   if(labId==='DT-C01-L02'){
    const custom=root.CrownlightDT01L02Lesson?.extra?.(step);
    if(custom){body.append(custom);if(optionalChart)body.append(optionalChart);return}
   }
-  // The illustrated source is always illustrative. The competency-based
+  // The illustrated source is always simulated. The competency-based
   // worked-case viewer covers the Labs without an appropriate OHLC chart.
   // No future private bars, graded questions or unverified history is shown.
   const specific=visualType==='none'?null:
@@ -720,11 +720,11 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    'State a limitation: '+guide.limit
   ]);
   const newCase=visualType==='vwap'?[
-   'New illustrative case, separate from the assessed exercise: 200 shares trade at $4.00 and 100 shares at $7.00.',
+   'New simulated case, separate from the assessed exercise: 200 shares trade at $4.00 and 100 shares at $7.00.',
    'Traded dollars: (200 × $4.00) + (100 × $7.00) = $1,500. Total shares: 300.',
    'VWAP = $1,500 ÷ 300 shares = $5.00 per share. This is a worked example, not a predicted future price.'
   ]:visualType==='candle'?[
-   'New illustrative candle: Open $9.00, High $10.00, Low $8.50 and Close $9.50.',
+   'New simulated candle: Open $9.00, High $10.00, Low $8.50 and Close $9.50.',
    'Real body = |$9.50 − $9.00| = $0.50. Full range = $10.00 − $8.50 = $1.50.',
    'Body percentage = ($0.50 ÷ $1.50) × 100 ≈ 33.3%. The result cannot predict the next candle.'
   ]:[
@@ -1007,9 +1007,9 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    root.CrownlightLabFormativeBatch57V1?.mount?.({target:body,labId,stage:1,mode});
   }else if(stage===2){
    if(kind==='candle'){
-    appendParagraph(body,'Change only the closing price in this illustrative example. Open $31.00, High $32.50, Low $30.50. Observe how the body, direction and body percentage change.');
+    appendParagraph(body,'Change only the closing price in this simulated example. Open $31.00, High $32.50, Low $30.50. Observe how the body, direction and body percentage change.');
    }else if(kind==='vwap'){
-    appendParagraph(body,'Change the number of illustrative shares traded at $10. The other group has 200 shares at $8. The relative volumes determine how much each price influences the average.');
+    appendParagraph(body,'Change the number of simulated shares traded at $10. The other group has 200 shares at $8. The relative volumes determine how much each price influences the average.');
    }else{
     appendParagraph(body,'Describe permitted price, volume, levels, and timeframe for the actual book task. Do not fill gaps with invented historical bars.');
    }
@@ -1085,7 +1085,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
      answerStatus('Calculation completed · '+(practiceAssisted||practiceCount>0?'Assisted or corrected learning':'Unassisted practice')+'. This is not a private graded assessment.',true);
      stepList(special.steps);
     }
-    const guided=detail(body,'Teach This in More Depth',special.steps.concat(['Frequent misconception: '+(subject?.error||guide.commonError),'The answer describes the illustrative example; it does not predict the next bar.']));
+    const guided=detail(body,'Teach This in More Depth',special.steps.concat(['Frequent misconception: '+(subject?.error||guide.commonError),'The answer describes the simulated example; it does not predict the next bar.']));
     guided.addEventListener('toggle',()=>{if(guided.open)practiceAssisted=true});
     renderEvidenceDiagnosis(body);
     renderMethodSteps(body);
@@ -1137,7 +1137,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
    if(kind==='vwap'&&root.GroundUpLabV32SyntheticReplay?.create){
     const replay=el('section');body.append(replay);
     root.GroundUpLabV32SyntheticReplay.create(replay,{onFinish:({studyOnly,observations})=>{
-     transferResolved=true;transfer='Illustrative Study Only VWAP replay: '+observations+' completed observations';stage=8;render();
+     transferResolved=true;transfer='Simulated Study Only VWAP replay: '+observations+' completed observations';stage=8;render();
     }});
    }else if(special){
     appendParagraph(body,special.transfer.prompt);
@@ -1232,11 +1232,11 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
      'Use the day’s evidence procedure rather than memorizing the earlier worked response.',
      'Name what the new case cannot prove and the conditions that require WAIT or NO TRADE.'
     ]:visualType==='candle'?[
-     'Try a separate illustrative candle: Open $9.00, High $10.00, Low $8.50 and Close $9.50.',
+     'Try a separate simulated candle: Open $9.00, High $10.00, Low $8.50 and Close $9.50.',
      'Real body = |$9.50 − $9.00| = $0.50. Full range = $10.00 − $8.50 = $1.50.',
      'Body share = ($0.50 ÷ $1.50) × 100 ≈ 33.3%. This does not predict the next candle.'
     ]:visualType==='vwap'?[
-     'Try a separate illustrative set: 200 shares at $4.00 and 100 shares at $7.00.',
+     'Try a separate simulated set: 200 shares at $4.00 and 100 shares at $7.00.',
      'Traded dollars = $1,500; total shares = 300; VWAP = $5.00 per share.',
      'This is a worked average, not a predicted future quote.'
     ]:[
@@ -1304,7 +1304,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
      if(worked.length&&(visualType==='candle'||visualType==='vwap')){
       const work=el('section');work.className='gu-v35-chart-worked';
       work.setAttribute('aria-label','Interactive worked example on the chart');
-      const label=el('h4','Worked example — different illustrative case');work.append(label);
+      const label=el('h4','Worked example — different simulated case');work.append(label);
       const counter=el('p');counter.className='gu-v35-worked-counter';
       const script=el('p');script.className='gu-v35-worked-script';
       const actions=el('div');actions.className='gu-v35-worked-controls';
@@ -1326,7 +1326,7 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
       function select(index,narrate=true){
        if(index<0||index>=worked.length)return;
        current=index;
-       counter.textContent='Step '+(index+1)+' of '+worked.length+' · Illustrative case';
+       counter.textContent='Step '+(index+1)+' of '+worked.length+' · Simulated case';
        script.textContent=worked[index];
        const currentCase=stepFor(index);
        // Only a candle lesson may replace the candle's OHLC picture.
@@ -1345,10 +1345,10 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
       work.append(counter,script);
       if(visualType==='vwap'){
        // This trade-group illustration belongs to the $10/$12 worked case,
-       // which is distinct from the $9–$10.85 illustrative market chart below.
+       // which is distinct from the $9–$10.85 simulated market chart below.
        // Showing only the unrelated chart would misrepresent the example.
        const diagram=el('div');diagram.className='gu-v35-vwap-share-illustration';
-       diagram.setAttribute('aria-label','Illustrative VWAP trade-group comparison');
+       diagram.setAttribute('aria-label','Simulated VWAP trade-group comparison');
        diagram.append(el('h5','How the VWAP weights work'));
        for(const [price,shares] of [['$10.00',100],['$12.00',300]]){
         const group=el('div');group.className='gu-v35-vwap-share-group';
@@ -1362,14 +1362,14 @@ async function mount({labId,mode,target,lab,focusId,tutorTopic,tutorRequest,cred
        diagram.append(el('p',
         '400 total shares · Weighted price = ($1,000 + $3,600) ÷ 400 = $11.50 per share.'));
        diagram.append(el('p',
-        'Separate illustrative trade-group example. It does not use the individual candles in the market chart below.'));
+        'Separate simulated trade-group example. It does not use the individual candles in the market chart below.'));
        work.append(diagram);
       }
       work.append(actions);
       const visualButtons=chart.querySelector('.gu-l33-interactive-tools');
       if(visualButtons)visualButtons.insertAdjacentElement('afterend',work);
       else chart.append(work);
-      counter.textContent='Different illustrative case · Step 1 of '+worked.length;
+      counter.textContent='Different simulated case · Step 1 of '+worked.length;
       script.textContent='Select “Show and explain on chart” to switch from the introductory $31.00 candle to this separate worked example.';
       prevWork.disabled=true;
      }

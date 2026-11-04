@@ -1,4 +1,4 @@
-/* Staff-only 60-original-fictional-case method workbench. No API, network, fee,
+/* Staff-only 60-original-simulated-case method workbench. No API, network, fee,
  * account storage, grades, entitlements, trading signals or actual market prices.
  * Must mount only inside the verified administrative Prototype Center. */
 (function(root){'use strict';
@@ -7,8 +7,8 @@
  const themes=Object.freeze([
   {id:'CANDLE',title:'Candlestick anatomy',description:'Observe only fully completed OHLC candles.'},
   {id:'SMA3',title:'Simple moving average',description:'Three completed close observations; not an EMA.'},
-  {id:'BAR_VWAP_PROXY',title:'HLC3 volume-weighted bar proxy',description:'Not transaction-print VWAP; fictional completed bar volume.'},
-  {id:'RISK',title:'Fictional risk-budget sizing',description:'Planned stop distance; no execution or fill guarantee.'},
+  {id:'BAR_VWAP_PROXY',title:'HLC3 volume-weighted bar proxy',description:'Not transaction-print VWAP; simulated completed bar volume.'},
+  {id:'RISK',title:'Simulated risk-budget sizing',description:'Planned stop distance; no execution or fill guarantee.'},
   {id:'BREAKOUT',title:'Confirmed-bar range comparison',description:'Compares a finished close with prior observed highs; no future price claim.'},
   {id:'THREE_MINUTE',title:'Three-minute OHLCV aggregation',description:'Only complete groups of three 1-minute bars qualify.'}
  ]);
@@ -24,14 +24,14 @@
    budget:60+i*13,reserve:.03+(i%3)*.02});
   return Object.freeze({id:'ORIGINAL-'+theme.id+'-'+String(k).padStart(2,'0'),theme:theme.id,ordinal:themes.findIndex(x=>x.id===theme.id)*10+k,
    label:theme.title+' · case '+String(k).padStart(2,'0'),source:'original_constructed_fictional',
-   provenance:'Six original deterministic fictional one-minute bars; no stock symbol or external feed.',
+   provenance:'Six original deterministic simulated one-minute bars; no stock symbol or external feed.',
    initialVisible:init,bars:Object.freeze(bars),risk,methodLimits:theme.description,
    task:theme.id==='CANDLE'?'Inspect the newest completed candle: calculate body, upper and lower wick and range.':
     theme.id==='SMA3'?'Use the latest three completed closes to calculate the arithmetic mean.':
-    theme.id==='BAR_VWAP_PROXY'?'Use all completed fictional HLC3 and per-bar volume to calculate a bar proxy, never trade VWAP.':
-    theme.id==='RISK'?'Using the fictional entry, stop, slippage reserve and fixed budget, calculate the maximum whole-share planned size.':
+    theme.id==='BAR_VWAP_PROXY'?'Use all completed simulated HLC3 and per-bar volume to calculate a bar proxy, never trade VWAP.':
+    theme.id==='RISK'?'Using the simulated entry, stop, slippage reserve and fixed budget, calculate the maximum whole-share planned size.':
     theme.id==='BREAKOUT'?'Compare the current completed close to the maximum high of all previous completed bars.':
-    'Aggregate only complete non-overlapping triples of fictional one-minute bars into three-minute OHLCV.'});
+    'Aggregate only complete non-overlapping triples of simulated one-minute bars into three-minute OHLCV.'});
  };
  const cases=Object.freeze(themes.flatMap(t=>Array.from({length:10},(_,i)=>make(t,i))));
  function evaluate(item,visible){
@@ -95,7 +95,7 @@
   const node=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=String(text);return n};
   const controls=node('div');controls.className='pt60-controls';
   const label=node('label','Training case');label.setAttribute('for','pt60-case');
-  const select=node('select');select.id='pt60-case';select.setAttribute('aria-label','Choose a fictional training case');
+  const select=node('select');select.id='pt60-case';select.setAttribute('aria-label','Choose a simulated training case');
   for(const item of cases){const opt=node('option',item.label);opt.value=item.id;select.append(opt);}
   label.append(select);
   const previous=node('button','Previous completed bar'),next=node('button','Next completed bar'),reset=node('button','Reset case'),
@@ -109,7 +109,7 @@
   host.replaceChildren(controls,status,task,grid,explanation);
   let selected=cases[0],visible=selected.initialVisible,show=false;
   function table(data){
-   const table=node('table');const caption=node('caption','Completed fictional OHLCV observations only');
+   const table=node('table');const caption=node('caption','Completed simulated OHLCV observations only');
    const head=node('thead'),hrow=node('tr');for(const v of ['Minute','Open','High','Low','Close','Volume'])hrow.append(node('th',v));
    head.append(hrow);const body=node('tbody');
    for(const bar of data.bars){const tr=node('tr');for(const v of [bar.minute,money(bar.open),money(bar.high),money(bar.low),money(bar.close),bar.volume])tr.append(node('td',v));body.append(tr);}
@@ -119,7 +119,7 @@
    const e=evaluate(selected,visible);
    previous.disabled=visible<=1;next.disabled=visible>=selected.bars.length;
    task.textContent=selected.task+' '+selected.methodLimits;
-   status.textContent=selected.id+' · '+visible+' of '+selected.bars.length+' fictional completed minute bars shown. Unpublished prototype, not an assessment.';
+   status.textContent=selected.id+' · '+visible+' of '+selected.bars.length+' simulated completed minute bars shown. Unpublished prototype, not an assessment.';
    grid.replaceChildren(table(e));
    explanation.replaceChildren();
    explanation.hidden=!show;

@@ -90,10 +90,10 @@
   if(!x||x.title!==d.title)return;
   const section=node('section');section.className='academy-beta-daily-coach';
   section.setAttribute('aria-label','Source-checked original lesson for '+d.title);
-  section.append(node('p','SOURCE CLAIM CHECKED · ORIGINAL FICTIONAL TEACHING · EDITORIAL APPROVAL PENDING'),
+  section.append(node('p','SOURCE CLAIM CHECKED · ORIGINAL SIMULATED TEACHING · EDITORIAL APPROVAL PENDING'),
    node('h4','Learning objective'),node('p',x.objective),
    node('h4','Narrow factual claim'),node('p',x.claim),
-   node('h4','Original fictional worked case'),node('p',x.worked),
+   node('h4','Original simulated worked case'),node('p',x.worked),
    node('h4','Evidence or calculation method'),node('p',x.calculation),
    node('h4','Misconception and failure case'),node('p',x.counterexample),
    node('h4','Independent transfer exercise'),node('p',x.transfer),
@@ -101,7 +101,7 @@
   const a=node('a',x.sourceId+' — checked public reference');
   a.href=x.sourceUrl;a.rel='noopener noreferrer';a.target='_blank';
   section.append(node('h4','Exact supporting source'),a,
-   node('p','This link supports the narrow concept only, not the fictional numbers, real market outcome, individual lesson approval or protected assessments.'));
+   node('p','This link supports the narrow concept only, not the simulated numbers, real market outcome, individual lesson approval or protected assessments.'));
   mount.append(section);
  }
  function showFreeEvidence(d,mount){
@@ -111,7 +111,7 @@
   section.setAttribute('aria-label','Evidence verification for Free Foundations lesson '+d.day);
   if(!x||x.title!==d.title||x.objective!==d.objective){
    section.append(node('h4','Research verification pending'),node('p',
-    'This lesson remains unapproved at the claim-evidence level. The original fictional teaching stays available, but no source association will be invented.'));
+    'This lesson remains unapproved at the claim-evidence level. The original simulated teaching stays available, but no source association will be invented.'));
    mount.append(section);return;
   }
   section.append(node('p','SOURCE-RESEARCHED · ORIGINAL UNGRADED TEACHING · WHOLE-LESSON EDITORIAL ACCEPTANCE PENDING'),
@@ -292,7 +292,7 @@
    mount.append(item);
   }
   if(d.programCode==='free5'){
-   const practice=node('a',d.lesson?.practiceLink?'Open the free manual watchlist':'Practice on original fictional candles');
+   const practice=node('a',d.lesson?.practiceLink?'Open the free manual watchlist':'Practice on original simulated candles');
    practice.href=d.lesson?.practiceLink||'simulator.html?practice=free';
    mount.append(practice);
   }
@@ -300,11 +300,11 @@
  }
 
  const truth5ResearchCases=Object.freeze([
-  {title:'Distinguish an announcement from confirmed revenue',fact:'A fictional issuer announces a nonbinding distribution proposal with a maximum potential value of $6 million over two years.',claim:'A repost states that $6 million in revenue is secured.',method:'Locate the original issuer announcement. Quote its conditions; distinguish potential value, signed commitments, cash receipts, and recognized revenue.',limit:'A filing or announcement can establish that words were published without proving future performance.'},
-  {title:'Trace independent corroboration',fact:'At 8:12 a.m. ET a fictional issuer posts a conditional agreement; a blog copies it at 9:58 and a forum repeats it at 10:06.',claim:'Three websites independently confirmed the same contract.',method:'Draw the source chain and check whether each later publication adds new primary evidence or merely cites the earliest announcement.',limit:'Repeated publication is not independent corroboration.'},
-  {title:'Freeze the information cutoff',fact:'A fictional filing is publicly retrievable at 7:45 a.m. ET; an article appears at 9:10; its correction appears at 11:20.',claim:'At a 9:00 a.m. research cutoff, traders could have relied on the article correction.',method:'Normalize timestamps and classify each document as available, unavailable, or uncertain at exactly 9:00 a.m. ET.',limit:'Publication does not prove any particular trader read the information.'},
-  {title:'Audit the denominator and financing conditions',fact:'A fictional business reports revenue increasing from $100,000 to $400,000; a separate financing announcement allows issuance of up to $8 million of securities.',claim:'The 300% increase proves profitability, and the $8 million was already received.',method:'Compute (400000 - 100000) / 100000 x 100 = 300%. Then check operating costs, financing conditions, issuance, and cash received separately.',limit:'Growth does not establish profit; financing capacity does not prove completed proceeds.'},
-  {title:'Write a defensible independent claim audit',fact:'A fictional promotional post claims that high short-sale volume proves a guaranteed short squeeze and imminent price appreciation.',claim:'A high short-sale volume statistic proves that outstanding short interest is high.',method:'Identify the publication date, precise metric and denominator; distinguish reported short-sale trading volume from shares outstanding as short interest, then record what remains unresolved.',limit:'Neither metric on its own proves a squeeze or future price direction.'}
+  {title:'Distinguish an announcement from confirmed revenue',fact:'A simulated issuer announces a nonbinding distribution proposal with a maximum potential value of $6 million over two years.',claim:'A repost states that $6 million in revenue is secured.',method:'Locate the original issuer announcement. Quote its conditions; distinguish potential value, signed commitments, cash receipts, and recognized revenue.',limit:'A filing or announcement can establish that words were published without proving future performance.'},
+  {title:'Trace independent corroboration',fact:'At 8:12 a.m. ET a simulated issuer posts a conditional agreement; a blog copies it at 9:58 and a forum repeats it at 10:06.',claim:'Three websites independently confirmed the same contract.',method:'Draw the source chain and check whether each later publication adds new primary evidence or merely cites the earliest announcement.',limit:'Repeated publication is not independent corroboration.'},
+  {title:'Freeze the information cutoff',fact:'A simulated filing is publicly retrievable at 7:45 a.m. ET; an article appears at 9:10; its correction appears at 11:20.',claim:'At a 9:00 a.m. research cutoff, traders could have relied on the article correction.',method:'Normalize timestamps and classify each document as available, unavailable, or uncertain at exactly 9:00 a.m. ET.',limit:'Publication does not prove any particular trader read the information.'},
+  {title:'Audit the denominator and financing conditions',fact:'A simulated business reports revenue increasing from $100,000 to $400,000; a separate financing announcement allows issuance of up to $8 million of securities.',claim:'The 300% increase proves profitability, and the $8 million was already received.',method:'Compute (400000 - 100000) / 100000 x 100 = 300%. Then check operating costs, financing conditions, issuance, and cash received separately.',limit:'Growth does not establish profit; financing capacity does not prove completed proceeds.'},
+  {title:'Write a defensible independent claim audit',fact:'A simulated promotional post claims that high short-sale volume proves a guaranteed short squeeze and imminent price appreciation.',claim:'A high short-sale volume statistic proves that outstanding short interest is high.',method:'Identify the publication date, precise metric and denominator; distinguish reported short-sale trading volume from shares outstanding as short interest, then record what remains unresolved.',limit:'Neither metric on its own proves a squeeze or future price direction.'}
  ]);
  function showTruth5SourceAudit(d,mount){
   if(d.programCode!=='truth5'||!Number.isInteger(d.day)||d.day<1||d.day>5)return;
@@ -312,7 +312,7 @@
   const section=node('section');section.className='academy-beta-daily-coach';
   section.setAttribute('aria-label','Evidence verification practice for Truth Behind the Ticker Day '+d.day);
   section.append(node('h4','Independent source audit: '+study.title),
-   node('p','FICTIONAL CASE — ORIGINAL UNGRADED INSTRUCTION. No historical price, regulatory conclusion or trading outcome is asserted.'),
+   node('p','SIMULATED CASE — ORIGINAL UNGRADED INSTRUCTION. No historical price, regulatory conclusion or trading outcome is asserted.'),
    node('p',study.fact),node('h4','Claim to investigate'),node('p',study.claim),
    node('h4','Talia’s verification procedure'),node('p',study.method),
    node('h4','What the evidence cannot establish'),node('p',study.limit));
@@ -384,7 +384,7 @@
    section.setAttribute('aria-label','Research enrichment for this study day');
    section.append(node('p','RESEARCH CONNECTION · SOURCE-INFORMED CLASSROOM'),
     node('h4',x.theme),node('p',x.teach),
-    node('h4','Worked fictional case'),node('p',x.example),
+    node('h4','Worked simulated case'),node('p',x.example),
     node('h4','Apply it to the current lesson'));
    const ordered=node('ol');
    for(const item of x.steps||[])ordered.append(node('li',item));
@@ -403,7 +403,7 @@
    area.setAttribute('aria-label','Approved B01 additional teaching');
    area.append(node('h4','Approved supplemental practice: '+x.title),node('p',x.example),
     node('p',x.teach),node('h5','Your independent reflection'),node('p',x.checkpoint),
-    node('p','Fictional and ungraded. B01’s original sequence and private assessments are unchanged.'));
+    node('p','Simulated and ungraded. B01’s original sequence and private assessments are unchanged.'));
    mount.append(area);
   }
   if(!d.lesson){
@@ -452,15 +452,15 @@
    mount.append(section);return;
   }
   const lesson=d.lesson;
-  // A readable, full-width illustrative OHLC diagram is provided before
+  // A readable, full-width simulated OHLC diagram is provided before
   // instruction. It is NOT a sourced market candle or blind history.
   if(d.programCode==='free5'&&d.day===2){
    const fig=node('figure');fig.className='academy-free-figure';
-   const caption=node('figcaption','ORIGINAL FICTIONAL 5-MINUTE CANDLE · Open $20.00 · High $21.50 · Low $19.50 · Close $21.00');
+   const caption=node('figcaption','ORIGINAL SIMULATED 5-MINUTE CANDLE · Open $20.00 · High $21.50 · Low $19.50 · Close $21.00');
    const ns='http://www.w3.org/2000/svg';
    const svg=document.createElementNS(ns,'svg');
    svg.setAttribute('viewBox','0 0 720 290');svg.setAttribute('role','img');
-   svg.setAttribute('aria-label','Fictional bullish five-minute candlestick. High 21 dollars 50 cents, close 21 dollars, open 20 dollars, low 19 dollars 50 cents. Body 1 dollar; full range 2 dollars.');
+   svg.setAttribute('aria-label','Simulated bullish five-minute candlestick. High 21 dollars 50 cents, close 21 dollars, open 20 dollars, low 19 dollars 50 cents. Body 1 dollar; full range 2 dollars.');
    const line=(tag,attrs,text)=>{
     const el=document.createElementNS(ns,tag);
     for(const [k,v] of Object.entries(attrs))el.setAttribute(k,String(v));
@@ -487,7 +487,7 @@
     node('p','Topic-level background reference only; this exact study day and its independent assessment are not yet editorially approved.'));
    mount.append(section);
   }
-  mount.append(node('h4',d.programCode==='free5'?'Worked FICTIONAL demonstration':'Worked source-check example'),
+  mount.append(node('h4',d.programCode==='free5'?'Worked SIMULATED demonstration':'Worked source-check example'),
    node('p',lesson.workedExample),node('h4','Guided practice — your turn'));
   const steps=node('ol');
   for(const step of lesson.sourceProcedure||[])steps.append(node('li',step));
@@ -503,12 +503,12 @@
    area.append(glossary,node('h4','Follow the demonstration step by step'));
    const walk=node('ol');for(const part of subject.steps)walk.append(node('li',part));
    area.append(walk,node('h4','Where did your reasoning become confusing?'),
-    node('p','Choose a common mistake, study a different explanation, then try a new fictional case before opening its worked review. No grade or mastery is awarded.'));
+    node('p','Choose a common mistake, study a different explanation, then try a new simulated case before opening its worked review. No grade or mastery is awarded.'));
    for(const item of subject.corrections){
     const help=node('details');help.className='academy-free-phase-a-error';
     help.append(node('summary',item.name),node('h5','Why this interpretation is incorrect'),node('p',item.why),
      node('h5','Talia teaches it another way'),node('p',item.how),
-     node('h5','Try another fictional case'),node('p',item.case));
+     node('h5','Try another simulated case'),node('p',item.case));
     const reveal=node('details');reveal.className='academy-free-phase-a-reveal';
     reveal.append(node('summary','Compare with a worked review — ungraded'),node('p',item.review));
     help.append(reveal);area.append(help);
@@ -626,7 +626,7 @@
   const names=['Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results'];
   const headings={
    'Talia explains — start from zero knowledge':1,'Why this matters':1,
-   'Worked FICTIONAL demonstration':2,'Guided practice — your turn':4,
+   'Worked SIMULATED demonstration':2,'Guided practice — your turn':4,
    'Independent evidence investigation':7,'When NOT to act':7,
    'Common research error':7,'Transfer to a new case':7,
    'Check your understanding — ungraded':5
@@ -662,7 +662,7 @@
     ' This is an instructional hint, not an automated correctness grade.';
   });
   panels[4].append(node('label','Your turn — explain what you observed and what is still unknown'),field,ask,feedback);
-  // Full Lab-inspired teaching sequence, with original fictional Free-only
+  // Full Lab-inspired teaching sequence, with original simulated Free-only
   // exercises. This preview never overrides book/assessment authorization.
   const studio=globalThis.GroundUpFreeStudioV3;
   if(studio?.mount?.(d.day,panels[2],panels[4])!==true){
@@ -674,7 +674,7 @@
   const catalog=node('a','Explore full Labs and access requirements');
   catalog.href='labs.html';catalog.className='btn secondary';
   premium.append(catalog);panels[8].append(premium);
-  // Same explicit evidence-then-decision pattern as a full Lab, but fictional,
+  // Same explicit evidence-then-decision pattern as a full Lab, but simulated,
   // ungraded, and without granting restricted membership/book entitlements.
   globalThis.GroundUpFreeLabExperienceV1?.mount?.(d.day,panels[3],panels[8]);
   panels[0].append(node('h4','Your learning goal'),node('p',d.objective),
@@ -754,16 +754,16 @@
   }
   // Every Academy lesson offers the same OPTIONAL ECharts chart-literacy
   // workstation, including days without an independently authorized book Lab.
-  // This fictional supplement cannot unlock a related Lab or confer mastery.
+  // This simulated supplement cannot unlock a related Lab or confer mastery.
   const originalInstruction=get('academy-original-instruction');
-  // Only verified, enrolled members may see the optional fictional chart.
+  // Only verified, enrolled members may see the optional simulated chart.
   // Its prices are not source data for the lesson or a protected assessment.
   if(originalInstruction&&enrolled&&progressAvailable&&userId&&
      typeof globalThis.CrownlightHomeMarketTerminal?.mountInto==='function'){
    const panel=node('section');panel.className='gu-learning-market-replay';
-   panel.setAttribute('aria-label','Homepage-style fictional market replay — Boot Camp');
-   const heading=node('h3','Watch fictional candles form — homepage chart');
-   const explanation=node('p','The same market chart used on the homepage: forming candles, Pause/Resume/Replay, speed, timeframe, crosshair, pan, zoom, volume and OHLCV details. This fictional market is separate from the study day’s historical evidence, graded answers, and saved progress.');
+   panel.setAttribute('aria-label','Homepage-style simulated market replay — Boot Camp');
+   const heading=node('h3','Watch simulated candles form — homepage chart');
+   const explanation=node('p','The same market chart used on the homepage: forming candles, Pause/Resume/Replay, speed, timeframe, crosshair, pan, zoom, volume and OHLCV details. This simulated market is separate from the study day’s historical evidence, graded answers, and saved progress.');
    explanation.className='gu-learning-market-context';
    const host=node('div');host.className='gu-learning-market-host';
    panel.append(heading,explanation,host);originalInstruction.prepend(panel);
@@ -772,7 +772,7 @@
   }
   if(originalInstruction&&globalThis.CrownlightLearningEChartsV1?.mount){
    const extra=node('details');extra.className='academy-echarts-supplement';
-   const summary=node('summary','Optional: experiment with a fictional ECharts market chart');
+   const summary=node('summary','Optional: experiment with a simulated ECharts market chart');
    const disclaimer=node('p','Supplementary chart-reading practice only. Follow the day-specific instruction above for this lesson; this example is not its historical evidence or an assessment answer.');
    const host=node('div');let view=null;
    extra.append(summary,disclaimer,host);

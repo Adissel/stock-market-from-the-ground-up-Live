@@ -13,16 +13,16 @@ function mount({target,studyId,mode,context}={}){
  const doc=target.ownerDocument||root.document;
  const node=(tag,label)=>{const el=doc.createElement(tag);if(label!==undefined)el.textContent=String(label);return el};
  const shell=node('details');shell.className='cl-indicator-explorer';
- const header=node('summary','Open dynamic indicator evidence workshop — fictional, ungraded');
+ const header=node('summary','Open dynamic indicator evidence workshop — simulated, ungraded');
  shell.append(header);
  const body=node('div');body.className='cl-indicator-body';
- body.append(node('p','Manipulate only an authored fictional sequence of completed closing prices. No historical prices, trade recommendation, official assessment, new entitlement or saved progress.'));
+ body.append(node('p','Manipulate only an authored simulated sequence of completed closing prices. No historical prices, trade recommendation, official assessment, new entitlement or saved progress.'));
  const fields=node('div');fields.className='cl-indicator-controls';
  const input=(label,type,value,min,max,step)=>{
   const wrap=node('label',label),control=node('input');control.type=type;control.min=String(min);
   control.max=String(max);control.step=String(step);control.value=String(value);
   wrap.append(control);fields.append(wrap);return control};
- const last=input('Change the last fictional close','range',17.2,8,22,.1);
+ const last=input('Change the last simulated close','range',17.2,8,22,.1);
  const windowSize=input('Lookback period','range',3,2,5,1);
  const multiplier=input('Bollinger standard-deviation multiplier','range',2,.5,3,.5);
  const fast=input('MACD fast EMA period','range',3,2,4,1);
@@ -30,12 +30,12 @@ function mount({target,studyId,mode,context}={}){
  const signal=input('MACD signal EMA period','range',3,2,4,1);
  const live=node('p');live.className='cl-indicator-live';live.setAttribute('role','status');live.setAttribute('aria-live','polite');
  const plot=node('div');plot.className='cl-indicator-plot';plot.setAttribute('role','img');
- plot.setAttribute('aria-label','Fictional completed-close indicator values. Full numerical table follows.');
+ plot.setAttribute('aria-label','Simulated completed-close indicator values. Full numerical table follows.');
  const tableHost=node('div');
  const note=node('p');
  body.append(fields,live,plot,tableHost,note);
  const compareTitle=node('h4','Indicator Evidence Comparator');
- const info=node('p','Compare two methods on the exact same fictional completed closing prices. Different units, smoothing conventions, warmups and limitations are not independent buy or sell votes.');
+ const info=node('p','Compare two methods on the exact same simulated completed closing prices. Different units, smoothing conventions, warmups and limitations are not independent buy or sell votes.');
  const comparisonControls=node('div');comparisonControls.className='cl-indicator-controls';
  const choose=(caption,selected)=>{
   const wrap=node('label',caption),select=node('select');
@@ -76,15 +76,15 @@ function mount({target,studyId,mode,context}={}){
   live.textContent=source.definitions[studyId].label+' · Latest close '+safe(closes.at(-1))+
    ' · '+label+' · This observation is not a future prediction.';
   note.textContent=calculated.formula+' · '+calculated.limitation;
-  tableHost.replaceChildren(table(['Close number','Completed fictional close',...calculated.lines.map(s=>s.name)],
+  tableHost.replaceChildren(table(['Close number','Completed simulated close',...calculated.lines.map(s=>s.name)],
    closes.map((price,i)=>[String(i+1),safe(price),...calculated.lines.map(s=>safe(s.data[i]))]),
-   'Numerical evidence and explicit warmup from all completed fictional closes'));
+   'Numerical evidence and explicit warmup from all completed simulated closes'));
   const comp=source.compare(methodA.value,methodB.value,closes,params);
   comparator.replaceChildren();
   if(!comp){comparator.append(node('p','Select two different methods for an evidence comparison.'))}
   else{
    comparator.append(table(['Method','Units','Latest result','Calculation','Interpretive limitation'],[comp.first,comp.second].map(x=>[
-    x.label,x.units,safe(x.current),x.formula,x.limitation]),'Same fictional closes, different method and units'));
+    x.label,x.units,safe(x.current),x.formula,x.limitation]),'Same simulated closes, different method and units'));
    comparator.append(node('p',comp.relationship));
   }
   const chartData={animation:false,backgroundColor:'transparent',tooltip:{trigger:'axis'},aria:{enabled:true},

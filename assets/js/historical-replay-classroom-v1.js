@@ -140,7 +140,7 @@ function catalog(e){
  $('hr-case').textContent=ticker+' · '+date;
  $('hr-case-status').textContent=matches.length?
  'An authorized dataset is available. Select the matching dataset and Start Replay.':
- 'No rights-approved historical dataset is published for this case. Use the independent Lab instructions instead; no fictional bars will be shown as DIS.';
+ 'No rights-approved historical dataset is published for this case. Use the independent Lab instructions instead; no simulated bars will be shown as DIS.';
 }
 function init(){
  const section=$('vr-session');if(!section||$('hr-classroom'))return;

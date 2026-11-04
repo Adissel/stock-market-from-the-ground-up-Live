@@ -98,7 +98,7 @@
   const summary=view.querySelector('[data-cl-echarts-summary]');
   summary.textContent=last.length
    ?symbol+' · '+period+' · '+last.length+' revealed candles · Last close '+last.at(-1).c.toFixed(4)
-   :'No revealed candles. Load fictional or authorized replay history.';
+   :'No revealed candles. Load simulated or authorized replay history.';
 
   const snapshot=studySnapshot();
   fillTable(snapshot);
