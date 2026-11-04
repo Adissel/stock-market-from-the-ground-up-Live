@@ -40,9 +40,29 @@ for(const page of teaching){
  test(route+' retains modern UI enhancement owner',()=>assert.equal(check('frontend-complete.js',route),true));
  test(route+' excludes retired copy remover',()=>assert.equal(check('live-fixes.js',route),false));
 }
-for(const page of ['dashboard','admin','store','index','market-commons']){
+for(const page of ['dashboard','admin','store','market-commons']){
  test(page+' retains approved legacy completion shell',()=>assert.equal(check('production-completion.js','/'+page+'.html'),true));
 }
+// Canonical Home has exactly one server-authorized presentation and navigation owner.
+for(const path of ['/','/index','/index.html']){
+ test('Home '+path+' rejects obsolete completion and global DOM mutation',()=>{
+  assert.equal(check('production-completion.js',path),false);
+  assert.equal(check('frontend-freeze.js',path),false);
+  assert.equal(check('live-fixes.js',path),false);
+ });
+ test('Home '+path+' retains canonical site navigation and verified styles',()=>{
+  assert.equal(check('navigation.js',path),true);
+  assert.equal(check('frontend-complete.js',path),true);
+ });
+}
+test('Current Home resists older cached navigation and legacy DOM repair modules',()=>{
+ const site=read('assets/js/site.js');
+ const fixes=read('assets/js/live-fixes.js');
+ const frozen=read('assets/js/frontend-freeze.js');
+ assert.match(site,/if\(nav\.dataset\.v11Owned==='1'\)return/);
+ assert.match(fixes,/\['\/','\/index','\/index\.html'\]\.includes\(location\.pathname\.toLowerCase\(\)\)/);
+ assert.match(frozen,/if\(path==='\/'\|\|path==='\/index'\|\|path==='\/index\.html'\)return/);
+});
 for(const page of ['account','access','settings','data-connections','forum','signin','create-account']){
  test(page+' retains legacy alias/auth redirects',()=>assert.equal(check('production.js','/'+page+'.html'),true));
 }
@@ -50,7 +70,7 @@ for(const route of ['/dashboard','/dashboard.html']){
  test(route+' retains Dashboard controller',()=>assert.equal(check('dashboard-ui-legacy.js',route),true));
  test(route+' retains Dashboard CSS',()=>assert.equal(scope.style('dashboard.css',route),true));
 }
-for(const route of ['/','/index.html','/store.html','/membership.html','/dashboard.html']){
+for(const route of ['/store.html','/membership.html','/dashboard.html']){
  test(route+' retains historically approved copy cleanup only where needed',()=>assert.equal(check('live-fixes.js',route),true));
 }
 test('all native Talia route aliases retain isolated ownership',()=>{
