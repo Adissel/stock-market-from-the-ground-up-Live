@@ -11,7 +11,7 @@ html body.tc-body .tc-terminal-switches{display:flex;flex-wrap:wrap;gap:5px}
 html body.tc-body .tc-terminal-switches button{font-size:12px;min-height:32px;padding:4px 9px}
 html body.tc-body .tc-terminal-size{font-size:11px;gap:6px}
 html body.tc-body .tc-terminal-size input{width:88px}
-html body.tc-body .tc-terminal-grid.tc-terminal-split{grid-template-columns:minmax(0,1.55fr) minmax(355px,.95fr);gap:10px;align-items:start}
+html body.tc-body .tc-terminal-grid.tc-terminal-split{grid-template-columns:minmax(0,1.34fr) minmax(355px,1fr);gap:12px;align-items:start}
 html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chart-panel{grid-column:1;grid-row:1}
 html body.tc-body .tc-terminal-grid.tc-terminal-split>.tc-chat{grid-column:2;grid-row:1}
 html body.tc-body .tc-terminal-grid>.tc-chart-panel,
@@ -114,3 +114,62 @@ html body.tc-body .tc-chart-panel>.tc-row:last-child label{font-size:12px}
  html body.tc-body .tc-terminal-grid .tc-message p{font-size:15px!important}
 }
 @media(prefers-reduced-motion:reduce){html body.tc-body .tc-terminal-grid *{scroll-behavior:auto!important;transition:none!important;animation:none!important}}
+
+/* V2: student learning desk. One chart, one instructor; no display-mode
+ * switch or ignored width slider. Responsive proportional columns. */
+html body.tc-body .tc-student-page-intro{display:flex;align-items:center;justify-content:flex-start;gap:12px;margin:4px 0 8px;padding:8px 12px;min-height:0}
+html body.tc-body .tc-student-page-intro h1{margin:0;font-size:clamp(20px,1.8vw,26px);white-space:nowrap}
+html body.tc-body .tc-student-page-intro p{margin:0;font-size:13px;line-height:1.5;color:#b9d9e6}
+html body.tc-body .tc-student-workspace{grid-template-columns:minmax(0,1.34fr) minmax(355px,1fr);column-gap:12px;align-items:start}
+html body.tc-body .tc-student-workspace>.tc-chart-panel{grid-column:1;grid-row:1}
+html body.tc-body .tc-student-workspace>.tc-chat{grid-column:2;grid-row:1}
+html body.tc-body .tc-student-workspace .tc-chart-heading{margin:0;padding:2px 0 7px;border-bottom:1px solid #375f75}
+html body.tc-body .tc-student-workspace .tc-chart-heading h2{font-size:17px}
+html body.tc-body .tc-student-workspace .tc-chart-heading .tc-pill{font-size:10px;padding:4px 7px}
+html body.tc-body .tc-student-workspace .tc-unified-chart{margin:4px 0 6px}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-app{padding:6px;border-color:#365970}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-classic-visual-region{grid-template-columns:minmax(0,1fr) minmax(148px,170px);gap:6px;align-items:start}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-pan-controls{padding:2px 3px;gap:4px}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-pan-controls button{min-height:32px;padding:4px 7px}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-classic-measurements{padding:8px}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-classic-measurements dl>div{padding:6px 0}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-classic-chart-note{margin:4px 0;padding:4px 8px;font-size:12px;line-height:1.5}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-optional-chart-settings{margin:5px 0;padding:7px;background:#0f2537}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-optional-chart-settings summary{cursor:pointer;font-size:13px;line-height:1.5;color:#d8edf6}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-compact-look{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;font-size:13px;margin:8px 0}
+html body.tc-body .tc-student-workspace .tc-unified-chart .cx-compact-look select{font-size:13px;background:#18394b;color:#eefaff;border:1px solid #517c8c;padding:6px;min-height:36px}
+html body.tc-body .tc-student-workspace .tc-chart-sync{font-size:12px!important;line-height:1.4;margin:4px 0}
+html body.tc-body .tc-student-workspace .tc-playback-primary{display:flex;flex-wrap:wrap;gap:6px;margin:7px 0}
+html body.tc-body .tc-student-workspace .tc-playback-primary button{width:auto;min-height:36px;padding:7px 10px;font-size:12px;font-weight:650}
+html body.tc-body .tc-student-workspace .tc-replay-options{margin:6px 0;border:1px solid #34566a;border-radius:8px;padding:7px 9px}
+html body.tc-body .tc-student-workspace .tc-replay-options summary{cursor:pointer;font-size:12px;color:#cae7ed;line-height:1.45}
+html body.tc-body .tc-student-workspace .tc-replay-options .tc-row{gap:6px;margin-top:9px}
+html body.tc-body .tc-student-workspace .tc-replay-options button{width:auto;min-height:36px;padding:6px 9px;font-size:12px}
+html body.tc-body .tc-student-workspace>.tc-chat{min-height:380px}
+html body.tc-body .tc-student-workspace .tc-chat-top{padding-bottom:5px;margin:0}
+html body.tc-body .tc-student-workspace .tc-chat h2{font-size:17px;line-height:1.35}
+html body.tc-body .tc-student-workspace .tc-transcript{max-height:clamp(245px,48dvh,560px);min-height:215px;scrollbar-gutter:stable;padding:10px}
+html body.tc-body .tc-student-workspace .tc-message p{font-size:clamp(15px,1vw,16px)!important;line-height:1.65!important}
+html body.tc-body .tc-student-workspace .tc-composer{margin:4px 0;padding:9px}
+html body.tc-body .tc-student-workspace .tc-composer textarea{min-height:58px}
+html body.tc-body .tc-student-workspace .tc-chipbar{margin:3px 0}
+html body.tc-body .tc-student-workspace .tc-advanced-tutor-options{margin:9px 0;padding:9px;border:1px solid #3b6075;border-radius:9px;background:#0c2637}
+html body.tc-body .tc-student-workspace .tc-advanced-tutor-options>summary{font-size:14px;color:#c6e7eb;line-height:1.5;cursor:pointer}
+html body.tc-body .tc-student-workspace .tc-advanced-tutor-options[open]>summary{margin-bottom:10px}
+@media(min-width:821px) and (max-width:970px){
+ html body.tc-body .tc-student-workspace{grid-template-columns:minmax(0,1.2fr) minmax(320px,1fr)}
+ html body.tc-body .tc-student-workspace>.tc-chart-panel{grid-column:1;grid-row:1;position:sticky;top:88px;max-height:calc(100dvh - 103px);overflow-y:auto}
+ html body.tc-body .tc-student-workspace>.tc-chat{grid-column:2;grid-row:1}
+}
+@media(max-width:820px){
+ html body.tc-body .tc-student-page-intro{align-items:flex-start;flex-direction:column;gap:3px}
+ html body.tc-body .tc-student-workspace{grid-template-columns:minmax(0,1fr)}
+ html body.tc-body .tc-student-workspace>.tc-chart-panel{grid-column:1;grid-row:1;position:static;max-height:none;overflow:visible}
+ html body.tc-body .tc-student-workspace>.tc-chat{grid-column:1;grid-row:2}
+}
+@media(max-width:620px){
+ html body.tc-body .tc-student-page-intro h1{white-space:normal}
+ html body.tc-body .tc-student-workspace .tc-unified-chart .cx-classic-visual-region{grid-template-columns:minmax(0,1fr)}
+ html body.tc-body .tc-student-workspace .tc-playback-primary button{min-height:42px}
+ html body.tc-body .tc-student-workspace .tc-transcript{max-height:320px}
+}
