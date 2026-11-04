@@ -263,8 +263,7 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
   },[visible,onQuestion,prototype,study,zoom,annotation,showVolume,showStructure,buffer,bull,bear,timeframe,compare]);
   const latest=REPLAY[visible-1];
   return <section className="tc-chart-panel" aria-label="Optional fictional completed-candle teaching chart">
-    <div className="tc-row tc-row-between"><h2>Market analysis workspace</h2><span className="tc-pill">FICTIONAL / REVEALED PREFIX</span></div>
-    <p className="tc-chart-boundary">Practice with revealed simulated candles only. No future bars, historical market feed, or graded assessment data.</p>
+    <div className="tc-row tc-row-between tc-chart-heading"><h2>Chart &amp; price evidence</h2><span className="tc-pill">SIMULATED · UNGRADED</span></div>
     {false&&<div className="tc-row tp-chart-tools" aria-label="Superseded chart controls; use shared Classic technical chart">
       <label>Completed-bar study <select value={study} onChange={e=>setStudy(e.target.value as 'none'|'sma3'|'ema3'|'ema9'|'ema20'|'ema200'|'vwap')}><option value="ema3">EMA 3</option><option value="sma3">SMA 3</option><option value="ema9">EMA 9</option><option value="ema20">EMA 20 (requires 20 bars)</option><option value="ema200">EMA 200 (requires 200 bars)</option><option value="vwap">Fictional proxy VWAP</option><option value="none">No overlay</option></select></label>
       <label>Completed interval <select value={timeframe} onChange={e=>setTimeframe(Number(e.target.value) as 1|3|5)}><option value={1}>1 minute</option><option value={3}>3 minutes</option><option value={5}>5 minutes</option></select></label>
@@ -297,14 +296,14 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
         onQuestion(('Talia, explain completed simulated '+interval+'-minute candle '+(index+1)+' using only '+visible+' revealed one-minute observations. Open '+opening.toFixed(2)+', high '+high.toFixed(2)+', low '+low.toFixed(2)+', close '+closing.toFixed(2)+'. Discuss actual observed structure, not future prices or protected answers.').slice(0,450));
        }}/>
      </div>:<div className="tc-chart" ref={host} role="img" onPointerUpCapture={releasePointer} onPointerCancelCapture={releasePointer} aria-label={'Simulated price chart of '+Math.floor(visible/timeframe)+' complete '+timeframe+'-minute candlesticks'} />}
-    <p className="tc-muted tc-chart-sync" role="status">{prototype?'Chart synchronized · '+visible+' revealed bars · volume is a simulated proxy · studies use completed candles only.':status}</p>
-    <details className="tc-current-candle-ledger">
+    <p className="tc-muted tc-chart-sync" role="status">{prototype?visible+' completed candles revealed · Volume is simulated.':status}</p>
+    {!prototype&&<details className="tc-current-candle-ledger">
       <summary>Accessible latest-candle data table · bar {visible}</summary>
       <table className="tc-candle-table"><caption>Latest visible completed candle (base one-minute source)</caption>
         <thead><tr><th>Bar</th><th>Open</th><th>High</th><th>Low</th><th>Close</th></tr></thead>
         <tbody><tr><td>{visible}</td><td>{latest[0].toFixed(2)}</td><td>{latest[3].toFixed(2)}</td><td>{latest[2].toFixed(2)}</td><td>{latest[1].toFixed(2)}</td></tr></tbody>
       </table>
-    </details>
+    </details>}
     {prototype&&<details className="tp-candle-audit"><summary>Accessible completed-candle ledger — {visible} revealed candles</summary>
       <p className="tc-muted">Only candles revealed at the current decision boundary appear below. Keyboard users can request an explanation for any completed candle.</p>
       <div className="tp-candle-audit-scroll"><table className="tc-candle-table"><caption>Fictional replay: completed observations only</caption>
@@ -312,16 +311,25 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
         <tbody>{REPLAY.slice(0,visible).map((bar,i)=><tr key={i}><th scope="row">{i+1}</th><td>{bar[0].toFixed(2)}</td><td>{bar[3].toFixed(2)}</td><td>{bar[2].toFixed(2)}</td><td>{bar[1].toFixed(2)}</td><td><button type="button" className="tc-secondary" onClick={()=>onQuestion(('Explain fictional completed candle '+(i+1)+' with open '+bar[0].toFixed(2)+', high '+bar[3].toFixed(2)+', low '+bar[2].toFixed(2)+', close '+bar[1].toFixed(2)+'. Use only the visible preceding candles.').slice(0,450))}>Explain bar {i+1}</button></td></tr>)}</tbody>
       </table></div>
     </details>}
-    <div className="tc-row">
-      {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 completed fictional bars for EMA 200</button>}
-      {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(v=>Math.max(7,v-1))}} disabled={visible<=7}>Step back one bar</button>}
-      <button type="button" onClick={()=>{setPlaying(false);setVisible(v=>Math.min(REPLAY.length,v+1))}} disabled={visible===REPLAY.length}>Reveal next fictional bar</button>
-      <button type="button" onClick={()=>setPlaying(v=>!v)} disabled={visible>=REPLAY.length} aria-pressed={playing} aria-label={playing?'Pause automatic fictional candle playback':'Start automatic fictional candle playback'}>{playing?'Pause':'Auto Play'}</button>
-      <label className="tc-playback-speed">Playback speed <select value={playSpeed} onChange={e=>setPlaySpeed(Number(e.target.value))} aria-label="Fictional playback speed"><option value={3000}>Slow</option><option value={1600}>Normal</option><option value={750}>Fast</option></select></label>
-      <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);onPauseForQuestion()}}>Pause for a question</button>
-      <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7&&timeframe===1&&zoom===100&&annotation===null}>Reset</button>
-      <button type="button" className="tc-secondary" onClick={()=>onQuestion(('The latest revealed fictional bar is '+visible+' with open '+latest[0].toFixed(2)+', high '+latest[3].toFixed(2)+', low '+latest[2].toFixed(2)+', close '+latest[1].toFixed(2)+'. Guide me through one observation question using only these completed bars; do not reveal later candles.').slice(0,450))}>Ask Talia about this candle</button>
+    <div className="tc-row tc-playback-primary">
+
+      <button type="button" onClick={()=>{setPlaying(false);setVisible(v=>Math.min(REPLAY.length,v+1))}} disabled={visible===REPLAY.length}>Next candle</button>
+      <button type="button" onClick={()=>setPlaying(v=>!v)} disabled={visible>=REPLAY.length} aria-pressed={playing} aria-label={playing?'Pause automatic fictional candle playback':'Start automatic fictional candle playback'}>{playing?'Pause':'Play'}</button>
+
+
+
+      <button type="button" className="tc-secondary" onClick={()=>onQuestion(('The latest revealed fictional bar is '+visible+' with open '+latest[0].toFixed(2)+', high '+latest[3].toFixed(2)+', low '+latest[2].toFixed(2)+', close '+latest[1].toFixed(2)+'. Guide me through one observation question using only these completed bars; do not reveal later candles.').slice(0,450))}>Ask Talia about candle</button>
     </div>
+    <details className="tc-replay-options">
+      <summary>More replay options</summary>
+      <div className="tc-row">
+        {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 candles for EMA 200</button>}
+        {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(v=>Math.max(7,v-1))}} disabled={visible<=7}>Previous candle</button>}
+        <label className="tc-playback-speed">Speed <select value={playSpeed} onChange={e=>setPlaySpeed(Number(e.target.value))} aria-label="Fictional playback speed"><option value={3000}>Slow</option><option value={1600}>Normal</option><option value={750}>Fast</option></select></label>
+        <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);onPauseForQuestion()}}>Pause for a question</button>
+        <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7&&timeframe===1&&zoom===100&&annotation===null}>Restart replay</button>
+      </div>
+    </details>
   </section>;
 }
 /** Original fictional ungraded teaching questions: never protected answer keys.
@@ -416,8 +424,6 @@ function Classroom(){
   const [typedCount,setTypedCount]=useState(0);
   const [activeEdition,setActiveEdition]=useState('FOUNDATION');
   const [premiumEvidence,setPremiumEvidence]=useState<Record<string,Record<string,unknown>>|null>(null);
-  const [dock,setDock]=useState<'split'|'chart'|'tutor'>('split');
-  const [dockWidth,setDockWidth]=useState(400);
   const [question,setQuestion]=useState(initialQuestion);
   const [reasoning,setReasoning]=useState('');
   const [practiceCase,setPracticeCase]=useState<'none'|'canonical_candle_body_pct'|'canonical_vwap_trade_groups'>('none');
@@ -728,11 +734,10 @@ function Classroom(){
     </div></div>
   </main>;
   return <main className="tc-main">
-    <div className="tc-top"><div><p className="tc-eyebrow">THE STOCK MARKET: FROM THE GROUND UP / TUTOR</p><h1>Talia Interactive Classroom</h1><p>Talk through a concept. Inspect a fictional chart. Practice your reasoning. Learn from reviewed explanations.</p></div><div className="tc-row"><a href="/market-tutor.html">Classic Tutor</a><a href="/labs.html">Labs</a><a href="/bootcamp-academy.html">Boot Camps</a></div></div>
+    <header className="tc-top tc-student-page-intro"><h1>Talia Classroom</h1><p>Study the chart with Talia. Only completed simulated candles are shown.</p></header>
     {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
-    <div className="tc-terminal-controls" role="toolbar" aria-label="Workspace layout"><div className="tc-terminal-identity"><strong>CROWNLIGHT / MARKET LEARNING TERMINAL</strong><span>Completed-candle training · private instructor dock</span></div><div className="tc-terminal-switches"><button type="button" onClick={()=>setDock('split')} aria-pressed={dock==='split'}>Split workspace</button><button type="button" onClick={()=>setDock('chart')} aria-pressed={dock==='chart'}>Chart focus</button><button type="button" onClick={()=>setDock('tutor')} aria-pressed={dock==='tutor'}>Instructor focus</button></div><label className="tc-terminal-size">Instructor width <input aria-label="Instructor dock width" type="range" min="320" max="560" step="20" value={dockWidth} onChange={e=>setDockWidth(Number(e.target.value))}/></label></div><div className={'tc-grid tc-terminal-grid tc-terminal-'+dock} style={{'--tc-instructor-width':dockWidth+'px'} as React.CSSProperties}><section className="tc-chat" aria-labelledby="tc-chat-title">
-      <div className="tc-chat-top"><div><h2 id="tc-chat-title">Talia Mercer <span className="tc-teaching-label">Personal learning instructor</span></h2><p className="tc-muted">{conversationLabel||'Source-grounded member session · AI provider disabled'}</p></div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
-      <p className="tc-student-read-hint">Follow Talia's explanation while watching the chart alongside it.</p>
+    <div className="tc-grid tc-terminal-grid tc-terminal-split tc-student-workspace"><section className="tc-chat" aria-labelledby="tc-chat-title">
+      <div className="tc-chat-top"><div><h2 id="tc-chat-title">Talia Mercer · Your Instructor</h2>{conversationLabel&&<p className="tc-muted">{conversationLabel}</p>}</div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
       <ol className="tc-transcript" ref={log} role="log" aria-label="Talia conversation transcript" aria-live="polite" aria-relevant="additions">
         {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong>
           <p>{m.id===typingId?<><span className="tc-screen-reader-only">{m.text}</span><span aria-hidden="true">{m.text.slice(0,typedCount)}{typedCount<m.text.length&&<span className="tc-typing-caret">▌</span>}</span></>:m.text}</p>
