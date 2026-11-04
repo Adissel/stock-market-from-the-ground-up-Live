@@ -27,5 +27,5 @@ test('Offline sweep still fails on any true source regression',()=>{
  assert.match(runner,/if\(summary\.newFailures\|\|summary\.changedFailures\)process\.exitCode=1/);
 });
 test('Runner still compares baseline and current source tests',()=>{
- assert.match(runner,/const before=run\(baseline,name\),after=run\(current,name\)/);
+ assert.match(runner,/const\s+name\s*=\s*list\[i\]\s*,\s*before\s*=\s*run\(baseline,\s*name\)\s*,\s*after\s*=\s*run\(current,\s*name\)/);
 });
