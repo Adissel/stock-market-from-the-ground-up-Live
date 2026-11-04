@@ -655,16 +655,56 @@ function Classroom(){
     <div className="tc-terminal-controls" role="toolbar" aria-label="Workspace layout"><div className="tc-terminal-identity"><strong>CROWNLIGHT / MARKET LEARNING TERMINAL</strong><span>Completed-candle training · private instructor dock</span></div><div className="tc-terminal-switches"><button type="button" onClick={()=>setDock('split')} aria-pressed={dock==='split'}>Split workspace</button><button type="button" onClick={()=>setDock('chart')} aria-pressed={dock==='chart'}>Chart focus</button><button type="button" onClick={()=>setDock('tutor')} aria-pressed={dock==='tutor'}>Instructor focus</button></div><label className="tc-terminal-size">Instructor width <input aria-label="Instructor dock width" type="range" min="320" max="560" step="20" value={dockWidth} onChange={e=>setDockWidth(Number(e.target.value))}/></label></div><div className={'tc-grid tc-terminal-grid tc-terminal-'+dock} style={{'--tc-instructor-width':dockWidth+'px'} as React.CSSProperties}><section className="tc-chat" aria-labelledby="tc-chat-title">
       <div className="tc-chat-top"><div><h2 id="tc-chat-title">Talia Mercer <span className="tc-teaching-label">Personal learning instructor</span></h2><p className="tc-muted">{conversationLabel||'Source-grounded member session · AI provider disabled'}</p></div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
       <ol className="tc-transcript" ref={log} role="log" aria-label="Talia conversation transcript" aria-live="polite" aria-relevant="additions">
-        {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong><p>{m.text}</p>{m.label&&<small>{m.label}</small>}</li>)}
+        {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong>
+          <p>{m.id===typingId?m.text.slice(0,typedCount):m.text}{m.id===typingId&&typedCount<m.text.length&&<span aria-hidden="true" className="tc-typing-caret">▌</span>}</p>
+          {m.label&&<small>{m.label}</small>}</li>)}
       </ol>
-      {busy&&<p className="tc-wait" role="status">Talia is preparing the explanation… <button type="button" onClick={()=>pending.current?.abort()}>Stop</button></p>}
-      <div className="tc-chipbar" aria-label="Example questions">
-        {EXAMPLES.map(item=><button type="button" key={item} onClick={()=>safeSuggest(item)}>{item}</button>)}
+      <div className="tc-typing-controls"><label>Text display speed <select aria-label="Talia typing speed" value={typingSpeed} onChange={e=>setTypingSpeed(Number(e.target.value))}>
+        <option value={56}>Slow</option><option value={28}>Normal</option><option value={12}>Fast</option><option value={0}>Show instantly</option></select></label>
+        <button type="button" className="tc-secondary" onClick={()=>{const last=chat.at(-1);if(last?.who==='talia')setTypedCount(last.text.length)}}>Show all text</button>
+        {typingId&&typedCount<(chat.at(-1)?.text.length||0)&&<span role="status" className="tc-muted">Talia is displaying her explanation…</span>}
       </div>
+      {busy&&<p className="tc-wait" role="status">Talia is preparing a source-grounded reply… <button type="button" onClick={()=>pending.current?.abort()}>Stop</button></p>}
+      <div className="tc-chipbar" aria-label="Example questions">
+        {EXAMPLES.map(item=><button type="button" key={item} disabled={busy||!!checkpoint} onClick={()=>void submitTutor(item,'explain','')}>{item}</button>)}
+      </div>
+      {advancedExperience&&<section className="tc-live-lesson" aria-label="Talia synchronized interactive lesson">
+        <div className="tc-row tc-row-between"><h3>Teach with the chart</h3><span className="tc-pill">Original fictional · ungraded</span></div>
+        <p>Talia reveals completed candles, types explanations and pauses automatically for multiple-choice or numerical questions. Free corrections and unlimited practice retries are available.</p>
+        <div className="tc-row">
+          <button type="button" onClick={()=>startLesson('candles')} disabled={busy}>Start candle-reading lesson</button>
+          <button type="button" onClick={()=>startLesson('body-range')} disabled={busy}>Start body, range & percentage</button>
+          <button type="button" onClick={()=>startLesson('vwap')} disabled={busy}>Start VWAP calculation</button>
+        </div>
+        <div className="tc-row tc-row-between"><span>Lesson: {lessonKind||'Select a teaching sequence'}</span>
+          <span role="status">{playing?'Chart playing':checkpoint?'Paused for your answer':'Chart paused'} · {visible} revealed candles</span></div>
+        {lessonKind&&<><div className="tc-stage-grid" aria-label="Ten displayed lesson steps, nine saved Learning Engine stages">
+          {displayStages.map((item,i)=><span key={item} className={i===stageIndex?'tc-stage-active':''}>{i+1}. {item}</span>)}
+        </div><p className="tc-muted">Ten visible instructional steps; the approved nine-stage Learning Engine and protected progress are unchanged. This demonstration creates no official grade.</p></>}
+        {checkpoint&&<TeachingCheckpoint key={checkpoint.id} checkpoint={checkpoint} bar={REPLAY[visible-1]}
+          onComplete={checkpointCompleted} onFeedback={checkpointFeedback} onSkip={checkpointSkipped}/>}
+        {!checkpoint&&lessonKind&&<p className="tc-muted">Use Auto Play to continue. You can pause, zoom, inspect the accessible candle table, or ask Talia a follow-up at any point.</p>}
+      </section>}
+      {advancedExperience&&<section className="tc-premium-bridge" aria-label="Authenticated Tutor tier teaching">
+        <h3>Personalized Tutor editions <span className="tc-pill">{activeEdition}</span></h3>
+        <p className="tc-muted">Beta features are available only after the server confirms your signed-in membership. These controls do not change subscriptions or publish premium features.</p>
+        <div className="tc-row">{(['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE'] as const).map(edition=>
+          <button key={edition} type="button" className="tc-secondary" aria-pressed={activeEdition===edition} disabled={busy}
+            onClick={()=>void selectEdition(edition)}>{edition.charAt(0)+edition.slice(1).toLowerCase()}</button>)}</div>
+        {premiumEvidence&&Object.entries(premiumEvidence).map(([id,feature])=>{
+          const prompt=[feature.coachingPrompt,feature.lessonPrompt,feature.studyPrompt,feature.nextPrompt,feature.prompt]
+            .find(x=>typeof x==='string'&&x.length>=12&&x.length<=450);
+          return <details key={id} className="tc-premium-topic"><summary>{id} · {String(feature.capability||'Verified study evidence')}</summary>
+            <p className="tc-muted">Authenticated source evidence; independent learning assessments and market rights are not inferred.</p>
+            {typeof prompt==='string'&&<button type="button" disabled={busy||!!checkpoint} onClick={()=>void submitTutor(prompt,'explain','')}>Discuss this evidence with Talia</button>}
+          </details>;
+        })}
+      </section>}
       {advancedExperience&&<section className="tp-instruction-engine" aria-label="Six-phase guided lesson">
         <div className="tp-instruction-header"><div><strong>Guided lesson pathway</strong><p>Instructor-directed practice, not a grade or verified mastery record.</p></div><span>{attempts} Tutor exchanges in this session</span></div>
         <div className="tp-instruction-controls">
           <label>Current study focus<input value={sessionTopic} maxLength={90} onChange={e=>setSessionTopic(e.target.value)} aria-label="Current study focus"/></label>
+          <button type="button" className="tc-secondary" onClick={teachFocus} disabled={busy||!!checkpoint}>Teach this focus now</button>
           <label>Practice dimension<select value={dimension} onChange={e=>setDimension(e.target.value as typeof dimension)}>
             <option>Knowledge</option><option>Recognition</option><option>Decision</option><option>Process</option>
           </select></label>
@@ -692,7 +732,7 @@ function Classroom(){
         <div className="tc-row"><button type="button" className="tc-secondary" onClick={requestCorrection} disabled={busy}>Help me correct this</button>
           <button type="button" className="tc-secondary" onClick={requestRecommendation} disabled={busy}>Recommend my next practice</button></div>
         <div className="tp-instruction-steps" role="group" aria-label="Instruction phases">
-          {phases.map((p,i)=><button type="button" key={p} aria-pressed={phase===p} onClick={()=>preparePhase(p)} disabled={busy}><span>{String(i+1).padStart(2,'0')}</span>{p}</button>)}
+          {phases.map((p,i)=><button type="button" key={p} aria-pressed={phase===p} onClick={()=>{preparePhase(p);if(p==='Attempt'||p==='Retry')pauseForQuestion();else if(p!=='Correct')void submitTutor((sessionTopic+'. '+phaseInstructions[p].prompt).slice(0,450),phaseInstructions[p].mode,'')}} disabled={busy}><span>{String(i+1).padStart(2,'0')}</span>{p}</button>)}
         </div>
         <p className="tc-muted">Current instructional lens: {dimension} · {perspective} · {method}. Select a phase to prepare an editable question. Only the existing authenticated Tutor API can provide the explanation; this prototype does not assign scores.</p>
       </section>}
@@ -719,9 +759,11 @@ function Classroom(){
       </section>}
       <form onSubmit={send} className="tc-composer">
         <label htmlFor="tc-question">Your question or follow-up</label>
-        <textarea id="tc-question" value={question} onChange={e=>setQuestion(e.target.value)} maxLength={450} rows={3} placeholder="Ask Talia to explain a concept, show an example, or clarify a mistake" disabled={!member||busy}/>
+        <textarea id="tc-question" value={question} onChange={e=>setQuestion(e.target.value)}
+          onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())}}}
+          maxLength={450} rows={3} placeholder="Message Talia… Enter to send · Shift+Enter for a new line" disabled={!member||busy||!!checkpoint}/>
         <div className="tc-row"><label htmlFor="tc-mode">Teaching mode</label>
-          <select id="tc-mode" value={mode} onChange={e=>setMode(e.target.value as Mode)} disabled={!member||busy}>
+          <select id="tc-mode" value={mode} onChange={e=>setMode(e.target.value as Mode)} disabled={!member||busy||(lessonKind!==null&&stageIndex>=3)}>
             <option value="explain">Explain concept</option><option value="question">Guided self-check</option>
             <option value="review">Review reasoning (ungraded)</option><option value="practice">Recommend practice</option>
           </select><span className="tc-muted">{question.length}/450</span>
@@ -745,18 +787,22 @@ function Classroom(){
           </fieldset></>}
         <div className="tc-row tc-row-between">
           <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
-          <button type="submit" disabled={!member||busy||question.trim().length<4}>Ask Talia</button>
+          <button type="submit" disabled={!member||busy||!!checkpoint||question.trim().length<4}>Send to Talia</button>
         </div>
         {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
       </form>
       <p className="tc-status" role="status" aria-live="polite">{status}</p>
       <div className="tc-row tc-actions">
-        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setPracticeCase('none');setPracticeValue('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setPerspective('Understand');setMethod('I DO');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
+        <button type="button" className="tc-secondary" onClick={()=>{pending.current?.abort();epoch.current++;setBusy(false);setQuestion('');setReasoning('');setPracticeCase('none');setPracticeValue('');setMode('explain');setPhase('Observe');setAttempts(0);setMisconception('observation');setConfidence('unsure');setPerspective('Understand');setMethod('I DO');setChat(DEFAULT);setConversationId(null);setConversationLabel('');setSave(false);
+          setPlaying(false);setVisible(7);setLessonKind(null);setCheckpoint(null);setStageIndex(0);
+          setStatus('New unsaved lesson started. Previous private history was not deleted.')}}>New unsaved topic</button>
         <button type="button" className="tc-secondary" onClick={()=>void newConversation()} disabled={!member||busy}>Create private conversation</button>
         <button type="button" className="tc-secondary" onClick={()=>void loadHistory()} disabled={!member||busy}>Load my saved history</button>
       </div>
       <p className="tc-muted">This classroom uses the existing authenticated Tutor API and approved source materials. It does not use paid model inference, award grades, access protected answer keys, or send future market bars. Saved follow-up context is verified only when the server confirms the member-owned conversation.</p>
-    </section><FictionalChart onQuestion={safeSuggest} memberId={member.id}/></div>
+    </section><FictionalChart onQuestion={safeSuggest} memberId={member.id} visible={visible} setVisible={setVisible}
+      playing={playing} setPlaying={setPlaying} playSpeed={playSpeed} setPlaySpeed={setPlaySpeed}
+      onPauseForQuestion={()=>pauseForQuestion()}/></div>
   </main>;
 }
 const host=document.getElementById('talia-classroom-root');if(host)createRoot(host).render(<Classroom/>);
