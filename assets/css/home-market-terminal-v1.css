@@ -37,6 +37,7 @@
 .cl-react-playback button{min-height:38px;padding:7px 12px;border:1px solid #4c6d80;border-radius:6px;background:#163d50;color:#edf8fa;font:700 .73rem system-ui,sans-serif;cursor:pointer}
 .cl-react-playback button:hover{background:#236174}
 .cl-react-playback button:focus-visible{outline:3px solid #ffe39a;outline-offset:3px}
+.cl-react-progress small{display:block;margin-top:3px;font-size:.66rem;font-weight:500;color:#a5bdc8}
 .cl-react-progress{padding:8px 15px;border-top:1px solid #27475b;color:#c2ebdc;font:600 .7rem/1.5 system-ui,sans-serif;font-variant-numeric:tabular-nums}
 @media(max-width:650px){.cl-react-playback{grid-column:1/-1}.cl-react-playback button{flex:1;min-height:44px}}
 @media(prefers-reduced-motion:reduce){.cl-react-playback button{transition:none}}
