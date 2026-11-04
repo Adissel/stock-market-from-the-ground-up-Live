@@ -48,7 +48,7 @@ test('actual Prototype Center workspaces and all eight experiences replace stati
  assert.match(proto,/function HomeMarketEmbed\(/);
  assert.match(proto,/\(window as ChartWindow\)\.CrownlightHomeMarketTerminal\?\.mountInto/);
  assert.match(proto,/const displayChart=<div className="cx-lp-card cx-lp-visual">/);
- assert.match(proto,/<HomeMarketEmbed context=\{selected===/);
+ assert.match(proto,/<HomeMarketEmbed key=\{selected\} context=\{selected===/);
  assert.match(proto,/<HomeMarketEmbed context="lab"\/>/);
  assert.match(protoHtml,/id="pt-chart" role="region"/);
  for(const id of ['foundations','indicator','replay','tape','scanner','risk','filings','academy'])
