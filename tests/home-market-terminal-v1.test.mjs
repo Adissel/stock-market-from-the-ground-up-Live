@@ -93,7 +93,7 @@ test('intracandle simulation reveals only current fictional ticks; no future hig
 test('homepage replay provides functional accessible playback controls and updates the chart incrementally',()=>{
  for(const required of ['revealedBars(cfg.frame,playhead.current)','setPlaying(x=>!x)','onClick={restart}','0.1×','0.5×','3×','Pause','Resume','Replay','Timeframe','1m','3m','5m','aria-live="off"','prefers-reduced-motion'])assert.ok(tsx.includes(required),'Missing replay contract '+required);
  assert.match(tsx,/chart\.setOption\(\{tooltip,xAxis:\[\{data:labels\},\{data:labels\}\],series\},false\)/,'Each tick merges ECharts data without resetting user zoom');
- assert.match(html,/home-community\.js\?v=20261103-restore1/,'Restored public Member Status is loaded');
+ assert.match(html,/home-community\.js\?v=20261104-member-labels-v2/,'Restored public Member Status is loaded');
  assert.match(html,/home-member-stats\.css\?v=20261103-restore1/);
  const status=readFileSync('assets/js/home-community.js','utf8');
  assert.match(status,/<h2>Member Status<\/h2>/);
