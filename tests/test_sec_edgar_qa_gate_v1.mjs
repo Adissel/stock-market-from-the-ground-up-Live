@@ -50,9 +50,9 @@ try{
   for(const bad of [null,{},'ready',false,[record,record],[null]])
    assert.throws(()=>isActiveSecQaGrant(bad,now),/verified|invalid/);
  });
- await test('deny SEC access if master source flag is absent, even if release flag is set',async()=>{
+ await test('explicit source kill switch denies access, even if general release flag is set',async()=>{
   calls=[];
-  await assert.rejects(requireSecSourceRelease(actor,{SEC_EDGAR_GENERAL_RELEASE_APPROVED:'true'}),x=>x.status===503);
+  await assert.rejects(requireSecSourceRelease(actor,{SEC_EDGAR_BETA_ENABLED:'false',SEC_EDGAR_GENERAL_RELEASE_APPROVED:'true'}),x=>x.status===503);
   assert.equal(calls.length,0);
  });
  await test('SEC contact is required and rejects malicious or malformed declarations',async()=>{
@@ -62,6 +62,16 @@ try{
     await assert.rejects(requireSecSourceRelease(actor,{...enabled,SEC_EDGAR_USER_AGENT:ua}),x=>x.status===503);
   }
   assert.equal(calls.length,0);
+ });
+ await test('Cloudflare-Free-safe missing flags allow only authenticated audited QA members',async()=>{
+  calls=[];rows=[];
+  await assert.rejects(requireSecSourceRelease(actor,{}),x=>x.status===403);
+  rows=[record];calls=[];
+  assert.equal(await requireSecSourceRelease(actor,{}),'AUDITED_QA');
+  assert.equal(calls.length,1);
+  calls=[];
+  assert.equal(await requireSecSourceRelease(actor,{SEC_EDGAR_GENERAL_RELEASE_APPROVED:'true'}),'AUDITED_QA');
+  assert.equal(calls.length,1);
  });
  await test('deny missing actor before general release flag',async()=>{
   calls=[];
