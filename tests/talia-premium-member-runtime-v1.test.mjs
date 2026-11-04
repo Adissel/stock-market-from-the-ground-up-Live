@@ -80,7 +80,7 @@ test('Professional rejects a future bar, nonchronological bars and fabricated cu
  assert.throws(()=>authenticReplayEvidence({dataset:src,session,bars:candles}),/validation/);
  assert.throws(()=>authenticReplayEvidence({dataset:src,session,bars:[candles[1],candles[0]]}),/validation/);
  assert.throws(()=>authenticReplayEvidence({dataset:src,session:{...session,dataset_code:'OTHER'},bars:candles.slice(0,2)}),/mismatch/);
- assert.throws(()=>authenticReplayEvidence({dataset:src,session,bars:[candles[0]]}),/current/);
+ assert.throws(()=>authenticReplayEvidence({dataset:src,session,bars:[candles[0]]}),/Current/i);
 });
 test('Without an explicitly locked decision, Professional does not invent a debrief conclusion',()=>{
  const x=authenticReplayEvidence({dataset:src,session:{...session,decision_locked:false},bars:candles.slice(0,2)});
