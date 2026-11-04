@@ -238,7 +238,50 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
  const reflection=el('textarea');reflection.rows=3;reflection.maxLength=1500;
  const inputId='gu-v33-instructor-answer-'+String(++tabSequence);
  reflection.id=inputId;prompt.setAttribute('for',inputId);
- reflection.placeholder='Explain your evidence and reasoning in your own words.';
+ reflection.placeholder='Optional notes (never required for formative progress).';
+ reflection.hidden=true;
+ // Students select evidence-based actions rather than type essays.
+ // Numbers are typed only for genuine quantitative/equation questions.
+ const choicePanel=el('fieldset',undefined,'gu-v33-evidence-decision');
+ const numericAnswer=el('input');numericAnswer.type='number';numericAnswer.step='any';
+ numericAnswer.inputMode='decimal';numericAnswer.hidden=true;
+ numericAnswer.className='gu-v33-numeric-answer';
+ const noteDisclosure=el('details',undefined,'gu-v33-optional-reasoning');
+ const noteInput=el('textarea');noteInput.rows=2;noteInput.maxLength=1500;
+ noteInput.setAttribute('aria-label','Optional reasoning notes — not required or graded');
+ noteDisclosure.append(el('summary','Optional written reasoning'),noteInput);
+ const evidenceAPI=root.GroundUpLearningResponseChoiceV1;
+ let activeSpec=null,activeCode='';
+ const configureResponse=(question,stored='')=>{
+  const numeric=/^Enter the numerical/i.test(String(question));
+  choicePanel.hidden=numeric;numericAnswer.hidden=!numeric;
+  activeSpec=null;activeCode='';
+  choicePanel.replaceChildren();
+  reflection.value=String(stored||'');
+  if(numeric){
+   numericAnswer.value=String(stored||'');
+   numericAnswer.setAttribute('aria-label',String(question));
+   return;
+  }
+  if(!evidenceAPI?.build){return;}
+  const spec=evidenceAPI.build({prompt:question,topic:subject||concept,
+   kind:lessonContext.visualType,seed:stage*11+questionIndex});
+  activeSpec=spec;
+  choicePanel.append(el('legend','Choose the evidence-based response (ungraded method check)'));
+  for(const option of spec.options){
+   const optionLabel=el('label',undefined,'gu-v33-evidence-option');
+   const radio=el('input');radio.type='radio';
+   radio.name='gu-v33-evidence-'+inputId;
+   radio.value=option.code;radio.checked=String(stored||'')===option.label;
+   if(radio.checked)activeCode=option.code;
+   radio.addEventListener('change',()=>{
+    activeCode=option.code;reflection.value=option.label;reply.textContent='';
+   });
+   optionLabel.append(radio,document.createTextNode(option.label));
+   choicePanel.append(optionLabel);
+  }
+ };
+ numericAnswer.addEventListener('input',()=>{reflection.value=numericAnswer.value;reply.textContent='';});
  const reply=el('div',undefined,'gu-v33-instructor-reply');
  reply.setAttribute('role','status');reply.setAttribute('aria-live','polite');
  // A selected suggested question appears as a member chat turn before
@@ -250,7 +293,8 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
  function paintQuestion(){
   counter.textContent='Question '+(questionIndex+1)+' of '+prompts.length;
   prompt.textContent=prompts[questionIndex];
-  reflection.value=String(saved[questionIndex]||(!saved.length&&questionIndex===0?initialReflection:''));
+  reflection.value=String(saved[questionIndex]||'');
+  configureResponse(prompts[questionIndex],reflection.value);
   reply.textContent='';memberQuestion.textContent='';
   submitReflection.disabled=false;
   submitReflection.textContent=guidedAutoplay&&stage>1&&stage<8&&questionIndex===prompts.length-1?
@@ -262,31 +306,26 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
   // Hidden UI controls must not become a backdoor stage-completion route.
   if(stage===0||(stage===1&&!understandingMode))return;
   if(submitting||finished)return;
-  const value=reflection.value.trim(),index=questionIndex,isFinal=index===prompts.length-1;
+  const index=questionIndex,isFinal=index===prompts.length-1;
+  const numerical=!understandingMode&&!featureLesson&&/^Enter the numerical/i.test(prompts[index]);
+  const verdictChoice=numerical?null:evidenceAPI?.evaluate?.(activeSpec,activeCode);
+  if(!numerical&&!verdictChoice?.accepted){
+   reply.textContent=verdictChoice?.reason||'The evidence-method check is temporarily unavailable. No grade or credits are affected.';
+   return;
+  }
+  const value=numerical?numericAnswer.value.trim():verdictChoice.answer;
   if(understandingMode){
-   if(value.length<6){reply.textContent='Explain the answer in your own words so we can check your understanding.';return;}
-   const feedback=inspectFormativeReasoning(plan,value);
-   if(feedback.status==='revise'){reply.textContent=feedback.message;return;}
-   if(feedback.status==='unverified'){
-    // No unsupported claim of understanding, and no graded event. Permit
-    // ungraded lesson progression rather than trapping a beginner.
-    understandingMode=false;
-    reply.textContent=feedback.message;
-    onUnderstandingPassed?.();
-    return;
-   }
+   // A process-level selection is formative, not a semantic grade.
+   // Independent Assess and numeric/candle checks still supply skill evidence.
    understandingMode=false;
-   reply.textContent=feedback.message;
+   reply.textContent=verdictChoice.feedback;
    onUnderstandingPassed?.();
    return;
   }
   if(featureLesson){
    // Formative instructional responses NEVER substitute for graded Assess,
    // private rubrics, independent predictions or server-controlled replay.
-   if(value.length<8&&!['yes','no','3','ema9','ema20'].includes(value.toLowerCase())){
-    reply.textContent='Please explain the observation in your own words before continuing.';
-    return;
-   }
+   // The learner must select the observable evidence method; no essay gate.
    if(featurePhase===0){
     featurePhase=1;
     const detail=featureLesson;
@@ -298,7 +337,8 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
     counter.textContent='Practice the correction · '+detail.title;
     prompt.textContent='What mistake should you avoid with '+detail.title.toLowerCase()+
      ', and how would you correct it?';
-    reflection.value='';reply.textContent='Compare your answer with the worked explanation above.';
+    reflection.value='';configureResponse(prompt.textContent);
+    reply.textContent='Compare the highlighted evidence with the worked explanation above.';
     return;
    }
    const complete=featureLesson;
@@ -311,9 +351,8 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
    if(!featureLesson)resumeTeaching();
    return;
   }
-  const numerical=/^Enter the numerical/i.test(prompts[index]);
-  if((numerical&&(!value||!Number.isFinite(Number(value))))||(!numerical&&value.length<20)){
-   reply.textContent=numerical?'Enter a valid numerical result.':'Explain your reasoning using at least 20 characters.';
+  if(numerical&&(!value||!Number.isFinite(Number(value)))){
+   reply.textContent='Enter a valid numerical result using the equation shown.';
    return;
   }
   submitting=true;submitReflection.disabled=true;
@@ -504,7 +543,7 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
  // Keep the suggested conversational questions available OUTSIDE the
  // concealed assessment-response form, so learners can always ask Talia
  // for an explanation without opening Check My Understanding.
- interaction.append(counter,prompt,reflection,submitReflection);
+ interaction.append(counter,prompt,choicePanel,numericAnswer,reflection,noteDisclosure,submitReflection);
  if(stage===4&&typeof onCreditAction==='function')interaction.append(creditControls);
  interaction.hidden=stage===0||stage===1;
  transcript.append(memberQuestion,interaction,suggestions,reply);
@@ -631,7 +670,7 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
   stopTyping?.();stopTyping=animate(visual,narration,false,skip);
   counter.textContent='Interactive lesson · '+plan.title;
   prompt.textContent=custom?.question||plan.question;
-  reflection.value='';
+  configureResponse(prompt.textContent);
   reflection.disabled=false;submitReflection.hidden=false;submitReflection.disabled=false;
   reply.textContent='Observe the highlighted chart evidence, then answer in your own words.';
   return true;
@@ -662,10 +701,10 @@ function create({stage=0,subject='market evidence',concept='',requestTutor,seen=
   stopTyping?.();stopTyping=animate(visual,message,false,skip);
   counter.textContent='Check your understanding · ungraded';
   prompt.textContent=plan.check.question;
-  reflection.value='';reflection.disabled=false;
+  configureResponse(prompt.textContent);reflection.disabled=false;
   submitReflection.hidden=false;submitReflection.disabled=false;
-  reply.textContent='Use the illustrated example to support your answer. You can retry.';
-  reflection.focus?.();
+  reply.textContent='Choose an evidence-based response. You can retry; optional notes do not affect completion.';
+  choicePanel.querySelector('input')?.focus?.();
   return true;
  }
   // Every authored or competency-led lesson gets the same interactive
