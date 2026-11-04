@@ -130,6 +130,10 @@ try{
     await page.locator('#academy-guided-host .academy-guided-ten').waitFor({state:'visible'});
    }
    if(code==='truth5'){
+    const openReasoning=async()=>{
+     const note=page.locator('#academy-original-instruction details:has(#academy-self-check-answer)');
+     if(!(await note.evaluate(el=>el.open)))await note.locator('summary').click();
+    };
     const section=page.locator('#academy-original-instruction');
     await section.waitFor({state:'visible'});
     assert.equal(await section.locator('ol li').count(),academyByCode.truth5.curriculum[0].lesson.sourceProcedure.length);
@@ -149,6 +153,7 @@ try{
       'Unsupported prediction requires free corrective feedback before the worked review');
      await section.locator('.academy-day-evidence-check input[value="EVIDENCE"]').check();
    
+    await openReasoning();
     await answer.fill(originalReasoning);
     assert.equal(await compare.isEnabled(),true);
     assert.match(await page.locator('#academy-days .gu-bc-day').first().innerText(),/unsaved local work/);
@@ -159,6 +164,7 @@ try{
     assert.match(await section.innerText(),/SEC EDGAR/,'Day 2 must teach a substantively different source skill');
     assert.match(await section.innerText(),/unaudited quarterly/,'Day 2 must include separate audited-versus-forward-looking investigation');
     assert.equal(await page.locator('#academy-self-check-answer').inputValue(),'','A different question must not inherit another day’s private reasoning');
+    await openReasoning();
     await page.locator('#academy-self-check-answer').fill('Day two requires independent filing verification and a separate report period.');
     await page.locator('#academy-days .gu-bc-day').first().click();
     assert.match(await section.innerText(),/widely shared screenshot/);
@@ -169,6 +175,7 @@ try{
     assert(bounds&&bounds.x>=-1&&bounds.x+bounds.width<=width+1,
      'The full teaching panel must fit inside the '+width+'px viewport');
     assert.match(await section.innerText(),/not graded mastery/);
+    await openReasoning();
     await page.locator('#academy-self-check-answer').focus();
     assert.equal(await page.evaluate(()=>document.activeElement?.id),'academy-self-check-answer',
      'The self-check must be reachable by keyboard focus');
@@ -196,6 +203,8 @@ try{
      'The original unsaved reasoning must survive a day switch');
     assert.equal(await copy.isEnabled(),true,
      'A restored sufficiently long draft must remain copyable');
+    const notes=page.locator('#academy-original-instruction details:has(#academy-self-check-answer)');
+    if(!(await notes.evaluate(el=>el.open)))await notes.locator('summary').click();
     await copy.click();
     storedReflection=await page.locator('#academy-reflection').inputValue();
     assert.match(storedReflection,/Independent self-check \(ungraded\)/);
