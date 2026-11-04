@@ -1,0 +1,108 @@
+# One source-only acceptance batch; never grants premium or publishes grading.
+name: Advanced Professional Learning Lab - Unified 32 Gate
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+    paths:
+      - 'functions/_lib/learning-lab-edition-exercises-v1.js'
+      - 'data/learning-lab-ap-unified-32-v1.json'
+      - 'tests/learning-lab-ap-unified-32-v1.test.mjs'
+      - '.github/workflows/learning-lab-ap-unified-32-v1.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: ap-unified-${{ github.sha }}
+  cancel-in-progress: false
+jobs:
+  source-math-and-complete-register:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check 32 requirements, 20 gates, and source syntax
+        run: |
+          node --check functions/_lib/learning-lab-edition-exercises-v1.js
+          node --check tests/learning-lab-ap-unified-32-v1.test.mjs
+          node --test tests/learning-lab-ap-unified-32-v1.test.mjs
+      - name: Validate math, methods and no-lookahead
+        run: |
+          node --test tests/learning-lab-edition-exercises-v1.test.mjs
+          node --test tests/learning-lab-indicator-source-methods-v1.test.mjs
+          node --test tests/learning-lab-formative-editions-v1.test.mjs
+  grants-privacy-and-progress:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Execute mocked multi-member access, revocation and workspace lifecycle
+        run: |
+          node --test tests/learning-lab-edition-api-v1.test.mjs
+          node --test tests/learning-lab-edition-workspace-v1.test.mjs
+          node --test tests/learning-lab-edition-two-account-contract-v1.test.mjs
+          node --test tests/learning-lab-premium-lifecycle-64-v2.test.mjs
+          node --test tests/learning-lab-midflight-96-wave3.test.mjs
+      - name: Validate owner edition editor, member version selection and Talia tier segregation
+        run: |
+          node --test tests/learning-engine-member-versions-api-v1.test.mjs
+          node --test tests/learning-engine-member-versions-v1.test.mjs
+          node --test tests/talia-membership-editions-v1.test.mjs
+          node --test tests/lab-419-current-body-quality-v2.test.mjs
+      - name: Preserve Basic inventory, revision controls and release holds
+        run: |
+          node --test tests/learning-lab-feature-evidence-64.test.mjs
+          node --test tests/learning-lab-engine-feature-audit-v1.test.mjs
+          node --test tests/learning-lab-premium-48-pending-guard-20261103.test.mjs
+          node --test tests/advanced-learning-lab-source-closeout-v1.test.mjs
+          node --test tests/professional-learning-lab-source-closeout-v1.test.mjs
+          node --test tests/learning-lab-progress-scorecard-v2.test.mjs
+  mobile-advanced-professional-browser-fixtures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install pinned headless Chromium
+        run: |
+          npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Advanced member UI, linked evidence and source-only safeguards
+        run: node tests/advanced-learning-lab-member-surface-browser-v1.mjs
+      - name: Professional completed replay, charts, uncertainty and mobile layout
+        run: node tests/professional-learning-lab-member-surface-browser-v1.mjs
+      - name: Professional two-account simulated workspace and denial in Chromium
+        run: node tests/professional-learning-lab-workspace-browser-v1.mjs
+  fail-closed-source-summary:
+    if: always()
+    needs: [source-math-and-complete-register, grants-privacy-and-progress, mobile-advanced-professional-browser-fixtures]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Require three positive gates, disallow failure or cancellation
+        env:
+          NEEDS: ${{ toJSON(needs) }}
+        run: |
+          python3 - <<'PY'
+          import json,os,sys
+          needs=json.loads(os.environ['NEEDS'])
+          states={name:entry['result'] for name,entry in needs.items()}
+          print(states)
+          if len(states)!=3 or any(value!='success' for value in states.values()):
+              sys.exit('Unified source gate failed, skipped or cancelled: PREMIUM RELEASE HOLD')
+          print('SOURCE AND MOCKED BROWSER QA PASS ONLY; real identity, rights, editorial and assistive-technology approval still HOLD')
+          PY

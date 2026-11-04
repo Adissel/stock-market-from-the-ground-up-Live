@@ -174,7 +174,7 @@ export function deriveFictionalCompletedStudies({evidence,emaPeriod=9}={}){
  const result=[freeze({name:'EMA',value:ema,asOf:at,
    method:'SMA-seeded EMA '+emaPeriod+' on completed fictional closing prices',verified:true})];
  result.push(freeze({name:'VWAP',value:vwap,asOf:at,
-   method:'Typical-price volume-weighted mean of completed fictional candles',verified:true}));
+   method:'Typical-price (HLC3) volume-weighted candle proxy; not exact transaction-print VWAP',verified:true}));
  const period=Math.min(5,closes.length-1);
  let gain=0,loss=0;
  for(let i=1;i<=period;i++){const d=closes[i]-closes[i-1];gain+=Math.max(d,0);loss+=Math.max(-d,0)}
@@ -214,8 +214,12 @@ export function deriveFictionalCompletedFrames({evidence,frameSize=5}={}){
  const prefix=asOfPrefix(evidence);
  if(!prefix)return null;
  const frameRows=[],bars=prefix.bars;
- for(let end=frameSize-1;end<bars.length&&frameRows.length<6;end+=frameSize){
-  frameRows.push(freeze({label:'Completed '+frameSize+'-bar group '+(frameRows.length+1),
+ // Teach the latest six *fully completed* frames on long replay histories.
+ // Stable absolute group numbers preserve evidence chronology as bars arrive.
+ const groups=Math.floor(bars.length/frameSize),first=Math.max(0,groups-6);
+ for(let g=first;g<groups;g++){
+  const end=(g+1)*frameSize-1;
+  frameRows.push(freeze({label:'Completed '+frameSize+'-bar group '+(g+1),
    completedThrough:bars[end].timestamp,close:bars[end].close,sourceVerified:true}));
  }
  return freeze(frameRows);
