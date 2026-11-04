@@ -254,7 +254,8 @@ document.addEventListener('DOMContentLoaded',()=>{
 })();
 
 /* Shared site navigation: consistent explicit entrypoints across existing pages. */
-(()=>{const enhance=()=>{document.querySelectorAll('.site-header .navlinks').forEach(nav=>{if(!nav.querySelector('a[href$="signin.html"]')){const a=document.createElement('a');a.href='/signin.html';a.textContent='Sign In';a.className='gu-nav-signin';nav.appendChild(a)}
+(()=>{const enhance=()=>{document.querySelectorAll('.site-header .navlinks').forEach(nav=>{if(nav.dataset.v11Owned==='1')return; // Never reinsert guest controls after canonical signed-in navigation.
+if(!nav.querySelector('a[href$="signin.html"]')){const a=document.createElement('a');a.href='/signin.html';a.textContent='Sign In';a.className='gu-nav-signin';nav.appendChild(a)}
 if(!nav.querySelector('a[href$="create-account.html"]')){const a=document.createElement('a');a.href='/create-account.html';a.textContent='Create Account';a.className='gu-nav-register';nav.appendChild(a)}})};
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',enhance,{once:true});else enhance();
 })();
