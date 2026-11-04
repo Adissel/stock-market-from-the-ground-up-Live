@@ -13,10 +13,12 @@
    lowerWick:Math.min(open,close)-low,bodyPercent:range?100*body/range:0,
    direction:close>open?'up':close<open?'down':'unchanged'});
  }
- function validate(trades){
-  if(!Array.isArray(trades)||trades.length>10000)return false;
+ function validate(trades,count){
+  if(!Array.isArray(trades)||trades.length>10000||!Number.isSafeInteger(count)||count<0||count>trades.length)return false;
   let minute=-1;
-  for(const t of trades){
+  // Validate only observations already visible at this cursor: no future-input dependency.
+  for(let i=0;i<count;i++){
+   const t=trades[i];
    if(!t||!Number.isSafeInteger(t.minute)||t.minute<0||t.minute<minute||
     !finite(t.price)||t.price<=0||!Number.isSafeInteger(t.shares)||t.shares<=0)return false;
    minute=t.minute;
@@ -24,7 +26,7 @@
   return true;
  }
  function prefix(trades,count){
-  if(!validate(trades)||!Number.isSafeInteger(count)||count<0||count>trades.length)return null;
+  if(!validate(trades,count))return null;
   return trades.slice(0,count);
  }
  function vwap(trades,count){

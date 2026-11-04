@@ -21,3 +21,8 @@
 .cl-evidence-reflection textarea{display:block;width:100%;min-height:90px}
 @media(max-width:640px){.cl-evidence-body{padding:0 .65rem 1rem}.cl-evidence-controls{grid-template-columns:1fr}.cl-evidence-table{display:block;overflow-x:auto;white-space:nowrap}.cl-evidence-chart{height:260px}}
 @media(prefers-reduced-motion:reduce){.cl-evidence *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+.cl-evidence-structure{display:block;width:100%;min-height:170px;border:1px solid #456679;border-radius:10px;background:#0b2030;margin:1rem 0}
+.cl-evidence-structure text{font-size:14px}
+.cl-evidence-actions label{flex:1 1 160px;min-width:0}
+.cl-evidence-actions select{min-height:44px}
