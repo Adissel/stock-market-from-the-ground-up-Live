@@ -43,7 +43,7 @@ test('all shared chart menus have compact controls, no instructional placeholder
  assert.match(tutor,/import \{ClassicClassroomChart\} from '\.\.\/prototype\/PrototypeExperiences'/);
  assert.match(tutor,/caseBars=\{sharedBars\}/);
  assert.match(tutor,/mode="talia" memberSafe=\{true\}/);
- assert.match(tutor,/if\(index>=visible\)return/);
+ assert.match(tutor,/if\(group\.length!==interval\)return/);
  assert.match(studio,/showBarVolume=!showBarVolume;volumeState\(\);render\(\)/);
  assert.match(css,/\.cl-context-menu/);
  assert.match(css,/\.cx-context-menu/);
