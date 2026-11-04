@@ -10,7 +10,10 @@ if(!existsSync(join(baseline,'tests'))||!existsSync(join(current,'tests')))
  throw Error('Pass existing baseline and current checkout paths.');
 const pattern=/watchlist|research|scanner|journal|tutor|lab|guide|sql|commerce|tool|simulator|source|free|member|auth|chart|trade.plan|historical/i;
 // Credentialed production-browser acceptance is separately gated, never an offline source test.
-const forbidden=/browser|playwright|e2e|live_|production|authentic_readonly|\.fixture\./i;
+// The James_Test commerce QA opens the LIVE site and requires encrypted login secrets,
+// even though its filename does not contain 'browser' or 'live'. It must remain
+// in the independent authenticated release gate, not the credential-free comparison.
+const forbidden=/browser|playwright|e2e|live_|production|authentic_readonly|\.fixture\.|james_free_member_commerce_20261030/i;
 const list=readdirSync(join(current,'tests')).filter(n=>/^test_[^/]+\.mjs$/.test(n)&&pattern.test(n)&&!forbidden.test(n)).sort().slice(0,220);
 const B='78b3b93ccf70252127265cd7c16589e2bd7d4ae2',reports=[];
 const classify=(output)=>{
