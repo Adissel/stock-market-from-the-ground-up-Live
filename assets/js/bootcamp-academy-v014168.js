@@ -529,7 +529,7 @@
    area.append(glossary,node('h4','Follow the demonstration step by step'));
    const walk=node('ol');for(const part of subject.steps)walk.append(node('li',part));
    area.append(walk,node('h4','Where did your reasoning become confusing?'),
-    node('p','Choose a common mistake, study a different explanation, then try a new simulated case before opening its worked review. No grade or mastery is awarded.'));
+    node('p','Choose a common mistake, study a different explanation, then try a new simulated case before opening its worked review. No grade or Lumens are awarded. No independent mastery is awarded.'));
    for(const item of subject.corrections){
     const help=node('details');help.className='academy-free-phase-a-error';
     help.append(node('summary',item.name),node('h5','Why this interpretation is incorrect'),node('p',item.why),
@@ -643,7 +643,7 @@
    result.replaceChildren(coaching);
   });
   const optional=node('details');optional.append(node('summary','Optional written reasoning and private reflection'),label,answer,use,
-   node('p','Written reflection is optional. To copy notes into your private reflection, write at least 80 characters. Unsaved notes are erased on reload. Formative method checks are not graded mastery.'));
+   node('p','Written reflection is optional. You may copy any nonempty note into your private reflection, subject to the field limit. Unsaved notes are erased on reload. Formative method checks are not graded mastery.'));
   const assessmentNotice=node('p','Formative method checks are not graded mastery. This ungraded lesson does not award independent competency or official assessment credit.');
   assessmentNotice.className='academy-formative-disclosure';
   assessmentNotice.setAttribute('role','note');
