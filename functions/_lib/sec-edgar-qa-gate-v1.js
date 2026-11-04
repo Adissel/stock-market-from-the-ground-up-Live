@@ -24,8 +24,8 @@ export function isActiveSecQaGrant(rows,now=Date.now()){
 
 export function secSourceContact(env){
  const contact=String(env?.SEC_EDGAR_USER_AGENT||'').trim();
- if(contact.length<12||contact.length>160||/[\\r\\n]/.test(contact)||
-    !/[A-Z0-9._%+-]+@[A-Z0-9.-]+\\.[A-Z]{2,}/i.test(contact))
+ if(contact.length<12||contact.length>160||/[\r\n]/.test(contact)||
+    !/[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}/i.test(contact))
   throw error('SEC source requires a configured contact-identifying User-Agent.',503);
  return contact;
 }
