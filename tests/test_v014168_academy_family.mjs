@@ -77,7 +77,12 @@ assert(client.includes("selfCheckDrafts.clear()"),
 assert(client.includes("Optional related book Labs"),
  'Academy must disclose independently entitled, nonrequired book Labs');
 assert(client.includes("Independent evidence investigation"),'Each authored case must render on the same Academy lesson page');
-assert(client.includes("answer.value.trim().length<40"),'The formative review requires learner reasoning first');
+assert(client.includes("const checked=decision.check();")&&
+  client.includes("if(!checked.accepted){result.replaceChildren(node('p',checked.reason));return;}"),
+  'Formative worked review requires an evidence-method choice before coaching');
+assert(client.includes("Optional written reasoning — not required for feedback.")&&
+  client.includes("No free-text length gate."),
+  'Ungraded feedback must not require arbitrary written-answer length');
 assert(client.includes('not mastery.')&&client.includes('not graded mastery.'),'Academy must disclose that self-check and reflection do not award mastery');
 
 const academyCss=fs.readFileSync('assets/css/bootcamp-academy-v014168.css','utf8');
