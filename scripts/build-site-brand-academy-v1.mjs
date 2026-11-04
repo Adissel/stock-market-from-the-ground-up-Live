@@ -6,6 +6,8 @@ import {existsSync,readdirSync,readFileSync,writeFileSync} from 'node:fs';
 import {resolve,join} from 'node:path';
 const output=resolve(process.env.GU_SITE_BUILD_DIR||'public');
 const stylesheet='/assets/css/site-brand-academy-v1.css';
+const runtimeScript='/assets/js/site-brand-academy-sync-v1.js';
+if(!existsSync(join(output,'assets/js/site-brand-academy-sync-v1.js')))throw Error('Shared Academy header runtime asset missing');
 if(!existsSync(join(output,'assets/css/site-brand-academy-v1.css')))throw Error('Academy identity CSS is missing');
 const title='<span class="gu-academy-brand-title">THE STOCK MARKET <span>FROM THE GROUND UP</span></span>';
 const subtitle='<span class="gu-academy-brand-subtitle">LEARNING ACADEMY</span>';
@@ -37,6 +39,13 @@ for(const file of readdirSync(output).filter(x=>x.endsWith('.html')&&!/^google[\
   }
   if(!/gu-academy-brand-title/.test(html)||!/gu-academy-brand-subtitle/.test(html))
    throw Error('Approved Academy header incomplete: '+file);
+  // Last-mile runtime protection for authenticated navigation and Owner style
+  // changes. This is additive to the static rendered header and preserves URLs.
+  if(!html.includes(runtimeScript)){
+   if(/<\/body>/i.test(html))html=html.replace(/<\/body>/i,
+     '<script defer src="'+runtimeScript+'?v=20261104-global1"></script></body>');
+   else throw Error('Academy-branded document lacks body close: '+file);
+  }
  }
  if(html!==before){writeFileSync(location,html);changed++}
  scanned++;
