@@ -9,8 +9,8 @@ const gate=readFileSync('assets/js/talia-prototype-gate-v1.js','utf8');
 
 test('One protected React classroom owns both member and staff learning runtime',()=>{
  for(const html of [member,staff])assert.match(html,/talia-live-lesson-v1\.css/);
- assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk2/);
- assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261104-student-desk2/);
+ assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261104-teaching-curriculum1/);
+ assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261104-teaching-curriculum1/);
  assert.match(staff,/data-route-access="staff"/);
  assert.match(gate,/control_panel\.access/);
  assert.match(src,/const advancedExperience=isTaliaAdvancedRoute\(\)/);
