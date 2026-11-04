@@ -21,7 +21,7 @@ const values={
 };
 const qualitative=[105,119,131,132,133];
 test('35 individual fictional case calculations independently agree in Python and JavaScript',()=>{
- const r=spawnSync('python3',['scripts/qa/talia_claims101_140_independent_python_v1.py'],
+ const r=spawnSync(process.platform==='win32'?'python':'python3',['scripts/qa/talia_claims101_140_independent_python_v1.py'],
   {encoding:'utf8',timeout:8000});
  assert.equal(r.status,0,r.stderr);
  const py=JSON.parse(r.stdout);

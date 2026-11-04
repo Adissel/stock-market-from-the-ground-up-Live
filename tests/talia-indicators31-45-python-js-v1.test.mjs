@@ -40,7 +40,7 @@ test('all 15 guide IDs 31-45 are canonical, ungraded and independently sourced',
  for(const g of studies){assert.ok(g.formula.length>40);assert.equal(g.officialCompetency,false);assert.ok(g.sourceUrls.length);}
 });
 test('Python and JavaScript independently agree for all 15 declared calculation cases',()=>{
- const r=spawnSync('python3',['scripts/qa/talia_indicators31_45_python_v1.py'],{encoding:'utf8',timeout:8000});
+ const r=spawnSync(process.platform==='win32'?'python':'python3',['scripts/qa/talia_indicators31_45_python_v1.py'],{encoding:'utf8',timeout:8000});
  assert.equal(r.status,0,r.stderr);
  const p=JSON.parse(r.stdout);
  assert.deepEqual(Object.keys(actual).sort(),Object.keys(p.values).sort());

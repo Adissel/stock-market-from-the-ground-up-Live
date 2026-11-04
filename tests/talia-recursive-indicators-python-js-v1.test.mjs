@@ -13,7 +13,7 @@ const bars=close.map((c,i)=>{
 const near=(a,b,id)=>assert.ok(a!==null&&Number.isFinite(a)&&Math.abs(a-b)<1e-8,id+': '+a+' != '+b);
 const summary=a=>({last:a.at(-1),firstValid:a.findIndex(x=>x!==null)});
 test('two independent languages agree over fully recursive fictional ADX, DMI, PSAR, ATR, Supertrend, Ichimoku',()=>{
- const run=spawnSync('python3',['scripts/qa/talia_recursive_indicators_python_v1.py'],{encoding:'utf8',timeout:8000});
+ const run=spawnSync(process.platform==='win32'?'python':'python3',['scripts/qa/talia_recursive_indicators_python_v1.py'],{encoding:'utf8',timeout:8000});
  assert.equal(run.status,0,run.stderr);
  const p=JSON.parse(run.stdout);
  const verified=completedPrefix(bars,bars.length-1,bars.at(-1).closeTime);

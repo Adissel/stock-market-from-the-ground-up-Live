@@ -83,7 +83,7 @@ test('exact 61–73 identities and VIX rights/methodology hold',()=>{
  assert.deepEqual(guides.slice(1).map(x=>x.code),Object.keys(values));
 });
 test('Python and independently written JavaScript match 12 original final-study calculations',()=>{
- const r=spawnSync('python3',['scripts/qa/talia_indicators61_73_python_v1.py'],{encoding:'utf8',timeout:9000});
+ const r=spawnSync(process.platform==='win32'?'python':'python3',['scripts/qa/talia_indicators61_73_python_v1.py'],{encoding:'utf8',timeout:9000});
  assert.equal(r.status,0,r.stderr);
  const py=JSON.parse(r.stdout);
  assert.deepEqual(py.nonNumeric,['STUDY_VIX_CONTEXT']);

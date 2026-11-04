@@ -19,7 +19,7 @@ function check(actual,expected,path='fixture'){
  }else assert.equal(actual,expected,path);
 }
 test('Python independent reference equals original JavaScript teaching arithmetic for all 8 supported subjects',()=>{
- const p=spawnSync('python3',['scripts/qa/talia_source_indicator8_python_v1.py'],{encoding:'utf8',timeout:10000});
+ const p=spawnSync(process.platform==='win32'?'python':'python3',['scripts/qa/talia_source_indicator8_python_v1.py'],{encoding:'utf8',timeout:10000});
  assert.equal(p.status,0,p.stderr);
  const expected=JSON.parse(p.stdout);
  const observed={

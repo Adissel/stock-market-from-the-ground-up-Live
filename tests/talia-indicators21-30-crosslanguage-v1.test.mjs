@@ -35,7 +35,7 @@ const calc={
  STUDY_BOLLINGER_BANDWIDTH:100*(upper-lower)/middle
 };
 test('independent Python vs JavaScript calculation values match for eight canonical 21–30 studies',()=>{
- const p=spawnSync('python3',['scripts/qa/talia_indicator21_30_python_v1.py'],{encoding:'utf8',timeout:10000});
+ const p=spawnSync(process.platform==='win32'?'python':'python3',['scripts/qa/talia_indicator21_30_python_v1.py'],{encoding:'utf8',timeout:10000});
  assert.equal(p.status,0,p.stderr);
  const ref=JSON.parse(p.stdout);
  assert.deepEqual(Object.keys(ref).sort(),Object.keys(calc).sort());

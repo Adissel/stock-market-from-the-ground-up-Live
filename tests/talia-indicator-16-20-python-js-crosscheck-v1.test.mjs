@@ -62,7 +62,7 @@ test('next five indicator IDs are exactly canonical guide positions 16–20',()=
  }
 });
 test('independent Python reference matches five JavaScript values and first-valid indices',()=>{
- const child=spawnSync('python3',['scripts/qa/talia_indicator_16_20_reference_v1.py'],{encoding:'utf8',timeout:8000});
+ const child=spawnSync(process.platform==='win32'?'python':'python3',['scripts/qa/talia_indicator_16_20_reference_v1.py'],{encoding:'utf8',timeout:8000});
  assert.equal(child.status,0,child.stderr);
  const reference=JSON.parse(child.stdout);
  assert.deepEqual(Object.keys(reference).sort(),codes.slice().sort());

@@ -10,6 +10,11 @@ try{
  for(const width of [390,1280]){
   const page=await browser.newPage({viewport:{width,height:900},serviceWorkers:'block'});
   const errors=[];page.on('pageerror',error=>errors.push(error.message));
+  await page.route(base+'/index.html',route=>route.fulfill({
+   status:200,
+   contentType:'text/html',
+   body:'<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head><body><main><h1>Local Tutor flow fixture</h1></main></body></html>'
+  }));
   await page.goto(base+'/index.html',{waitUntil:'domcontentloaded'});
   for(const sheet of ['lab-v33-contextual-visuals.css','lab-v33-instructor.css','lab-v33-experience.css'])
    await page.addStyleTag({url:base+'/assets/css/'+sheet});

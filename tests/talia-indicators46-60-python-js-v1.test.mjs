@@ -67,7 +67,7 @@ test('canonical 46–60 identities retain mathematical teaching and proprietary 
  assert.equal(Object.hasOwn(calculated,'STUDY_SCTR'),false,'never invent a vendor SCTR value');
 });
 test('Python and independent JS agree for all 14 calculable original bar/market-breadth scenarios',()=>{
- const r=spawnSync('python3',['scripts/qa/talia_indicators46_60_python_v1.py'],{encoding:'utf8',timeout:10000});
+ const r=spawnSync(process.platform==='win32'?'python':'python3',['scripts/qa/talia_indicators46_60_python_v1.py'],{encoding:'utf8',timeout:10000});
  assert.equal(r.status,0,r.stderr);
  const p=JSON.parse(r.stdout);
  assert.deepEqual(Object.keys(calculated).sort(),Object.keys(p.values).sort());

@@ -44,7 +44,7 @@ test('14 canonical studies are individually identified, ungraded and source-link
  }
 });
 test('independent Python and JS agree on fourteen original fictional numerical examples',()=>{
- const p=spawnSync('python3',['scripts/qa/talia_indicator46_73_python_v1.py'],{encoding:'utf8',timeout:10000});
+ const p=spawnSync(process.platform==='win32'?'python':'python3',['scripts/qa/talia_indicator46_73_python_v1.py'],{encoding:'utf8',timeout:10000});
  assert.equal(p.status,0,p.stderr);
  const reference=JSON.parse(p.stdout);
  assert.deepEqual(Object.keys(reference).sort(),Object.keys(result).sort());

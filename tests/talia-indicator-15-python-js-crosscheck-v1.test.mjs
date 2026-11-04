@@ -93,7 +93,7 @@ test('all 15 canonical indicator lesson identities and formulas are present; not
  }
 });
 test('Python and JavaScript independently agree for 15 fictional studies and declared warmup indices',()=>{
- const process=spawnSync('python3',['scripts/qa/talia_indicator_15_reference_v1.py'],{encoding:'utf8',timeout:8000});
+ const process=spawnSync(globalThis.process.platform==='win32'?'python':'python3',['scripts/qa/talia_indicator_15_reference_v1.py'],{encoding:'utf8',timeout:8000});
  assert.equal(process.status,0,process.stderr);
  const reference=JSON.parse(process.stdout);assert.deepEqual(Object.keys(reference).sort(),codes.slice().sort());
  for(const id of codes){
