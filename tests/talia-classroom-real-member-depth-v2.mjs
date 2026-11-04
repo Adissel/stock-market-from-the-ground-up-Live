@@ -15,10 +15,23 @@ const mark=(name)=>console.log('PASS '+name);
 assert(EMAIL&&PASS,'BLOCKED: encrypted James_Test identity required; no fabricated credentials');
 assert(/^[0-9a-f]{40}$/.test(SHA),'BLOCKED: exact release SHA required');
 assert(ORIGIN.startsWith('https://'),'Only live HTTPS classroom may be accepted');
-const manifestResponse=await fetch(ORIGIN+'/release-manifest.json?acceptance='+SHA,{cache:'no-store',signal:AbortSignal.timeout(20000)});
-assert.equal(manifestResponse.status,200,'BLOCKED: deployed manifest unavailable');
-const manifest=await manifestResponse.json();
-assert.equal(manifest.gitCommit,SHA,'BLOCKED: source SHA does not match production deployment');
+let deployed=false,lastSeen='unavailable';
+for(let attempt=1;attempt<=4;attempt++){
+ try{
+  const response=await fetch(ORIGIN+'/release-manifest.json?acceptance='+SHA+'&attempt='+attempt,{
+   cache:'no-store',signal:AbortSignal.timeout(20000)});
+  if(response.ok){
+   const manifest=await response.json();
+   lastSeen=String(manifest?.gitCommit||'missing');
+   if(lastSeen===SHA){deployed=true;break;}
+  }else lastSeen='HTTP '+response.status;
+ }catch{lastSeen='manifest unavailable';}
+ if(attempt<4){
+  console.log('DEPLOYMENT_PENDING '+attempt+'/4; recheck after 90 seconds; target '+SHA.slice(0,8));
+  await new Promise(resolve=>setTimeout(resolve,90000));
+ }
+}
+assert.equal(deployed,true,'BLOCKED: exact production SHA not deployed after four checks; last observed '+lastSeen.slice(0,8));
 mark('Exact source commit is currently deployed to the tested origin');
 const guestResponse=await fetch(ORIGIN+'/api/talia-classroom-curriculum-v1',{cache:'no-store'});
 assert.equal(guestResponse.status,401,'Anonymous classroom catalog must be denied');
