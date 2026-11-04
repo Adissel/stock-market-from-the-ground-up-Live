@@ -27,6 +27,7 @@ jobs:
           node --test tests/test_crownlight_scanner_sparse_v6.mjs tests/test_crownlight_scanner_sparse_source_v6.mjs
           node tests/test_crownlight_scanner_rules_v1.mjs
           node tests/test_crownlight_scanner_results_v2.mjs
+          node tests/test_crownlight_scanner_view_source_v2.mjs
           node tests/test_crownlight_scanner_templates_v1.mjs
           node --test tests/test_crownlight_scanner_presets_v2.mjs tests/test_crownlight_scanner_presets_ui_source_v2.mjs
           node tests/test_v014145_research_scanner.mjs
