@@ -154,8 +154,9 @@ function mount({host,SB,USER}){
    labelled('Expiry in ISO 8601 UTC (optional)',expiry),
    labelled('Administrative reason',reason),save,adminStatus);
   panel.append(admin);
-  let expectedVersion=check.nextExpectedVersion;
+  let expectedVersion=check.nextExpectedVersion,loadedTarget=check.target;
   const showGrant=x=>{
+   loadedTarget=x.target;
    expectedVersion=x.nextExpectedVersion;
    tierSelect.value=x.grant?.tier||'BASIC';state.value=x.grant?.status||'active';
    expiry.value=x.grant?.expires_at||'';
@@ -166,10 +167,12 @@ function mount({host,SB,USER}){
    try{
     const x=await requestJson('/api/owner-sec-scanner-tier-v1?target='+encodeURIComponent(target.value.trim()));
     showGrant(x);
-   }catch(e){expectedVersion=null;adminStatus.textContent=e?.message||'Cannot load member grant.';}
+   }catch(e){expectedVersion=null;loadedTarget=null;adminStatus.textContent=e?.message||'Cannot load member grant.';}
   };
   save.onclick=async()=>{
-   if(expectedVersion===null){adminStatus.textContent='Reload the member grant before saving.';return;}
+   if(expectedVersion===null||!loadedTarget||target.value.trim().toLowerCase()!==loadedTarget.toLowerCase()){
+    adminStatus.textContent='Reload the selected member grant before saving; the account or revision has changed.';return;
+   }
    save.disabled=true;
    try{
     const data=await requestJson('/api/owner-sec-scanner-tier-v1',{method:'POST',
