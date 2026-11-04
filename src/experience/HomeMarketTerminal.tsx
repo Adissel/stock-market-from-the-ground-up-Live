@@ -342,7 +342,7 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
   <div className="cl-react-progress" aria-live="off"><span>{checkpointLocked?'Playback paused for the Lab calculation checkpoint. Finish the ungraded method check to continue.':progress}</span>
    <small>{isPublicHome?'SIMULATED MARKET · VARIABLE 0.1×–0.4× PLAYBACK · EMA 9 (GREEN) · EMA 20 (RED) · BAR-BASED VWAP PROXY (GOLD) · NO LIVE MARKET DATA':'Simulated one-minute OHLCV; every Lab or Boot Camp replay starts with one forming candle. EMA 9 (green), EMA 20 (red), bar-based VWAP proxy (gold, not trade-print VWAP). No live or licensed market feed.'}</small>
    {!isPublicHome&&<a href="/practice-data-policy.html" className="cl-market-source-policy">How practice data is sourced</a>}</div>
-  {!isPublicHome&&<div className="cl-react-bottom"><span role="status">{note}</span><a href="/simulator.html">Open full Chart Studio</a></div>
+  {!isPublicHome&&<div className="cl-react-bottom"><span role="status">{note}</span><a href="/simulator.html">Open full Chart Studio</a></div>}
  </div>;
 }
 /** Keep the original linked SVG available until the compiled chart is ready.
