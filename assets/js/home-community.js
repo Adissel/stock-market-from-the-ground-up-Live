@@ -81,10 +81,10 @@
   const existing=$('#v1353-member-stats');if(existing&&(premium?existing.closest('.gu-home-stage-grid')===hero:existing.parentElement===hero))return existing;
   if(existing)existing.remove();
   const panel=document.createElement('aside');panel.id='v1353-member-stats';
-  panel.className='v1353-member-stats';panel.setAttribute('aria-label','Member statistics');
+  panel.className='v1353-member-stats';panel.setAttribute('aria-label','Member status and activity statistics');
   panel.setAttribute('role','region');
   panel.innerHTML='<div class="gu-home-stats-layout"><div class="gu-stats-hero"><div class="v1353-stats-graph" data-stats-chart role="img" aria-label="Member activity"></div></div>'+
-   '<div class="gu-stats-content"><div class="gu-stats-head"><div><span class="eyebrow">OUR LEARNING COMMUNITY</span><h2>Member Statistics</h2></div><div class="gu-stat-status"><span class="gu-stat-mode" data-mode>LIVE DATA</span></div></div>'+
+   '<div class="gu-stats-content"><div class="gu-stats-head"><div><span class="eyebrow">OUR LEARNING COMMUNITY</span><h2>Member Status</h2></div><div class="gu-stat-status"><span class="gu-stat-mode" data-mode>LIVE DATA</span></div></div>'+
    '<dl class="gu-stats-metrics"><div class="v1353-stat-row"><dt data-online-label aria-label="Members active within the last 60 minutes">Active members</dt><dd data-online>—</dd></div>'+
    '<div class="v1353-stat-row"><dt data-registered-label>Member accounts</dt><dd data-registered>—</dd></div></dl></div></div>'+
    '<div class="gu-home-future-modules" data-future-modules hidden></div>'+
