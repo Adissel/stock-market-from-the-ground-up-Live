@@ -1,0 +1,95 @@
+name: Two Real QA Members - Supabase Auth Provision and Privacy
+on:
+  push:
+    branches: ['qa-second-member-20261104']
+    paths: ['.github/workflows/qa-second-member-auth-v1.yml']
+  workflow_dispatch:
+permissions: {contents: read}
+jobs:
+  authorized-two-member:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Supabase official Auth createUser then independent QA privacy
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          AUTH_ADMIN_KEY_1: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          AUTH_ADMIN_KEY_2: ${{ secrets.SUPABASE_SECRET_KEY }}
+          AUTH_ADMIN_KEY_3: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import {randomBytes} from 'node:crypto';
+          import {readFileSync} from 'node:fs';
+          const cfg=readFileSync('config.js','utf8');
+          const url=cfg.match(/SUPABASE_URL:\s*'([^']+)'/)?.[1];
+          const key=cfg.match(/SUPABASE_ANON_KEY:\s*'([^']+)'/)?.[1];
+          assert(url&&key,'Public Supabase configuration missing');
+          const emailA=process.env.LAB_QA_EMAIL,passwordA=process.env.LAB_QA_PASSWORD;
+          assert(emailA&&passwordA,'BLOCKED: Original QA login secrets missing');
+          const emailB='crownlight.qa.second.20261104@example.org';
+          const passwordB=randomBytes(40).toString('base64url')+'Z9!';
+          const admin=process.env.AUTH_ADMIN_KEY_1||process.env.AUTH_ADMIN_KEY_2||process.env.AUTH_ADMIN_KEY_3||'';
+          async function req(path,opts={}){
+           const k=opts.key||key;
+           const res=await fetch(url+path,{method:opts.method||'GET',
+            headers:{apikey:k,authorization:'Bearer '+(opts.token||k),'content-type':'application/json'},
+            ...(opts.body?{body:JSON.stringify(opts.body)}:{}),cache:'no-store',signal:AbortSignal.timeout(30000)});
+           return {ok:res.ok,status:res.status,data:await res.json().catch(()=>null)};
+          }
+          async function login(email,password){
+           const r=await req('/auth/v1/token?grant_type=password',{method:'POST',body:{email,password}});
+           assert(r.ok&&r.data?.access_token&&r.data?.user?.id,'BLOCKED: genuine QA login failed HTTP '+r.status);
+           const check=await req('/auth/v1/user',{token:r.data.access_token});
+           assert.equal(check.data?.id,r.data.user.id,'Auth did not validate member session');
+           return {id:r.data.user.id,token:r.data.access_token};
+          }
+          const a=await login(emailA,passwordA);console.log('PASS first genuine QA login');
+          if(admin){
+           const listed=await req('/auth/v1/admin/users?per_page=200',{key:admin});
+           assert(listed.ok&&Array.isArray(listed.data?.users),'BLOCKED: Auth Admin key unavailable/invalid');
+           const old=listed.data.users.find(u=>u.email?.toLowerCase()===emailB);
+           if(old){
+            assert.equal(old.user_metadata?.qa_test_only,true,'Cannot modify unmarked member');
+            const r=await req('/auth/v1/admin/users/'+old.id,{method:'PUT',key:admin,body:{password:passwordB,email_confirm:true}});
+            assert(r.ok,'BLOCKED: QA credential rotation denied');
+           }else{
+            const r=await req('/auth/v1/admin/users',{method:'POST',key:admin,body:{
+             email:emailB,password:passwordB,email_confirm:true,
+             user_metadata:{first_name:'QA',last_name:'Second',qa_test_only:true,qa_noncommercial:true}}});
+            assert(r.ok&&r.data?.id,'BLOCKED: official Auth Admin creation failed HTTP '+r.status);
+           }
+           console.log('PASS second QA account provisioned through official Auth Admin');
+          }else{
+           const settings=await req('/auth/v1/settings');
+           assert(settings.ok,'BLOCKED: Auth signup settings unavailable');
+           assert.equal(settings.data?.mailer_autoconfirm,true,
+            'BLOCKED: no Auth Admin secret and public email auto-confirm disabled; no unverified account created');
+           const r=await req('/auth/v1/signup',{method:'POST',body:{
+            email:emailB,password:passwordB,
+            data:{first_name:'QA',last_name:'Second',qa_test_only:true,qa_noncommercial:true}}});
+           assert(r.ok&&r.data?.access_token,'BLOCKED: confirmed public signup failed HTTP '+r.status);
+           console.log('PASS second QA account created with confirmed public signup');
+          }
+          const b=await login(emailB,passwordB);
+          assert.notEqual(a.id,b.id,'Two logins must yield separate actual member IDs');
+          let p=await req('/rest/v1/profiles?select=id,account_kind,deleted_at&id=eq.'+b.id,{token:b.token});
+          assert(p.ok&&p.data?.[0]?.account_kind==='member'&&p.data?.[0]?.deleted_at===null,
+           'Second QA profile must be a valid unprivileged member');
+          console.log('PASS second real independent nonstaff member with verified token and profile');
+          process.env.LAB_QA_SECOND_EMAIL=emailB;process.env.LAB_QA_SECOND_PASSWORD=passwordB;
+          for(const [name,path] of [
+           ['Lab and Journal','./tests/learning-two-member-rls-browserless-v1.mjs'],
+           ['Chart Studio','./tests/live-chart-two-member-isolation-readonly-v1.mjs'],
+           ['Lumens wallet','./tests/live-lumen-two-account-isolation-v1.mjs']
+          ]){
+           try{await import(path);console.log('PASS real two-account '+name);}
+           catch(e){console.error('FAIL real two-account '+name+': '+String(e.message||e).slice(0,210));process.exitCode=1;}
+          }
+          console.log('QA login password generated in runner memory only; no credentials displayed or committed.');
+          NODE
