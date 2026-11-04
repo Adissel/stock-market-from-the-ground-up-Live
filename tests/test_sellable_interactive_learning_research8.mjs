@@ -14,7 +14,7 @@ const server=readFileSync('functions/api/lab-player-context.js','utf8');
 
 for(const term of ['data-product-code="INTERACTIVE_LEARNING"','store-product-detail-v01484.js',
  'store-interactive-learning-v1.js','store-interactive-learning-v1.css',
- 'Fictional','fictional','data-il-coverage','data-il-answer','data-il-check',
+ 'Simulated','simulated','data-il-coverage','data-il-answer','data-il-check',
  'data-il-feedback','data-il-explain','data-il-practice','data-il-reset',
  'name="order-choice"','type="radio"','role="status"','aria-live="polite"',
  'STT-C-0013','STT-C-0014','STT-C-0016','STT-C-0017',

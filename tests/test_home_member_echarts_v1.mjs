@@ -11,11 +11,18 @@ assert(js.includes('window.CrownlightECharts.load()'),'Use first-party local ECh
 assert(js.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE'"),'Archived renderer distinguishes illustrative versus verified data');
 assert(!js.includes('gu-stat-provenance')&&!js.includes('data-source-info'),'No statistics information tooltip or icon');
 assert(!js.includes('Sample statistics'),'No sample-statistics caption');
-assert(js.includes('Example online members')&&js.includes('Example registered members'),'Illustrative figures must never be labeled as verified members');
+assert(js.includes("textContent='Online members'")&&js.includes("textContent='Registered members'"),
+ 'Owner-approved public metric names are displayed consistently');
+assert(js.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE'"),
+ 'Illustrative figures retain an explicit EXAMPLE badge');
+assert(js.includes('Illustrative Owner-configured values only. These are not actual membership counts.'),
+ 'Renamed fields may never imply that example values are verified accounts');
+assert(js.includes('not verified registered or online members'),
+ 'The screen-reader label independently discloses illustrative provenance');
 assert(!js.includes("'DEMO DATA'"),'No demo badge on homepage');
-assert(js.includes('>Active members</dt>'),'Public metric label is Active members');
+assert(js.includes('>Online members</dt>'),'Public metric label is Online members');
 assert(js.includes('aria-label="Members active within the last 60 minutes"'),'Accessible label preserves the measurement window');
-assert(js.includes('Member accounts'),'Account label remains clear');
+assert(js.includes('>Registered members</dt>'),'Account label remains clear');
 assert(js.includes('last 60 minutes')||js.includes('last hour'),'Activity window must be explicit');
 assert(js.includes('total-active'),'Pie remainder derives solely from aggregate totals');
 assert(js.includes('if(!total)'),'No-data denominator must not create a fabricated percentage');
