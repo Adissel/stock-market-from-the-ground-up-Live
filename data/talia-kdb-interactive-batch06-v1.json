@@ -1,0 +1,856 @@
+{
+  "schema": "smfgu.talia.kdb.interactive.batch.v1",
+  "documentId": "SMFGU-TALIA-KDB-BATCH06-20261104",
+  "date": "2026-11-04",
+  "version": "1.0",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "projectId": "oxihglyfgzywsupnyicb",
+  "batch": 6,
+  "numberOfLessons": 29,
+  "trainingSurface": "Talia Classroom / Knowledge Database",
+  "status": "INTERACTIVE_SOURCE_LINKED_BETA_NOT_INDEPENDENTLY_APPROVED",
+  "source": "published visible gu_knowledge_articles_v1; content fetched after existing per-member authorization",
+  "lessons": [
+    {
+      "ordinal": 217,
+      "slug": "knowledge-b002-volatility-annualization-assumptions",
+      "title": "Annualizing Return Volatility With Unit Disclosure",
+      "subject": "Quantitative Research / Return Statistics",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 218,
+      "slug": "knowledge-b002-multi-period-return-compounding",
+      "title": "Compounding Returns Across Sequential Periods",
+      "subject": "Quantitative Research / Return Statistics",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 219,
+      "slug": "knowledge-b002-simple-return-vs-log-return",
+      "title": "Simple Returns Versus Logarithmic Returns",
+      "subject": "Quantitative Research / Return Statistics",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 220,
+      "slug": "knowledge-b002-maximum-drawdown-peak-to-trough",
+      "title": "Maximum Drawdown Versus Volatility",
+      "subject": "Quantitative Research / Risk Validation",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 221,
+      "slug": "knowledge-b002-portfolio-turnover-definitions",
+      "title": "Portfolio Turnover and Explicit Measurement Conventions",
+      "subject": "Quantitative Research / Risk Validation",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 222,
+      "slug": "knowledge-b002-as-of-vintage-data-snapshots",
+      "title": "As-Of Timestamps and Source Data Vintages",
+      "subject": "Quantitative Research / Temporal Integrity",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 223,
+      "slug": "knowledge-b002-bar-aggregation-open-high-low-close",
+      "title": "OHLC Bar Aggregation and Completed Intervals",
+      "subject": "Quantitative Research / Temporal Validation",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 224,
+      "slug": "knowledge-b002-timezone-session-boundary-integrity",
+      "title": "Time Zones, Session Boundaries, and Trading-Day Keys",
+      "subject": "Quantitative Research / Temporal Validation",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 225,
+      "slug": "knowledge-b003-covariance-estimate-shrinkage",
+      "title": "Covariance Estimation and Portfolio Weights",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 226,
+      "slug": "knowledge-b003-monte-carlo-sequence-risk",
+      "title": "Monte Carlo Scenario and Sequence Risk",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 227,
+      "slug": "knowledge-b003-multiple-hypothesis-testing",
+      "title": "Multiple Testing and False Discovery",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 228,
+      "slug": "knowledge-b003-parameter-sweep-overfit",
+      "title": "Parameter Sweep Overfitting and Research Logs",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 229,
+      "slug": "knowledge-b003-reproducible-backtest-ledger",
+      "title": "Reproducible Backtests and Data Provenance",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 230,
+      "slug": "knowledge-b003-sharpe-autocorrelation",
+      "title": "Sharpe Ratio Under Serial Dependence",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learningLevel": "professional",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 231,
+      "slug": "knowledge-b003-walk-forward-parameter-selection",
+      "title": "Walk-Forward Parameter Selection Without Peeking",
+      "subject": "Quantitative Research / Validation and Risk",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 232,
+      "slug": "knowledge-b002-chronological-train-test-split",
+      "title": "Chronological Training, Validation, and Test Splits",
+      "subject": "Quantitative Research / Walk-Forward Validation",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 233,
+      "slug": "knowledge-b002-time-series-gap-embargo",
+      "title": "Temporal Gaps Between Training and Test Windows",
+      "subject": "Quantitative Research / Walk-Forward Validation",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 234,
+      "slug": "knowledge-b003-ats-offexchange-reporting",
+      "title": "ATS and Off-Exchange Trade Reporting",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 235,
+      "slug": "knowledge-b003-auction-indicative-vs-executed",
+      "title": "Auction Indicative Prices Versus Final Executions",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 236,
+      "slug": "knowledge-b003-clearing-netting-settlement",
+      "title": "Clearing, Netting, and Settlement Controls",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 237,
+      "slug": "knowledge-b003-order-book-depth-changes",
+      "title": "Displayed Order-Book Depth and Cancellations",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 238,
+      "slug": "knowledge-b003-market-by-order-vs-level",
+      "title": "Market-by-Order Versus Aggregated Price Levels",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learningLevel": "professional",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 239,
+      "slug": "knowledge-b003-trades-quotes-depth-distinction",
+      "title": "Trades, Quotes, and Depth Are Different Evidence",
+      "subject": "Reading the Tape / Market Microstructure",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 240,
+      "slug": "knowledge-b003-volatility-bands-sigma-choice",
+      "title": "Bollinger-Style Bands and Standard-Deviation Convention",
+      "subject": "Technical Analysis / Numerical Verification",
+      "learningLevel": "professional",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 241,
+      "slug": "knowledge-b003-bar-close-vs-repainting",
+      "title": "Completed-Bar Confirmation and Repainting",
+      "subject": "Technical Analysis / Verification",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 242,
+      "slug": "knowledge-b003-ema-seed-convergence",
+      "title": "EMA Seed and Warmup Convergence",
+      "subject": "Technical Analysis / Verification",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 243,
+      "slug": "knowledge-b003-multiple-timeframe-bar-alignment",
+      "title": "Multi-Timeframe Indicator Alignment",
+      "subject": "Technical Analysis / Verification",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 244,
+      "slug": "knowledge-b003-oscillator-signal-regime",
+      "title": "Oscillator Divergence and Regime Limits",
+      "subject": "Technical Analysis / Verification",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 245,
+      "slug": "knowledge-b003-trade-vwap-vs-proxy",
+      "title": "Trade-Print VWAP Versus HLC3 Bar Proxy",
+      "subject": "Technical Analysis / Verification",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    }
+  ]
+}
