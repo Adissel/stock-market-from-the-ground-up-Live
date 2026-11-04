@@ -21,8 +21,8 @@ test('Exact homepage React chart is added inside existing staff-gated Prototype 
  assert.match(html,/data-route-access="staff"/);
  assert.match(core,/\/api\/admin\?action=context/);
  assert.match(core,/control_panel\.access/);
- for(const thing of ['home-market-terminal-v1.bundle.js?v=20261104-spacing1',
-  'home-market-terminal-v1.css?v=20261104-realism1',
+ for(const thing of ['home-market-terminal-v1.bundle.js?v=20261104-academy1',
+  'home-market-terminal-v1.css?v=20261104-academy1',
   'learning-home-market-replay-v1.css?v=20261104-realism1',
   'prototype-shared-learning-market-v1.css?v=20261103-proto1',
   'prototype-shared-learning-market-v1.js?v=20261103-proto1',

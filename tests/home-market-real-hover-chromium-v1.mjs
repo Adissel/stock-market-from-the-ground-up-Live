@@ -57,14 +57,10 @@ try{
  for(const text of ['Open','High','Low','Close','Volume','Simulated'])assert(value.includes(text),text+' is visible on hover');
  assert(!/\d+\.\d{3,}/.test(value),'Tooltip must not expose unrounded values');
  await plot.focus();await page.keyboard.press('Home');
- await page.waitForFunction(()=>document.querySelector('.cl-react-bottom [role="status"]')?.textContent?.includes('Simulated B01'));
+ await page.waitForFunction(()=>document.querySelector('.cl-market-tooltip')?.textContent?.includes('Candle B01'));
  await page.keyboard.press('ArrowRight');
- await page.waitForFunction(()=>document.querySelector('.cl-react-plot')?.getAttribute('role')==='region');
- // Older bars are genuine observed simulated context; right-arrow can inspect B02.
- // No unobserved future index is exposed through the ECharts series.
-
- // Verify real browser movement, pause isolation and correct aggregated timeframe controls.
- const progress=page.loc // The homepage has exactly one visible control, with twelve truthful chart presentations.
+ await page.waitForFunction(()=>document.querySelector('.cl-market-tooltip')?.textContent?.includes('Candle B02'));
+ // The homepage has exactly one visible control, with twelve truthful chart presentations.
  const selects=page.locator('.cl-react-toolbar select');
  assert.equal(await selects.count(),1,'Only Chart Type may be changed on the public home');
  const options=await selects.first().locator('option').allTextContents();

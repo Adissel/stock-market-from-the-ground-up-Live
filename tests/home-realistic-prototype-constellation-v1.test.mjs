@@ -25,7 +25,7 @@ test('original market-like candles provide volatility regimes and moving studies
  assert.match(home,/seed=773217/);
  assert.match(home,/Math\.imul\(seed,1664525\)/);
  assert.match(home,/const regimes=\[/);
- for(const x of ['spike=i===17','i===88?0.73','i===112?-0.69','upper=','lower=','volume=','EMA 9','EMA 20','Bar-based VWAP proxy','barMaxWidth:9'])
+ for(const x of ['spike=i===17','i===88?0.73','i===112?-0.69','upper=','lower=','volume=','EMA 9','EMA 20','Bar-based VWAP proxy','barMaxWidth:7'])
   assert.ok(home.includes(x),x);
  assert.match(home,/barProxyVWAP\(bars\)/);
  assert.doesNotMatch(home,/supabase|service_role|access_token|WebSocket|\/api\/market-data|fetch\(/i);

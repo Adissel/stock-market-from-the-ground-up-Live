@@ -21,7 +21,7 @@ test('same homepage React ECharts component is mounted in authenticated learning
  assert.match(home,/const embeddedRoots=new WeakMap/);
  assert.match(home,/function mount\(\)\{const host=resolveHomeChartHost/);
  for(const page of [labHtml,academyHtml]){
-  assert.match(page,/home-market-terminal-v1\.bundle\.js\?v=20261104-spacing1/);
+  assert.match(page,/home-market-terminal-v1\.bundle\.js\?v=20261104-academy1/);
   assert.match(page,/home-market-terminal-v1\.css\?v=20261104-realism1/);
   assert.match(page,/learning-home-market-replay-v1\.css\?v=20261104-realism1/);
   assert.match(page,/crownlight-learning-echarts-v1\.js/,'Previous stepwise math remains available');
