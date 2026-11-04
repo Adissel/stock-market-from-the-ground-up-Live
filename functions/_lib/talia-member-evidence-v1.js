@@ -99,6 +99,7 @@ export function authenticReplayEvidence({session,bars,dataset}={}){
    visibleThrough:session.current_index,visibleBarCount:view.length,
    bars:view.slice(-40),lastCandle:current,
    priceRange:Number((current.high-current.low).toFixed(6)),
+   coachingPrompt:'Teach the currently revealed fictional candle: open '+current.open+', high '+current.high+', low '+current.low+', close '+current.close+'. Compare the real body, full range and one invalid inference. Do not use later candles or assign a grade.',
    note:'Only the server-revealed sequence is used. Timestamp labels are bar start labels, not verified transaction time.'},
   p02:{capability:'Chronological replay and no-lookahead coaching',futureBarsReturned:0,
    serverCursor:session.current_index,visibleThrough:session.current_index,
@@ -143,12 +144,13 @@ export function authenticEnterpriseEvidence({enrollments=[],progress=[],labs=[],
    officialCompetencyAwarded:false},
   e02:{capability:'Original cited research comparison',sourceClass:'original_source_informed_teaching_briefs',
    comparisons:take,pointInTimePublicationVerified:false,
+   studyPrompt:take.length>=2?'Compare '+take.map(x=>x.topic).join(' and ')+'. Explain the formulas, units, warmup and limitations using fictional examples. Do not claim that a crossover predicts a successful trade.':'Teach the limitations of source comparison when only one reviewed first-party guide is available.',
    notice:'References support further research; linked webpages are not licensed downloads or verified as-of historical evidence.'},
   e03:{capability:'Member-authorized educational activity report',enrolledCourses:active.size,
    recordedCourseDays:rows.length,reflectedDays:rows.filter(r=>['reflected','completed'].includes(r.status)).length,
    recordedLabEntries:labsOwned.length,
    recordsAreGrades:false,includesMemberIdentifiers:false, includesRawReflections:false,
-   suggestion:'Review completed study records, identify an unanswered question and request new independent fictional transfer practice.'},
+   nextPrompt:'I have '+rows.length+' recorded Academy day entries and '+labsOwned.length+' recorded Lab entries across my eligible study programs. Help me identify an unanswered research question, then assign a new ungraded fictional transfer case. Do not infer mastery from completion.'},
   limitations:['Own member records only','No protected assessment or raw reflection','No external rights or official proficiency inferred']
  });
 }
