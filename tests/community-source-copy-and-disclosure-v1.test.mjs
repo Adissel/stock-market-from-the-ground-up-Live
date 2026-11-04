@@ -7,10 +7,13 @@ test('Member Status metric names are constant and correctly spelled',()=>{
  assert.match(s,/textContent='Online members'/);
  assert.match(s,/textContent='Registered members'/);
  assert.doesNotMatch(s,/Example online members|Example registered members|EXAMPLE DATA/);
- assert.match(s,/example\?'EXAMPLE':'LIVE DATA'/);
+ assert.match(s,/example\?'EXAMPLE':'LIVE'/);
  assert.match(s,/Owner-configured demonstration values only/);
  assert.match(s,/not verified registered or online members/);
  assert.match(s,/subtext:example\?'':'LAST 60 MIN'/);
+ assert.match(s,/if\(snapshot&&!failed\)/,'Failed refresh must not relabel stale snapshots LIVE');
+ assert.match(s,/panel\.querySelector\('\[data-online\]'\)\.textContent='—'/,'Unavailable data must not retain stale counts');
+ assert.match(s,/>CONNECTING<\/span>/,'Do not assert LIVE before the aggregate API responds');
  assert.doesNotMatch(s,/EXAMPLE DATA|ILLUSTRATIVE/i);
 });
 test('Core public learning chart wording uses simulated, not unsourced live data',()=>{
