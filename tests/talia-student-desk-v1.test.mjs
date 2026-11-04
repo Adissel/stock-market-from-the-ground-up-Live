@@ -10,6 +10,9 @@ test('student split workspace places price chart and readable live Tutor instruc
  assert.match(tutor,/tc-grid tc-terminal-grid tc-terminal-/);
  assert.match(tutor,/tc-student-page-intro/);
  assert.match(tutor,/tc-student-workspace/);
+ const grid=tutor.indexOf('tc-student-workspace');
+ const chart=tutor.indexOf('<FictionalChart',grid),chat=tutor.indexOf('<section className="tc-chat"',grid);
+ assert(grid>=0&&chart>grid&&chat>chart,'Keyboard and screen-reader order must match the chart-first visual layout');
  assert.doesNotMatch(tutor,/Instructor width|setDockWidth|setDock\(/,'Student classroom must not expose nonfunctional width/layout controls');
  assert.doesNotMatch(tutor,/Market analysis workspace|CROWNLIGHT \/ MARKET LEARNING TERMINAL/,'Do not repeat workspace branding');
  assert.match(tutor,/tc-playback-primary/);
