@@ -44,6 +44,12 @@ const DATA:Bar[]=(()=>{
  return bars;
 })();
 function moving(bars:Bar[],period:number,method:'ema'|'sma'){let state=0;return bars.map((b,i)=>{if(i<period-1)return null;if(i===period-1)state=bars.slice(0,period).reduce((sum,x)=>sum+x.close,0)/period;else if(method==='ema')state=(2/(period+1))*b.close+(1-2/(period+1))*state;else state=bars.slice(i-period+1,i+1).reduce((sum,x)=>sum+x.close,0)/period;return +state.toFixed(3)})}
+function barProxyVWAP(bars:readonly Bar[]):(number|null)[]{
+ let amount=0,quantity=0;
+ return bars.map(b=>{if(b.volume<=0)return quantity?+(amount/quantity).toFixed(3):null;
+  amount+=((b.high+b.low+b.close)/3)*b.volume;
+  quantity+=b.volume;return +(amount/quantity).toFixed(3)});
+}
 /** Exact-bar public tooltip. No HTML from members or market-data providers is used. */
 function marketTooltip(params:unknown,bars:readonly Bar[],indicator:readonly (number|null)[],study:Study):string{
  const points=Array.isArray(params)?params:[params];
@@ -84,12 +90,6 @@ function partialMinute(index:number,ticks:number):Bar{
   high=Math.max(high,close);low=Math.min(low,close);
  }
  return {open:b.open,high,low,close,volume:n===TICKS_PER_MINUTE?b.volume:Math.floor(b.volume*n/TICKS_PER_MINUTE)};
-}
-function barProxyVWAP(bars:readonly Bar[]):(number|null)[]{
- let amount=0,quantity=0;
- return bars.map(b=>{if(b.volume<=0)return quantity?+(amount/quantity).toFixed(3):null;
-  amount+=((b.high+b.low+b.close)/3)*b.volume;
-  quantity+=b.volume;return +(amount/quantity).toFixed(3)});
 }
 function groupMinutes(minutes:readonly Bar[],frame:Frame):Bar[]{
  const result:Bar[]=[];
@@ -177,8 +177,8 @@ function Terminal({context='home',startPaused=false,checkpointLocked=false,embed
    ...(show('vwap')?[{type:'line',name:'Bar-based VWAP proxy',data:vwap.concat(padding as never[]),
     showSymbol:false,connectNulls:false,lineStyle:{color:'#ffbd25',width:1.4},z:3}]:[]),
    {type:'bar',name:'Fictional volume',xAxisIndex:1,yAxisIndex:1,barMaxWidth:9,
-    data:bars.map(bar=>({value:bar.volume,itemStyle:{color:bar.close>=bar.open?'#077c65':'#a32b42'}}))
-     .concat(padding.map(()=>({value:'-',itemStyle:{color:'transparent'}})))}
+    data:bars.map(bar=>({value:bar.volume,itemStyle:{color:bar.close>=bar.open?'#18a584':'#d94c6a'}}))
+     .concat(padding.map(()=>({value:0,itemStyle:{color:'transparent'}})))}
   ];
   const tooltip={trigger:'axis',axisPointer:{type:'cross'},confine:true,appendToBody:false,
    backgroundColor:'#102638',borderColor:'#4b687f',textStyle:{color:'#e8f4f8'},
