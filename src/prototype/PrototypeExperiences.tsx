@@ -475,7 +475,7 @@ function EChart({kind,reveal,showVolume,showEma,showProxy,focusBar,onSelect,desi
   }catch(error){if(ref.current)ref.current.textContent='Chart unavailable: check the locally hosted ECharts and shared indicator math bundles.';console.error('Crownlight synthetic chart',error)}
   })();
   return()=>{alive=false;resize?.disconnect();inst.current?.dispose();inst.current=null};
- },[kind,reveal,showVolume,showEma,showProxy,focusBar,design,settings,enabled,actualHeight,syncGroup,chartRole,barLook,appearance,forming]);
+ },[kind,reveal,showVolume,showEma,showProxy,focusBar,design,settings,enabled,actualHeight,syncGroup,chartRole,barLook,appearance,forming,sourceBars]);
  return <div className="cx-interactive-chart">
  {kind==='price'&&<div className="cx-pan-controls" role="toolbar" aria-label="Chart navigation and panning">
     <button type="button" aria-label="Open chart indicator context menu" onClick={e=>{const r=e.currentTarget.getBoundingClientRect();window.dispatchEvent(new CustomEvent('crownlight:prototype-chart-menu',{detail:{x:r.left,y:r.bottom+6,view:'indicators'}}))}}>Indicators menu</button>
