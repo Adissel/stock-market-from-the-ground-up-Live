@@ -1,0 +1,30 @@
+name: Learning Genuine Two-Member RLS Privacy Gate
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/learning-two-member-rls-v1.yml'
+      - 'tests/learning-two-member-rls-browserless-v1.mjs'
+permissions: {contents: read}
+concurrency:
+  group: learning-two-member-rls-v1
+  cancel-in-progress: false
+jobs:
+  genuine-two-member-private-read:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with: {persist-credentials: false}
+      - uses: actions/setup-node@v4
+        with: {node-version: '22'}
+      - name: Test real two-account member isolation without any writes
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: |
+          node --check tests/learning-two-member-rls-browserless-v1.mjs
+          node tests/learning-two-member-rls-browserless-v1.mjs
