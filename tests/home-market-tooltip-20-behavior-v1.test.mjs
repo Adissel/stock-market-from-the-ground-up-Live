@@ -61,5 +61,12 @@ test('25 homepage deploy uses updated OHLCV chart bundle URL',()=>{
 });
 test('26 homepage deploy uses updated OHLCV chart stylesheet URL',()=>{
  const html=readFileSync('index.html','utf8');
- assert.ok(html.includes('home-market-terminal-v1.css?v=20261104-academy1'));
+ assert.ok(html.includes('home-market-terminal-v1.css?v=20261104-chart-ux2'));
+});
+
+// Public-homepage-only presentation: the verbose replay caption is not a control.
+test('27 homepage hides the verbose replay caption and increases chart height',()=>{
+ const css=readFileSync('assets/css/home-market-terminal-v1.css','utf8');
+ assert.match(css,/\.gu-premium-home \.cl-react-terminal--home \.cl-react-home-speed/);
+ assert.match(css,/\.gu-premium-home \.cl-react-terminal--home \.cl-react-plot\{height:460px!important/);
 });
