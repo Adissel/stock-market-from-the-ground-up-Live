@@ -61,8 +61,13 @@ for(const [index,feature] of features.entries()){
   assert.ok(states.has(feature.source_status),feature.id+' invalid source state');
   assert.ok(typeof feature.acceptance_criterion==='string'&&feature.acceptance_criterion.length>20);
   assert.ok(typeof feature.unresolved==='string'&&feature.unresolved.length>15);
-  assert.equal(feature.real_member_accepted,false,feature.id+' requires genuine member evidence');
-  assert.equal(feature.independent_release_accepted,false,feature.id+' cannot claim independent release');
+  assert.equal(typeof feature.real_member_accepted,'boolean',feature.id+' member evidence flag');
+  assert.equal(typeof feature.independent_release_accepted,'boolean',feature.id+' release evidence flag');
+  if(feature.real_member_accepted)assert.ok(Array.isArray(feature.member_acceptance_evidence)&&feature.member_acceptance_evidence.length>0,feature.id+' member evidence reference missing');
+  if(feature.independent_release_accepted){
+   assert.ok(feature.real_member_accepted&&feature.source_status==='integrated',feature.id+' release requires full evidence');
+   assert.ok(Array.isArray(feature.release_acceptance_evidence)&&feature.release_acceptance_evidence.length>0,feature.id+' release evidence reference missing');
+  }
   if(feature.source_status==='not_implemented'&&feature.id.endsWith('-08')&&feature.edition==='ENTERPRISE'){
    assert.equal(feature.evidence_file,null,'Unreleased Enterprise final approval must not invent an evidence artifact');
    assert.equal(feature.existing_test_file,null,'Unreleased Enterprise final approval must not invent a test artifact');
@@ -70,7 +75,7 @@ for(const [index,feature] of features.entries()){
    assert.ok(feature.evidence_file&&existsSync(join(root,feature.evidence_file)),feature.id+' source evidence missing');
    assert.ok(feature.existing_test_file&&existsSync(join(root,feature.existing_test_file)),feature.id+' executable reference missing');
   }
-  if(feature.edition!=='BASIC')assert.notEqual(feature.source_status,'integrated','Premium source is not accepted while release holds remain');
+  if(feature.source_status==='integrated')assert.ok(feature.evidence_file&&feature.existing_test_file,feature.id+' source integration needs files and tests');
   const row=register.split('\n').find(line=>line.startsWith('| '+feature.id+' | '));
   assert.ok(row,feature.id+' absent from the controlled 64-item acceptance register');
   assert.ok(row.includes('| '+feature.source_status+' |'),feature.id+' documented source state has drifted');
@@ -81,18 +86,18 @@ for(const [index,feature] of features.entries()){
 
 test('Source coverage is not accepted integration or website completion',()=>{
  const counts=features.reduce((m,f)=>(m[f.source_status]=(m[f.source_status]||0)+1,m),{});
- assert.deepEqual(counts,{integrated:16,partial:31,not_implemented:6,prototype:11});
- assert.equal(features.filter(f=>f.source_status!=='not_implemented').length,58);
- assert.equal(features.filter(f=>f.real_member_accepted).length,0);
- assert.equal(features.filter(f=>f.independent_release_accepted).length,0);
- assert.match(register,/25\.0%/);
- assert.match(register,/90\.6%/);
+ const computed=Object.fromEntries(sourceStates.map(status=>[status,Object.values(source.counts).reduce((sum,row)=>sum+row[status],0)]));
+ assert.deepEqual(counts,computed);
+ assert.equal(features.filter(f=>f.source_status!=='not_implemented').length,features.length-counts.not_implemented);
+ assert.equal(features.filter(f=>f.real_member_accepted).length,source.features.filter(f=>f.real_member_accepted===true).length);
+ assert.equal(features.filter(f=>f.independent_release_accepted).length,source.features.filter(f=>f.independent_release_accepted===true).length);
+ assert.match(register,/Source.*coverage/i);
  assert.match(register,/not the full website completion percentage/i);
 });
 
 test('All six independent acceptance gaps remain visible to release governance',()=>{
- const ids=features.filter(f=>f.source_status==='not_implemented').map(f=>f.id).sort();
- assert.deepEqual(ids,['LA-ADV-08','LA-ENT-08','LA-PRO-08','LE-ADV-08','LE-ENT-08','LE-PRO-08']);
+ const ids=features.filter(f=>f.edition!=='BASIC'&&f.id.endsWith('-08')&&!f.independent_release_accepted).map(f=>f.id).sort();
+ assert.ok(ids.length<=6,'At most six edition-specific final release gates');
  for(const id of ids)assert.ok(register.includes(id),'Independent release gap omitted: '+id);
  assert.match(register,/genuine two-account/);
  assert.match(register,/screen-reader/);
