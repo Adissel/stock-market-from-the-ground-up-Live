@@ -72,3 +72,17 @@
  #pt-experience[data-workspace="labs"] #pt-chart:has(.cl-react-terminal),
  #pt-experience[data-workspace="bootcamps"] #pt-chart:has(.cl-react-terminal){min-height:390px}
 }
+
+/* The existing Prototype Center had a parallel, static ECharts controller.
+ * Hide its inapplicable controls and metrics whenever the real shared terminal
+ * owns the primary plot, rather than leaving dead buttons near Play/Pause. */
+#pt-app:has(#pt-experience[data-workspace="labs"]) .pt-controls label:has(#pt-kind),
+#pt-app:has(#pt-experience[data-workspace="bootcamps"]) .pt-controls label:has(#pt-kind),
+#pt-experience[data-workspace="labs"] .pt-market-strip,
+#pt-experience[data-workspace="bootcamps"] .pt-market-strip,
+#pt-experience[data-workspace="labs"] .pt-inspector-head,
+#pt-experience[data-workspace="bootcamps"] .pt-inspector-head,
+#pt-experience[data-workspace="labs"] #pt-bar-inspector,
+#pt-experience[data-workspace="bootcamps"] #pt-bar-inspector{display:none!important}
+#pt-experience[data-workspace="labs"] #pt-visual-card,
+#pt-experience[data-workspace="bootcamps"] #pt-visual-card{overflow:visible}
