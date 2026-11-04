@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 const read=p=>readFileSync(p,'utf8');
-const lab=read('lab-player.html'),boot=read('bootcamp-academy.html');
+const lab=read('lab-player.html'),boot=read('bootcamp-academy.html'),legacyBoot=read('bootcamp.html');
 const prototype=read('prototype.html'),classic=read('assets/js/prototype-center-v1.js');
 const source=read('src/prototype/PrototypeExperiences.tsx');
 const bridge=read('assets/js/crownlight-classroom-chart-bridge-v1.js');
@@ -35,6 +35,17 @@ test('all registered Lab and Boot Camp classrooms share visual shell without rep
  assert.match(boot,/id="academy-lab-slot"/);
  assert.match(boot,/id="academy-official-assessment"/);
  assert.match(boot,/id="academy-reflection"/);
+ assert.match(legacyBoot,/class="gu-shared-classroom gu-bc-learning gu-teaching-wide"/);
+ assert.match(legacyBoot,/id="gu-bc-shell" hidden/);
+ assert.match(legacyBoot,/id="gu-bc-guided"/);
+ assert.match(legacyBoot,/id="gu-bc-note"/);
+ assert.match(legacyBoot,/id="cl-bootcamp-classroom-chart"/);
+ assert.match(legacyBoot,/prototype-indicator-workbench-v2\.js/);
+ assert.match(legacyBoot,/crownlight-indicator-math-v2\.js/);
+ assert.match(legacyBoot,/crownlight-shared-classroom-v1\.css/);
+ assert.match(legacyBoot,/crownlight-classroom-chart-bridge-v1\.js/);
+ assert.match(bridge,/document\.getElementById\('gu-bc-shell'\)/);
+
  assert.match(css,/cl-classroom-chart-host/);
  assert.match(css,/font-size:clamp\(16px,1\.1vw,19px\)/);
  assert.match(css,/max-width:750px/);
@@ -66,12 +77,15 @@ async function simulate(kind){
  if(kind==='lab'){
   for(const id of ['cl-lab-classroom-chart','cl-lab-classroom-chart-host','cl-lab-classroom-chart-status','lab-player-content','player-mode-select','lab-player-gate'])ids[id]=make(id);
   ids['lab-player-content'].hidden=true;
+ }else if(kind==='legacy'){
+  for(const id of ['cl-bootcamp-classroom-chart','cl-bootcamp-classroom-chart-host','cl-bootcamp-classroom-chart-status','gu-bc-shell'])ids[id]=make(id);
+  ids['gu-bc-shell'].hidden=true;
  }else{
   for(const id of ['cl-bootcamp-classroom-chart','cl-bootcamp-classroom-chart-host','cl-bootcamp-classroom-chart-status','academy-workspace','academy-official-assessment'])ids[id]=make(id);
   ids['academy-workspace'].hidden=true;ids['academy-official-assessment'].hidden=true;
  }
  const target=kind==='lab'?'cl-lab-classroom-chart':'cl-bootcamp-classroom-chart';
- const gate=kind==='lab'?'lab-player-content':'academy-workspace';
+ const gate=kind==='lab'?'lab-player-content':kind==='legacy'?'gu-bc-shell':'academy-workspace';
  class Watch{constructor(fn){events.observe=fn}observe(){}disconnect(){}}
  // Replace only the module loader in a synthetic VM; never call a live backend.
  const mockBridge=bridge.replace("import('/assets/js/prototype-experiences-v1.bundle.js')",
@@ -80,7 +94,7 @@ async function simulate(kind){
  const context={
   window:{__testMount(_target,options){
    assert.equal(options.memberSafe,true,'No member tier override');
-   assert.equal(options.mode,kind);
+   assert.equal(options.mode,kind==='lab'?'lab':'bootcamp');
    mounts++;return {dispose(){disposals++}}
   },addEventListener(){}},
   document:{readyState:'complete',getElementById(id){return ids[id]||null}},
@@ -98,9 +112,12 @@ async function simulate(kind){
  details.dispatch('toggle');await flush();
  assert.equal(mounts,1,'No duplicate React root');
  if(kind==='lab'){ids['player-mode-select'].value='assessment';ids['player-mode-select'].dispatch('change')}
+ else if(kind==='legacy'){ids['gu-bc-shell'].hidden=true;events.observe()}
  else{ids['academy-official-assessment'].hidden=false;events.observe()}
  assert.equal(disposals,1,'Assessment boundary disposes shared chart');
  assert.equal(details.open,false,'Assessment cannot leave chart open');
 }
 test('Lab bridge fails closed on unauthorized sessions and graded modes',async()=>simulate('lab'));
 test('Boot Camp bridge fails closed on assessment visibility',async()=>simulate('bootcamp'));
+
+test('Legacy 30-Day Boot Camp shared chart only mounts within an authorized day and disposes on revocation',async()=>simulate('legacy'));
