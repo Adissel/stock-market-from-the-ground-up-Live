@@ -323,7 +323,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
      advancedSelections.set(exerciseId,code);
      if(reviewedAdvanced.delete(exerciseId))teaching.textContent='The selection changed; review this case again.';
     }});
-   const reveal=el('button','Check my decision and review the worked case','btn secondary');
+   const reveal=el('button','Review advanced reasoning — check decision and worked case','btn secondary');
    reveal.type='button';
    if(reviewedAdvanced.has(exerciseId)){
     teaching.textContent='Worked analysis: '+clean(advanced.worked)+' Common mistake: '+clean(advanced.pitfall)+
@@ -350,7 +350,7 @@ function mount(host,{day,programCode,tutorRequest=null,memberFirstName=''}={}){
    const quiz=el('section');quiz.className='academy-formative-reference';
    if(authoredFormative){
     quiz.append(el('h5','Talia’s 12 authored formative practice questions'));
-    quiz.append(el('p','For each authored prompt, choose an evidence-handling method, then review Talia’s day-specific correction. Numeric and case-specific graded assessments remain separate. Optional written notes are never required for progression.'));
+    quiz.append(el('p','Complete and review all twelve day-specific formative questions. For each authored prompt, choose an evidence-handling method, then review Talia’s day-specific correction. Numeric and case-specific graded assessments remain separate. Optional written notes are never required for progression.'));
     const progress=el('p',reviewedFormative.size+' of 12 formative method checks reviewed');
     progress.setAttribute('role','status');progress.className='academy-formative-progress';quiz.append(progress);
     day.lesson.formativeQuestions.forEach((item,index)=>{
