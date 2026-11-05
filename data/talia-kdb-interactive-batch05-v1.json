@@ -1,0 +1,1465 @@
+{
+  "schema": "smfgu.talia.kdb.interactive.batch.v1",
+  "documentId": "SMFGU-TALIA-KDB-BATCH05-20261104",
+  "date": "2026-11-04",
+  "version": "1.0",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "projectId": "oxihglyfgzywsupnyicb",
+  "batch": 5,
+  "numberOfLessons": 50,
+  "trainingSurface": "Talia Classroom / Knowledge Database",
+  "status": "INTERACTIVE_SOURCE_LINKED_BETA_NOT_INDEPENDENTLY_APPROVED",
+  "source": "published visible gu_knowledge_articles_v1; content fetched after existing per-member authorization",
+  "lessons": [
+    {
+      "ordinal": 167,
+      "slug": "knowledge-b002-cash-dividend-holding-return",
+      "title": "Cash Dividends in Holding-Period Return",
+      "subject": "Foundations / Holding-Period Returns",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 168,
+      "slug": "knowledge-b002-fund-expense-ratio-cost",
+      "title": "Annual Fund Expense Ratios and Cost Estimates",
+      "subject": "Foundations / Investment Products",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 169,
+      "slug": "knowledge-b002-single-security-concentration",
+      "title": "Concentration Risk in a Single-Security Portfolio",
+      "subject": "Foundations / Portfolio Risk",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 170,
+      "slug": "knowledge-b002-overlapping-funds-concentration",
+      "title": "Overlapping ETF Holdings and False Diversification",
+      "subject": "Foundations / Portfolio Risk",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 171,
+      "slug": "knowledge-b002-forward-stock-split-mechanics",
+      "title": "Forward Stock Splits and Share-Count Reconciliation",
+      "subject": "Foundations / Prices and Securities",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 172,
+      "slug": "knowledge-b002-last-trade-versus-live-quote",
+      "title": "Historical Last Trade Versus Current Bid and Ask",
+      "subject": "Foundations / Quotes and Market Data",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 173,
+      "slug": "knowledge-b002-sec-edgar-filing-navigation",
+      "title": "Locating Company Reports in SEC EDGAR",
+      "subject": "Foundations / Regulatory Filings",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 174,
+      "slug": "knowledge-b002-point-in-time-fundamental-releases",
+      "title": "Point-in-Time Financial Statement Availability",
+      "subject": "Foundations / Regulatory Filings",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 175,
+      "slug": "knowledge-b003-ex-dividend-entitlement-timeline",
+      "title": "Ex-Dividend, Record, and Payment Dates",
+      "subject": "Foundations / Research and Risk",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 176,
+      "slug": "knowledge-b003-margin-interest-and-maintenance",
+      "title": "Margin Interest and Maintenance Obligations",
+      "subject": "Foundations / Research and Risk",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 177,
+      "slug": "knowledge-b003-trading-session-auction-primer",
+      "title": "NYSE Opening and Closing Auction Orientation",
+      "subject": "Foundations / Research and Risk",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 178,
+      "slug": "knowledge-b003-sipc-custody-vs-market-loss",
+      "title": "SIPC Custody Protection Versus Market Losses",
+      "subject": "Foundations / Research and Risk",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 179,
+      "slug": "knowledge-b003-broker-check-registration",
+      "title": "Verifying Brokers, Licenses, and Disclosures",
+      "subject": "Foundations / Research and Risk",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 180,
+      "slug": "knowledge-b002-stock-ownership-versus-bonds",
+      "title": "Stock Ownership Versus Corporate Lending",
+      "subject": "Foundations / Securities and Ownership",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 181,
+      "slug": "knowledge-b002-partial-fill-reconciliation",
+      "title": "Partial Fills and Remaining Order Quantity",
+      "subject": "Foundations / Trade Execution",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 182,
+      "slug": "knowledge-b002-regular-vs-extended-hours",
+      "title": "Comparing Regular and Extended-Hours Prices",
+      "subject": "Foundations / Trading Sessions",
+      "learningLevel": "beginner",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 183,
+      "slug": "knowledge-b003-discounted-cash-flow-scenarios",
+      "title": "Discounted Cash Flow Sensitivity Scenarios",
+      "subject": "Fundamental Analysis / Fixed Income and Valuation",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 184,
+      "slug": "knowledge-b003-municipal-bond-documentation",
+      "title": "Municipal Bond Disclosure and Credit Research",
+      "subject": "Fundamental Analysis / Fixed Income and Valuation",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 185,
+      "slug": "knowledge-b003-accrual-and-cash-reconciliation",
+      "title": "Cash Earnings and Accrual Reconciliation",
+      "subject": "Fundamental Analysis / Valuation",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 186,
+      "slug": "knowledge-b003-enterprise-equity-bridge",
+      "title": "Enterprise Value to Equity Value Bridge",
+      "subject": "Fundamental Analysis / Valuation",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 187,
+      "slug": "knowledge-b003-filing-availability-timeline",
+      "title": "Filing Publication Versus Reporting Period",
+      "subject": "Fundamental Analysis / Valuation",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 188,
+      "slug": "knowledge-b003-split-dividend-data-provenance",
+      "title": "Corporate-Action Provenance for OHLCV Feeds",
+      "subject": "Historical Data / Provenance and Rights",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 189,
+      "slug": "knowledge-b003-nyse-exchange-depth-rights",
+      "title": "Exchange Depth-of-Book Data Rights",
+      "subject": "Historical Data / Provenance and Rights",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 190,
+      "slug": "knowledge-b003-fred-series-specific-rights",
+      "title": "FRED Series Rights and Economic Vintages",
+      "subject": "Historical Data / Provenance and Rights",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 191,
+      "slug": "knowledge-b003-alpaca-coverage-feed-rights",
+      "title": "IEX Versus Consolidated Feed Coverage",
+      "subject": "Historical Data / Provenance and Rights",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 192,
+      "slug": "knowledge-b003-tiingo-bring-your-own-key",
+      "title": "Member-Supplied Tiingo Tokens and Rights",
+      "subject": "Historical Data / Provenance and Rights",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 193,
+      "slug": "knowledge-b003-cpi-pce-inflation-comparison",
+      "title": "CPI and PCE Inflation Measures",
+      "subject": "Macroeconomic Research / Economic Data",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 194,
+      "slug": "knowledge-b003-economic-revisions-vintages",
+      "title": "Economic Release Revisions and Data Vintages",
+      "subject": "Macroeconomic Research / Economic Data",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 195,
+      "slug": "knowledge-b003-yield-curve-tenor",
+      "title": "Yield Curves and Maturity Comparisons",
+      "subject": "Macroeconomic Research / Economic Data",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 196,
+      "slug": "knowledge-b003-nber-business-cycle-dating",
+      "title": "NBER Business-Cycle Dates Versus Forecasts",
+      "subject": "Macroeconomics / Economic Data and Releases",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 197,
+      "slug": "knowledge-b003-real-vs-nominal-gdp",
+      "title": "Nominal and Real GDP Growth",
+      "subject": "Macroeconomics / Economic Data and Releases",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 198,
+      "slug": "knowledge-b003-sec-filings-data-entitlement",
+      "title": "SEC API Access and Filed Data Provenance",
+      "subject": "Market Data / Rights and Provenance",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 199,
+      "slug": "knowledge-b003-screenreader-chart-evidence",
+      "title": "Accessible Chart Evidence and Keyboard Controls",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 200,
+      "slug": "knowledge-b003-exact-sha-deploy-rollback",
+      "title": "Exact-Commit Release Gates and Rollback",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 201,
+      "slug": "knowledge-b003-chart-replay-time-sync",
+      "title": "Replay Candles, Indicator State, and Chart Synchronization",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learningLevel": "professional",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 202,
+      "slug": "knowledge-b003-row-security-member-isolation",
+      "title": "Supabase Row-Level Security and Member Isolation",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 203,
+      "slug": "knowledge-b003-typed-ohlcv-contracts",
+      "title": "Typed OHLCV Schema and Input Validation",
+      "subject": "Platform Engineering / Member Security and Accessibility",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 204,
+      "slug": "knowledge-b002-covariance-versus-correlation-units",
+      "title": "Covariance, Correlation, and Scaling",
+      "subject": "Quantitative Research / Covariance and Risk",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 205,
+      "slug": "knowledge-b002-portfolio-beta-covariance-ratio",
+      "title": "Portfolio Beta as a Covariance Ratio",
+      "subject": "Quantitative Research / Covariance and Risk",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 206,
+      "slug": "knowledge-b002-double-application-of-split-factors",
+      "title": "Detecting Double-Adjusted Corporate Actions",
+      "subject": "Quantitative Research / Data Governance",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 207,
+      "slug": "knowledge-b002-raw-vs-adjusted-price-series",
+      "title": "Raw and Adjusted Historical Price Series",
+      "subject": "Quantitative Research / Data Governance",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 208,
+      "slug": "knowledge-b002-survivorship-bias-universe",
+      "title": "Survivorship Bias in Historical Security Universes",
+      "subject": "Quantitative Research / Data Governance",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 209,
+      "slug": "knowledge-b002-missing-data-versus-zero-values",
+      "title": "Missing Observations Versus Genuine Numeric Zero",
+      "subject": "Quantitative Research / Data Integrity",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 210,
+      "slug": "knowledge-b002-bid-ask-cost-in-backtests",
+      "title": "Including Spread and Fees in a Fictional Backtest",
+      "subject": "Quantitative Research / Execution Costs",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 211,
+      "slug": "knowledge-b002-slippage-stress-scenarios",
+      "title": "Stress-Testing Execution Slippage Assumptions",
+      "subject": "Quantitative Research / Execution Costs",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 212,
+      "slug": "knowledge-b002-forward-label-leakage",
+      "title": "Preventing Future-Return Labels From Becoming Predictors",
+      "subject": "Quantitative Research / Leakage Prevention",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 213,
+      "slug": "knowledge-b002-stale-quote-timestamp-rules",
+      "title": "Stale-Quote Detection and Source Freshness",
+      "subject": "Quantitative Research / Market Data Quality",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 214,
+      "slug": "knowledge-b002-time-dependent-block-bootstrap",
+      "title": "Block Bootstrap and Dependent Time-Series Samples",
+      "subject": "Quantitative Research / Model Diagnostics",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 215,
+      "slug": "knowledge-b002-residual-autocorrelation-diagnostics",
+      "title": "Residual Autocorrelation and False Independence",
+      "subject": "Quantitative Research / Model Diagnostics",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 216,
+      "slug": "knowledge-b002-rolling-feature-window-boundaries",
+      "title": "Rolling Feature Windows and Right-Edge Cutoffs",
+      "subject": "Quantitative Research / Numerical Features",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    }
+  ]
+}
