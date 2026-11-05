@@ -574,6 +574,7 @@ function Classroom(){
   },[]);
   const pauseForQuestion=useCallback((kind:LessonKind|null=lessonKind,at=visible)=>{
     const selected=kind||'candles';
+    setLessonKind(selected); // Open the guided-lesson disclosure before showing the checkpoint.
     setPlaying(false);setCheckpoint(originalQuestion(selected,REPLAY[at-1],at));
     setChat(x=>[...x,{id:crypto.randomUUID(),who:'talia',text:'Playback paused at completed fictional candle '+at+'. '+originalQuestion(selected,REPLAY[at-1],at).prompt,label:'Ungraded learner checkpoint'}]);
   },[lessonKind,visible]);
