@@ -106,8 +106,8 @@ test('optional Classroom tools are three accessible tabs below the chart, not st
 });
 test('removing the ledger retains a keyboard-operable revealed-candle selection and Tutor handoff',()=>{
  assert.doesNotMatch(tutor,/tp-candle-audit|tc-current-candle-ledger|tc-candle-table/);
- assert.match(tutor,/REPLAY\.slice\(0,visible\)\.map\(\(_,i\)=>/);
- assert.match(tutor,/onCandleSelect\(Number\(e.target.value\),1\)/);
+ assert.match(tutor,/Array\.from\(\{length:Math\.floor\(visible\/currentTimeframe\)\}/);
+ assert.match(tutor,/onCandleSelect\(Number\(e.target.value\),currentTimeframe\)/);
  assert.match(tutor,/onCandleSelect\(index,interval\)/);
  assert.match(tutor,/aria-label="Select a revealed completed candle"/);
  assert.match(shared,/className="cx-classic-measurements"/);

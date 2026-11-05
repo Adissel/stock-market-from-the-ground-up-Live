@@ -113,9 +113,9 @@ function originalQuestion(kind:LessonKind,bar:number[],index:number):LessonQuest
     'The wick proves the exact transaction sequence inside the interval.'],
    correct:1,hint:'Separate what has already been observed from what remains unknown. OHLC does not establish intrabar transaction order.'};
 }
-function FictionalChart({onQuestion,onCandleSelect,onTimeframeChange,focusSourceBar,memberId,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
+function FictionalChart({onQuestion,onCandleSelect,onTimeframeChange,focusSourceBar,currentTimeframe,memberId,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
  onQuestion:(q:string)=>void;onCandleSelect:(index:number,timeframe:1|3|5)=>void;
- onTimeframeChange:(timeframe:1|3|5)=>void;focusSourceBar:number|null;memberId:string;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
+ onTimeframeChange:(timeframe:1|3|5)=>void;focusSourceBar:number|null;currentTimeframe:1|3|5;memberId:string;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
  playing:boolean;setPlaying:React.Dispatch<React.SetStateAction<boolean>>;playSpeed:number;setPlaySpeed:React.Dispatch<React.SetStateAction<number>>;
  onPauseForQuestion:()=>void
 }){
@@ -306,9 +306,11 @@ function FictionalChart({onQuestion,onCandleSelect,onTimeframeChange,focusSource
       <summary>More replay options</summary>
       <div className="tc-row">
         <label className="tc-select-candle">Select a completed candle
-          <select aria-label="Select a revealed completed candle" value={focusSourceBar??visible-1}
-            onChange={e=>{setPlaying(false);onCandleSelect(Number(e.target.value),1)}}>
-            {REPLAY.slice(0,visible).map((_,i)=><option key={i} value={i}>Candle {i+1}</option>)}
+          <select aria-label="Select a revealed completed candle"
+            value={Math.max(0,Math.min(Math.floor((focusSourceBar??visible-1)/currentTimeframe),Math.floor(visible/currentTimeframe)-1))}
+            onChange={e=>{setPlaying(false);onCandleSelect(Number(e.target.value),currentTimeframe)}}>
+            {Array.from({length:Math.floor(visible/currentTimeframe)},(_,i)=>
+              <option key={i} value={i}>Completed candle {i+1} · {currentTimeframe} minute</option>)}
           </select>
         </label>
         {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 candles for EMA 200</button>}
@@ -895,6 +897,7 @@ function Classroom(){
         else setStatus('Select a chart-based teaching topic to have Talia explain this candle.');}}
       onTimeframeChange={interval=>{setChartTimeframe(interval);setChartFocus(null);}}
       focusSourceBar={chartFocus?Math.min(visible-1,(chartFocus.index+1)*chartFocus.timeframe-1):null}
+      currentTimeframe={chartTimeframe}
       memberId={member.id} visible={visible} setVisible={setVisible}
       playing={playing} setPlaying={setPlaying} playSpeed={playSpeed} setPlaySpeed={setPlaySpeed}
       onPauseForQuestion={()=>pauseForQuestion()}/>

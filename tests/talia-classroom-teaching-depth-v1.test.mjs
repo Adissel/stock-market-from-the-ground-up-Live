@@ -377,7 +377,7 @@ test('keyboard completed-candle selection keeps highlight, measurements and less
  const chart=readFileSync('src/prototype/PrototypeExperiences.tsx','utf8');
  assert.match(classroom,/focusSourceBar=\{chartFocus\?Math\.min\(visible-1/);
  assert.match(classroom,/focusedSourceBar=\{focusSourceBar\?\?undefined\}/);
- assert.match(classroom,/onCandleSelect\(Number\(e.target.value\),1\)/);
+ assert.match(classroom,/onCandleSelect\(Number\(e.target.value\),currentTimeframe\)/);
  assert.match(classroom,/aria-label="Select a revealed completed candle"/);
  assert.match(classroom,/REPLAY\.slice\(0,visible\)\.map/);
  assert.match(chart,/focusedSourceBar!==undefined&&focusedSourceBar>=0/);

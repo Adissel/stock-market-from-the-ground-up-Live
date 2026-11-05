@@ -31,7 +31,7 @@ test('Compact candle selector keeps keyboard access to completed bars and verifi
  assert.doesNotMatch(ts,/Accessible completed-candle ledger|tp-candle-audit|tc-current-candle-ledger/);
  assert.match(ts,/aria-label="Select a revealed completed candle"/);
  assert.match(ts,/REPLAY\.slice\(0,visible\)\.map/);
- assert.match(ts,/onCandleSelect\(Number\(e.target.value\),1\)/,
+ assert.match(ts,/onCandleSelect\(Number\(e.target.value\),currentTimeframe\)/,
    'Keyboard selection requests server-verified completed candle');
  assert.match(ts,/evidence\.open!==verified\.bar\.open/,
    'Display refuses mismatched lesson evidence');
