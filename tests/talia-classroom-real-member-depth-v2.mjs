@@ -92,17 +92,8 @@ try{
   assert.equal(catalog.maximumDepth,PLAN_CEILING[verifiedPlan],
    'Tutor teaching depth must equal the Owner-approved member plan ceiling');
   assert.equal(catalog.premiumFeaturesReleased,false);
-  const articleResponse=await page.request.get(ORIGIN+'/api/knowledge-library?action=read&slug=research-study-vwap',
-   {headers,timeout:25000});
-  assert.equal(articleResponse.status(),verifiedPlan==='FREE'?403:200,
-   'Knowledge article access must follow real RLS-backed Founder beta entitlement');
-  if(verifiedPlan!=='FREE'){
-   const document=await articleResponse.json();
-   assert.equal(document.article?.slug,'research-study-vwap');
-   assert(document.article.body_markdown?.includes('VWAP=(100×10+300×12)/(100+300)=$11.50'),
-    'Corrected owner-reviewed VWAP teaching must be accessible without a fictional payment');
-  }
-  mark('Protected VWAP lesson gate and Owner-approved teaching ceiling '+verifiedPlan);
+  // Knowledge Database authorization is verified in its own independent workflow.
+  // Tutor acceptance must not depend on article publication or article entitlements.
   mark('Live member entitlement and six original lesson topics/five steps');
   let samples=0;
   for(const depth of catalog.allowedDepths){

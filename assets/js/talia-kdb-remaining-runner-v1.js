@@ -1,4 +1,4 @@
-/* Talia guided Knowledge Database lessons, batches 02-07.
+/* Independent Knowledge Database guided study, batches 02-07.
  * Source body is received ONLY after existing per-member authorization.
  * No progress, official assessment, wallet, inference, or protected rubric writes.
  */
@@ -52,7 +52,7 @@ function mount({article,element}={}){
  const meta=reg[article.slug],data=explainData(article);
  const state={index:0,reached:0,attempts:Object.create(null),revisions:Object.create(null)};
  element.hidden=false;
- const heading=node('h2','Study with Talia · '+meta.title),intro=node('p',meta.subject+' · '+meta.learningLevel+' · First-party guided practice, ungraded','tkdb-lead');
+ const heading=node('h2','Knowledge Database · Guided Study · '+meta.title),intro=node('p',meta.subject+' · '+meta.learningLevel+' · First-party guided practice, ungraded','tkdb-lead');
  const nav=el('nav');nav.className='tkdb-stages';nav.setAttribute('aria-label','Nine learning stages');
  const body=div('tkdb-stage-content'),live=node('p','','tkdb-live');live.setAttribute('role','status');live.setAttribute('aria-live','polite');
  const actions=div('tkdb-actions');element.append(heading,intro,nav,body,live,actions);

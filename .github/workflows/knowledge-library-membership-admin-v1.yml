@@ -7,6 +7,11 @@ on:
       - 'admin-knowledge.html'
       - 'knowledge-database.html'
       - 'knowledge-article.html'
+      - 'talia-classroom.html'
+      - 'assets/js/talia-kdb-runner-v1.js'
+      - 'assets/js/talia-kdb-remaining-runner-v1.js'
+      - 'assets/css/talia-kdb-guided-v1.css'
+      - 'tests/kdb-classroom-product-boundary-v1.test.mjs'
       - 'assets/js/knowledge-article-page-v1.js'
       - 'assets/css/knowledge-article-page-v1.css'
       - 'tests/test_knowledge_article_standalone_v1.mjs'
@@ -44,6 +49,7 @@ jobs:
           node --check assets/js/admin-knowledge-v1.js
       - name: Verify security and curriculum nonregression
         run: |
+          node --test tests/kdb-classroom-product-boundary-v1.test.mjs
           node tests/test_knowledge_library_membership_admin_v1.mjs
           node tests/test_knowledge_article_standalone_v1.mjs
           node tests/test_knowledge_article_batch002_v1.mjs

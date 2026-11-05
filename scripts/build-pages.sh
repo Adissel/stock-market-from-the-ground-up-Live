@@ -33,6 +33,8 @@ node --test tests/test_knowledge_admin_draft_preview_v1.mjs
 node --test tests/runtime-owned-talia-v1.test.mjs
 # Student-facing Tutor desk must keep chart and instruction aligned and preserve revealed-evidence boundaries.
 node --test tests/talia-student-desk-v1.test.mjs
+# Independent Knowledge Database and Tutor Classroom product boundary.
+node --test tests/kdb-classroom-product-boundary-v1.test.mjs
 node --test tests/talia-classroom-teaching-depth-v1.test.mjs
 # Privately authorized first-party source-based teaching, never official grading.
 node --test tests/talia-kdb-interactive-wave1.test.mjs

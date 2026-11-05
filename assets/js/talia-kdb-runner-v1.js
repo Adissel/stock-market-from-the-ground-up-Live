@@ -1,4 +1,4 @@
-/* Talia Knowledge Classroom guided instruction: complements existing authorized Knowledge article.
+/* Independent Knowledge Database guided study: supplements the authorized Knowledge article.
  * Uses the approved 3x3 nine-stage navigation and original ungraded activities.
  * Does not write grades, progress, Lumens, or protected assessment data.
  */
@@ -79,7 +79,7 @@ function mount({article,element}={}){
   if(state.step<8){state.max=Math.max(state.max,state.step+1);state.step++;render();}
  }
  element.hidden=false;element.replaceChildren();
- const heading=text('h2','Study with Talia · '+lesson.title);
+ const heading=text('h2','Knowledge Database · Guided Study · '+lesson.title);
  const intro=text('p','Interactive guided lesson · Original fictional observations · Independent practice · Not an official graded assessment','tkdb-lead');
  const nav=by('nav');nav.className='tkdb-stages';nav.setAttribute('aria-label','Nine learning stages');
  const body=div('tkdb-stage-content');
@@ -114,7 +114,7 @@ function mount({article,element}={}){
    const prior=state.attempts[idx];
    state.attempts[idx]={value:raw,correct,tries:(prior?.tries||0)+1};
    feedback.textContent=(correct?'Reasoning matches this fictional case. ':'A correction is needed. ')+c.why;
-   live.textContent='Ungraded activity checked. '+(correct?'Calculation/selection matches the example.':'Read Talia’s explanation and try again.');
+   live.textContent='Ungraded activity checked. '+(correct?'Calculation/selection matches the example.':'Read the worked explanation and try again.');
    controls.replaceChildren(btn('Previous stage',()=>go(state.step-1),state.step===0),btn('Continue to '+STAGES[state.step+1],moveNext,!canAdvance()));
   }));
   body.append(text('p','You may retry without penalty. These questions do not change Academy assessment results or member progress.','tkdb-muted'));
@@ -172,7 +172,7 @@ function mount({article,element}={}){
      text('p','This is not an official grade, mastery determination or persisted learning-progress record.'),
      text('h4','What you practiced'),text('p',lesson.concept),
      text('h4','What remains uncertain'),text('p',lesson.limit));
-    const tutor=by('a');tutor.href='/talia-classroom.html?q='+encodeURIComponent('Talia, explain '+lesson.title+' and help me identify another fictional example.');tutor.textContent='Continue the discussion in Talia Classroom';body.append(tutor);
+    const back=by('a');back.href='/knowledge-database.html';back.textContent='Return to Knowledge Database';body.append(back);
     const restart=btn('Repeat this lesson with a clean browser-only record',()=>{state.step=0;state.max=0;state.attempts=[null,null,null];state.notes={predict:'',assess:''};render();});
     body.append(restart);
     break;

@@ -115,12 +115,14 @@ test('document and page wiring permit authorized body use only; never save grade
  const reader=read('assets/js/knowledge-article-page-v1.js');
  const article=read('knowledge-article.html');
  const page=read('talia-classroom.html');
+ const database=read('knowledge-database.html');
  const build=read('scripts/build-pages.sh');
  assert.match(article,/id="kal-talia-classroom"[^>]*hidden/);
  assert.match(article,/talia-kdb-remaining-index-v1\.js/);
  assert.match(article,/talia-kdb-remaining-runner-v1\.js/);
- assert.match(page,/id="talia-kdb-directory"/);
- assert.match(page,/talia-kdb-directory-v1\.js/);
+ assert.doesNotMatch(page,/talia-kdb-directory|talia-kdb-guided-v1\.css|talia-kdb-directory-v1\.js/,'Classroom must not embed the independent Knowledge Database');
+ assert.match(database,/id="gu-article-library-v1"/,'Knowledge articles remain in their own database directory');
+ assert.match(article,/href="\/knowledge-database\.html"/,'Knowledge article navigation stays inside the Knowledge Database');
  const check=reader.indexOf('if(!response.ok||!data.ok)');
  const mounted=reader.indexOf('CrownlightKnowledgeRemaining?.mount');
  assert.ok(check>=0&&mounted>check);

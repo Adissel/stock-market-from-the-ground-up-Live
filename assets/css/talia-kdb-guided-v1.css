@@ -1,4 +1,4 @@
-/* Crownlight Talia Knowledge Lesson Wave 1: member-facing, accessible, responsive.
+/* Independent Knowledge Database guided study: accessible and responsive.
  * Retains existing Knowledge reader visual system and display preferences.
  */
 .kal-talia-classroom {margin:2rem 0 0;padding:clamp(1rem,2vw,1.75rem);border:1px solid #397d92;border-left:4px solid #39d5ce;border-radius:.75rem;
@@ -34,23 +34,3 @@
  .kal-talia-classroom .tkdb-stage-content{padding:.8rem;}
  .kal-talia-classroom .tkdb-actions button{flex:1 1 12rem;}}
 @media(prefers-reduced-motion:reduce){.kal-talia-classroom *{scroll-behavior:auto!important;transition:none!important;animation:none!important;}}
-
-
-/* Talia Classroom integrated searchable directory: public titles only, source bodies protected. */
-.tc-body .tkdb-directory{max-width:1480px;width:calc(100% - 48px);margin:1.5rem auto;padding:clamp(1rem,2vw,1.75rem);border-radius:1rem;
- border:1px solid #326b82;border-top:3px solid #43d4bc;background:linear-gradient(130deg,#0c2134,#102e3c 80%,#072a30);color:#e8f5fa;}
-.tkdb-directory *{box-sizing:border-box;}
-.tkdb-directory h2{margin:0 0 .7rem;font-size:clamp(1.2rem,2vw,1.7rem);line-height:1.35;}
-.tkdb-directory h3{margin:0 0 .7rem;font-size:1rem;line-height:1.45;}
-.tkdb-directory .tkdb-dir-lead,.tkdb-directory .tkdb-dir-status{color:#c5dfe8;font-size:.9rem;line-height:1.5;}
-.tkdb-directory .tkdb-dir-tools{display:grid;grid-template-columns:minmax(220px,2fr) repeat(2,minmax(140px,1fr));gap:.7rem;margin:1.1rem 0;}
-.tkdb-directory input,.tkdb-directory select{width:100%;min-width:0;background:#09202e;color:#ecf9ff;border:1px solid #6e91a1;border-radius:.45rem;padding:.75rem;font:inherit;}
-.tkdb-directory input:focus-visible,.tkdb-directory select:focus-visible,.tkdb-directory button:focus-visible,.tkdb-directory a:focus-visible{outline:3px solid #f3d879;outline-offset:2px;}
-.tkdb-directory .tkdb-dir-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:.8rem;margin:1rem 0;}
-.tkdb-directory .tkdb-dir-card{background:#132f42;border:1px solid #3b6e83;border-radius:.65rem;padding:1rem;min-width:0;}
-.tkdb-directory .tkdb-dir-card small{display:block;color:#b0d1df;line-height:1.5;margin:0 0 .55rem;}
-.tkdb-directory .tkdb-dir-card a{color:#a3f0dc;font-size:.88rem;text-decoration:underline;text-underline-offset:.24em;}
-.tkdb-directory button{background:#12545a;color:#e7faff;border:1px solid #56b4ac;border-radius:.5rem;padding:.75rem 1rem;font:inherit;cursor:pointer;}
-.tkdb-directory button[hidden]{display:none;}
-@media(max-width:720px){.tc-body .tkdb-directory{width:calc(100% - 24px);margin:1rem auto;}
- .tkdb-directory .tkdb-dir-tools{grid-template-columns:1fr;}}
