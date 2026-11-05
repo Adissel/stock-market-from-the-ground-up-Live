@@ -10,7 +10,9 @@ for(const page of pages){
  assert(html.includes('name="viewport"'),'Mobile viewport '+page);
  assert(!/<meta name="robots" content="noindex/i.test(html),'New public guide must be indexable '+page);
  assert(html.includes('create-account.html')||html.includes('Start Day 1'),'Free learning path missing '+page);
- assert(/simulated/i.test(html),'Training examples must identify their simulated source '+page);
+ assert(/hypothetical/i.test(html),'Original teaching scenarios must be identified as hypothetical: '+page);
+ assert(/not live prices|not historical|not sourced historical|no live prices|nothing on this page constitutes/i.test(html),'Learners must see an explicit historical-data or live-data boundary: '+page);
+ assert(!/are\s{2,}and educational|an original\s{2,}example|Read a\s{2,}candlestick/i.test(html),'Public teaching copy must not contain missing example labels: '+page);
  assert(/risk|loss/i.test(html),'Risk statement missing '+page);
  assert(html.includes('member-growth-v1.css'),'Responsive styling missing '+page);
 }
