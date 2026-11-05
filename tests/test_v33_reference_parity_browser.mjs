@@ -14,7 +14,7 @@ try{
   await page.goto(base+'/index.html',{waitUntil:'domcontentloaded'});
   for(const name of ['lab-v33-contextual-visuals.css','lab-v33-instructor.css','lab-v33-experience.css'])
    await page.addStyleTag({url:base+'/assets/css/'+name});
-  for(const name of ['lab-engine-v32-teaching.js','lab-engine-v33-visual.js',
+  for(const name of ['learning-response-choice-v1.js','lab-engine-v32-teaching.js','lab-engine-v33-visual.js',
    'lab-v33-contextual-visuals.js','lab-v33-visual-interactions.js',
    'lab-v34-competency-examples.js','lab-v33-instruction-content.js',
    'lab-v34-interactive-lessons.js','lab-v33-instructor.js',
@@ -165,9 +165,10 @@ try{
   await host.getByRole('button',{name:'Check my understanding'}).click();
   const prompt=teacher.locator('.gu-v33-instructor-prompt');
   assert.match(await prompt.textContent(),/Which prices determine/i);
-  const answer=teacher.locator('.gu-v33-instructor-dialogue textarea');
+  // Shared Tutor now uses a public formative method choice. Written notes are optional.
+  const answer=teacher.locator('.gu-v33-instructor-dialogue .gu-v33-evidence-decision input[value="EVIDENCE"]');
   const submit=teacher.getByRole('button',{name:'Submit answer'});
-  await answer.fill('The open and close prices determine the completed candle body.');
+  await answer.check();
   await submit.click();
   await host.locator('.gu-v44-calculate-gate').waitFor();
   assert.equal(await host.getByRole('button',{name:'Next learning stage'}).isDisabled(),true,
