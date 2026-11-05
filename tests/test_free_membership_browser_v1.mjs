@@ -182,7 +182,7 @@ try{
    'The last trade is a previous matched transaction, but I have not yet checked the bid, ask, quantity or fill uncertainty.');
   // The ungraded formative review requires an evidence-based method choice;
   // a written explanation alone must not bypass that teaching checkpoint.
-  await page.locator('#academy-original-instruction .academy-day-evidence-check input[type="radio"][value="EVIDENCE"]').check();
+  await page.locator('#academy-original-instruction .academy-day-evidence-check input[name="academy-day-method-201"][value="EVIDENCE"]').check();
   await page.locator('#academy-original-instruction button').filter({hasText:'Compare my reasoning'}).click();
   assert.equal(await page.locator('.academy-free-formative-note').count(),1);
   assert.match(await page.locator('.academy-free-formative-note').innerText(),/not a grade/i);
