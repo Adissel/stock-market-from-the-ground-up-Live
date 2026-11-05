@@ -77,8 +77,10 @@ try{
   await submit(good);await submit(good);
   await root.getByRole('heading',{name:/Predict —/}).waitFor();
   assert.equal(await root.locator('.gu-v33-instructor-dialogue').count(),0,'Predict remains independent');
-  await root.locator('textarea').fill('The next candle is unknown because I have only the completed observations and a defined invalidation.');
-  await root.getByRole('button',{name:'Lock my prediction'}).click();
+  // Predict remains independent of Talia's dialogue; conditional evidence choices
+  // do not create a graded answer or require a written essay.
+  await root.locator('.gu-v33-prediction-choice input[type="radio"]').last().check();
+  await root.getByRole('button',{name:'Lock my conditional prediction'}).click();
   await root.getByRole('button',{name:'Next learning stage'}).click();
   await root.getByRole('heading',{name:/Practice —/}).waitFor();
   await submit('1');
