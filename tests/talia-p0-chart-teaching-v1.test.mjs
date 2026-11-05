@@ -17,3 +17,13 @@ test('P0 instructor chart focus and follow-up controls remain accessible and ent
  assert.match(src,/if\(checkpoint&&selectedMode==='review'\)/);
  assert.match(src,/allowModel:false/);
 });
+
+test('P0 preserves authorized source-only member API and original nine-stage learning model',()=>{
+ assert.match(src,/fetch\('\/api\/market-tutor'/);
+ assert.match(src,/fetch\('\/api\/talia-classroom-curriculum-v1'/);
+ assert.match(src,/allowedDepths\.includes\(teachingDepth\)/);
+ assert.match(src,/allowModel:false/);
+ assert.match(src,/if\(group\.length!==interval\)return/);
+ assert.match(src,/onClick=\{\(\)=>setPlaying\(true\)\}>Resume replay/);
+ assert.doesNotMatch(src,/masteryAwarded:true|officialGrade:true/);
+});
