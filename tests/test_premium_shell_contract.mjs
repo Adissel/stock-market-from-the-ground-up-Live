@@ -11,7 +11,9 @@ const home=read('index.html'),stats=read('assets/js/home-community.js');
 assert(home.includes('src="/assets/js/home-community.js?v='),'Owner-requested homepage Member Status must load the existing aggregate display');
 assert(home.includes('href="/assets/css/home-member-stats.css?v='),'Restored Member Status must include responsive styling');
 assert(stats.includes("fetch('/api/home-member-stats-v01353?action=public'"),'Member Status must read only the verified public aggregate endpoint');
-assert(stats.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE DATA'):'UNAVAILABLE'"),'Demonstration counts must be visibly labeled and verification failures fail closed');
+assert(stats.includes("badge.textContent=valid?(example?'EXAMPLE':'LIVE'):'UNAVAILABLE'")&&
+ stats.includes("'LIVE DATA; verified membership aggregates'")&&stats.includes("'Member statistics unavailable'"),
+ 'Demonstration counts must be visibly labeled, verified live counts identified accessibly, and failures fail closed');
 assert(!read('functions/_middleware.js').includes('home-community.js'),'Edge middleware must not re-inject the owner-removed example statistics');
 assert(stats.includes('Owner-configured demonstration counts, not verified registered or online members')&&
  stats.includes('Owner-configured demonstration values only. These are not actual membership counts.'),
