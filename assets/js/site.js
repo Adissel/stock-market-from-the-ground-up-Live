@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   {label:'X',url:'https://x.com/SMFGUAcademy'}
  ];
  const mount=()=>{
-  document.querySelectorAll('footer').forEach(footer=>{
+  document.querySelectorAll('body > footer, footer.footer').forEach(footer=>{
    if(footer.querySelector('[data-gu-official-social-links]'))return;
    const nav=document.createElement('nav');
    nav.dataset.guOfficialSocialLinks='1';
@@ -257,7 +257,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 })();
 
 /* Single canonical footer legal navigation; fallback only for legacy footers. */
-(()=>{const apply=()=>{const f=document.querySelector('footer');if(!f||f.querySelector('a[href="/legal.html"],a[href="legal.html"],[data-gu-legal-directory]'))return;const nav=document.createElement('nav');nav.dataset.guLegalDirectory='1';nav.setAttribute('aria-label','Legal policies');nav.className='wrap gu-footer-legacy-legal';const a=document.createElement('a');a.href='/legal.html';a.textContent='Legal & Policies';nav.append(a);f.append(nav)};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply()})();
+(()=>{const apply=()=>{const f=document.querySelector('body > footer, footer.footer');if(!f||f.querySelector('a[href="/legal.html"],a[href="legal.html"],[data-gu-legal-directory]'))return;const nav=document.createElement('nav');nav.dataset.guLegalDirectory='1';nav.setAttribute('aria-label','Legal policies');nav.className='wrap gu-footer-legacy-legal';const a=document.createElement('a');a.href='/legal.html';a.textContent='Legal & Policies';nav.append(a);f.append(nav)};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply()})();
 (()=>{if(document.querySelector('link[data-gu-legal-footer-style]'))return;const s=document.createElement('link');s.rel='stylesheet';s.href='/assets/css/legal-footer-v1.css?v=20261027';s.dataset.guLegalFooterStyle='1';document.head.append(s)})();
 
 

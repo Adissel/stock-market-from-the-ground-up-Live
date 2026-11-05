@@ -69,6 +69,16 @@ export function mountLearningConstellation(host,options={}){
  // Staff-only Prototype navigation remains inaccessible from this presentation.
  if(publicPreview){
   root.classList.add('lc-app--public');
+  // Convert educational notes to groups before mounting so global footer
+  // scripts cannot mistake the constellation legend for the site footer.
+  for(const footer of root.querySelectorAll('footer')){
+   const group=document.createElement('div');
+   group.className=footer.className||'lc-detail-note';
+   group.setAttribute('role','group');
+   group.setAttribute('aria-label',footer.classList.contains('lc-legend')?'Constellation legend':'Educational teaching note');
+   while(footer.firstChild)group.append(footer.firstChild);
+   footer.replaceWith(group);
+  }
   root.querySelector('.lc-head .lc-eyebrow').textContent='CROWNLIGHT · INTERACTIVE LEARNING CONSTELLATION';
   root.querySelector('.lc-head p').textContent='Explore the nine learning stages, the 419-Lab network, ten Boot Camp paths and Talia\'s source-based indicator guides. Select a node to explore the teaching evidence.';
   root.querySelector('.lc-guard b').textContent='SIMULATED / INSTRUCTIONAL';

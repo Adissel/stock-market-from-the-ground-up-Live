@@ -27,7 +27,7 @@
    }
    // The canonical footer now has one Teaching Philosophy link and a plain-text
    // series tagline in its copyright row. Remove legacy detached link strips.
-   const footer=document.querySelector('footer');
+   const footer=document.querySelector('body > footer, footer.footer');
    footer?.querySelector('[data-gu-philosophy-links]')?.remove();
    const main=document.querySelector('main');if(main&&!main.id)main.id='main-content';
    if(main){
