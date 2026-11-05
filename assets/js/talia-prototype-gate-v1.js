@@ -41,7 +41,7 @@ async function verify(){
   }
   if(!mounted){
    mounted=true;authorizedUserId=user.id;
-   const script=document.createElement('script');script.type='module';script.src='/assets/js/talia-classroom-v1.bundle.js?v=20261104-teaching-curriculum1';
+   const script=document.createElement('script');script.type='module';script.src='/assets/js/talia-classroom-v1.bundle.js?v=20261104-teaching-practice2';
    script.onerror=()=>{mounted=false;fail('The Tutor application could not load. Reload the page to retry.');};document.head.append(script);
   }
   status.hidden=true;workspace.hidden=false;
