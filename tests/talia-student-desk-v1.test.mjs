@@ -64,8 +64,12 @@ test('Talia chart consumes only its revealed bar prefix for full plotted data an
  assert.match(shared,/onObservedBar\?\.\(Math\.floor\(index\/appearance\.timeframe\),appearance\.timeframe\)/);
  assert.match(tutor,/REPLAY\.slice\(index\*interval,Math\.min\(visible,\(index\+1\)\*interval\)\)/);
  assert.match(tutor,/if\(group\.length!==interval\)return/);
- assert.match(tutor,/high=Math\.max\(\.\.\.group\.map\(bar=>bar\[3\]\)\)/);
- assert.match(tutor,/low=Math\.min\(\.\.\.group\.map\(bar=>bar\[2\]\)\)/);
+ // The decision-time calculator now owns aggregate high/low and verifies the selected prefix.
+ assert.match(tutor,/high:Math\.max\(\.\.\.rows\.map\(x=>x\[3\]\)\)/);
+ assert.match(tutor,/low:Math\.min\(\.\.\.rows\.map\(x=>x\[2\]\)\)/);
+ assert.match(tutor,/const limit=\(index\+1\)\*timeframe/);
+ assert.match(tutor,/if\(limit>visible\)return null/);
+ assert.match(tutor,/const source=REPLAY\.slice\(0,limit\)/);
  assert.match(shared,/effectiveStudio:Studio=memberSafe\?'Standard':studio/);
 });
 
