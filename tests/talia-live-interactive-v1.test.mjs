@@ -9,8 +9,8 @@ const gate=readFileSync('assets/js/talia-prototype-gate-v1.js','utf8');
 
 test('One protected React classroom owns both member and staff learning runtime',()=>{
  for(const html of [member,staff])assert.match(html,/talia-live-lesson-v1\.css/);
- assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261105-checkpoint-inline1/);
- assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261105-checkpoint-inline1/);
+ assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261105-chart-tabs1/);
+ assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261105-chart-tabs1/);
  assert.match(staff,/data-route-access="staff"/);
  assert.match(gate,/control_panel\.access/);
  assert.match(src,/const advancedExperience=isTaliaAdvancedRoute\(\)/);
@@ -107,6 +107,6 @@ test('active checkpoint presents answers directly beneath the Tutor question rat
  assert.match(css,/tc-message-question \.tc-checkpoint-inline/);
  assert.match(css,/tc-checkpoint-inline \.tc-checkpoint-option/);
  assert.match(css,/@media\(max-width:620px\)/);
- assert.match(member,/talia-live-lesson-v1\.css\?v=20261105-checkpoint-inline1/);
- assert.match(staff,/talia-live-lesson-v1\.css\?v=20261105-checkpoint-inline1/);
+ assert.match(member,/talia-live-lesson-v1\.css\?v=20261105-chart-tabs1/);
+ assert.match(staff,/talia-live-lesson-v1\.css\?v=20261105-chart-tabs1/);
 });

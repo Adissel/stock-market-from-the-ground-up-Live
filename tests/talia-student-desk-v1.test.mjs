@@ -44,8 +44,9 @@ test('OHLC prices appear inside chart region, not as an always-open unrelated ta
  assert.match(shared,/activeMeasurement\.low\.toFixed\(2\)/);
  assert.match(shared,/Math\.abs\(activeMeasurement\.close-activeMeasurement\.open\)/);
  assert.match(tutor,/measurement=\{\{index:visible,open:latest\[0\],high:latest\[3\],low:latest\[2\],close:latest\[1\],interval:'1-minute source'\}\}/);
- assert.match(tutor,/\{!prototype&&<details className="tc-current-candle-ledger">/);
- assert.match(tutor,/<table className="tc-candle-table"><caption>Latest visible completed candle/);
+ assert.doesNotMatch(tutor,/Accessible completed-candle ledger|tp-candle-audit|tc-current-candle-ledger/);
+ assert.match(tutor,/Select a completed candle/);
+ assert.match(tutor,/aria-label="Select a revealed completed candle"/);
  assert.match(css,/\.cx-classic-visual-region\{display:grid;grid-template-columns/);
 });
 
@@ -71,10 +72,44 @@ test('Talia chart consumes only its revealed bar prefix for full plotted data an
 
 test('member and staff Tutor routes reuse one stylesheet and versioned build without changing homepage',()=>{
  const member=read('talia-classroom.html'),staff=read('talia-tutor-prototype.html'),gate=read('assets/js/talia-prototype-gate-v1.js');
- for(const h of [member,staff])assert.match(h,/talia-student-desk-v1\.css\?v=20261104-teaching-curriculum1/);
- assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261105-checkpoint-inline1/);
- assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261105-checkpoint-inline1/);
+ for(const h of [member,staff])assert.match(h,/talia-student-desk-v1\.css\?v=20261105-chart-tabs1/);
+ assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261105-chart-tabs1/);
+ assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261105-chart-tabs1/);
  assert.match(staff,/data-route-access="staff"/);
  assert.match(gate,/control_panel\.access/);
  assert.doesNotMatch(read('index.html'),/talia-student-desk-v1\.css/);
+});
+
+
+test('optional Classroom tools are three accessible tabs below the chart, not stacked place cards beneath chat',()=>{
+ const tools=tutor.indexOf('<section className="tc-tools-under-chart"');
+ const chart=tutor.indexOf('<FictionalChart',tutor.indexOf('tc-student-workspace'));
+ const chat=tutor.indexOf('<section className="tc-chat"',chart);
+ const transcript=tutor.indexOf('<ol className="tc-transcript"',chat);
+ assert(chart>=0&&tools>chart&&tools<chat&&transcript>chat,
+  'Chart, tabbed tools, and instructor must be in the intended source and reading order');
+ assert.match(tutor,/role="tablist" aria-label="Chart learning tools"/);
+ for(const tab of ['questions','lesson','options']){
+  assert.match(tutor,new RegExp('id="tc-tools-panel-'+tab+'" role="tabpanel"'));
+  assert.match(tutor,new RegExp('tc-tools-tab-'+tab));
+ }
+ assert.match(tutor,/aria-selected=\{activeToolsTab===tab.id\}/);
+ assert.match(tutor,/onKeyDown=\{e=>\{/);
+ assert.match(tutor,/ArrowLeft.*ArrowRight.*Home.*End/);
+ assert.match(tutor,/hidden=\{activeToolsTab!=='options'\}/);
+ assert.match(tutor,/hidden=\{activeToolsTab!=='lesson'\}/);
+ assert.match(css,/\.tc-student-workspace>\.tc-tools-under-chart\{/);
+ assert.match(css,/\.tc-student-workspace>\.tc-chat\{[\s\S]*?grid-column:2;grid-row:1 \/ span 2/);
+ assert.match(css,/\.tc-tools-panel\[hidden\]\{/);
+ assert.match(css,/\.tc-tools-tabs>button\[aria-selected="true"\]/);
+ assert.match(css,/\.tc-tools-panel :is\(/);
+});
+test('removing the ledger retains a keyboard-operable revealed-candle selection and Tutor handoff',()=>{
+ assert.doesNotMatch(tutor,/tp-candle-audit|tc-current-candle-ledger|tc-candle-table/);
+ assert.match(tutor,/REPLAY\.slice\(0,visible\)\.map\(\(_,i\)=>/);
+ assert.match(tutor,/onCandleSelect\(Number\(e.target.value\),1\)/);
+ assert.match(tutor,/onCandleSelect\(index,interval\)/);
+ assert.match(tutor,/aria-label="Select a revealed completed candle"/);
+ assert.match(shared,/className="cx-classic-measurements"/);
+ assert.match(tutor,/tc-chart-evidence-inline/);
 });

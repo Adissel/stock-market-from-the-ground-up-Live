@@ -6,7 +6,7 @@ const sharedFixtureSource=readFileSync('src/tutor/talia-chart-evidence-v1.js','u
 const s=readFileSync('src/tutor/TaliaClassroom.tsx','utf8');
 test('professional V4 assets load on both classroom routes',()=>{
  for(const p of ['talia-classroom.html','talia-tutor-prototype.html'])assert.ok(readFileSync(p,'utf8').includes('talia-terminal-v4.css'));
- assert.ok(readFileSync('talia-classroom.html','utf8').includes('20261105-checkpoint-inline1'));
+ assert.ok(readFileSync('talia-classroom.html','utf8').includes('20261105-chart-tabs1'));
  assert.match(readFileSync('talia-classroom.html','utf8'),/talia-live-lesson-v1\.css/);
  assert.ok(readFileSync('assets/css/talia-terminal-v4.css','utf8').includes('prefers-reduced-motion'));
 });
