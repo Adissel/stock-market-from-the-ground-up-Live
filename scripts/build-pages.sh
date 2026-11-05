@@ -126,6 +126,7 @@ node --test tests/learning-lab-edition-workspace-v1.test.mjs
 node --test tests/learning-lab-edition-two-account-contract-v1.test.mjs
 node tests/talia-classroom-source-v1.test.mjs
 node --test tests/talia-live-interactive-v1.test.mjs
+node --test tests/talia-p0-chart-teaching-v1.test.mjs
 node --test tests/talia-classroom-professional-v2.test.mjs
 node --test tests/talia-terminal-v4.test.mjs
 node --test tests/talia-classroom-route-alias-v4.test.mjs
