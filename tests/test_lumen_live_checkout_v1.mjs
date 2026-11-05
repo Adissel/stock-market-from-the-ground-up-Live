@@ -63,3 +63,65 @@ test('source contract preserves five LIVE-only products, member-bound guard and 
  assert(client.includes('window.getSupabaseClient()'));
  assert(client.includes("target.origin!=='https://checkout.stripe.com'"));
 });
+
+
+test('signed-in LIVE checkout reserves and binds an unpaid Stripe Session without issuing wallet credits',async()=>{
+ const old=globalThis.fetch,member='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa',
+  intent='bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb',rid='cccccccc-cccc-4ccc-8ccc-cccccccccccc',
+  product='prod_VZOxFX6Ng4rSM2',priceId='price_1UYG9YJL0O4GGVBHyNaAzubj';
+ const calls=[],env={...mockEnv,GU_LUMEN_BUNDLE_LIVE_CHECKOUT_ENABLED:'true'};
+ const reply=(data,status=200)=>new Response(JSON.stringify(data),{status,headers:{'content-type':'application/json'}});
+ const packs=[25,55,90,125,275].map((qty,i)=>({sku:'SPARKS_'+qty,quantity:qty,
+  amount_cents:[500,1000,1500,2000,4000][i],sale_ready:true,
+  stripe_product_id:i===0?product:'prod_mock_'+i,stripe_price_id:i===0?priceId:'price_mock_'+i}));
+ globalThis.fetch=async(input,opts={})=>{
+  const u=new URL(String(input)),path=u.pathname;calls.push({path,method:opts.method||'GET'});
+  if(path==='/auth/v1/user')return reply({id:member});
+  if(path==='/rest/v1/profiles')return reply([{account_kind:'member',deleted_at:null}]);
+  if(path==='/rest/v1/admin_user_flags'||path==='/rest/v1/admin_user_roles')return reply([]);
+  if(path==='/rest/v1/account_private_identity')return reply([{age_eligible:true,date_of_birth:'1990-01-01'}]);
+  if(path==='/rest/v1/gu39_sandbox_settings')return reply([{enabled:false}]);
+  if(path==='/rest/v1/gu_lumen_live_offers_v1')return reply(packs);
+  if(u.host==='api.stripe.com'&&path==='/v1/account')return reply({id:env.STRIPE_LIVE_ACCOUNT_ID});
+  if(u.host==='api.stripe.com'&&path==='/v1/prices/'+priceId)return reply({id:priceId,product,livemode:true,type:'one_time',
+   recurring:null,active:true,unit_amount:500,currency:'usd'});
+  if(u.host==='api.stripe.com'&&path==='/v1/products/'+product)return reply({id:product,active:true,livemode:true,
+   metadata:{site_sku:'SPARKS_25',quantity:'25',nonexpiring:'true',site_checkout_enabled:'true',launch_state:'founding_beta_live'}});
+  if(path==='/rest/v1/rpc/gu_lumen_live_reserve_v1'){
+   assert.equal(opts.method,'POST');const args=JSON.parse(opts.body);
+   assert.deepEqual(args,{p_user:member,p_sku:'SPARKS_25',p_request:rid});
+   return reply({ok:true,id:intent,priceId,productId:product,quantity:25,amountCents:500,existing:false,status:'prepared'});
+  }
+  if(u.host==='api.stripe.com'&&path==='/v1/checkout/sessions'){
+   assert.equal(opts.method,'POST');
+   const form=new URLSearchParams(opts.body);
+   assert.equal(form.get('line_items[0][price]'),priceId);
+   assert.equal(form.get('metadata[gu_lumen_live_id]'),intent);
+   assert.equal(form.get('metadata[gu_lumen_live_user]'),member);
+   assert.equal(form.get('metadata[gu_lumen_live_sku]'),'SPARKS_25');
+   assert.equal(form.get('payment_intent_data[metadata][gu_lumen_live_id]'),intent);
+   assert.equal(form.get('payment_intent_data[metadata][gu_lumen_live_user]'),member);
+   assert.equal(form.get('payment_intent_data[metadata][gu_lumen_live_sku]'),'SPARKS_25');
+   assert.equal(opts.headers['Idempotency-Key'],'gu-lumen-live-'+intent);
+   return reply({id:'cs_live_example123456',livemode:true,mode:'payment',status:'open',payment_status:'unpaid',
+    amount_subtotal:500,currency:'usd',client_reference_id:intent,
+    metadata:{gu_lumen_live_id:intent,gu_lumen_live_user:member,gu_lumen_live_sku:'SPARKS_25'},
+    url:'https://checkout.stripe.com/c/pay/cs_live_example123456'});
+  }
+  if(path==='/rest/v1/rpc/gu_lumen_live_bind_v1'){
+   assert.deepEqual(JSON.parse(opts.body),{p_id:intent,p_user:member,p_session:'cs_live_example123456'});
+   return reply({ok:true});
+  }
+  throw Error('Unexpected LIVE provider path '+u.toString());
+ };
+ try{
+  const r=await onRequestPost({request:request({sku:'SPARKS_25',requestId:rid}),env});
+  assert.equal(r.status,200);const data=await r.json();
+  assert.equal(data.ok,true);assert.equal(data.amountCents,500);assert.equal(data.quantity,25);
+  assert(data.url.startsWith('https://checkout.stripe.com/'));
+  assert.equal(calls.filter(x=>x.path==='/v1/checkout/sessions').length,1);
+  assert.equal(calls.filter(x=>x.path==='/rest/v1/rpc/gu_lumen_live_reserve_v1').length,1);
+  assert.equal(calls.filter(x=>x.path==='/rest/v1/rpc/gu_lumen_live_bind_v1').length,1);
+  assert.equal(calls.some(x=>x.path.includes('gu_lumen_live_apply_v1')),false,'Only verified webhook may credit real wallet');
+ }finally{globalThis.fetch=old}
+});
