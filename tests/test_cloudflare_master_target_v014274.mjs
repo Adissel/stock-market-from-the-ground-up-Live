@@ -2,20 +2,21 @@
  * GitHub source-only assertions, no keys, no provider mutations. */
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync,existsSync} from 'node:fs';
 const root = new URL('../', import.meta.url);
 const read = p => readFileSync(new URL(p, root),'utf8');
 const acct='4fe9e562905cf607b6f004d2374299fc';
 const origin='https://stock-market-from-the-ground-up-d1r.pages.dev';
 const project='stock-market-from-the-ground-up';
-test('explicit Pages fallback points at verified Yahoo master, stays paused',()=>{
- const f=read('.github/workflows/replacement-cloudflare-pages.yml');
- assert.match(f,/if: false/,'Do not silently activate alternate deploy path');
- assert.ok(f.includes(acct));
- assert.ok(f.includes(origin));
- assert.ok(f.includes('--project-name='+project+' --branch=main'));
- assert.ok(f.includes('secrets.SMFGU_LIVES_PAGES_DEPLOY'));
- assert.doesNotMatch(f,/9a43bc08e9db72e7187bc8c0a31710c2|5cc474054a0869a2fc0c4d0bd1c5373b/);
+test('legacy Pages fallback is archived, not executable from main',()=>{
+ assert.equal(existsSync(new URL('.github/workflows/replacement-cloudflare-pages.yml',root)),false,'Do not restore the paused legacy deployment to main');
+ const active=read('.github/workflows/cloudflare-master-target-guard-v014274.yml');
+ assert.ok(active.includes(acct));
+ assert.ok(active.includes(project));
+ assert.ok(active.includes('stock-market-from-the-ground-up-d1r.pages.dev'));
+ assert.ok(active.includes('secrets.SMFGU_LIVES_PAGES_DEPLOY'));
+ assert.ok(active.includes("p.production_branch!=='main'"));
+ assert.doesNotMatch(active,/9a43bc08e9db72e7187bc8c0a31710c2|5cc474054a0869a2fc0c4d0bd1c5373b/);
 });
 test('active public acceptance probes target newest production, not interim account',()=>{
  const js=read('tests/test_lives_production_guest_v014270.mjs');
@@ -27,11 +28,11 @@ test('active public acceptance probes target newest production, not interim acco
  assert.ok(active.includes('tests/cloudflare-master-smoke.mjs'));
  assert.ok(read('tests/cloudflare-master-smoke.mjs').includes(origin));
 });
-test('interim smoke is retained for rollback but no longer auto-triggers',()=>{
- const f=read('.github/workflows/cloudflare-replacement-smoke.yml');
- assert.match(f,/Historical/);
- assert.match(f,/workflow_dispatch:/);
- assert.doesNotMatch(f,/\n  push:/);
+test('historical interim smoke is archived and the approved archive is exempted',()=>{
+ assert.equal(existsSync(new URL('.github/workflows/cloudflare-replacement-smoke.yml',root)),false,'No interim smoke workflow may run from main');
+ const governance=read('.github/workflows/main-only-branch-governance.yml');
+ assert.ok(governance.includes('APPROVED_ARCHIVE_BRANCH: archive/obsolete-ci-20261104'));
+ assert.ok(governance.includes('if name==archive:'));
 });
 test('master Worker remains private and unscheduled',()=>{
  const s=read('workers/wrangler-master-billing.jsonc');

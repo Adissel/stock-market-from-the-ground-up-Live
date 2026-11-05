@@ -4,10 +4,9 @@ on:
   push:
     branches: [main]
     paths:
-      - '.github/workflows/replacement-cloudflare-pages.yml'
-      - '.github/workflows/cloudflare-replacement-smoke.yml'
       - '.github/workflows/lives-beta-guest-acceptance-v014270.yml'
       - '.github/workflows/cloudflare-master-target-guard-v014274.yml'
+      - '.github/workflows/main-only-branch-governance.yml'
       - 'tests/test_lives_production_guest_v014270.mjs'
       - 'tests/test_cloudflare_master_target_v014274.mjs'
       - 'workers/wrangler-master-billing.jsonc'
