@@ -129,7 +129,7 @@ async function load(){
   if(meta)meta.content=String(a.summary||a.title).slice(0,260);
   document.title=a.title+' | The Stock Market: From the Ground Up';
   if(a.slug&&safeSlug.test(a.slug)&&slug!==a.slug)
-   history.replaceState(null,'','/knowledge-article.html?slug='+encodeURIComponent(a.slug));
+   history.replaceState(null,'','/knowledge-article.html?slug='+encodeURIComponent(a.slug)+(ownerPreview?'&preview=1':''));
   renderMarkdown(a.body_markdown,a.title);
   content.hidden=false;message.hidden=true;
    // Guided lesson mounts only after the server has authenticated this article read.
