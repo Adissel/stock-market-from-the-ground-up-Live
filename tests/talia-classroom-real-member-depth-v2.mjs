@@ -50,6 +50,7 @@ try{
   await page.locator('#login-password').fill(PASS);
   await page.locator('.auth-card button[type="submit"]').click();
   await page.waitForURL(u=>new URL(u).pathname==='/dashboard.html',{timeout:30000});
+  assert.equal(new URL(page.url()).origin,ORIGIN,'Sign-in redirected to another origin; same-origin browser QA cannot share its session. Use the canonical production host.');
   const member=await page.evaluate(async()=>{
    const sb=await window.getSupabaseClient(),session=(await sb.auth.getSession()).data?.session;
    return {id:session?.user?.id||'',token:session?.access_token||''};
@@ -151,6 +152,16 @@ try{
    assert(text.length>80,topic+' rendered lesson too short');
   }
   mark('Six genuine interactive browser lesson selections and rendered Talia responses');
+  // Ungraded notebook: local working is compared with the correct original VWAP case,
+  // without a grade, member-history save, or additional paid model request.
+  await page.locator('#tc-teaching-topic').selectOption('vwap');
+  await page.getByRole('button',{name:'Start teaching'}).click();
+  await page.locator('.tc-teaching-steps').getByRole('button',{name:'Practice'}).click();
+  await page.locator('#tc-practice-notes').fill('I computed total dollars $4,600 and 400 shares; $4,600 / 400 = $11.50 per share.');
+  await page.getByRole('button',{name:'Compare with worked check'}).click();
+  await page.waitForFunction(()=>[...document.querySelectorAll('.tc-transcript li')].some(x=>x.textContent?.includes('exact trade-print VWAP = $4,600 / 400 = $11.50')),{},{timeout:25000});
+  assert.match(await page.locator('.tc-teaching-progress').innerText(),/Viewed [1-5] of 5/);
+  mark('Member browser displayed local ungraded notes and the exact VWAP worked correction');
   if(catalog.allowedDepths.length>1){
    const higher=catalog.allowedDepths.at(-1);
    await page.locator('#tc-teaching-depth').selectOption(higher);
@@ -163,7 +174,7 @@ try{
   assert.equal(await page.locator('#tc-teaching-topic').isVisible(),true);
   assert.equal(await page.locator('#tc-teaching-depth').isVisible(),true);
   mark('Mobile lesson and depth controls remain visible');
-  await page.evaluate(()=>{void window.getSupabaseClient().then(sb=>sb.auth.signOut())});
+  await page.evaluate(()=>{void window.getSupabaseClient().then(sb=>sb.auth.signOut({scope:'local'}))});
   await page.goto(ORIGIN+'/signin.html',{waitUntil:'domcontentloaded',timeout:30000});
   const after=await page.evaluate(async()=>{
    const sb=await window.getSupabaseClient();return (await sb.auth.getSession()).data?.session||null;
