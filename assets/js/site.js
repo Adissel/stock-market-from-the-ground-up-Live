@@ -212,6 +212,50 @@ document.addEventListener('DOMContentLoaded',()=>{
  else ensure();
 })();
 
+
+/* Official social profiles in shared footers. Links are external navigation,
+ * not embedded social feeds; do not change account, session, or payment state. */
+(()=>{
+ 'use strict';
+ const channels=[
+  {label:'Facebook',url:'https://www.facebook.com/profile.php?id=61595976132541'},
+  {label:'X',url:'https://x.com/SMFGUAcademy'}
+ ];
+ const mount=()=>{
+  document.querySelectorAll('footer').forEach(footer=>{
+   if(footer.querySelector('[data-gu-official-social-links]'))return;
+   const nav=document.createElement('nav');
+   nav.dataset.guOfficialSocialLinks='1';
+   nav.className='wrap gu-official-social-footer';
+   nav.setAttribute('aria-label','Official social media');
+   const heading=document.createElement('strong');
+   heading.className='gu-official-social-heading';
+   heading.textContent='Follow the Academy';
+   nav.append(heading);
+   for(const {label,url} of channels){
+    const link=document.createElement('a');
+    link.className='gu-official-social-link';
+    link.href=url;
+    link.textContent=label;
+    link.target='_blank';
+    link.rel='noopener noreferrer';
+    link.setAttribute('aria-label','Visit our '+label+' account (opens in a new tab)');
+    nav.append(link);
+   }
+   footer.append(nav);
+  });
+ };
+ if(!document.querySelector('link[data-gu-official-social-css]')){
+  const stylesheet=document.createElement('link');
+  stylesheet.rel='stylesheet';
+  stylesheet.href='/assets/css/official-social-footer-v1.css?v=1';
+  stylesheet.dataset.guOfficialSocialCss='1';
+  document.head.append(stylesheet);
+ }
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount,{once:true});
+ else mount();
+})();
+
 /* Single canonical footer legal navigation; fallback only for legacy footers. */
 (()=>{const apply=()=>{const f=document.querySelector('footer');if(!f||f.querySelector('a[href="/legal.html"],a[href="legal.html"],[data-gu-legal-directory]'))return;const nav=document.createElement('nav');nav.dataset.guLegalDirectory='1';nav.setAttribute('aria-label','Legal policies');nav.className='wrap gu-footer-legacy-legal';const a=document.createElement('a');a.href='/legal.html';a.textContent='Legal & Policies';nav.append(a);f.append(nav)};if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',apply,{once:true});else apply()})();
 (()=>{if(document.querySelector('link[data-gu-legal-footer-style]'))return;const s=document.createElement('link');s.rel='stylesheet';s.href='/assets/css/legal-footer-v1.css?v=20261027';s.dataset.guLegalFooterStyle='1';document.head.append(s)})();

@@ -1,0 +1,8 @@
+/* Official SMFGU social profiles — first-party links only, no embedded feeds or trackers. */
+footer .gu-official-social-footer{display:flex;flex-wrap:wrap;align-items:center;gap:.7rem 1rem;margin-top:1rem;padding-top:1.1rem;padding-bottom:.35rem;border-top:1px solid rgba(132,185,190,.28)}
+footer .gu-official-social-heading{font-size:.93rem;font-weight:700;color:#dfede9;margin-right:.2rem}
+footer a.gu-official-social-link{display:inline-flex;align-items:center;justify-content:center;min-height:42px;padding:.54rem 1.15rem;border:1px solid #446d70;border-radius:100px;background:#102b34;color:#c9f4de;text-decoration:none;font-size:.9rem;font-weight:700;line-height:1.3;transition:border-color .15s ease,background-color .15s ease}
+footer a.gu-official-social-link:hover{border-color:#89dfbd;background:#17423f;color:#fff}
+footer a.gu-official-social-link:focus-visible{outline:3px solid #a8ffcf;outline-offset:3px}
+@media(max-width:540px){footer .gu-official-social-footer{gap:.65rem}footer .gu-official-social-heading{flex-basis:100%}}
+@media(prefers-reduced-motion:reduce){footer a.gu-official-social-link{transition:none}}
