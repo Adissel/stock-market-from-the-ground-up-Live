@@ -32,5 +32,6 @@ test('Accessible prototype ledger exposes only completed bars with keyboard Tuto
  assert.match(ts,/REPLAY\.slice\(0,visible\)\.map/);
  assert.match(ts,/scope="row"/);
  assert.match(ts,/Explain bar \{i\+1\}/);
- assert.match(ts,/Use only the visible preceding candles/);
+ assert.match(ts,/onClick=\{\(\)=>onCandleSelect\(i,1\)\}/,'Click requests server-verified selected completed candle');
+ assert.match(ts,/evidence\.open!==verified\.bar\.open/,'Display refuses mismatched lesson evidence');
 });
