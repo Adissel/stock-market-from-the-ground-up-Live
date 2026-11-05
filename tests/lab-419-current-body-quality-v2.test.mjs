@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 const file=path=>JSON.parse(readFileSync(new URL('../'+path,import.meta.url),'utf8'));
-const data=file('data/lab-419-current-body-quality-evidence-v2.json'),master=file('data/lab-teaching-bridges-v014168.json');
+const data=file('data/lab-419-current-body-quality-evidence-v4.json'),master=file('data/lab-teaching-bridges-v014168.json');
 const originals=Object.values(master.entries||{});
 const boiler='Before practicing, understand what the visible observation does and does not establish.';
 const heuristic=/\$\s*\d[\d,.]*|\d+(?:\.\d+)?\s*%/;
