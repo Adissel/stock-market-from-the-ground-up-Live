@@ -65,7 +65,7 @@
     journey:'Nine approved learning stages.',
     labs:'Research topics linked to 419 Labs.',
     academy:'Ten authored paths; some are beta-only.',
-    tutor:'73 teaching guides, not 73 trading signals.'
+    tutor:'Selected examples from 73 teaching guides.'
    };
    function polish(){
     const active=root.querySelector('.lc-tabs [data-mode].is-active')?.dataset.mode||'journey';

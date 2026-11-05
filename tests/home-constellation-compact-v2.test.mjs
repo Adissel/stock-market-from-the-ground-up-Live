@@ -1,6 +1,6 @@
 import test from 'node:test';import assert from 'node:assert/strict';import {readFileSync} from 'node:fs';
 const read=p=>readFileSync(p,'utf8');
-test('visible Constellation v2 assets are cache-busted and homepage scoped',()=>{
+test('visible Constellation v3 assets are cache-busted and homepage scoped',()=>{
  const html=read('index.html'),home=read('assets/js/home-learning-constellation-v1.js');
  const css=read('assets/css/home-constellation-compact-v3.css');
  assert.match(html,/home-constellation-compact-v3\.css\?v=20261105-compact3/);
@@ -11,7 +11,7 @@ test('visible Constellation v2 assets are cache-busted and homepage scoped',()=>
  assert.match(css,/#learning-constellation #pt-experiences-root \.lc-map-head strong/);
  assert.match(css,/#learning-constellation #pt-experiences-root \.lc-map-tools button/);
  assert.match(css,/font-size:12px!important/);
- assert.match(css,/min-height:350px!important/);
+ assert.match(css,/min-height:315px!important/);
  assert.doesNotMatch(css,/(?:^|\n)#pt-experiences-root \.lc-app\{/);
 });
 test('Constrained site footer relocation never touches member accounts',()=>{
