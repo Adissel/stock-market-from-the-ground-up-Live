@@ -1,17 +1,16 @@
-/* Crownlight sitewide educational display terminology v1.
+/* Crownlight sitewide display terminology — approved text removals.
  * Presentation only. Never mutate price data, source/provenance identifiers,
  * input values, authentication, saved member text, or technical function code.
- * Simulated educational values are never represented as real market quotes.
+ * Preserve raw authored content and data identifiers; only visible display copy changes.
  */
 (function(root){
  'use strict';
  if(root.CrownlightDisplayTerminologyV1)return;
- const WORD=/\bfictional\b/gi;
+ const WORD=/Affiliate advertisement|\bsimulated\b|\billustration\b/gi;
  const LABELS=['aria-label','title','placeholder','alt'];
  const BLOCKED=new Set(['SCRIPT','STYLE','TEMPLATE','NOSCRIPT','TEXTAREA','PRE','CODE','KBD','SAMP']);
  function translate(text){
-  return String(text).replace(WORD,word=>word===word.toUpperCase()?'SIMULATED':
-    word[0]===word[0].toUpperCase()?'Simulated':'simulated');
+  return String(text).replace(WORD,'');
  }
  function skipped(node){
   for(let p=node?.nodeType===1?node:node?.parentElement;p&&p.nodeType===1;p=p.parentElement){
@@ -55,17 +54,17 @@
  };
  function start(){
   if(!root.document?.body||observer)return;
-  process(root.document.body);
+  process(root.document.documentElement);
   observer=new root.MutationObserver(records=>{
    for(const record of records){
     if(record.type==='characterData'||record.type==='attributes')schedule(record.target);
     else for(const child of record.addedNodes)schedule(child);
    }
   });
-  observer.observe(root.document.body,{subtree:true,childList:true,characterData:true,
+  observer.observe(root.document.documentElement,{subtree:true,childList:true,characterData:true,
    attributes:true,attributeFilter:LABELS});
  }
- root.CrownlightDisplayTerminologyV1=Object.freeze({version:'1.0.0',translate,start});
+ root.CrownlightDisplayTerminologyV1=Object.freeze({version:'1.1.0',translate,start});
  if(root.document?.readyState==='loading')root.document.addEventListener('DOMContentLoaded',start,{once:true});
  else start();
 })(typeof window!=='undefined'?window:globalThis);

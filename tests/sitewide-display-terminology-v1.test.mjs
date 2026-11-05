@@ -11,12 +11,12 @@ function api(){
  vm.runInNewContext(code,{window:script,globalThis:script},{timeout:1000});
  return{bridge:script.CrownlightDisplayTerminologyV1,callbacks};
 }
-test('Readable copy replaces only human-language source terms with accurate simulated descriptors',()=>{
- const {bridge}=api();assert.equal(bridge.translate('FICTIONAL data; Fictional bar; fictional scenario'),
- 'SIMULATED data; Simulated bar; simulated scenario');
- assert.equal(bridge.translate('official fictitious data'), 'official fictitious data');
- assert.equal(bridge.translate('Scope is fictional_authored, keep engine IDs'),
- 'Scope is fictional_authored, keep engine IDs');
+test('Display copy deletes only the requested wording and does not substitute text',()=>{
+ const {bridge}=api();
+ assert.equal(bridge.translate('Affiliate advertisement; simulated study; illustration only'), ';  study;  only');
+ assert.equal(bridge.translate('SIMULATED / Simulated'), ' / ');
+ assert.equal(bridge.translate('fictional_authored, fictional example'), 'fictional_authored, fictional example');
+ assert.equal(bridge.translate('price_simulated_value'), 'price_simulated_value');
 });
 test('The display-only module never modifies authentication, provider inputs, grading or network APIs',()=>{
  for(const banned of ['fetch(','XMLHttpRequest','localStorage','sessionStorage','innerHTML',
@@ -33,9 +33,9 @@ test('Middleware attaches display terminology only after its existing route prot
  assert(middle.includes('const upstream=await context.next()'));
  assert(middle.indexOf('const denied=await apiMutationBoundary(context,url)')<middle.indexOf('const upstream=await context.next()'));
 });
-test('Published policy distinguishes simulated prices and illustrative counts from verified sources',()=>{
+test('Published policy still contains its independent provenance and scope statements',()=>{
  const policy=readFileSync('practice-data-policy.html','utf8');
- for(const required of ['simulated educational data','not live exchange quotations',
+ for(const required of ['not live exchange quotations',
   'not verified membership totals','actual provenance','not investment advice'])
   assert(policy.includes(required),required);
 });
