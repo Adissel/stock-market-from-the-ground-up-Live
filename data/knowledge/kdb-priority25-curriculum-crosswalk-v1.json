@@ -1,0 +1,1269 @@
+{
+  "schema": "smfgu.knowledge.priorities.canonical.curriculum.crosswalk.v1",
+  "document_id": "SMFGU-KDB-CURRICULUM-P25-20261104",
+  "date": "2026-11-04",
+  "status": "PROVISIONAL_NO_LEARNING_PROGRESS_WRITES",
+  "articleCount": 25,
+  "canonicalLabInventory": 419,
+  "canonicalLabMappingCoverage": 419,
+  "competencyCount": 30,
+  "linkedCompetencyCandidates": 21,
+  "taliaRegistered": 25,
+  "bootCampDayAccepted": 0,
+  "caveat": "No article to Lab or Boot Camp official instructional mastery credit is conferred by this source-only crosswalk.",
+  "entries": [
+    {
+      "slug": "research-study-sma",
+      "title": "Simple Moving Average — calculation and chart interpretation",
+      "articleVersion": 12,
+      "claimKey": "P25-01",
+      "proposedCompetency": "CHART_STRUCTURE",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "DT-C07-L01",
+          "title": "Intraday Price Action and Market Structure — Higher highs and higher lows",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C07-L02",
+          "title": "Intraday Price Action and Market Structure — Range and mixed structure",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-045",
+          "title": "Market Structure Lab — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-046",
+          "title": "Market Structure Lab — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-047",
+          "title": "Market Structure Lab — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-048",
+          "title": "Market Structure Lab — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C07-L03",
+          "title": "Intraday Price Action and Market Structure — Expansion and Contraction",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 39,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "research-study-vwap",
+      "title": "Volume Weighted Average Price — calculation and chart interpretation",
+      "articleVersion": 11,
+      "claimKey": "P25-02",
+      "proposedCompetency": "VWAP_CONTEXT",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "TAPE-C14-L02",
+          "title": "VWAP, High of Day, Low of Day, and Location — A volume-weighted reference price",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L01",
+          "title": "VWAP and Moving Averages in Intraday Trading — VWAP as a session reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L03",
+          "title": "VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C33-L01",
+          "title": "VWAP Holds, Reclaims, Rejections, and Failures — Recognize & Classify",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C33-L02",
+          "title": "VWAP Holds, Reclaims, Rejections, and Failures — VWAP Rejection",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C33-L03",
+          "title": "VWAP Holds, Reclaims, Rejections, and Failures — Distance From VWAP",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C14-L01",
+          "title": "VWAP, High of Day, Low of Day, and Location — Refresh: sessions, visible bars, and the VWAP start",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 17,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "authored_wave1",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-trade-vwap-vs-proxy",
+      "title": "Trade-Print VWAP Versus HLC3 Bar Proxy",
+      "articleVersion": 3,
+      "claimKey": "P25-03",
+      "proposedCompetency": "VWAP_CONTEXT",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "TAPE-C14-L02",
+          "title": "VWAP, High of Day, Low of Day, and Location — A volume-weighted reference price",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L01",
+          "title": "VWAP and Moving Averages in Intraday Trading — VWAP as a session reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L03",
+          "title": "VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C33-L01",
+          "title": "VWAP Holds, Reclaims, Rejections, and Failures — Recognize & Classify",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C33-L02",
+          "title": "VWAP Holds, Reclaims, Rejections, and Failures — VWAP Rejection",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C33-L03",
+          "title": "VWAP Holds, Reclaims, Rejections, and Failures — Distance From VWAP",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C14-L01",
+          "title": "VWAP, High of Day, Low of Day, and Location — Refresh: sessions, visible bars, and the VWAP start",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 17,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-ema-seed-convergence",
+      "title": "EMA Seed and Warmup Convergence",
+      "articleVersion": 3,
+      "claimKey": "P25-04",
+      "proposedCompetency": "EMA_CONTEXT",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "DT-C11-L01",
+          "title": "VWAP and Moving Averages in Intraday Trading — VWAP as a session reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L02",
+          "title": "VWAP and Moving Averages in Intraday Trading — Reclaim and rejection",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L03",
+          "title": "VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C29-L01",
+          "title": "Ranking the Watchlist and Building the Premarket Plan — Build the Candidate Record",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C29-L02",
+          "title": "Ranking the Watchlist and Building the Premarket Plan — Separate Research Priority From Entry Priority",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C29-L03",
+          "title": "Ranking the Watchlist and Building the Premarket Plan — Version the Watchlist",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C31-L01",
+          "title": "Breakouts, High-of-Day Breaks, and Premarket-High Breaks — Define the Level Before the Break",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 24,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "research-study-bollinger-bands",
+      "title": "Bollinger Bands — calculation and chart interpretation",
+      "articleVersion": 8,
+      "claimKey": "P25-05",
+      "proposedCompetency": "CHART_STRUCTURE",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "DT-C07-L01",
+          "title": "Intraday Price Action and Market Structure — Higher highs and higher lows",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C07-L02",
+          "title": "Intraday Price Action and Market Structure — Range and mixed structure",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-045",
+          "title": "Market Structure Lab — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-046",
+          "title": "Market Structure Lab — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-047",
+          "title": "Market Structure Lab — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-048",
+          "title": "Market Structure Lab — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C07-L03",
+          "title": "Intraday Price Action and Market Structure — Expansion and Contraction",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 39,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "authored_wave1",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-volatility-bands-sigma-choice",
+      "title": "Bollinger-Style Bands and Standard-Deviation Convention",
+      "articleVersion": 3,
+      "claimKey": "P25-06",
+      "proposedCompetency": "CHART_STRUCTURE",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "DT-C07-L01",
+          "title": "Intraday Price Action and Market Structure — Higher highs and higher lows",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C07-L02",
+          "title": "Intraday Price Action and Market Structure — Range and mixed structure",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-045",
+          "title": "Market Structure Lab — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-046",
+          "title": "Market Structure Lab — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-047",
+          "title": "Market Structure Lab — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-048",
+          "title": "Market Structure Lab — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C07-L03",
+          "title": "Intraday Price Action and Market Structure — Expansion and Contraction",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 39,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "research-study-macd-histogram",
+      "title": "MACD Histogram — calculation and chart interpretation",
+      "articleVersion": 8,
+      "claimKey": "P25-07",
+      "proposedCompetency": "EMA_CONTEXT",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "DT-C11-L01",
+          "title": "VWAP and Moving Averages in Intraday Trading — VWAP as a session reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L02",
+          "title": "VWAP and Moving Averages in Intraday Trading — Reclaim and rejection",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L03",
+          "title": "VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C29-L01",
+          "title": "Ranking the Watchlist and Building the Premarket Plan — Build the Candidate Record",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C29-L02",
+          "title": "Ranking the Watchlist and Building the Premarket Plan — Separate Research Priority From Entry Priority",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C29-L03",
+          "title": "Ranking the Watchlist and Building the Premarket Plan — Version the Watchlist",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C31-L01",
+          "title": "Breakouts, High-of-Day Breaks, and Premarket-High Breaks — Define the Level Before the Break",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 24,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "research-study-vix-context",
+      "title": "Implied Volatility Index Context — calculation and chart interpretation",
+      "articleVersion": 8,
+      "claimKey": "P25-08",
+      "proposedCompetency": "MARKET_REGIME",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "DT-C15-L01",
+          "title": "Trading Halts and Abnormal Market Conditions — Halt risk",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C15-L02",
+          "title": "Trading Halts and Abnormal Market Conditions — Other abnormal conditions",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C15-L03",
+          "title": "Trading Halts and Abnormal Market Conditions — What Happens to Your Position During a Halt",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C14-L01",
+          "title": "Midday, Afternoon, and the Close — Midday compression",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C48-L01",
+          "title": "Advanced Intraday Decision-Making and Market Regimes — Define the Regime You Are Trading",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C14-L02",
+          "title": "Midday, Afternoon, and the Close — Power hour",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C14-L03",
+          "title": "Midday, Afternoon, and the Close — Afternoon Reactivation",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 23,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "research-study-stoch-rsi",
+      "title": "Stochastic RSI — calculation and chart interpretation",
+      "articleVersion": 8,
+      "claimKey": "P25-09",
+      "proposedCompetency": "CHART_STRUCTURE",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "DT-C07-L01",
+          "title": "Intraday Price Action and Market Structure — Higher highs and higher lows",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C07-L02",
+          "title": "Intraday Price Action and Market Structure — Range and mixed structure",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-045",
+          "title": "Market Structure Lab — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-046",
+          "title": "Market Structure Lab — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-047",
+          "title": "Market Structure Lab — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-048",
+          "title": "Market Structure Lab — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C07-L03",
+          "title": "Intraday Price Action and Market Structure — Expansion and Contraction",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 39,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "research-study-anchored-vwap",
+      "title": "Anchored VWAP — calculation and chart interpretation",
+      "articleVersion": 8,
+      "claimKey": "P25-10",
+      "proposedCompetency": "VWAP_CONTEXT",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "TAPE-C14-L02",
+          "title": "VWAP, High of Day, Low of Day, and Location — A volume-weighted reference price",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L01",
+          "title": "VWAP and Moving Averages in Intraday Trading — VWAP as a session reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C11-L03",
+          "title": "VWAP and Moving Averages in Intraday Trading — Session VWAP as an Intraday Reference",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C33-L01",
+          "title": "VWAP Holds, Reclaims, Rejections, and Failures — Recognize & Classify",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C33-L02",
+          "title": "VWAP Holds, Reclaims, Rejections, and Failures — VWAP Rejection",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C33-L03",
+          "title": "VWAP Holds, Reclaims, Rejections, and Failures — Distance From VWAP",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C14-L01",
+          "title": "VWAP, High of Day, Low of Day, and Location — Refresh: sessions, visible bars, and the VWAP start",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 17,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-margin-interest-and-maintenance",
+      "title": "Margin Interest and Maintenance Obligations",
+      "articleVersion": 3,
+      "claimKey": "P25-11",
+      "proposedCompetency": "POSITION_SIZING",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "DT-C04-L02",
+          "title": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Buying power and house requirements",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C04-L03",
+          "title": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin Accounts: Buying Power Is a Credit and Risk Function",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-053",
+          "title": "Risk & Position Sizing Laboratory — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-054",
+          "title": "Risk & Position Sizing Laboratory — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-055",
+          "title": "Risk & Position Sizing Laboratory — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-056",
+          "title": "Risk & Position Sizing Laboratory — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C04-L01",
+          "title": "Accounts, Buying Power, Settlement, and Day-Trading Restrictions — Margin accounts and the 2026 transition",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 11,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "watchlist-stories-03-day-trading-morning-preparation",
+      "title": "How Day Traders Build a Morning Watchlist Before the Opening Bell",
+      "articleVersion": 1,
+      "claimKey": "P25-12",
+      "proposedCompetency": "ORDER_SELECTION",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "SITE-093",
+          "title": "Order Types & Execution Control — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-094",
+          "title": "Order Types & Execution Control — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-095",
+          "title": "Order Types & Execution Control — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-096",
+          "title": "Order Types & Execution Control — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C41-L01",
+          "title": "Order Selection, Fills, Partial Fills, and Execution Control — Market Orders",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C41-L02",
+          "title": "Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-057",
+          "title": "Execution Laboratory — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 23,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-clearing-netting-settlement",
+      "title": "Clearing, Netting, and Settlement Controls",
+      "articleVersion": 3,
+      "claimKey": "P25-13",
+      "proposedCompetency": "ORDER_SELECTION",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "SITE-093",
+          "title": "Order Types & Execution Control — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-094",
+          "title": "Order Types & Execution Control — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-095",
+          "title": "Order Types & Execution Control — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-096",
+          "title": "Order Types & Execution Control — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C41-L01",
+          "title": "Order Selection, Fills, Partial Fills, and Execution Control — Market Orders",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C41-L02",
+          "title": "Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-057",
+          "title": "Execution Laboratory — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 23,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-options-assignment-obligation",
+      "title": "Exercise, Assignment, and Option Contract Obligations",
+      "articleVersion": 3,
+      "claimKey": "P25-14",
+      "proposedCompetency": null,
+      "competencyDecision": "UNMAPPED_NOT_A_FORCED_TIER",
+      "candidateLabs": [],
+      "canonicalRelatedLabCount": 0,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-futures-tick-margin",
+      "title": "Futures Tick Value Versus Performance Bond",
+      "articleVersion": 3,
+      "claimKey": "P25-15",
+      "proposedCompetency": null,
+      "competencyDecision": "UNMAPPED_NOT_A_FORCED_TIER",
+      "candidateLabs": [],
+      "canonicalRelatedLabCount": 0,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-greeks-local-approximation",
+      "title": "Options Greeks as Local Sensitivities",
+      "articleVersion": 3,
+      "claimKey": "P25-16",
+      "proposedCompetency": null,
+      "competencyDecision": "UNMAPPED_NOT_A_FORCED_TIER",
+      "candidateLabs": [],
+      "canonicalRelatedLabCount": 0,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b002-stop-order-trigger-versus-fill",
+      "title": "Stop Order Trigger Is Not a Guaranteed Exit Price",
+      "articleVersion": 3,
+      "claimKey": "P25-17",
+      "proposedCompetency": "ORDER_SELECTION",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "SITE-093",
+          "title": "Order Types & Execution Control — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-094",
+          "title": "Order Types & Execution Control — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-095",
+          "title": "Order Types & Execution Control — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-096",
+          "title": "Order Types & Execution Control — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C41-L01",
+          "title": "Order Selection, Fills, Partial Fills, and Execution Control — Market Orders",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C41-L02",
+          "title": "Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-057",
+          "title": "Execution Laboratory — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 23,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "authored_wave1",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b002-market-order-with-depth",
+      "title": "Market Orders and Multiple Available Price Levels",
+      "articleVersion": 3,
+      "claimKey": "P25-18",
+      "proposedCompetency": "SLIPPAGE_SPREAD",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "DT-C10-L03",
+          "title": "Liquidity, Spread, Slippage, and Execution Quality — Bid, Ask, Midpoint, and Spread",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "F2-C04-L01",
+          "title": "Bid, Ask, Last, Spread, and Midpoint in a Frequently Updating Quote",
+          "bookCode": "FOUNDATION_BOOK_2",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C10-L01",
+          "title": "Liquidity, Spread, Slippage, and Execution Quality — Recognize & Classify",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C10-L02",
+          "title": "Liquidity, Spread, Slippage, and Execution Quality — Trade frequency and depth",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "F2-C04-L02",
+          "title": "Compare Quote Width Without Jumping Ahead to Liquidity Analysis",
+          "bookCode": "FOUNDATION_BOOK_2",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-061",
+          "title": "Liquidity & Spread Laboratory — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-062",
+          "title": "Liquidity & Spread Laboratory — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 31,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "authored_wave1",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b002-buy-and-sell-limit-orders",
+      "title": "Limit Order Price Conditions and Nonexecution",
+      "articleVersion": 3,
+      "claimKey": "P25-19",
+      "proposedCompetency": "ORDER_SELECTION",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "SITE-093",
+          "title": "Order Types & Execution Control — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-094",
+          "title": "Order Types & Execution Control — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-095",
+          "title": "Order Types & Execution Control — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-096",
+          "title": "Order Types & Execution Control — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C41-L01",
+          "title": "Order Selection, Fills, Partial Fills, and Execution Control — Market Orders",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "DT-C41-L02",
+          "title": "Order Selection, Fills, Partial Fills, and Execution Control — Marketable Limit Orders",
+          "bookCode": "DAY_TRADING_BOOK_1",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-057",
+          "title": "Execution Laboratory — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 23,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "authored_wave1",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-trades-quotes-depth-distinction",
+      "title": "Trades, Quotes, and Depth Are Different Evidence",
+      "articleVersion": 3,
+      "claimKey": "P25-20",
+      "proposedCompetency": "TAPE_READING",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "SITE-065",
+          "title": "Order Flow & Tape Laboratory — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-066",
+          "title": "Order Flow & Tape Laboratory — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-067",
+          "title": "Order Flow & Tape Laboratory — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-068",
+          "title": "Order Flow & Tape Laboratory — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C05-L01",
+          "title": "Read a Time & Sales Row — A ledger of reports",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C05-L02",
+          "title": "Read a Time & Sales Row — Read one row aloud",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C05-L03",
+          "title": "Read a Time & Sales Row — Filters change the story you can tell",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 77,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-order-book-depth-changes",
+      "title": "Displayed Order-Book Depth and Cancellations",
+      "articleVersion": 3,
+      "claimKey": "P25-21",
+      "proposedCompetency": "LEVEL2_READING",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "TAPE-C02-L03",
+          "title": "Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C09-L01",
+          "title": "Read Level II as a Partial Order Book — Interest that has not yet traded",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C09-L02",
+          "title": "Read Level II as a Partial Order Book — Walk through the display",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C09-L03",
+          "title": "Read Level II as a Partial Order Book — Why a large wall can mislead",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C10-L01",
+          "title": "Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C10-L02",
+          "title": "Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C10-L03",
+          "title": "Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 9,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-market-by-order-vs-level",
+      "title": "Market-by-Order Versus Aggregated Price Levels",
+      "articleVersion": 3,
+      "claimKey": "P25-22",
+      "proposedCompetency": "LEVEL2_READING",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "TAPE-C02-L03",
+          "title": "Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C09-L01",
+          "title": "Read Level II as a Partial Order Book — Interest that has not yet traded",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C09-L02",
+          "title": "Read Level II as a Partial Order Book — Walk through the display",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C09-L03",
+          "title": "Read Level II as a Partial Order Book — Why a large wall can mislead",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C10-L01",
+          "title": "Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C10-L02",
+          "title": "Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C10-L03",
+          "title": "Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 9,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-auction-indicative-vs-executed",
+      "title": "Auction Indicative Prices Versus Final Executions",
+      "articleVersion": 3,
+      "claimKey": "P25-23",
+      "proposedCompetency": "TAPE_READING",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "SITE-065",
+          "title": "Order Flow & Tape Laboratory — What It Is",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-066",
+          "title": "Order Flow & Tape Laboratory — Why It Matters & When to Use It",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-067",
+          "title": "Order Flow & Tape Laboratory — Step-by-Step Workflow",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "SITE-068",
+          "title": "Order Flow & Tape Laboratory — Failure Modes & Review",
+          "bookCode": "SITE_EXCLUSIVE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C05-L01",
+          "title": "Read a Time & Sales Row — A ledger of reports",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C05-L02",
+          "title": "Read a Time & Sales Row — Read one row aloud",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C05-L03",
+          "title": "Read a Time & Sales Row — Filters change the story you can tell",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 77,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-nyse-exchange-depth-rights",
+      "title": "Exchange Depth-of-Book Data Rights",
+      "articleVersion": 3,
+      "claimKey": "P25-24",
+      "proposedCompetency": "LEVEL2_READING",
+      "competencyDecision": "PROVISIONAL_TOPIC_BRIDGE_NOT_OFFICIAL_MASTERY",
+      "candidateLabs": [
+        {
+          "labId": "TAPE-C02-L03",
+          "title": "Build Your Tape-Reading Laboratory: the Platform and Practice Modes — Read depth and color correctly",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C09-L01",
+          "title": "Read Level II as a Partial Order Book — Interest that has not yet traded",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C09-L02",
+          "title": "Read Level II as a Partial Order Book — Walk through the display",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C09-L03",
+          "title": "Read Level II as a Partial Order Book — Why a large wall can mislead",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C10-L01",
+          "title": "Adding, Pulling, Refreshing, and Changing Liquidity — Read a sequence, not a photograph",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C10-L02",
+          "title": "Adding, Pulling, Refreshing, and Changing Liquidity — Three examples with different evidence",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        },
+        {
+          "labId": "TAPE-C10-L03",
+          "title": "Adding, Pulling, Refreshing, and Changing Liquidity — What stronger evidence looks like",
+          "bookCode": "READING_THE_TAPE",
+          "originalLinkMethod": "topic_keyword_suggestion_ungraded"
+        }
+      ],
+      "canonicalRelatedLabCount": 9,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    },
+    {
+      "slug": "knowledge-b003-fred-series-specific-rights",
+      "title": "FRED Series Rights and Economic Vintages",
+      "articleVersion": 3,
+      "claimKey": "P25-25",
+      "proposedCompetency": null,
+      "competencyDecision": "UNMAPPED_NOT_A_FORCED_TIER",
+      "candidateLabs": [],
+      "canonicalRelatedLabCount": 0,
+      "bootCampDayLinks": [],
+      "bootCampDecision": "NOT_EVIDENCED_PENDING_CURRICULUM_OWNER_REVIEW",
+      "taliaJourney": "ungraded_source_derived",
+      "taliaDecision": "REGISTERED_UNGRADED_NO_COMPLETION_CLAIM"
+    }
+  ]
+}
