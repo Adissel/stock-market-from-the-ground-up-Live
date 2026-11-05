@@ -8,6 +8,10 @@ on:
       - 'assets/css/prototype-learning-constellation-v1.css'
       - 'tests/prototype-learning-constellation-v1-browser.test.mjs'
       - 'tests/prototype-constellation-galaxy-v2.test.mjs'
+      - 'tests/home-constellation-public-browser-v2.test.mjs'
+      - 'assets/js/home-learning-constellation-v1.js'
+      - 'assets/css/home-constellation-compact-v2.css'
+      - 'index.html'
       - '.github/workflows/prototype-learning-constellation-v1.yml'
   push:
     branches: [main]
@@ -20,6 +24,10 @@ on:
       - 'assets/css/prototype-learning-constellation-v1.css'
       - 'tests/prototype-learning-constellation-v1-browser.test.mjs'
       - 'tests/prototype-constellation-galaxy-v2.test.mjs'
+      - 'tests/home-constellation-public-browser-v2.test.mjs'
+      - 'assets/js/home-learning-constellation-v1.js'
+      - 'assets/css/home-constellation-compact-v2.css'
+      - 'index.html'
 permissions:
   contents: read
 jobs:
@@ -42,10 +50,13 @@ jobs:
           node tests/prototype-constellation-galaxy-v2.test.mjs
           node --check assets/js/prototype-experiences-boot-v1.js
           node --check tests/prototype-learning-constellation-v1-browser.test.mjs
+          node --check tests/home-constellation-public-browser-v2.test.mjs
       - name: Install pinned open-source Chromium testing
         run: |
           npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
           npx playwright install --with-deps chromium
+      - name: Verify compact PUBLIC Constellation rendering, 2D controls, and true footer placement
+        run: node tests/home-constellation-public-browser-v2.test.mjs
       - name: Verify new distinct four-mode diagram, drag, zoom and no leaked grades
         run: node tests/prototype-learning-constellation-v1-browser.test.mjs
       - name: Preserve visual comparison screenshots
