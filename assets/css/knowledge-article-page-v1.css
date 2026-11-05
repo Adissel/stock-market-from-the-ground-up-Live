@@ -360,3 +360,6 @@ body[data-gu-article-page="standalone"] #kal-article-title {
   .kal-page .kal-document h1,.kal-page .kal-article-content,.kal-page .kal-article-content :is(h2,h3,h4,h5),.kal-page .kal-references {color:black !important;}
   .kal-page .kal-document a {color:#000 !important;}
 }
+
+/* Accessible saved Owner/Admin draft-review distinction. */
+.kal-preview-banner{padding:12px 18px;margin:12px 0;border:1px solid currentColor;border-radius:8px;font-weight:700;letter-spacing:.025em}
