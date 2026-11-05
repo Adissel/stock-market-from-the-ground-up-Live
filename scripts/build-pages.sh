@@ -33,6 +33,14 @@ node --test tests/runtime-owned-talia-v1.test.mjs
 # Student-facing Tutor desk must keep chart and instruction aligned and preserve revealed-evidence boundaries.
 node --test tests/talia-student-desk-v1.test.mjs
 node --test tests/talia-classroom-teaching-depth-v1.test.mjs
+# Privately authorized first-party source-based teaching, never official grading.
+node --test tests/talia-kdb-interactive-wave1.test.mjs
+node --test tests/talia-kdb-all-batches-v1.test.mjs
+node --check assets/js/talia-kdb-lessons-wave1.js
+node --check assets/js/talia-kdb-runner-v1.js
+node --check assets/js/talia-kdb-remaining-index-v1.js
+node --check assets/js/talia-kdb-remaining-runner-v1.js
+node --check assets/js/talia-kdb-directory-v1.js
 node --check functions/api/talia-classroom-curriculum-v1.js
 # Block stale async chart libraries from overriding the active Studio tier.
 node --test tests/chart-studio-runtime-ownership-v1.test.mjs
