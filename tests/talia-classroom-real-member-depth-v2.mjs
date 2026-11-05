@@ -11,6 +11,9 @@ const USER='f42f9301-18e6-43a3-8531-32d371fd22c1';
 const DEPTHS=['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE'];
 const TOPICS=['candlesticks','vwap','ema','scanner','volume','structure'];
 const PHASES=['explain','demonstrate','practice','correct','transfer'];
+// Production account QA uses temporary, explicitly noncommercial owner-granted plan rows.
+const QA_REF='SMFGU-FOUNDING-ACCEPTANCE-20261105';
+const PLAN_CEILING=Object.freeze({FREE:'FOUNDATION',FOUNDING_14:'FOUNDATION',FOUNDING_30:'ADVANCED',FOUNDING_60:'PROFESSIONAL'});
 const mark=(name)=>console.log('PASS '+name);
 assert(EMAIL&&PASS,'BLOCKED: encrypted James_Test identity required; no fabricated credentials');
 assert(/^[0-9a-f]{40}$/.test(SHA),'BLOCKED: exact release SHA required');
@@ -58,6 +61,25 @@ try{
   assert.equal(member.id,USER,'Refuse QA using a different signed-in account');
   assert(member.token.length>50,'Member session unavailable');
   mark('Real James_Test website sign-in and exact identity');
+  const qaGrants=await page.evaluate(async()=>{
+   const sb=await window.getSupabaseClient(),session=(await sb.auth.getSession()).data?.session;
+   const query=await sb.from('user_plan_grants').select('plan_code,status,starts_at,ends_at,source,source_reference')
+    .eq('user_id',session.user.id);
+   return {rows:query.data||[],error:query.error?.message||''};
+  });
+  assert.equal(qaGrants.error,'','Member must read only own plan grants under RLS');
+  const now=Date.now(),active=qaGrants.rows.filter(g=>
+   ['active','trialing'].includes(g.status)&&Date.parse(g.starts_at)<=now&&
+   (g.ends_at===null||Date.parse(g.ends_at)>now));
+  assert.equal(active.filter(g=>g.source_reference!==QA_REF).length,0,
+   'Refuse acceptance while James_Test has non-QA active plan grants');
+  assert(active.length<=1,'Only one owner-issued noncommercial Founder QA grant may be active');
+  const verifiedPlan=active[0]?.plan_code||'FREE';
+  assert(Object.hasOwn(PLAN_CEILING,verifiedPlan),'Unexpected member plan');
+  if(active.length){
+   assert.equal(active[0].source,'qa_owner_noncommercial_20261105','Refuse unapproved paid-like grant source');
+  }
+  mark('Actual member-owned RLS plan state '+verifiedPlan+'; no purchase or fulfillment');
   const headers={authorization:'Bearer '+member.token};
   const catalogResponse=await page.request.get(ORIGIN+'/api/talia-classroom-curriculum-v1',{headers,timeout:25000});
   assert.equal(catalogResponse.status(),200,'Authenticated member lesson catalog unavailable');
@@ -67,7 +89,20 @@ try{
   assert.deepEqual(catalog.phases,PHASES);
   assert(DEPTHS.includes(catalog.maximumDepth));
   assert.deepEqual(catalog.allowedDepths,DEPTHS.slice(0,DEPTHS.indexOf(catalog.maximumDepth)+1));
+  assert.equal(catalog.maximumDepth,PLAN_CEILING[verifiedPlan],
+   'Tutor teaching depth must equal the Owner-approved member plan ceiling');
   assert.equal(catalog.premiumFeaturesReleased,false);
+  const articleResponse=await page.request.get(ORIGIN+'/api/knowledge-library?action=read&slug=research-study-vwap',
+   {headers,timeout:25000});
+  assert.equal(articleResponse.status(),verifiedPlan==='FREE'?403:200,
+   'Knowledge article access must follow real RLS-backed Founder beta entitlement');
+  if(verifiedPlan!=='FREE'){
+   const document=await articleResponse.json();
+   assert.equal(document.article?.slug,'research-study-vwap');
+   assert(document.article.body_markdown?.includes('VWAP=(100×10+300×12)/(100+300)=$11.50'),
+    'Corrected owner-reviewed VWAP teaching must be accessible without a fictional payment');
+  }
+  mark('Protected VWAP lesson gate and Owner-approved teaching ceiling '+verifiedPlan);
   mark('Live member entitlement and six original lesson topics/five steps');
   let samples=0;
   for(const depth of catalog.allowedDepths){
@@ -190,6 +225,6 @@ try{
   });
   assert.equal(sessionRemains,false,'Member session must not persist after awaited local sign-out');
   mark('After sign-out no member session persists');
-  console.log('PASS AUTHENTICATED CLASSROOM QA '+samples+' read-only lessons. Maximum depth '+catalog.maximumDepth+'. Other membership identities must be tested separately.');
+  console.log('PASS AUTHENTICATED CLASSROOM QA '+samples+' read-only lessons. QA_PLAN='+verifiedPlan+' MAXIMUM_DEPTH='+catalog.maximumDepth+'. Only this real signed-in member state was accepted; independent identities remain a separate privacy gate.');
  }finally{await ctx.close()}
 }finally{await browser.close()}
