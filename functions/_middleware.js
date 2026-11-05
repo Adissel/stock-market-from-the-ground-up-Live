@@ -312,9 +312,19 @@ a{color:#e1c388}h1{font-size:1.6rem}</style></head><body>
   hardened.set('referrer-policy','strict-origin-when-cross-origin');
   hardened.set('x-frame-options','SAMEORIGIN');
   if(url.protocol==='https:')hardened.set('strict-transport-security','max-age=86400');
-  const response=new Response(upstream.body,{status:upstream.status,statusText:upstream.statusText,headers:hardened});
+  let response=new Response(upstream.body,{status:upstream.status,statusText:upstream.statusText,headers:hardened});
   const type=(response.headers.get('content-type')||'').toLowerCase();
   if(!type.includes('text/html'))return response;
+  // Load the owner's sitewide public-copy cleanup on every HTML response,
+  // including standalone teaching, embedded Lab, and protected prototype pages.
+  // Only the displayed DOM is affected; data, calculations, and access gates remain unchanged.
+  try{
+    const filtered=new HTMLRewriter().on('head',{element(el){
+      el.append('<script defer src="/assets/js/crownlight-public-copy-filter-v1.js?v=20261104"></script>',{html:true});
+    }}).transform(response);
+    response=new Response(filtered.body,filtered);
+    response.headers.delete('content-length');
+  }catch{/* Preserve normal page delivery if HTML injection is unavailable. */}
   // The authenticated prototype document is a complete, isolated HTML artifact:
   // never rewrite it with generic website chrome or additional script imports.
   // Its originating Pages Function has already applied fresh staff authorization.
