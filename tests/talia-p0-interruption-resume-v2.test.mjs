@@ -50,3 +50,16 @@ test('P0 clarification cannot accidentally send numeric review data',()=>{
  assert.ok(s.includes("...(isReviewPractice?{formativePractice:"));
  assert.ok(s.includes("'Explain this completed candle':'Explain this topic'"));
 });
+
+test('P0 manual pause visibly opens the ungraded checkpoint, even before a lesson is started',()=>{
+ assert.ok(s.includes('setLessonKind(selected);'),'Manual pause must open the guided lesson disclosure');
+ assert.ok(s.includes('open={!!lessonKind}'),'Completed checkpoint must be visible');
+ assert.ok(s.includes('setCheckpoint(originalQuestion(selected,REPLAY[at-1],at))'));
+});
+test('Authenticated QA verifies selected-chart VWAP proxy, not an unrelated trade-print answer',()=>{
+ const browser=readFileSync('tests/talia-classroom-real-member-depth-v2.mjs','utf8');
+ assert.ok(browser.includes('getTaliaChartEvidence({visible:7,index:6,timeframe:1})'));
+ assert.ok(browser.includes('cumulative bar-proxy VWAP = $'));
+ assert.ok(browser.includes('not an exact transaction-print VWAP/i'));
+ assert.ok(!browser.includes('exact trade-print VWAP = $4,600 / 400 = $11.50'));
+});
