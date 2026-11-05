@@ -1,0 +1,1465 @@
+{
+  "schema": "smfgu.talia.kdb.interactive.batch.v1",
+  "documentId": "SMFGU-TALIA-KDB-BATCH02-20261104",
+  "date": "2026-11-04",
+  "version": "1.0",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "projectId": "oxihglyfgzywsupnyicb",
+  "batch": 2,
+  "numberOfLessons": 50,
+  "trainingSurface": "Talia Classroom / Knowledge Database",
+  "status": "INTERACTIVE_SOURCE_LINKED_BETA_NOT_INDEPENDENTLY_APPROVED",
+  "source": "published visible gu_knowledge_articles_v1; content fetched after existing per-member authorization",
+  "lessons": [
+    {
+      "ordinal": 17,
+      "slug": "research-study-dpo",
+      "title": "Detrended Price Oscillator — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Cycles",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 18,
+      "slug": "research-study-fisher-transform",
+      "title": "Fisher Transform — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Momentum",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 19,
+      "slug": "research-study-tsi",
+      "title": "True Strength Index — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Momentum",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 20,
+      "slug": "research-study-ultimate-oscillator",
+      "title": "Ultimate Oscillator — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Momentum",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 21,
+      "slug": "research-study-ulcer-index",
+      "title": "Ulcer Index — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Risk",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 22,
+      "slug": "research-study-elder-ray",
+      "title": "Elder-Ray Bull and Bear Power — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Trend",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 23,
+      "slug": "research-study-vortex",
+      "title": "Vortex Indicator — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Trend",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 24,
+      "slug": "research-study-choppiness",
+      "title": "Choppiness Index — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Volatility",
+      "learningLevel": "professional",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 25,
+      "slug": "research-study-mass-index",
+      "title": "Mass Index — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Volatility",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 26,
+      "slug": "research-study-emv",
+      "title": "Ease of Movement (EMV) — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Volume",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 27,
+      "slug": "research-study-nvi",
+      "title": "Negative Volume Index — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Volume",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 28,
+      "slug": "research-study-pvi",
+      "title": "Positive Volume Index — calculation and chart interpretation",
+      "subject": "Advanced Indicators / Volume",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 29,
+      "slug": "knowledge-b002-exponential-smoothing-seed-policy",
+      "title": "Exponentially Weighted Average Seeds and Warmup",
+      "subject": "Quantitative Research / Numerical Indicators",
+      "learningLevel": "institutional_quantitative",
+      "sourceUrlCount": 1,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 30,
+      "slug": "research-study-advance-decline",
+      "title": "Advance Decline Line — calculation and chart interpretation",
+      "subject": "Technical Indicators / Breadth",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 31,
+      "slug": "research-study-mcclellan-osc",
+      "title": "McClellan Oscillator — calculation and chart interpretation",
+      "subject": "Technical Indicators / Breadth",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 32,
+      "slug": "research-study-new-highs-lows",
+      "title": "New 52-Week Highs Minus Lows — calculation and chart interpretation",
+      "subject": "Technical Indicators / Breadth",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 33,
+      "slug": "research-study-percent-above-ma",
+      "title": "Percent Above Moving Average — calculation and chart interpretation",
+      "subject": "Technical Indicators / Breadth",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 34,
+      "slug": "research-study-price-relative",
+      "title": "Price Relative Strength versus Benchmark — calculation and chart interpretation",
+      "subject": "Technical Indicators / Breadth",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 35,
+      "slug": "research-study-sctr",
+      "title": "StockCharts Technical Rank — calculation and chart interpretation",
+      "subject": "Technical Indicators / Breadth",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 36,
+      "slug": "research-study-fibonacci-retracement",
+      "title": "Fibonacci Retracement — calculation and chart interpretation",
+      "subject": "Technical Indicators / Levels",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 37,
+      "slug": "research-study-pivot-points",
+      "title": "Pivot Points — calculation and chart interpretation",
+      "subject": "Technical Indicators / Levels",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 38,
+      "slug": "research-study-cci",
+      "title": "Commodity Channel Index — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 39,
+      "slug": "research-study-kst",
+      "title": "Know Sure Thing — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 40,
+      "slug": "research-study-macd-histogram",
+      "title": "MACD Histogram — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 41,
+      "slug": "research-study-macd",
+      "title": "Moving Average Convergence Divergence — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 42,
+      "slug": "research-study-ppo",
+      "title": "Percentage Price Oscillator — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 43,
+      "slug": "research-study-price-momentum",
+      "title": "Price Momentum — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 44,
+      "slug": "research-study-roc",
+      "title": "Rate of Change — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 45,
+      "slug": "research-study-stochastic",
+      "title": "Stochastic Oscillator — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 46,
+      "slug": "research-study-stoch-rsi",
+      "title": "Stochastic RSI — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 47,
+      "slug": "research-study-trix",
+      "title": "TRIX — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 48,
+      "slug": "research-study-williams-r",
+      "title": "Williams Percent R — calculation and chart interpretation",
+      "subject": "Technical Indicators / Momentum",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 49,
+      "slug": "research-study-vix-context",
+      "title": "Implied Volatility Index Context — calculation and chart interpretation",
+      "subject": "Technical Indicators / Sentiment",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 50,
+      "slug": "research-study-put-call-ratio",
+      "title": "Put Call Volume Ratio — calculation and chart interpretation",
+      "subject": "Technical Indicators / Sentiment",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 51,
+      "slug": "research-study-aroon-oscillator",
+      "title": "Aroon Oscillator — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 52,
+      "slug": "research-study-aroon",
+      "title": "Aroon Up and Down — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 53,
+      "slug": "research-study-adx",
+      "title": "Average Directional Index — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 54,
+      "slug": "research-study-dema",
+      "title": "Double Exponential Moving Average — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 55,
+      "slug": "research-study-hma",
+      "title": "Hull Moving Average — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 56,
+      "slug": "research-study-ichimoku",
+      "title": "Ichimoku Cloud — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 57,
+      "slug": "research-study-kama",
+      "title": "Kaufman Adaptive Moving Average — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 58,
+      "slug": "research-study-moving-average-ribbon",
+      "title": "Moving Average Ribbon — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 59,
+      "slug": "research-study-parabolic-sar",
+      "title": "Parabolic Stop and Reverse — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 60,
+      "slug": "research-study-directional-movement",
+      "title": "Positive and Negative Directional Indicators — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 61,
+      "slug": "research-study-sma",
+      "title": "Simple Moving Average — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": false,
+        "fictionalCase": false,
+        "misconception": false,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 62,
+      "slug": "research-study-supertrend",
+      "title": "Supertrend — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 63,
+      "slug": "research-study-tema",
+      "title": "Triple Exponential Moving Average — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 64,
+      "slug": "research-study-wma",
+      "title": "Weighted Moving Average — calculation and chart interpretation",
+      "subject": "Technical Indicators / Trend",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 65,
+      "slug": "research-study-atrp",
+      "title": "Average True Range Percent — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volatility",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 66,
+      "slug": "research-study-bollinger-bandwidth",
+      "title": "Bollinger BandWidth — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volatility",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    }
+  ]
+}
