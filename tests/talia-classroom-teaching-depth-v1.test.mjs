@@ -233,7 +233,8 @@ test('classroom exposes a local-only practice notebook and distinct chart contex
  assert.match(source,/const comparePractice=\(\)=>/);
  assert.match(source,/teachSelected\('correct'\)/);
  assert.match(source,/setViewedSteps\(\[\]\)/);
- assert.match(source,/Lesson examples do not necessarily match the chart/);
+ assert.match(source,/Verified completed chart data/);
+ assert.match(source,/tc-chart-evidence-inline/);
  assert.match(source,/Viewed \{viewedSteps\.length\} of 5 lesson steps/);
  assert.match(styles,/\.tc-teaching-notebook/);
  assert.match(styles,/\.tc-teaching-focus/);
@@ -363,19 +364,22 @@ test('chart interaction selects the SAME highlighted group, updates timeframe an
  assert.match(react,/onCandleSelect\(index,interval\)/);
  assert.match(react,/body:JSON\.stringify\(\{topic,depth,phase,\.\.\.\(chartContext\?\{chartContext\}:\{\}\)\}\)/);
  assert.match(react,/evidence\.open!==verified\.bar\.open/);
- assert.match(react,/Teaching from displayed/);
- assert.match(react,/Talia uses the exact completed candles displayed below/);
+ assert.match(react,/Teaching from completed/);
+ assert.match(react,/Verified completed chart data/);
+ assert.match(react,/getTaliaChartEvidence\(chartContext\)/);
  assert.match(chart,/onTimeframeChangeRef\.current\?\.\(appearance\.timeframe\)/);
  assert.match(chart,/completedBars\.slice\(focusStart,focusStart\+appearance\.timeframe\)/);
  assert.match(pages,/talia-chart-evidence-v1\.d\.ts/);
 });
 
-test('keyboard ledger teaching keeps highlighted candle, measurements and lesson context synchronized',()=>{
+test('keyboard completed-candle selection keeps highlight, measurements and lesson context synchronized',()=>{
  const classroom=readFileSync('src/tutor/TaliaClassroom.tsx','utf8');
  const chart=readFileSync('src/prototype/PrototypeExperiences.tsx','utf8');
  assert.match(classroom,/focusSourceBar=\{chartFocus\?Math\.min\(visible-1/);
  assert.match(classroom,/focusedSourceBar=\{focusSourceBar\?\?undefined\}/);
- assert.match(classroom,/onClick=\{\(\)=>onCandleSelect\(i,1\)\}/);
+ assert.match(classroom,/onCandleSelect\(Number\(e.target.value\),1\)/);
+ assert.match(classroom,/aria-label="Select a revealed completed candle"/);
+ assert.match(classroom,/REPLAY\.slice\(0,visible\)\.map/);
  assert.match(chart,/focusedSourceBar!==undefined&&focusedSourceBar>=0/);
  assert.match(chart,/setFocus\(focusedSourceBar\)/);
 });

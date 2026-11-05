@@ -32,7 +32,9 @@ test('fictional replay supplies only the revealed candles to the renderer',()=>{
  assert.match(source,/Only completed simulated candles are shown/);
  assert.match(source,/if\(group\.length!==interval\)return/);
  assert.match(source,/visible===REPLAY\.length/);
- assert.match(source,/Latest visible completed candle/);
+ assert.match(source,/Select a completed candle/);
+ assert.match(source,/aria-label="Select a revealed completed candle"/);
+ assert.doesNotMatch(source,/tp-candle-audit|tc-current-candle-ledger/);
  assert.match(source,/Fictional completed-bar teaching example/);
  assert.match(source,/const REPLAY:number\[\]\[\]=TALIA_REPLAY/);
  const data=TALIA_REPLAY;

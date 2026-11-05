@@ -249,7 +249,7 @@ function FictionalChart({onQuestion,onCandleSelect,onTimeframeChange,focusSource
         window.addEventListener('resize',resize);
         if(typeof ResizeObserver!=='undefined'&&host.current){observer=new ResizeObserver(resize);observer.observe(host.current)}
         setStatus(visible+' of '+REPLAY.length+' fictional one-minute candles revealed; '+shown.length+' fully completed '+timeframe+'-minute candles rendered. Incomplete timeframe groups are concealed.');
-      }catch{if(!disposed)setStatus('Chart unavailable; the completed-candle table remains available.')}
+      }catch{if(!disposed)setStatus('Chart unavailable; select an already revealed candle under More replay options.')}
     };
     void mount();
     return ()=>{disposed=true;window.removeEventListener('resize',resize);observer?.disconnect();if(chartRef.current===plot)chartRef.current=null;plot?.dispose()};
