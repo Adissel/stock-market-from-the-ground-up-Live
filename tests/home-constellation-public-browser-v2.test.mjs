@@ -60,6 +60,10 @@ try{
     visibleTip:!!q(map+' .lc-map-tip'),
     pathColumns:style('.gu-path-grid').gridTemplateColumns.split(' ').length,
     pathCardHeight:Math.round(box('.gu-path-card').height),
+    computedCardMinHeight:style('.gu-path-card').minHeight,
+    computedCardPadding:style('.gu-path-card').padding,
+    computedCardGrid:style('.gu-path-grid').gridTemplateColumns,
+    cardAncestors:[...q('.gu-path-card').parentElement.parentElement.classList],
     tabRowWidth:Math.round(box(map+' .lc-tabs').width),
     totalTabWidths:[...document.querySelectorAll(map+' .lc-tabs button')].reduce((sum,n)=>sum+n.getBoundingClientRect().width,0),
     toolbarFocusText:q('[data-lc="focus"]').textContent.trim(),
@@ -79,7 +83,7 @@ try{
   assert.equal(data.visibleTip,false,'Remove excessive map gesture legend');
   assert.equal(data.guideStat,'TALIA TEACHING GUIDES','Do not misidentify all guides as chart indicators');
   assert.equal(data.toolbarFocusText,'Focus','Compact toolbar uses short labels');
-  assert(data.pathCardHeight<=180,'Learning Path cards must be visibly shorter');
+  assert(data.pathCardHeight<=180,'Learning Path cards must be visibly shorter: '+JSON.stringify(data));
   assert.equal(data.pathColumns,width>1000?4:1,'Desktop uses four concise cards in one row; mobile stacks them');
   if(width>1000)assert(data.totalTabWidths<data.tabRowWidth*0.75,'Four mode buttons must no longer stretch across the page');
   await page.locator('[data-lc="plus"]').click();
