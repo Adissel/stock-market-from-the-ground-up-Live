@@ -52,7 +52,8 @@ assert(guided.includes('gu-v2-apply-feedback'),'Sizing action must explain missi
 assert(guided.includes("current.dispatchEvent(new Event('input'"),'Eligible action must update planned quantity');
 const sim=get('simulator.html'),simMode=get('assets/js/simulator-mode-v014112.js'),
   replay=get('assets/js/verified-replay-v01492.js'),policy=get('functions/_lib/fictional-replay-policy-v1.js');
-assert(sim.includes('Server-Controlled Simulated Replay (default)'), 'Default must not show unavailable historical datasets');
+assert.match(sim, /<button[^>]*id="sim-mode-server"[^>]*aria-pressed="true"[^>]*>Server-Controlled\s+Replay \(default\)<\/button>/, 'Server-controlled original scenario must remain the default');
+assert(sim.includes('No real market history or confirmed fills are implied.'), 'Default scenario must disclose that it is not historical data or verified execution');
 assert(sim.includes('verified-replay.html?scope=historical'),'Licensed historical training remains separate');
 assert(replay.includes("const embedded=!!document.getElementById('sim-server-mode')"));
 assert(replay.includes("embedded&&replayParams.get('scope')!=='historical'"), 'Embedded mode must use fictional catalog');
