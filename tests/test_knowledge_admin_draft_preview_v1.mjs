@@ -30,3 +30,7 @@ x=await call('read',true);assert.equal(x.status,404);assert(!JSON.stringify(x.bo
 showcase=true;x=await call('admin/preview',true);assert.equal(x.status,403);showcase=false;
 restricted=true;x=await call('admin/preview',true);assert.equal(x.status,403);
 console.log('PASS Owner/Admin saved full-page draft preview with restricted session and metadata-only public catalog.');
+
+import{readFileSync}from'node:fs';
+const reader=readFileSync(new URL('../assets/js/knowledge-article-page-v1.js',import.meta.url),'utf8');
+assert(reader.includes("(ownerPreview?'&preview=1':'')"),'Owner/Admin preview link must keep preview=1 after canonical slug replacement and refresh');
