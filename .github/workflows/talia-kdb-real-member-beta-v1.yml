@@ -1,0 +1,40 @@
+name: Talia 245 Knowledge — Genuine James_Test Founder Beta Matrix
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/talia-kdb-real-member-beta-v1.yml'
+      - 'tests/talia-kdb-real-member-browser-v1.mjs'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: talia-kdb-real-member-beta-${{ github.run_id }}
+  cancel-in-progress: false
+jobs:
+  genuine-member:
+    name: Actual James_Test sign-in, own-plan RLS, 245 catalog and authorized lesson
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    env:
+      LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+      LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+      TALIA_KDB_QA_ORIGIN: https://talia-245-qa-v4.stock-market-from-the-ground-up-d1r.pages.dev
+      TALIA_KDB_QA_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Require existing encrypted QA identity, never fabricate login
+        run: test -n "$LAB_QA_EMAIL" && test -n "$LAB_QA_PASSWORD"
+      - name: Install pinned test dependencies
+        run: npm install --no-save --no-package-lock --ignore-scripts playwright@1.56.1
+      - name: Install Chromium for actual browser
+        run: npx playwright install --with-deps chromium
+      - name: Verify QA script syntax
+        run: node --check tests/talia-kdb-real-member-browser-v1.mjs
+      - name: Genuine James_Test browser / 245 article membership gate
+        run: node tests/talia-kdb-real-member-browser-v1.mjs

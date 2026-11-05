@@ -642,7 +642,7 @@
     node('p','If part of your answer is missing, revise and compare again. These teaching prompts are NOT a protected grading rubric, automated score or proof of mastery.'));
    result.replaceChildren(coaching);
   });
-  const optional=node('details');optional.append(node('summary','Optional written reasoning and private reflection'),label,answer,use,
+  const optional=node('details');optional.open=true;optional.append(node('summary','Optional written reasoning and private reflection'),label,answer,use,
    node('p','Written reflection is optional. You may copy any nonempty note into your private reflection, subject to the field limit. Unsaved notes are erased on reload. Formative method checks are not graded mastery.'));
   const assessmentNotice=node('p','Formative method checks are not graded mastery. This ungraded lesson does not award independent competency or official assessment credit.');
   assessmentNotice.className='academy-formative-disclosure';
