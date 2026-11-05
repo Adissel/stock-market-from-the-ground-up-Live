@@ -14,13 +14,15 @@ const labels=[
  'data-product-code="MARKET_SIMULATOR"',
  'simulator-beta-scope-heading',
  '4 MiB CSV','20,000 OHLCV candles',
- 'simulated teaching candles','not independently verified',
+ 'hypothetical teaching candles','not independently verified',
  'Browser-imported CSVs','brokerage execution platform',
  'do not reveal which occurred first',
  'verified historical','published',
  'simulator.html?practice=free','verified-replay.html',
  'journal.html','Store above verifies'
 ];
+assert(page.includes('Hypothetical OHLCV example:'),'Worked price scenario must be identified as hypothetical');
+assert(!page.includes('2040  teaching candles'),'Original data provenance must not have an empty label');
 for(const label of labels)assert(page.includes(label),'Missing member feature disclosure '+label);
 for(const p of ['assets/css/store-simulator-beta.css','assets/img/store-tools/market-simulator.svg',
  'assets/js/verified-replay-v01492.js','simulator.html','verified-replay.html'])
