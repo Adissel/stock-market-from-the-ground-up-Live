@@ -48,6 +48,7 @@ jobs:
     env:
       LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
       LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+      # Owner QA acceptance: genuine member session only; temporary plan grants are issued and revoked outside CI.
       # Verify the exact current release commit on the canonical production Pages origin.
       # The sign-in widget deliberately redirects preview hosts to the canonical host;
       # browser authentication cannot be accepted against a preview-host origin.
