@@ -48,7 +48,9 @@ jobs:
           node --check functions/api/talia-classroom-curriculum-v1.js
           node --check tests/talia-classroom-real-member-depth-v2.mjs
       - name: Enforce seven-policy matrix and authorization against local first-party API
-        run: node --test tests/talia-classroom-teaching-depth-v1.test.mjs tests/talia-classroom-source-v1.test.mjs tests/kdb-classroom-product-boundary-v1.test.mjs
+        run: |
+          node --test tests/kdb-classroom-product-boundary-v1.test.mjs
+          node --test tests/talia-classroom-teaching-depth-v1.test.mjs tests/talia-classroom-source-v1.test.mjs
   genuine-james-classroom:
     name: Authenticated James_Test real browser and no-charge lesson API
     needs: hierarchical-authorized-source

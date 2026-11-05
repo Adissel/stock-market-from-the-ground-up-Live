@@ -26,6 +26,7 @@ fi
 node --test tests/tool-registry-navigation-fallback-v1.test.mjs
 node --test tests/watchlist-offline-credential-boundary-v1.test.mjs
 node --test tests/home-stable-first-paint-v1.test.mjs
+node --test tests/home-constellation-compact-footer-v1.test.mjs
 # Unique tie-breaker for published Knowledge metadata pagination (no protected body).
 node --test tests/knowledge-library-stable-pagination-v1.test.mjs
 node --test tests/test_kdb_research_family_catalog_v1.mjs
