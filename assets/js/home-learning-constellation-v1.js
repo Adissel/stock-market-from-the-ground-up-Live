@@ -1,5 +1,6 @@
 /* Homepage Constellation: explicit compact presentation, fresh resources and
- * canonical-footer placement. This never changes the protected Prototype Center. */
+ * canonical-footer placement. The public map uses simulated educational
+ * examples only and never changes the protected Prototype Center. */
 (()=>{'use strict';
  const section=document.getElementById('learning-constellation');
  const host=document.getElementById('pt-experiences-root');
