@@ -206,3 +206,34 @@ test('unknown or expired plan grants, invalid add-on states and forged client fi
   }
  }finally{globalThis.fetch=saved}
 });
+
+test('six lessons disclose specific objectives and accurate ungraded corrections',()=>{
+ const expected={
+  candlesticks:/40%/,vwap:/\$11\.50/,ema:/\$25\.20/,scanner:/four numeric AND rules pass/,
+  volume:/600 volume units/,structure:/lower high.*lower low/s
+ };
+ for(const topic of TUTOR_LESSONS){
+  assert.ok(topic.objective?.length>45,topic.id+' missing objective');
+  assert.ok(topic.evidence?.length>20,topic.id+' missing evidence');
+  assert.ok(topic.limitation?.length>20,topic.id+' missing limitation');
+  const practice=buildTaliaLesson({topic:topic.id,depth:'FOUNDATION',phase:'practice'});
+  const review=buildTaliaLesson({topic:topic.id,depth:'FOUNDATION',phase:'correct'});
+  assert.doesNotMatch(practice.answer,expected[topic.id],'practice leaked its correction');
+  assert.match(review.answer,expected[topic.id],'worked correction missing');
+  assert.match(review.answer,/not an automated grade/i);
+  assert.equal(review.graded,false);
+  assert.equal(review.masteryAwarded,false);
+ }
+});
+test('classroom exposes a local-only practice notebook and distinct chart context notice',()=>{
+ const source=readFileSync('src/tutor/TaliaClassroom.tsx','utf8');
+ const styles=readFileSync('assets/css/talia-curriculum-v1.css','utf8');
+ assert.match(source,/id="tc-practice-notes"/);
+ assert.match(source,/const comparePractice=\(\)=>/);
+ assert.match(source,/teachSelected\('correct'\)/);
+ assert.match(source,/setViewedSteps\(\[\]\)/);
+ assert.match(source,/Lesson examples do not necessarily match the chart/);
+ assert.match(source,/Viewed \{viewedSteps\.length\} of 5 lesson steps/);
+ assert.match(styles,/\.tc-teaching-notebook/);
+ assert.match(styles,/\.tc-teaching-focus/);
+});
