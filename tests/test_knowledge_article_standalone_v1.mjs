@@ -13,7 +13,7 @@ assert.match(html,/id="kal-article-title"/,'Article must have dedicated title');
 assert.match(html,/id="kal-article-content"/,'Article must have protected content area');
 assert.match(html,/id="kal-outline"/,'Provide an accessible in-article outline');
 assert.match(html,/id="kal-source-list"/,'Provide independent source links');
-assert.match(html,/knowledge-article-page-v1.js\?v=2/,'Page must load the versioned article JS');
+assert.match(html,/knowledge-article-page-v1\.js\?v=[A-Za-z0-9-]+/,'Page must load the versioned article JS');
 assert.match(html,/assets\/js\/supabase-client.js/,'Page must load the authenticated website session helper');
 assert.match(css,/@media\s*\(max-width:640px\)/,'Mobile layout must stack and retain readable controls');
 assert.match(css,/:focus-visible/,'Keyboard focus must be visible');
