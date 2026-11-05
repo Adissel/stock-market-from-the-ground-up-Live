@@ -1,0 +1,15 @@
+import assert from 'node:assert/strict';
+import {readFileSync} from 'node:fs';
+const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
+const manifest=JSON.parse(read('data/knowledge/kdb-p0-144-baseline-v1.json'));
+const sql=read('supabase/migrations/20261104_knowledge_publication_copy_reconciliation_144_v1.sql');
+assert.equal(manifest.articles.length,144);
+assert.equal(manifest.expected_count,144);
+assert.equal(new Set(manifest.articles.map(a=>a.slug)).size,144);
+assert(manifest.articles.every(a=>Number.isInteger(a.version)&&a.version>=1));
+assert.match(manifest.digest,/^[a-f0-9]{32}$/);
+assert(sql.includes(manifest.digest));
+for(const s of ['gu_knowledge_mutate_v1','gu_knowledge_complete_article_v2','authoring_state','status','draft','in_review','published','review_state','accepted','is_visible','admin_audit_log','knowledge.p0_publication_copy_reconciled_v1','Independent editorial, source-claim, numerical, rights','No third-party content or licensed market-data redistribution rights','v_done<>144','rec.version+3'])assert(sql.includes(s),s);
+assert.equal((sql.match(/v_result:=public.gu_knowledge_mutate_v1/g)||[]).length,2);
+assert.equal((sql.match(/v_result:=public.gu_knowledge_complete_article_v2/g)||[]).length,1);
+console.log('PASS Knowledge P0: 144 versioned baselines and three-step atomic authoring/republication contract.');
