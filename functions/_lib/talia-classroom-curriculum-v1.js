@@ -80,6 +80,47 @@ const CATALOG={
   enterprise:'Design an auditable past-only structure detector with deterministic tie-breaking, lookback warmup, swing confirmation latency and out-of-sample evaluation.'
  }
 };
+
+// Reviewed original fictional cases used to differentiate instructional depth,
+// not merely append vocabulary. Each deeper edition inherits the prior teaching.
+const DEPTH_WORKED_CASES=Object.freeze({
+ candlesticks:{
+  FOUNDATION:'Now identify the wicks on our $31.00/$32.50/$30.50/$32.00 example: upper wick = $32.50 − $32.00 = $0.50; lower wick = $31.00 − $30.50 = $0.50. The candle closes above its open, but the next candle is unknown.',
+  ADVANCED:'Compare a second, completed fictional one-minute candle: O $32.00, H $32.20, L $31.10, C $31.40. Body = $0.60; range = $1.10; body/range = 54.55%; upper wick = $0.20 and lower wick = $0.30. The second candle closes below its open. Different body percentages and wick lengths describe observations; they do not prove a reversal or rejection.',
+  PROFESSIONAL:'Now aggregate those two consecutive completed one-minute candles into ONE two-minute candle: open = first open $31.00; high = max($32.50,$32.20) = $32.50; low = min($30.50,$31.10) = $30.50; close = second close $31.40. The aggregated body is $0.40 on a $2.00 range, or 20%. The first green candle and second red candle therefore produce a green combined candle; interpretation changes with the interval. This example assumes aligned, consecutive observations in the same session.',
+  ENTERPRISE:'Validate the original OHLC inputs before comparing aggregates: for every completed row require low ≤ min(open,close) and high ≥ max(open,close), finite positive prices, unique ordered interval timestamps and no missing one-minute intervals. A proposed first row with high $31.80 and close $32.00 is invalid; reject it rather than silently charting it. Define UTC/session boundaries, split-adjustment basis, correction policy, deterministic aggregation and reproducible source provenance.'
+ },
+ vwap:{
+  ADVANCED:'For the demonstrated 200 shares at $8 and 100 at $10, the unweighted price mean is $9.00 but trade-print VWAP is $8.6667. The 200-share trade receives twice the weight. Track $1,600 and $1,000 in separate traded-dollar subtotals.',
+  PROFESSIONAL:'Suppose a separate simulated single OHLCV bar is H $10, L $8, C $10, V 300. HLC3 = ($10+$8+$10)/3 = $9.3333, so its bar proxy is $9.3333—not the transaction VWAP $8.6667 from the two prints. They use different inputs; this does not measure a universal proxy error.',
+  ENTERPRISE:'For reproducible trade-print VWAP, specify eligible sale conditions, event-time window, trade corrections and cancellations, zero-volume handling and rights. For the two fictional prints, preserve 200×$8 + 100×$10 = $2,600 and 300 shares as auditable intermediate totals.'
+ },
+ ema:{
+  ADVANCED:'For the same previously warmed $10.00 reference and completed $11.00 close, EMA 9 updates to $10.20, while EMA 20 uses alpha 2/21 and updates to approximately $10.0952. The apparent difference is caused by weighting, not foresight.',
+  PROFESSIONAL:'If the next *completed* fictional close is $9.00, EMA 9 updates from $10.20 to $9.96. EMA 20 updates from approximately $10.0952 to $9.9909. A line-order change can occur with no reliable future-price conclusion; neither input includes an unrevealed candle.',
+  ENTERPRISE:'Document EMA 9 and EMA 20 seeding (for example, initial period SMA), minimum warmup, adjustment policy, missing-close rule and numerical tolerance. Never compare warmup-dependent early results from incompatible seed conventions as if they were identical.'
+ },
+ scanner:{
+  ADVANCED:'The fictional symbol at $4.20, +9% and 12,000 shares passes the four stated numeric AND filters. If halted=true, an added NOT-halted condition fails. If halted status is unknown, the complete five-rule result is unverified—not automatically true.',
+  PROFESSIONAL:'Compare the same symbol at two observation times: $4.20/+9%/12,000 shares passes, but a later $4.20/+7%/12,000 shares fails the ≥8% change rule. A screener is a time-stamped research filter, not a durable trade signal.',
+  ENTERPRISE:'A reproducible scanner records each parameter name, comparison operator, units, event-time observation, field provenance, null policy and AND/OR grouping. Never treat a missing halt flag as false or infer a verified live result from fictional inputs.'
+ },
+ volume:{
+  ADVANCED:'Three completed fictional volumes of 200, 600 and 400 average 400 units. The 600-unit bar is 600/400 = 1.5× this small comparison baseline; the ratio changes if the window changes.',
+  PROFESSIONAL:'The same 600-unit observation could be ordinary at a busy open and exceptional in another session segment. Compare matched intervals and report the baseline count before calling a bar unusually active.',
+  ENTERPRISE:'Specify which trade conditions count, unit normalization, corrections, timestamps, venue coverage and rights. The fictional numbers 200, 600 and 400 cannot be used as actual market liquidity evidence.'
+ },
+ structure:{
+  ADVANCED:'Completed fictional swing highs $20.00 then $20.60 and lows $19.50 then $19.90 support a higher-high/higher-low comparison, provided both highs and lows meet the same confirmation rule.',
+  PROFESSIONAL:'If confirmation requires one completed bar on each side of a candidate swing, do not label the current final bar a confirmed pivot. Record the confirmation delay and a clear invalidation level before discussing a hypothetical decision.',
+  ENTERPRISE:'A reproducible swing detector must specify lookback, tie-breaking on equal highs/lows, confirmation latency, timestamp policy and strictly past-only evaluation. Comparing unconfirmed extrema to confirmed extrema introduces lookahead bias.'
+ }
+});
+const DEPTH_GUIDANCE=Object.freeze({
+ ADVANCED:'ADVANCED — Compare two observations and test a common misconception.',
+ PROFESSIONAL:'PROFESSIONAL — Test timeframe, regime and evidence-boundary sensitivity.',
+ ENTERPRISE:'ENTERPRISE — Make data integrity and the reasoning reproducible.'
+});
 const normalize=x=>String(x||'').trim().toUpperCase();
 export const depthIndex=depth=>TEACHING_DEPTHS.indexOf(normalize(depth));
 export const availableDepths=max=>{
@@ -93,13 +134,36 @@ export function buildTaliaLesson({topic,depth='FOUNDATION',phase='explain'}={}){
  const extension=depth==='FOUNDATION'?'':depth==='ADVANCED'?entry.advanced:
   depth==='PROFESSIONAL'?entry.advanced+'\n\n'+entry.professional:
   entry.advanced+'\n\n'+entry.professional+'\n\n'+entry.enterprise;
+ const deeperCases=TEACHING_DEPTHS.slice(1,depthIndex(depth)+1).map(t=>
+  DEPTH_GUIDANCE[t]+'\n'+(DEPTH_WORKED_CASES[topic][t]||'')).join('\n\n');
  const intro='Talia · '+name+' · '+depth.charAt(0)+depth.slice(1).toLowerCase()+' depth\n\n';
  const teaching={
-  explain:entry.concept+'\n\n'+(extension?extension+'\n\n':'')+'What would you like me to clarify before the worked example?',
-  demonstrate:'Watch me work through an original, simulated example.\n\n'+entry.example+'\n\n'+(extension?extension+'\n\n':'')+'Note: '+entry.counter,
-  practice:'Your turn — ungraded.\n\n'+entry.challenge+'\n\nExplain your steps; I can review your reasoning without assigning a grade. No future chart values are disclosed.',
-  correct:'Ungraded worked check for the practice question. Compare each step with your own work; this is not an automated grade.\n\n'+entry.solution+'\n\nCommon mistake: '+entry.counter+'\n\nAsk Talia about a particular step if your reasoning differs.',
-  transfer:'Use a different simulated case.\n\n'+entry.transfer+'\n\n'+(extension?extension+'\n\n':'')+'Identify uncertainty, a counterexample and when NO TRADE is the appropriate conclusion.'
+  explain:[
+   'I DO — UNDERSTAND',
+   entry.concept,
+   'I DO — SHOW THE EVIDENCE AND WORK THE NUMBERS (FICTIONAL)',
+   entry.example,
+   ...(DEPTH_WORKED_CASES[topic].FOUNDATION?[DEPTH_WORKED_CASES[topic].FOUNDATION]:[]),
+   ...(deeperCases?[deeperCases]:[]),
+   'WE DO — RECOGNIZE WHAT THE EVIDENCE SUPPORTS',
+   extension||'Describe what is directly observable before making an interpretation.',
+   'COMMON MISTAKE AND LIMITATION',
+   entry.counter,
+   'YOU DO — UNGRADED CHECK',
+   entry.challenge,
+   'Tell me your first step or select Practice to write your reasoning. I will help with hints and correction; no grade, future candle or paid explanation is involved.'
+  ].join('\n\n'),
+  demonstrate:'I DO — WORKED FICTIONAL EXAMPLE\n\n'+entry.example+'\n\n'+
+   (DEPTH_WORKED_CASES[topic].FOUNDATION?DEPTH_WORKED_CASES[topic].FOUNDATION+'\n\n':'')+
+   (deeperCases?deeperCases+'\n\n':'')+'WHAT THIS DOES NOT PROVE\n\n'+entry.counter+
+   '\n\nWE DO — Which supplied observation supports the calculation?',
+  practice:'YOU DO — UNGRADED PRACTICE\n\n'+entry.challenge+
+   '\n\nShow your own steps before opening the worked check. I can provide hints and review your reasoning without assigning a grade or revealing future chart values.',
+  correct:'REVIEW — UNGRADED WORKED CHECK\n\n'+entry.solution+
+   '\n\nCOMMON MISTAKE\n\n'+entry.counter+
+   '\n\nCompare the process, not just the final number. This is not an automated grade; ask about the step you found difficult.',
+  transfer:'TRANSFER — INDEPENDENT FICTIONAL CASE\n\n'+entry.transfer+'\n\n'+
+   (extension?extension+'\n\n':'')+'Identify uncertainty, a counterexample and when NO TRADE is the appropriate conclusion.'
  };
  return {topic,depth,phase,title:name,answer:intro+teaching[phase],sourceLabel:'Original Crownlight source-only classroom lesson',graded:false,officialGrade:false,masteryAwarded:false,hasFutureBars:false,commercialPremiumFeaturesGranted:false};
 }
