@@ -1,0 +1,263 @@
+{
+  "schema": "smfgu.knowledge.priority25.numeric.review_pack01.v1",
+  "documentId": "SMFGU-KDB-P25-NUMERIC-REVIEW-PACK01-20261104",
+  "project": "The Stock Market: From the Ground Up",
+  "version": "1.0",
+  "sourceDate": "2026-11-04",
+  "status": "DRAFT_NOT_LIVE_NOT_INDEPENDENTLY_APPROVED",
+  "existingArticleCount": 5,
+  "priorityArticlePopulation": 25,
+  "scope": "Original five-article targeted teaching sections and reproducible mathematical counterexamples; not full article republishing",
+  "editorialPolicy": {
+    "independentHumanReview": "PENDING",
+    "rights": "NOT_CLEARED",
+    "memberGrades": "NO_CHANGE",
+    "publication": "NO_CHANGE",
+    "membership": "NO_CHANGE",
+    "data": "FICTIONAL_ONLY"
+  },
+  "articles": [
+    {
+      "key": "P25-01",
+      "slug": "research-study-sma",
+      "articleVersion": 12,
+      "mathType": "sma",
+      "fixture": {
+        "completedCloses": [
+          10,
+          11,
+          12,
+          13
+        ],
+        "length": 3,
+        "alternateFourthClose": 9,
+        "first": 11,
+        "updated": 12,
+        "alternate": 10.666666666666666
+      },
+      "sources": [
+        {
+          "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential",
+          "section": "Simple Moving Average Formulas",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        },
+        {
+          "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/R-S/SimpleMovingAvg",
+          "section": "Description and Input Parameters",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        }
+      ],
+      "sections": {
+        "understand": "SMA(3) means the arithmetic average of three eligible completed closes, in dollars per share. The window advances only when a new bar completes.",
+        "recognize": "Fictional 1-minute bars close at $10, $11 and $12; ($10+$11+$12)/3=$11. When a fourth bar finishes at $13, the eligible closes are $11,$12,$13 and the new SMA is $12.",
+        "apply": "Change the fourth completed close to $9 while leaving all other assumptions fixed. ($11+$12+$9)/3=$10.6667. Explain when this value becomes observable.",
+        "commonMistake": "Do not include a forming candle as a completed close, reuse the dropped $10 close, or call this SMA(9).",
+        "limitations": "Moving averages lag; a cross is not a guarantee of trend continuation, liquidity or profit.",
+        "accessibleVisual": "Bar 1: $10; Bar 2: $11; Bar 3: $12 => first SMA(3): $11; Bar 4: $13 => new SMA(3): $12."
+      }
+    },
+    {
+      "key": "P25-02",
+      "slug": "research-study-vwap",
+      "articleVersion": 11,
+      "mathType": "trade_vwap",
+      "fixture": {
+        "trades": [
+          {
+            "price": 10,
+            "shares": 100
+          },
+          {
+            "price": 12,
+            "shares": 300
+          }
+        ],
+        "dollarVolume": 4600,
+        "totalShares": 400,
+        "vwap": 11.5,
+        "reversedTradeSizesVwap": 10.5
+      },
+      "sources": [
+        {
+          "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/volume-weighted-average-price-vwap",
+          "section": "Tick vs. Minute Data; VWAP Formulas",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        },
+        {
+          "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
+          "section": "Study reference",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        }
+      ],
+      "sections": {
+        "understand": "Transaction VWAP is the sum of eligible trade price times shares divided by eligible shares, within a defined session and eligibility boundary.",
+        "recognize": "Two fictional trades: 100 shares at $10 and 300 at $12. The dollar-volume sum is $1,000+$3,600=$4,600; 400 eligible shares give $11.50/share.",
+        "apply": "Swap only the share counts to 300 at $10 and 100 at $12. The answer becomes $10.50, demonstrating why an unweighted mean of $11 is wrong.",
+        "commonMistake": "Never replace share weights with simple average of print prices or describe HLC3 bars as complete trade prints.",
+        "limitations": "VWAP is undefined for zero volume and depends on session, filtering and corrections; it is not an available fill guarantee.",
+        "accessibleVisual": "100 × $10 = $1,000; 300 × $12 = $3,600; total $4,600 / 400 shares = $11.50 per share."
+      }
+    },
+    {
+      "key": "P25-03",
+      "slug": "knowledge-b003-trade-vwap-vs-proxy",
+      "articleVersion": 3,
+      "mathType": "trade_vs_proxy",
+      "fixture": {
+        "trades": [
+          {
+            "price": 20,
+            "shares": 100
+          },
+          {
+            "price": 24,
+            "shares": 400
+          }
+        ],
+        "bar": {
+          "high": 24,
+          "low": 20,
+          "close": 24,
+          "volume": 500
+        },
+        "tradeVwap": 23.2,
+        "proxy": 22.666666666666668,
+        "difference": 0.5333333333333314
+      },
+      "sources": [
+        {
+          "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/volume-weighted-average-price-vwap",
+          "section": "Tick vs. Minute Data; VWAP Formulas",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        },
+        {
+          "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/V-Z/VWAP",
+          "section": "Study reference",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        }
+      ],
+      "sections": {
+        "understand": "Trade VWAP uses observed individual prints; HLC3-weighted bar VWAP is an OHLCV approximation. Bar aggregation discards information about prices and sizes of each print.",
+        "recognize": "Fictional prints 100×$20 and 400×$24 yield ($2,000+$9,600)/500=$23.20. A completed single bar H24/L20/C24/V500 produces proxy ($24+$20+$24)/3=$22.6667, $0.5333 lower.",
+        "apply": "Describe how another mix of trades could have the same OHLCV but different transaction VWAP. State what data would be necessary to reconstruct exact VWAP.",
+        "commonMistake": "Do not conflate quote-depth, executed prints, and an OHLCV aggregate. A bar approximation is not an exact trade reconstruction.",
+        "limitations": "Knowing a bar's H/L/C/V does not reveal the intra-bar volume distribution, and either derived number has no predictive guarantee.",
+        "accessibleVisual": "Printed trades: 100@$20 + 400@$24 => exact $23.20. Bar: H24 L20 C24 V500 => HLC3 proxy $22.67."
+      }
+    },
+    {
+      "key": "P25-04",
+      "slug": "knowledge-b003-ema-seed-convergence",
+      "articleVersion": 3,
+      "mathType": "ema_seed",
+      "fixture": {
+        "completedCloses": [
+          10,
+          20,
+          10,
+          18
+        ],
+        "length": 3,
+        "alpha": 0.5,
+        "firstCloseSeedSeries": [
+          10,
+          15,
+          12.5,
+          15.25
+        ],
+        "smaSeedAtThird": 13.333333333333334,
+        "smaSeedFourth": 15.666666666666666
+      },
+      "sources": [
+        {
+          "url": "https://toslc.thinkorswim.com/center/reference/Tech-Indicators/studies-library/M-N/MovAvgExponential.html",
+          "section": "Recursive EMA and smoothing coefficient",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        },
+        {
+          "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/moving-averages-simple-and-exponential",
+          "section": "Exponential Moving Average calculation and initialization",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        }
+      ],
+      "sections": {
+        "understand": "EMA(n) = alpha × completed close + (1−alpha) × prior EMA; alpha = 2/(n+1). A seed and warmup history must be declared to reproduce an early reading.",
+        "recognize": "Period=3 means alpha=0.5. Fictional closes 10,20,10,18, seeded with first close, give 10,15,12.5,15.25. An SMA(3) seed starts at bar 3 with 13.3333 and gives 15.6667 at bar 4.",
+        "apply": "Explain why different early EMA readings can arise from identical prices but different initialization. Do not assert that two vendors converge within a fixed number of bars without testing.",
+        "commonMistake": "Ignoring initialization, hidden prefetch and partial bars, or using alpha=2/3 rather than 2/4 for EMA(3).",
+        "limitations": "EMA is derived historical smoothing; early values and convergence depend on seed, precision, missing observations, adjustments and historical warmup.",
+        "accessibleVisual": "Close 10→20→10→18; first-close EMA 10→15→12.5→15.25; SMA-seeded EMA begins at bar 3: 13.3333→15.6667."
+      }
+    },
+    {
+      "key": "P25-05",
+      "slug": "research-study-bollinger-bands",
+      "articleVersion": 8,
+      "mathType": "bollinger",
+      "fixture": {
+        "closes": [
+          10,
+          12,
+          14
+        ],
+        "length": 3,
+        "multiplier": 2,
+        "denominator": "n_population",
+        "mean": 12,
+        "variance": 2.6666666666666665,
+        "standardDeviation": 1.632993161855452,
+        "upper": 15.265986323710905,
+        "lower": 8.734013676289095,
+        "sampleUpper": 16,
+        "sampleLower": 8
+      },
+      "sources": [
+        {
+          "url": "https://chartschool.stockcharts.com/table-of-contents/technical-indicators-and-overlays/technical-overlays/bollinger-bands",
+          "section": "How To Calculate Bollinger Bands",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        },
+        {
+          "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/standard-deviation",
+          "section": "Standard Deviation calculation divides squared deviations by n",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        },
+        {
+          "url": "https://www.fidelity.com/learning-center/trading-investing/technical-analysis/technical-indicator-guide/bollinger-bands",
+          "section": "Calculation and parameters",
+          "accessedOn": "2026-11-04",
+          "methodStatus": "retrieved_method_only",
+          "copyrightAndDisplayRights": "not_cleared"
+        }
+      ],
+      "sections": {
+        "understand": "A Bollinger-style band is a declared average plus or minus a specified number of standard deviations. State price source, period, center-line type, sigma denominator and multiplier.",
+        "recognize": "Fictional illustration using three completed closes 10,12,14, n=3 and k=2 (NOT the common 20-bar setting). Middle=12, squared deviations sum 8; population variance=8/3, sigma≈1.63299. Upper≈15.2660, lower≈8.7340.",
+        "apply": "Using sample denominator n−1=2 instead yields sigma=2 and bands 16 and 8. Explain why this is a convention change and not an identical calculation.",
+        "commonMistake": "Mixing sample and population standard deviation, applying 3-bar demonstration as 20-bar default, or interpreting a band touch as guaranteed reversal.",
+        "limitations": "Bands summarize prior dispersion, are sensitive to outliers and do not provide calibrated probabilities of future movement.",
+        "accessibleVisual": "Fictional closes 10, 12, 14; center 12; population-sigma lower 8.73 and upper 15.27; sample-sigma alternative lower 8 and upper 16."
+      }
+    }
+  ]
+}

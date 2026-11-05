@@ -1,0 +1,21 @@
+name: Knowledge P25 Numeric Draft Review Pack 01
+on:
+  pull_request:
+    paths:
+      - 'data/knowledge/kdb-priority25-numeric-review-pack01-v1.json'
+      - 'tests/test_kdb_priority25_numeric_review_pack01_v1.mjs'
+      - '.github/workflows/kdb-priority25-numeric-review-pack01-v1.yml'
+  workflow_dispatch:
+jobs:
+  original-math-and-review-guard:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Five original mathematical checks and review protection
+        run: node --test tests/test_kdb_priority25_numeric_review_pack01_v1.mjs
