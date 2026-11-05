@@ -9,7 +9,7 @@ const boiler='Before practicing, understand what the visible observation does an
 const heuristic=/\$\s*\d[\d,.]*|\d+(?:\.\d+)?\s*%/;
 test('V3 snapshot matches this exact current 419-Lab source blob and remains unapproved',()=>{
  const bytes=readFileSync(new URL('../data/lab-teaching-bridges-v014168.json',import.meta.url));
- const sha=createHash('sha1').update('blob '+bytes.length+'\\0').update(bytes).digest('hex');
+ const sha=createHash('sha1').update('blob '+bytes.length+'\0').update(bytes).digest('hex');
  assert.equal(data.sourceBlobSha,sha,'Live bridge contents changed: create a NEW dated QA snapshot, never overwrite V2/V3');
  assert.equal(data.version,'3.0');
  assert.equal(data.summary.sourceClaimAccepted,0);
