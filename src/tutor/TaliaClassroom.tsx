@@ -911,9 +911,9 @@ function Classroom(){
             const tab=tabs[next];setActiveToolsTab(tab);
             document.getElementById('tc-tools-tab-'+tab)?.focus();
           }}>
-          {([{id:'questions',title:'Suggested questions'},...(advancedExperience?
-            [{id:'lesson',title:'Choose a guided lesson'},{id:'options',title:'Additional tutoring options'}]:[])]
-            as Array<{id:'questions'|'lesson'|'options';title:string}>).map(tab=>
+          {([{id:'questions' as const,title:'Suggested questions'},...(advancedExperience?
+            [{id:'lesson' as const,title:'Choose a guided lesson'},{id:'options' as const,title:'Additional tutoring options'}]:[])])
+            .map(tab=>
             <button type="button" role="tab" id={'tc-tools-tab-'+tab.id} key={tab.id}
               aria-controls={'tc-tools-panel-'+tab.id} aria-selected={activeToolsTab===tab.id}
               tabIndex={activeToolsTab===tab.id?0:-1}
