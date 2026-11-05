@@ -30,19 +30,23 @@ export async function onRequest({request,env}){
   if(new TextEncoder().encode(raw).length>2500)throw error('Request too large.',413);
   let body;try{body=JSON.parse(raw)}catch{throw error('Invalid classroom JSON.')}
   if(!body||typeof body!=='object'||Array.isArray(body)||
-     Object.keys(body).some(k=>!['topic','depth','phase'].includes(k)))
+     Object.keys(body).some(k=>!['topic','depth','phase','chartContext'].includes(k)))
    throw error('Unsupported classroom request fields.');
   const {topic,depth,phase}=body;
   if(typeof topic!=='string'||typeof depth!=='string'||typeof phase!=='string'||
     !TUTOR_LESSONS.some(t=>t.id===topic)||!TEACHING_DEPTHS.includes(depth)||!LESSON_PHASES.includes(phase))
    throw error('Choose a valid topic, depth and learning step.');
+  if(Object.hasOwn(body,'chartContext')&&(!body.chartContext||typeof body.chartContext!=='object'||Array.isArray(body.chartContext)))
+   throw error('Chart evidence context must be a validated object.');
+  if(Object.hasOwn(body,'chartContext')&&!TUTOR_LESSONS.find(t=>t.id===topic)?.chart)
+   throw error('This topic has no synchronized chart lesson.');
   if(depthIndex(depth)>depthIndex(entitlement.maximumDepth))
    return out({ok:false,error:'This teaching depth exceeds the active verified Tutor entitlement.',
     maximumDepth:entitlement.maximumDepth},403);
-  const lesson=buildTaliaLesson({topic,depth,phase});
+  const lesson=buildTaliaLesson({topic,depth,phase,...(Object.hasOwn(body,'chartContext')?{chartContext:body.chartContext}:{})});
   return out({ok:true,...lesson,maximumDepth:entitlement.maximumDepth,
    sources:[{id:'CROWN-TALIA-ORIGINAL-LESSON',title:'Original Crownlight classroom teaching material',
-    sourceLabel:'Original ungraded educational example; not a licensed market feed'}],
+    sourceLabel:'Original ungraded educational example. When chart context is present, OHLC and studies are reconstructed from canonical completed fictional replay, not user-provided prices or a licensed feed'}],
    historySaved:false,memberRecordWritten:false,aiReason:'original_source_only',
    notice:'Source-only ungraded instruction. No grades, purchases, paid AI calls, or protected case data.'});
  }catch(e){

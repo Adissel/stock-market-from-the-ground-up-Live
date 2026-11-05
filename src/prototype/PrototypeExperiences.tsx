@@ -1248,8 +1248,8 @@ function Suite({page}:{page:Page}){
  * UI components with immutable Standard-only supplemental simulation. The
  * member caller provides no private lesson data or entitlement overrides. */
 export type ClassicChartMeasurement={index:number;open:number;high:number;low:number;close:number;interval:string};
-export type ClassicChartInput={mode:'lab'|'bootcamp'|'talia';caseBars?:Bar[];memberSafe?:boolean;onObservedBar?:(index:number,timeframe:ChartTimeframe)=>void;measurement?:ClassicChartMeasurement};
-export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObservedBar,measurement}:ClassicChartInput){
+export type ClassicChartInput={mode:'lab'|'bootcamp'|'talia';caseBars?:Bar[];memberSafe?:boolean;onObservedBar?:(index:number,timeframe:ChartTimeframe)=>void;onTimeframeChange?:(timeframe:ChartTimeframe)=>void;measurement?:ClassicChartMeasurement};
+export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObservedBar,onTimeframeChange,measurement}:ClassicChartInput){
  const [source,setSource]=useState<'demo'|'case'>(mode==='talia'?'case':'demo');
  const [reveal,setReveal]=useState(54);
  const [focus,setFocus]=useState(0);
@@ -1259,6 +1259,8 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
  const [settings,setSettings]=useState<Record<string,number>>({...defaults});
  const [enabled,setEnabled]=useState<Record<string,boolean>>({...defaultVisible});
  const [menu,setMenu]=useState<PrototypeMenu|null>(null);
+ const onTimeframeChangeRef=useRef(onTimeframeChange);onTimeframeChangeRef.current=onTimeframeChange;
+ useEffect(()=>{if(mode==='talia')onTimeframeChangeRef.current?.(appearance.timeframe)},[mode,appearance.timeframe]);
  const close=useCallback(()=>setMenu(null),[]);
  const open=useCallback((x:number,y:number,view:'indicators'|'drawings'='indicators')=>setMenu({x,y,view,selected:null,custom:false}),[]);
  useEffect(()=>{
@@ -1279,10 +1281,11 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
   :available;
  const chartCount=mode==='talia'?completedBars.length:count;
  const focused=Math.max(0,Math.min(focus,chartCount-1));
- const completedGroup=mode==='talia'&&chartCount>0?completedBars.slice(-appearance.timeframe):[];
+ const focusStart=Math.floor(focused/appearance.timeframe)*appearance.timeframe;
+ const completedGroup=mode==='talia'&&chartCount>0?completedBars.slice(focusStart,focusStart+appearance.timeframe):[];
  const activeMeasurement=measurement&&mode==='talia'
   ?completedGroup.length===appearance.timeframe?{
-    index:chartCount/appearance.timeframe,
+    index:Math.floor(focused/appearance.timeframe)+1,
     open:completedGroup[0].o,high:Math.max(...completedGroup.map(b=>b.h)),
     low:Math.min(...completedGroup.map(b=>b.l)),close:completedGroup[completedGroup.length-1].c,
     interval:appearance.timeframe+'-minute completed candle'
@@ -1333,7 +1336,7 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
      <small>Simulated completed candle. No future bars.</small>
     </aside>}
    </div>
-   <div className="cx-classic-chart-note" role="status">{mode==='talia'?'Timeframe: '+appearance.timeframe+' min · '+chartCount+' of '+available.length+' revealed bars complete.': 'Selected observed candle '+(focused+1)+' of '+chartCount+' · All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.'}</div>
+   <div className="cx-classic-chart-note" role="status">{mode==='talia'?'Timeframe: '+appearance.timeframe+' min · '+chartCount+' of '+available.length+' source bars complete. Selected completed group #'+(Math.floor(focused/appearance.timeframe)+1)+'. Click a candle for Talia to teach its exact evidence.': 'Selected observed candle '+(focused+1)+' of '+chartCount+' · All calculations use revealed simulated bars only. This independent demonstration never supplies protected lesson evidence, assessment answers, grades or memberships.'}</div>
    {mode==='talia'?<details className="cx-optional-chart-settings"><summary>Chart settings &amp; studies</summary>
     <label className="cx-compact-look">Candle appearance <select aria-label="Talia chart candle appearance" value={barLook} onChange={e=>setBarLook(e.target.value as BarLook)}>{barLooks.map(b=><option key={b.id} value={b.id}>{b.label}</option>)}</select></label>
     <ChartCustomizer/><IndicatorDock/>

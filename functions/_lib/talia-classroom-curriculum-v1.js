@@ -2,6 +2,7 @@
  * No third-party screen copies, licensed feeds, trading signals, hidden bars,
  * official grading, commercial entitlement mutation, or generative inference.
  */
+import {buildTaliaChartLesson} from './talia-chart-teaching-v1.js';
 export const TEACHING_DEPTHS=Object.freeze(['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE']);
 export const LESSON_PHASES=Object.freeze(['explain','demonstrate','practice','correct','transfer']);
 export const TUTOR_LESSONS=Object.freeze([
@@ -126,10 +127,11 @@ export const depthIndex=depth=>TEACHING_DEPTHS.indexOf(normalize(depth));
 export const availableDepths=max=>{
  const index=depthIndex(max);return index<0?['FOUNDATION']:TEACHING_DEPTHS.slice(0,index+1);
 };
-export function buildTaliaLesson({topic,depth='FOUNDATION',phase='explain'}={}){
+export function buildTaliaLesson({topic,depth='FOUNDATION',phase='explain',chartContext=null}={}){
  if(!TUTOR_LESSONS.some(t=>t.id===topic)||depthIndex(depth)<0||!LESSON_PHASES.includes(phase))
   throw Object.assign(new Error('Unrecognized classroom topic, teaching depth or step.'),{status:400});
  const entry=CATALOG[topic];
+ const chartLesson=chartContext?buildTaliaChartLesson({topic,depth,phase,chartContext}):null;
  const name=TUTOR_LESSONS.find(t=>t.id===topic).title;
  const extension=depth==='FOUNDATION'?'':depth==='ADVANCED'?entry.advanced:
   depth==='PROFESSIONAL'?entry.advanced+'\n\n'+entry.professional:
@@ -165,5 +167,5 @@ export function buildTaliaLesson({topic,depth='FOUNDATION',phase='explain'}={}){
   transfer:'TRANSFER — INDEPENDENT FICTIONAL CASE\n\n'+entry.transfer+'\n\n'+
    (extension?extension+'\n\n':'')+'Identify uncertainty, a counterexample and when NO TRADE is the appropriate conclusion.'
  };
- return {topic,depth,phase,title:name,answer:intro+teaching[phase],sourceLabel:'Original Crownlight source-only classroom lesson',graded:false,officialGrade:false,masteryAwarded:false,hasFutureBars:false,commercialPremiumFeaturesGranted:false};
+ return {topic,depth,phase,title:name,answer:intro+(chartLesson?chartLesson.answer:teaching[phase]),...(chartLesson?{chartEvidence:chartLesson.evidence}:{}),sourceLabel:'Original Crownlight source-only classroom lesson',graded:false,officialGrade:false,masteryAwarded:false,hasFutureBars:false,commercialPremiumFeaturesGranted:false};
 }

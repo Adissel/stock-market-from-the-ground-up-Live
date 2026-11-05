@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {buildTaliaLesson,availableDepths,TUTOR_LESSONS} from '../functions/_lib/talia-classroom-curriculum-v1.js';
 import {teachingDepthFromVerifiedRows} from '../functions/_lib/talia-teaching-entitlement-v1.js';
 import {onRequest} from '../functions/api/talia-classroom-curriculum-v1.js';
+import {TALIA_REPLAY,getTaliaChartEvidence} from '../src/tutor/talia-chart-evidence-v1.js';
 const NOW=Date.parse('2026-11-04T15:00:00Z');
 const ACTIVE={status:'active',starts_at:'2026-11-01T00:00:00Z',ends_at:'2026-12-01T00:00:00Z'};
 const plan=(code,tier)=>({plan_code:code,metadata:{talia_market_tutor_v1:{tier,release_state:'assigned_not_feature_release'}}});
@@ -271,4 +272,100 @@ test('regression: all four teaching editions start with instruction, worked evid
  const independent=buildTaliaLesson({topic:'candlesticks',depth:'ENTERPRISE',phase:'practice'}).answer;
  assert.doesNotMatch(independent,/body percentage = .*40%/i);
  assert.match(independent,/Show your own steps/);
+});
+
+
+test('server and classroom share canonical 260 completed fictional bars, including screenshot candle seven',()=>{
+ assert.equal(TALIA_REPLAY.length,260);
+ const e=getTaliaChartEvidence({visible:7,index:6,timeframe:1});
+ assert.deepEqual([e.bar.open,e.bar.high,e.bar.low,e.bar.close],[20.62,20.73,20.44,20.58]);
+ assert.equal(e.bar.body.toFixed(2),'0.04');
+ assert.equal(e.bar.range.toFixed(2),'0.29');
+ assert.equal(e.bar.upperWick.toFixed(2),'0.11');
+ assert.equal(e.bar.lowerWick.toFixed(2),'0.14');
+ assert.equal(e.bar.bodyPercent.toFixed(1),'13.8');
+ assert.equal(e.selectedNumber,7);
+ assert.equal(e.hiddenSourceBars,253);
+ const three=getTaliaChartEvidence({visible:7,index:1,timeframe:3});
+ assert.deepEqual([three.bar.open,three.bar.high,three.bar.low,three.bar.close],[20.12,20.71,20.08,20.62]);
+ assert.equal(three.lastSourceBar,6,'The seventh one-minute candle cannot complete a third 3m candle');
+ assert.equal(three.uncompletedSourceBars,1);
+});
+test('chart-based Talia teaches the exact selected candle in all editions with valid phased pedagogy',()=>{
+ const snapshot={visible:7,index:6,timeframe:1};
+ for(const topic of ['candlesticks','vwap','ema','volume','structure']){
+  const intro=buildTaliaLesson({topic,depth:'FOUNDATION',phase:'explain',chartContext:snapshot});
+  assert.match(intro.answer,/completed 1-minute candle #7/);
+  assert.match(intro.answer,/O \$20\.62 · H \$20\.73 · L \$20\.44 · C \$20\.58/);
+  assert.doesNotMatch(intro.answer,/open \$31\.00, high \$32\.50/,'Separate worksheet example must not replace chart evidence');
+  assert.equal(intro.chartEvidence?.sourceOnly,true);
+  assert.equal(intro.chartEvidence?.noFuture,true);
+  assert.equal(intro.graded,false);
+  const practice=buildTaliaLesson({topic,depth:'FOUNDATION',phase:'practice',chartContext:snapshot});
+  const correct=buildTaliaLesson({topic,depth:'FOUNDATION',phase:'correct',chartContext:snapshot});
+  assert.match(practice.answer,/YOU DO — UNGRADED/);
+  assert.doesNotMatch(practice.answer,/= \$0\.04/,'Practice must not leak the worked calculation');
+  assert.match(correct.answer,/REVIEW — SAME CHART CANDLE/);
+  const transfer=buildTaliaLesson({topic,depth:'FOUNDATION',phase:'transfer',chartContext:snapshot});
+  assert.match(transfer.answer,/previously completed 1-minute bar #6/);
+ }
+ for(const depth of ['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE']){
+  const r=buildTaliaLesson({topic:'candlesticks',depth,phase:'explain',chartContext:snapshot});
+  assert.match(r.answer,/\$20\.62/);
+  assert.equal(r.chartEvidence.selectedNumber,7);
+  assert.equal(r.hasFutureBars,false);
+  if(depth!=='FOUNDATION')assert.match(r.answer,/ADVANCED — OBSERVATIONAL COMPARISON/);
+  if(['PROFESSIONAL','ENTERPRISE'].includes(depth))assert.match(r.answer,/PROFESSIONAL — TIMEFRAME AND INFERENCE TEST/);
+  if(depth==='ENTERPRISE')assert.match(r.answer,/ENTERPRISE — VALIDATION AND REPRODUCIBILITY/);
+ }
+});
+test('chart evidence refuses future/incomplete candles and forged prices',()=>{
+ for(const input of [
+  {visible:7,index:7,timeframe:1},
+  {visible:7,index:2,timeframe:3},
+  {visible:7,index:1,timeframe:5},
+  {visible:7,index:-1,timeframe:1},
+  {visible:261,index:0,timeframe:1},
+  {visible:7,index:6,timeframe:1,close:999},
+  {visible:7,index:6,timeframe:1,memberId:'forged'},
+  {visible:7,index:0,timeframe:2}
+ ]) assert.throws(()=>getTaliaChartEvidence(input),/chart|candle|reveal|interval|fields|completed/i);
+});
+test('member API rebuilds selected chart evidence; rejects invented bars and nonchart context',async()=>{
+ const saved=globalThis.fetch;globalThis.fetch=mockFetch({code:'LIFETIME',tier:'ENTERPRISE'});
+ try{
+  const selected={topic:'candlesticks',depth:'ENTERPRISE',phase:'explain',chartContext:{visible:7,index:6,timeframe:1}};
+  const ok=await onRequest({request:request('POST',selected),env});
+  assert.equal(ok.status,200);
+  const r=await ok.json();
+  assert.equal(r.chartEvidence.open,20.62);
+  assert.equal(r.chartEvidence.close,20.58);
+  assert.equal(r.chartEvidence.sourceOnly,true);
+  assert.match(r.answer,/Upper wick \$0\.11, lower wick \$0\.14/);
+  for(const body of [
+   {...selected,chartContext:{visible:7,index:7,timeframe:1}},
+   {...selected,chartContext:{visible:7,index:6,timeframe:1,close:1000}},
+   {...selected,chartContext:{visible:7,index:2,timeframe:3}},
+   {topic:'scanner',depth:'ENTERPRISE',phase:'explain',chartContext:{visible:7,index:6,timeframe:1}}
+  ]){
+   const denied=await onRequest({request:request('POST',body),env});
+   assert.equal(denied.status,400);
+  }
+  globalThis.fetch=mockFetch({code:'FREE',tier:'FOUNDATION'});
+  const denied=await onRequest({request:request('POST',selected),env});
+  assert.equal(denied.status,403,'Chart context may never override Tutor tier entitlement');
+ }finally{globalThis.fetch=saved}
+});
+test('chart interaction selects the SAME highlighted group, updates timeframe and verifies API evidence before showing',()=>{
+ const react=readFileSync('src/tutor/TaliaClassroom.tsx','utf8');
+ const chart=readFileSync('src/prototype/PrototypeExperiences.tsx','utf8');
+ const pages=readFileSync('scripts/build-pages.sh','utf8');
+ assert.match(react,/onCandleSelect\(index,interval\)/);
+ assert.match(react,/body:JSON\.stringify\(\{topic,depth,phase,\.\.\.\(chartContext\?\{chartContext\}:\{\}\)\}\)/);
+ assert.match(react,/evidence\.open!==verified\.bar\.open/);
+ assert.match(react,/Teaching from displayed/);
+ assert.match(react,/Talia uses the exact completed candles displayed below/);
+ assert.match(chart,/onTimeframeChangeRef\.current\?\.\(appearance\.timeframe\)/);
+ assert.match(chart,/completedBars\.slice\(focusStart,focusStart\+appearance\.timeframe\)/);
+ assert.match(pages,/talia-chart-evidence-v1\.d\.ts/);
 });

@@ -384,6 +384,12 @@ test -s src/tutor/TaliaClassroom.tsx
 # their original relative positions within the isolated temporary toolchain.
 mkdir -p "$vendor_temp/tutor" "$vendor_temp/prototype"
 cp -- src/tutor/TaliaClassroom.tsx "$vendor_temp/tutor/TaliaClassroom.tsx"
+# Shared chart fixture must resolve identically for React and the Cloudflare lesson API.
+test -s src/tutor/talia-chart-evidence-v1.js
+test -s src/tutor/talia-chart-evidence-v1.d.ts
+cp -- src/tutor/talia-chart-evidence-v1.js "$vendor_temp/tutor/talia-chart-evidence-v1.js"
+cp -- src/tutor/talia-chart-evidence-v1.d.ts "$vendor_temp/tutor/talia-chart-evidence-v1.d.ts"
+node --test tests/talia-classroom-teaching-depth-v1.test.mjs
 cp -- src/prototype/PrototypeExperiences.tsx "$vendor_temp/prototype/PrototypeExperiences.tsx"
 node "$vendor_temp/node_modules/typescript/bin/tsc" --noEmit --strict --skipLibCheck \
   --module esnext --moduleResolution bundler --jsx react-jsx --target es2022 \

@@ -6,12 +6,15 @@
 import React,{useCallback,useEffect,useMemo,useRef,useState} from 'react';
 import {createRoot} from 'react-dom/client';
 import {ClassicClassroomChart} from '../prototype/PrototypeExperiences';
+import {TALIA_REPLAY,taliaSyntheticVolume,getTaliaChartEvidence} from './talia-chart-evidence-v1.js';
 
 type Mode='explain'|'question'|'review'|'practice';
 type TeachingDepth='FOUNDATION'|'ADVANCED'|'PROFESSIONAL'|'ENTERPRISE';
 type LessonPhase='explain'|'demonstrate'|'practice'|'correct'|'transfer';
 type CurriculumAccess={maximumDepth:TeachingDepth;allowedDepths:TeachingDepth[];
  lessons:Array<{id:string;title:string;chart:boolean;objective?:string;evidence?:string;limitation?:string}>;ok:true};
+type ChartFocus={index:number;timeframe:1|3|5};
+type ChartTeachingEvidence=ChartFocus&{source:string;visible:number;selectedNumber:number;firstSourceBar:number;lastSourceBar:number;open:number;high:number;low:number;close:number;body:number;range:number;sourceOnly:true;noFuture:true};
 type ChatLine={id:string;who:'member'|'talia';text:string;label?:string};
 type Member={id:string;access:string};
 type SupabaseSession={access_token:string;user:{id:string}};
@@ -44,23 +47,8 @@ const EXAMPLES=[
   'Try another original fictional EMA 9 and EMA 20 example.',
   'What makes choosing NO TRADE a defensible decision?'
 ];
-const REPLAY:number[][]=[
-  [20,20.16,19.90,20.27],[20.16,20.25,20.04,20.34],
-  [20.25,20.12,20.02,20.32],[20.12,20.40,20.08,20.48],
-  [20.40,20.35,20.27,20.55],[20.35,20.62,20.29,20.71],
-  [20.62,20.58,20.44,20.73],[20.58,20.79,20.52,20.91],
-  [20.79,20.85,20.71,20.96],[20.85,20.66,20.60,20.94],
-  [20.66,20.49,20.40,20.73],[20.49,20.57,20.43,20.65]
-];
-// Original deterministic synthetic observations, not a feed, protected replay or grade.
-for(let i=0;i<248;i++){
- const previous=REPLAY[REPLAY.length-1][1];
- const close=Number((previous+0.038*Math.sin(i*0.37)+0.027*Math.cos(i*0.13)-(i%19===0?0.055:0)).toFixed(2));
- const high=Number((Math.max(previous,close)+0.03+(i%4)*0.01).toFixed(2));
- const low=Number((Math.min(previous,close)-0.03-(i%3)*0.01).toFixed(2));
- REPLAY.push([previous,close,low,high]);
-}
-const syntheticVolume=(bar:number[],index:number)=>200+Math.round(Math.abs(bar[1]-bar[0])*3700)+index*17;
+const REPLAY:number[][]=TALIA_REPLAY;
+const syntheticVolume=taliaSyntheticVolume;
 function aggregateCompleted(rows:number[][],minutes:1|3|5){
  if(minutes===1)return rows;
  const groups:number[][]=[];
@@ -125,8 +113,9 @@ function originalQuestion(kind:LessonKind,bar:number[],index:number):LessonQuest
     'The wick proves the exact transaction sequence inside the interval.'],
    correct:1,hint:'Separate what has already been observed from what remains unknown. OHLC does not establish intrabar transaction order.'};
 }
-function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
- onQuestion:(q:string)=>void;memberId:string;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
+function FictionalChart({onQuestion,onCandleSelect,onTimeframeChange,memberId,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
+ onQuestion:(q:string)=>void;onCandleSelect:(index:number,timeframe:1|3|5)=>void;
+ onTimeframeChange:(timeframe:1|3|5)=>void;memberId:string;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
  playing:boolean;setPlaying:React.Dispatch<React.SetStateAction<boolean>>;playSpeed:number;setPlaySpeed:React.Dispatch<React.SetStateAction<number>>;
  onPauseForQuestion:()=>void
 }){
@@ -287,6 +276,7 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
     {prototype?<div className="tc-unified-chart" aria-label="Talia synchronized Classic technical chart">
       <ClassicClassroomChart mode="talia" memberSafe={true}
        caseBars={sharedBars}
+       onTimeframeChange={onTimeframeChange}
        measurement={{index:visible,open:latest[0],high:latest[3],low:latest[2],close:latest[1],interval:'1-minute source'}}
        onObservedBar={(index,interval)=>{
         // The selected ECharts index is an AGGREGATED completed timeframe
@@ -297,7 +287,8 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
         const opening=group[0][0],closing=group[group.length-1][1];
         const high=Math.max(...group.map(bar=>bar[3]));
         const low=Math.min(...group.map(bar=>bar[2]));
-        onQuestion(('Talia, explain completed simulated '+interval+'-minute candle '+(index+1)+' using only '+visible+' revealed one-minute observations. Open '+opening.toFixed(2)+', high '+high.toFixed(2)+', low '+low.toFixed(2)+', close '+closing.toFixed(2)+'. Discuss actual observed structure, not future prices or protected answers.').slice(0,450));
+        // The server owns the canonical candle values; the browser sends only the interval and index.
+        onCandleSelect(index,interval);
        }}/>
      </div>:<div className="tc-chart" ref={host} role="img" onPointerUpCapture={releasePointer} onPointerCancelCapture={releasePointer} aria-label={'Simulated price chart of '+Math.floor(visible/timeframe)+' complete '+timeframe+'-minute candlesticks'} />}
     <p className="tc-muted tc-chart-sync" role="status">{prototype?visible+' completed candles revealed · Volume is simulated.':status}</p>
@@ -312,7 +303,7 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
       <p className="tc-muted">Only candles revealed at the current decision boundary appear below. Keyboard users can request an explanation for any completed candle.</p>
       <div className="tp-candle-audit-scroll"><table className="tc-candle-table"><caption>Fictional replay: completed observations only</caption>
         <thead><tr><th scope="col">Bar</th><th scope="col">Open</th><th scope="col">High</th><th scope="col">Low</th><th scope="col">Close</th><th scope="col">Tutor</th></tr></thead>
-        <tbody>{REPLAY.slice(0,visible).map((bar,i)=><tr key={i}><th scope="row">{i+1}</th><td>{bar[0].toFixed(2)}</td><td>{bar[3].toFixed(2)}</td><td>{bar[2].toFixed(2)}</td><td>{bar[1].toFixed(2)}</td><td><button type="button" className="tc-secondary" onClick={()=>onQuestion(('Explain fictional completed candle '+(i+1)+' with open '+bar[0].toFixed(2)+', high '+bar[3].toFixed(2)+', low '+bar[2].toFixed(2)+', close '+bar[1].toFixed(2)+'. Use only the visible preceding candles.').slice(0,450))}>Explain bar {i+1}</button></td></tr>)}</tbody>
+        <tbody>{REPLAY.slice(0,visible).map((bar,i)=><tr key={i}><th scope="row">{i+1}</th><td>{bar[0].toFixed(2)}</td><td>{bar[3].toFixed(2)}</td><td>{bar[2].toFixed(2)}</td><td>{bar[1].toFixed(2)}</td><td><button type="button" className="tc-secondary" onClick={()=>onCandleSelect(i,1)}>Explain bar {i+1}</button></td></tr>)}</tbody>
       </table></div>
     </details>}
     <div className="tc-row tc-playback-primary">
@@ -322,7 +313,7 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
 
 
 
-      <button type="button" className="tc-secondary" onClick={()=>onQuestion(('The latest revealed fictional bar is '+visible+' with open '+latest[0].toFixed(2)+', high '+latest[3].toFixed(2)+', low '+latest[2].toFixed(2)+', close '+latest[1].toFixed(2)+'. Guide me through one observation question using only these completed bars; do not reveal later candles.').slice(0,450))}>Ask Talia about candle</button>
+      <button type="button" className="tc-secondary" onClick={()=>onCandleSelect(visible-1,1)}>Ask Talia about candle</button>
     </div>
     <details className="tc-replay-options">
       <summary>More replay options</summary>
@@ -424,6 +415,9 @@ function Classroom(){
   const [teachingTopic,setTeachingTopic]=useState('candlesticks');
   const [teachingDepth,setTeachingDepth]=useState<TeachingDepth>('FOUNDATION');
   const [teachingPhase,setTeachingPhase]=useState<LessonPhase>('explain');
+  const [chartTimeframe,setChartTimeframe]=useState<1|3|5>(1);
+  const [chartFocus,setChartFocus]=useState<ChartFocus|null>(null);
+  const [taughtEvidence,setTaughtEvidence]=useState<ChartTeachingEvidence|null>(null);
   const [teachingStarted,setTeachingStarted]=useState(false);
   const [teachingAccessError,setTeachingAccessError]=useState('');
   const [practiceNotes,setPracticeNotes]=useState('');
@@ -505,6 +499,7 @@ function Classroom(){
     setPlaying(false);setVisible(7);setLessonKind(null);setCheckpoint(null);setStageIndex(0);
     setTeachingCatalog(null);setTeachingTopic('candlesticks');setTeachingDepth('FOUNDATION');
     setTeachingPhase('explain');setTeachingStarted(false);setTeachingAccessError('');
+    setChartTimeframe(1);setChartFocus(null);setTaughtEvidence(null);
     setPracticeNotes('');setViewedSteps([]);
     setStudyReport({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
     setActiveEdition('FOUNDATION');setPremiumEvidence(null);setTypingId(null);setTypedCount(0);
@@ -694,11 +689,19 @@ function Classroom(){
     void load();
     return()=>{live=false};
   },[member?.id,member?.access,getToken]);
-  const teachSelected=async(phase:LessonPhase)=>{
+  const teachSelected=async(phase:LessonPhase,selected:ChartFocus|null=null)=>{
     if(!member||!ready||busy||checkpoint||!teachingCatalog||
        !teachingCatalog.allowedDepths.includes(teachingDepth))return;
     const uid=member.id,version=epoch.current,topic=teachingTopic,depth=teachingDepth;
-    const title=teachingCatalog.lessons.find(x=>x.id===topic)?.title;
+    const entry=teachingCatalog.lessons.find(x=>x.id===topic);
+    const title=entry?.title;
+    const requestedFrame=selected?.timeframe||chartTimeframe;
+    const completedCount=Math.floor(visible/requestedFrame);
+    const selectedIndex=selected?.index??(chartFocus?.timeframe===requestedFrame?chartFocus.index:completedCount-1);
+    const chartContext=entry?.chart?{visible,index:selectedIndex,timeframe:requestedFrame}:null;
+    if(chartContext&&(selectedIndex<0||selectedIndex>=completedCount)){
+      setStatus('Select a fully completed chart candle before requesting instruction.');return;
+    }
     if(!title)return;
     setPlaying(false);
     const controller=new AbortController();pending.current=controller;setBusy(true);
@@ -709,19 +712,31 @@ function Classroom(){
       const response=await fetch('/api/talia-classroom-curriculum-v1',{
         method:'POST',cache:'no-store',credentials:'same-origin',signal:controller.signal,
         headers:{authorization:'Bearer '+access,'content-type':'application/json'},
-        body:JSON.stringify({topic,depth,phase})});
+        body:JSON.stringify({topic,depth,phase,...(chartContext?{chartContext}:{})})});
       const result=await response.json().catch(()=>null);
       if(version!==epoch.current||identity.current!==uid||controller.signal.aborted)return;
       if(!response.ok||result?.ok!==true||typeof result.answer!=='string')
         throw Error(response.status===403?'Your membership does not authorize that teaching depth.':
           result?.error||'Verified teaching material unavailable.');
+      if(chartContext){
+        const verified=getTaliaChartEvidence(chartContext);
+        const evidence=result.chartEvidence as ChartTeachingEvidence|undefined;
+        if(!evidence||evidence.source!==verified.source||evidence.visible!==visible||
+           evidence.index!==selectedIndex||evidence.timeframe!==requestedFrame||
+           evidence.open!==verified.bar.open||evidence.high!==verified.bar.high||
+           evidence.low!==verified.bar.low||evidence.close!==verified.bar.close||
+           evidence.noFuture!==true||evidence.sourceOnly!==true)
+          throw Error('Talia chart evidence did not match the displayed completed fictional candle. No lesson was accepted.');
+        setTaughtEvidence(evidence);
+      }else setTaughtEvidence(null);
       setChat(old=>[...old,{id:crypto.randomUUID(),who:'member',
-        text:(phase==='explain'?'Start':phase==='demonstrate'?'Show a worked example':phase==='practice'?'Give me practice':phase==='correct'?'Correct my understanding':'Try a transfer case')+' — '+title+' ('+depth.toLowerCase()+')'},
+        text:(phase==='explain'?'Start':phase==='demonstrate'?'Show a worked example':phase==='practice'?'Give me practice':phase==='correct'?'Correct my understanding':'Try a transfer case')+' — '+title+' ('+depth.toLowerCase()+')'+(chartContext?' · completed '+requestedFrame+'m bar '+(selectedIndex+1)+' of '+completedCount:'')},
         {id:crypto.randomUUID(),who:'talia',text:result.answer.slice(0,7000),
          label:'Original '+depth.toLowerCase()+' teaching · '+phase+' · ungraded'}]);
       setTeachingStarted(true);setSessionTopic(title);
       setViewedSteps(old=>old.includes(phase)?old:[...old,phase]);
-      setStatus('Talia completed the '+phase+' step. Select another teaching step or ask a question.');
+      if(chartContext)setChartFocus({index:selectedIndex,timeframe:requestedFrame});
+      setStatus('Talia completed '+phase+(chartContext?' using verified completed bar #'+(selectedIndex+1)+' on the displayed chart':'')+'. Select another teaching step or ask a question.');
     }catch(e){
       if(version===epoch.current&&identity.current===uid)
         setStatus(controller.signal.aborted?'Teaching request stopped.':
@@ -825,13 +840,13 @@ function Classroom(){
         <span className="tc-muted">Original lessons · no grades or trading signals</span></div>
       <div className="tc-teaching-choices">
         <label htmlFor="tc-teaching-topic">Lesson topic
-          <select id="tc-teaching-topic" value={teachingTopic} onChange={e=>{setTeachingTopic(e.target.value);setTeachingStarted(false);setTeachingPhase('explain');setPracticeNotes('');setViewedSteps([])}} disabled={!teachingCatalog||busy}>
+          <select id="tc-teaching-topic" value={teachingTopic} onChange={e=>{setTeachingTopic(e.target.value);setTeachingStarted(false);setTeachingPhase('explain');setPracticeNotes('');setViewedSteps([]);setTaughtEvidence(null)}} disabled={!teachingCatalog||busy}>
             {(teachingCatalog?.lessons||[{id:'candlesticks',title:'Reading candlesticks',chart:true}]).map(t=>
               <option key={t.id} value={t.id}>{t.title}</option>)}
           </select>
         </label>
         <label htmlFor="tc-teaching-depth">Teaching depth
-          <select id="tc-teaching-depth" value={teachingDepth} onChange={e=>{setTeachingDepth(e.target.value as TeachingDepth);setTeachingStarted(false);setTeachingPhase('explain');setPracticeNotes('');setViewedSteps([])}} disabled={!teachingCatalog||busy}>
+          <select id="tc-teaching-depth" value={teachingDepth} onChange={e=>{setTeachingDepth(e.target.value as TeachingDepth);setTeachingStarted(false);setTeachingPhase('explain');setPracticeNotes('');setViewedSteps([]);setTaughtEvidence(null)}} disabled={!teachingCatalog||busy}>
             {(['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE'] as const).map(t=>
               <option key={t} value={t} disabled={!teachingCatalog?.allowedDepths.includes(t)}>{t.charAt(0)+t.slice(1).toLowerCase()}{!teachingCatalog?.allowedDepths.includes(t)?' · Requires entitlement':''}</option>)}
           </select>
@@ -843,12 +858,17 @@ function Classroom(){
         <p><b>Learning objective:</b> {teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.objective||'Observe the evidence and test your reasoning.'}</p>
         <p><b>Evidence to inspect:</b> {teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.evidence||'Completed observations.'}</p>
         <p><b>Limitation:</b> {teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.limitation||'An example is not a prediction.'}</p>
-        <small>{teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.chart?'The nearby chart is a separate simulated example.':'This lesson uses rule-based examples; the nearby chart is optional context.'} Lesson examples do not necessarily match the chart.</small>
+        <small>{teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.chart?'Talia uses the exact completed candles displayed below. Select any candle to teach directly from its OHLC evidence.':'This lesson uses a separate rule-based example. Lesson examples do not necessarily match the chart.'}</small>
       </div>}
       {teachingCatalog?<div className="tc-teaching-progress">
         <span>Included with your Tutor access: up to {teachingCatalog.maximumDepth.charAt(0)+teachingCatalog.maximumDepth.slice(1).toLowerCase()}.</span>
         <span>Higher-tier members may select any lower teaching depth.</span><span>Viewed {viewedSteps.length} of 5 lesson steps in this tab · not a mastery record.</span></div>:
         <p className="tc-teaching-access" role="status">{teachingAccessError||'Checking your available lessons and membership teaching depth...'}</p>}
+      {teachingStarted&&taughtEvidence&&<div className="tc-teaching-focus" role="status" aria-label="Talia synchronized chart evidence">
+        <strong>Teaching from displayed {taughtEvidence.timeframe}-minute candle #{taughtEvidence.selectedNumber}</strong>
+        <p>O ${taughtEvidence.open.toFixed(2)} · H ${taughtEvidence.high.toFixed(2)} · L ${taughtEvidence.low.toFixed(2)} · C ${taughtEvidence.close.toFixed(2)}. Body ${taughtEvidence.body.toFixed(2)}; range ${taughtEvidence.range.toFixed(2)}.</p>
+        {taughtEvidence.visible!==visible||taughtEvidence.timeframe!==chartTimeframe?<p>The displayed chart has changed since this lesson. Select Start teaching or a completed candle to update Talia’s explanation.</p>:<small>Verified against the same original fictional OHLC fixture; no unrevealed chart evidence.</small>}
+      </div>}
       {teachingStarted&&<div className="tc-teaching-steps" role="group" aria-label="Talia lesson steps">
         {([['explain','Explain'],['demonstrate','Demonstrate'],['practice','Practice'],['correct','Correct'],['transfer','Transfer']] as Array<[LessonPhase,string]>).map(([step,label])=>
           <button type="button" key={step} aria-pressed={teachingPhase===step} disabled={busy||!!checkpoint}
@@ -865,7 +885,12 @@ function Classroom(){
     </section>
     {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
     <div className="tc-grid tc-terminal-grid tc-terminal-split tc-student-workspace">
-      <FictionalChart onQuestion={q=>void submitTutor(q,'explain','')} memberId={member.id} visible={visible} setVisible={setVisible}
+      <FictionalChart onQuestion={q=>void submitTutor(q,'explain','')}
+      onCandleSelect={(index,interval)=>{setPlaying(false);setChartTimeframe(interval);setChartFocus({index,timeframe:interval});
+        if(teachingCatalog?.lessons.find(x=>x.id===teachingTopic)?.chart)void teachSelected('explain',{index,timeframe:interval});
+        else setStatus('Select a chart-based teaching topic to have Talia explain this candle.');}}
+      onTimeframeChange={interval=>{setChartTimeframe(interval);setChartFocus(null);}}
+      memberId={member.id} visible={visible} setVisible={setVisible}
       playing={playing} setPlaying={setPlaying} playSpeed={playSpeed} setPlaySpeed={setPlaySpeed}
       onPauseForQuestion={()=>pauseForQuestion()}/>
       <section className="tc-chat" aria-labelledby="tc-chat-title">

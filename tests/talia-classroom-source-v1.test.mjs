@@ -2,6 +2,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
+import {TALIA_REPLAY,getTaliaChartEvidence} from '../src/tutor/talia-chart-evidence-v1.js';
 const source=readFileSync(new URL('../src/tutor/TaliaClassroom.tsx',import.meta.url),'utf8');
 const html=readFileSync(new URL('../talia-classroom.html',import.meta.url),'utf8');
 const css=readFileSync(new URL('../assets/css/talia-classroom-v1.css',import.meta.url),'utf8');
@@ -33,10 +34,11 @@ test('fictional replay supplies only the revealed candles to the renderer',()=>{
  assert.match(source,/visible===REPLAY\.length/);
  assert.match(source,/Latest visible completed candle/);
  assert.match(source,/Fictional completed-bar teaching example/);
- const dataSource=source.match(/const REPLAY:number\[\]\[\]=\[([\s\S]*?)\];/);
- assert.ok(dataSource,'fixture declared');
- const data=[...dataSource[1].matchAll(/\[([\d.,\s]+)\]/g)].map(m=>m[1].split(',').map(Number));
- assert.equal(data.length,12);
+ assert.match(source,/const REPLAY:number\[\]\[\]=TALIA_REPLAY/);
+ const data=TALIA_REPLAY;
+ assert.equal(data.length,260,'Full fictional demo available; only revealed prefix is charted');
+ assert.deepEqual(data[6],[20.62,20.58,20.44,20.73]);
+ assert.equal(getTaliaChartEvidence({visible:7,index:6,timeframe:1}).bar.body.toFixed(2),'0.04');
  for(const [open,close,low,high] of data){
   assert.ok(Number.isFinite(open)&&Number.isFinite(close));
   assert.ok(low<=Math.min(open,close)&&high>=Math.max(open,close));
