@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/talia-classroom-depth-acceptance-v2.yml'
       - 'tests/talia-classroom-teaching-depth-v1.test.mjs'
+      - 'tests/talia-classroom-route-alias-v4.test.mjs'
       - 'tests/talia-classroom-real-member-depth-v2.mjs'
       - 'functions/_lib/talia-classroom-curriculum-v1.js'
       - 'functions/_lib/talia-teaching-entitlement-v1.js'
