@@ -1,11 +1,11 @@
-/* Talia guided Knowledge Database lessons, batches 02-06.
+/* Talia guided Knowledge Database lessons, batches 02-07.
  * Source body is received ONLY after existing per-member authorization.
  * No progress, official assessment, wallet, inference, or protected rubric writes.
  */
 (function(root){
 'use strict';
 const stages=Object.freeze(['Start','Learn','Experiment','Predict','Practice','Assess','Review','Transfer','Results']);
-const reg=root.CrownlightTaliaKdbBatches||{};
+const reg=Object.freeze({...((root.CrownlightTaliaKdbBatches)||{}),...((root.CrownlightKdbWatchlistStories)||{})});
 const el=tag=>document.createElement(tag);
 const node=(tag,body,cls)=>{const n=el(tag);n.textContent=String(body??'');if(cls)n.className=cls;return n;};
 const div=cls=>node('div','',cls);
@@ -20,6 +20,12 @@ function sections(text){
 function pick(s,...names){for(const name of names){const v=s[name];if(typeof v==='string'&&v.length>=12)return v;}return '';}
 function explainData(article){
  const s=sections(article.body_markdown);
+ const story=(root.CrownlightKdbWatchlistStories||{})[article.slug];
+ if(story&&story.headingMap){
+  const mapped=Object.create(null);
+  for(const [key,heading] of Object.entries(story.headingMap))mapped[key]=pick(s,String(heading).toLowerCase());
+  return mapped;
+ }
  return {
   objective:pick(s,'learning objective','definition and observable evidence','scope and learning outcomes','formula / definition'),
   definition:pick(s,'definition and observable evidence','definition or calculation framework','formula / definition','learning objective'),
