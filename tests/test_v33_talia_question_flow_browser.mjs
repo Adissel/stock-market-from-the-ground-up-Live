@@ -18,7 +18,7 @@ try{
   await page.goto(base+'/index.html',{waitUntil:'domcontentloaded'});
   for(const sheet of ['lab-v33-contextual-visuals.css','lab-v33-instructor.css','lab-v33-experience.css'])
    await page.addStyleTag({url:base+'/assets/css/'+sheet});
-  for(const source of ['lab-engine-v32-teaching.js','lab-engine-v33-visual.js','lab-v33-contextual-visuals.js',
+  for(const source of ['learning-response-choice-v1.js','lab-engine-v32-teaching.js','lab-engine-v33-visual.js','lab-v33-contextual-visuals.js',
    'lab-v33-visual-interactions.js','lab-v34-competency-examples.js','lab-v33-instruction-content.js',
    'lab-v34-interactive-lessons.js','lab-v33-instructor.js',
    'lab-engine-v32-universal.js'])
@@ -34,11 +34,17 @@ try{
   assert.equal(await page.evaluate(()=>window.taliaFlowReady),true);
   const root=page.locator('#gu-v32-teaching-slot');
   const dialogue=root.locator('.gu-v33-instructor-narration .gu-v33-instructor-dialogue');
-  const answer=()=>dialogue.locator('textarea');
   const progress=()=>dialogue.locator('.gu-v33-instructor-question-counter');
+  // Formative methods are chosen by radio; numerical questions retain a typed
+  // equation result. Optional freeform notes are never required to progress.
   const submit=async value=>{
-   await answer().fill(value);
-   await dialogue.getByRole('button',{name:'Submit answer'}).click();
+   const numeric=dialogue.locator('.gu-v33-numeric-answer');
+   if(await numeric.isVisible())await numeric.fill(String(value));
+   else{
+    const code=value==='The high and low'?'FORECAST':'EVIDENCE';
+    await dialogue.locator('.gu-v33-evidence-decision input[value="'+code+'"]').check();
+   }
+   await dialogue.getByRole('button',{name:/Submit answer/}).click();
   };
   const good='I can identify the completed candle and explain why the visible prices support the interpretation.';
   assert.equal(await dialogue.count(),1,'A single in-window answer area is available when requested');
@@ -52,8 +58,8 @@ try{
   assert.equal(await dialogue.isVisible(),true,'Choosing Check My Understanding reveals the question');
   assert.match(await dialogue.locator('.gu-v33-instructor-prompt').textContent(),/real body/);
   await submit('The high and low');
-  assert.match(await root.locator('.gu-v33-instructor-reply').textContent(),/Open price.*Close price/s,
-   'Diagnostic feedback must identify missing Open and Close evidence instead of generic rejection');
+  assert.match(await root.locator('.gu-v33-instructor-reply').textContent(),/Not yet|observable evidence|limitations/,
+   'The incorrect method selection must produce a free, evidence-based correction without advancing');
   await submit('The open and close values determine the real body of the completed candle.');
   // The approved ten-stage flow inserts an ungraded Calculate method gate
   // between Learn and Experiment, without changing protected backend stage IDs.
