@@ -42,6 +42,10 @@ for(const table of ['site_lab_progress','decision_journal']){
  assert.equal(own.status,200,table+' owner read HTTP status');
  assert(Array.isArray(own.data)&&own.data.length>0,table+' needs real owner-owned rows to prove isolation');
  assert(own.data.every(x=>x.user_id===users[0].id),'Owner self-scope mismatch');
+ const ownB=await ask('/rest/v1/'+table+'?select=user_id&user_id=eq.'+users[1].id+'&limit=100',{token:users[1].token});
+ assert.equal(ownB.status,200,table+' QA B owner read HTTP status');
+ assert(Array.isArray(ownB.data)&&ownB.data.length>0,table+' requires genuine QA B-owned rows; an empty reverse test is not acceptance');
+ assert(ownB.data.every(x=>x.user_id===users[1].id),'QA B own-scope mismatch');
  const other=await ask('/rest/v1/'+table+'?select=user_id&user_id=eq.'+users[0].id+'&limit=100',{token:users[1].token});
  assert.equal(other.status,200,table+' second-member RLS query status');
  assert.deepEqual(other.data,[],table+' leaked first member rows to second member');

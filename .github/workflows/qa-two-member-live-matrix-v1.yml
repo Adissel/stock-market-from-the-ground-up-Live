@@ -1,5 +1,6 @@
-# Genuine independent authenticated QA. No test user creation, payments, staff roles,
-# grants, grading, gifts, wallet writes, or simulated identity claims.
+# Genuine independent authenticated QA. Only two fictional test-only Lab and
+# Journal rows on QA B are created or updated. No other member writes, users,
+# payments, staff grants, grading, gifts, wallet changes or fake identity claims.
 name: QA Two Genuine Members Noncharging Privacy Matrix
 on:
   workflow_dispatch:
@@ -22,6 +23,15 @@ jobs:
         with: {node-version: '22'}
       - name: Check QA source syntax
         run: node --check tests/learning-two-member-rls-browserless-v1.mjs
+      - name: Validate authenticated Lab and Journal QA fixture writes
+        run: node --check tests/learning-two-member-writes-v1.mjs
+      - name: Create or reuse QA B-only fixtures and enforce genuine two-way read/write RLS
+        env:
+          LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
+          LAB_QA_PASSWORD: ${{ secrets.LAB_QA_PASSWORD }}
+          LAB_QA_SECOND_EMAIL: ${{ secrets.LAB_QA_SECOND_EMAIL }}
+          LAB_QA_SECOND_PASSWORD: ${{ secrets.LAB_QA_SECOND_PASSWORD }}
+        run: node tests/learning-two-member-writes-v1.mjs
       - name: Learning and Journal private RLS both directions
         env:
           LAB_QA_EMAIL: ${{ secrets.LAB_QA_EMAIL }}
