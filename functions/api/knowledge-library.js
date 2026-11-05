@@ -105,6 +105,27 @@ export async function onRequest({request,env}){
    return reply({ok:true,articles:articles.map(slim),page,hasMore:articles.length===100,
     note:'Existing 38 free educational references remain available separately.'});
   }
+  // Authenticated Owner/Admin-only full-page preview. Paid entitlements never grant draft access.
+  if(request.method==='GET'&&a==='admin/preview'){
+   const previewId=u.searchParams.get('id')||'',previewSlug=u.searchParams.get('slug')||'';
+   const validSlug=/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(previewSlug)&&previewSlug.length<=120;
+   if((previewId&&!uuid.test(previewId))||(!previewId&&!validSlug))
+     throw fault('Valid article ID or slug required.',400);
+   const user=await actor(c,request);
+   const staff=await rows(c,'admin_user_roles',
+     'select=role_code,expires_at&user_id=eq.'+user+'&role_code=in.(OWNER,ADMIN)&limit=10');
+   if(!staff.some(x=>['OWNER','ADMIN'].includes(x.role_code)&&
+     (!x.expires_at||Date.parse(x.expires_at)>Date.now())))
+     throw fault('Owner or Admin draft preview authorization required.',403);
+   const selector=previewId?'id=eq.'+previewId:'slug=eq.'+encodeURIComponent(previewSlug);
+   const found=await rows(c,'gu_knowledge_articles_v1',
+     'select='+editorSelect+'&'+selector+'&deleted_at=is.null&limit=1');
+   if(found.length!==1)throw fault('Article preview unavailable.',404);
+   const row=found[0];
+   return reply({ok:true,preview:true,
+     article:{...slim(row),body_markdown:row.body_markdown,sources:row.sources,
+       status:row.status,review_state:row.review_state,is_visible:row.is_visible,version:row.version}});
+  }
   if(request.method==='GET'&&a==='read'){
    const id=u.searchParams.get('id')||'';
    const slug=u.searchParams.get('slug')||'';
