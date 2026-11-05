@@ -1,0 +1,147 @@
+/* Homepage-only compact Constellation v2. A strongly scoped, late-mounted
+   stylesheet deliberately leaves the protected Prototype Center untouched. */
+#learning-constellation{padding:4px 0 16px!important}
+#learning-constellation #pt-experiences-root .lc-app{
+ min-height:0!important;max-width:1900px!important;margin:auto!important;
+ padding:clamp(8px,1vw,15px)!important;line-height:1.3!important
+}
+#learning-constellation #pt-experiences-root .lc-head{
+ display:flex!important;flex-wrap:wrap!important;align-items:center!important;
+ gap:8px!important;margin:0 0 9px!important;padding:clamp(10px,1.3vw,16px)!important;
+ border-radius:11px!important
+}
+#learning-constellation #pt-experiences-root .lc-head h2{
+ font-size:clamp(24px,2.55vw,36px)!important;
+ line-height:1.07!important;margin:3px 0!important
+}
+#learning-constellation #pt-experiences-root .lc-head .lc-eyebrow{
+ font-size:9px!important;letter-spacing:.09em!important
+}
+#learning-constellation #pt-experiences-root .lc-head p{
+ font-size:12px!important;line-height:1.32!important;margin:3px 0!important;
+ max-width:115ch!important
+}
+#learning-constellation #pt-experiences-root .lc-live{
+ padding:5px 8px!important;font-size:9px!important
+}
+#learning-constellation #pt-experiences-root .lc-metrics{
+ gap:6px!important;margin:0 0 8px!important
+}
+#learning-constellation #pt-experiences-root .lc-metrics>div{
+ padding:6px 10px!important;min-height:48px!important;
+ gap:8px!important;border-radius:9px!important
+}
+#learning-constellation #pt-experiences-root .lc-metrics strong{
+ font-size:clamp(23px,1.9vw,30px)!important;line-height:1!important
+}
+#learning-constellation #pt-experiences-root .lc-metrics span{
+ font-size:9px!important;line-height:1.18!important;letter-spacing:.02em!important
+}
+#learning-constellation #pt-experiences-root .lc-tabs{
+ gap:6px!important;margin:0 0 7px!important
+}
+#learning-constellation #pt-experiences-root .lc-tabs button{
+ padding:5px 9px!important;min-height:37px!important;
+ border-radius:8px 8px 0 0!important;font-size:9px!important;line-height:1.15!important
+}
+#learning-constellation #pt-experiences-root .lc-tabs button span{
+ display:inline!important;font-size:11px!important;line-height:1.15!important;
+ margin-left:6px!important
+}
+#learning-constellation #pt-experiences-root .lc-layout{
+ min-height:410px!important;gap:7px!important
+}
+#learning-constellation #pt-experiences-root .lc-explorer,
+#learning-constellation #pt-experiences-root .lc-detail{
+ padding:11px!important;border-radius:9px!important
+}
+#learning-constellation #pt-experiences-root .lc-explorer h2{
+ font-size:18px!important;margin:5px 0 9px!important
+}
+#learning-constellation #pt-experiences-root .lc-item-list{
+ gap:5px!important;max-height:340px!important
+}
+#learning-constellation #pt-experiences-root .lc-center{
+ border-radius:9px!important;min-height:0!important
+}
+#learning-constellation #pt-experiences-root .lc-map-head{
+ display:flex!important;flex-wrap:wrap!important;align-items:center!important;
+ justify-content:space-between!important;
+ min-height:0!important;padding:6px 9px!important;gap:6px!important
+}
+#learning-constellation #pt-experiences-root .lc-map-head > div:first-child{
+ flex:0 1 225px!important;min-width:0!important
+}
+#learning-constellation #pt-experiences-root .lc-map-head strong{
+ font-size:12px!important;line-height:1.2!important;margin:0!important
+}
+#learning-constellation #pt-experiences-root .lc-map-head span{
+ font-size:9px!important;line-height:1.2!important
+}
+#learning-constellation #pt-experiences-root .lc-map-tools{
+ display:flex!important;align-items:center!important;
+ justify-content:flex-end!important;gap:3px!important;
+ flex:1 1 680px!important;flex-wrap:wrap!important;min-width:0!important
+}
+#learning-constellation #pt-experiences-root .lc-map-tools button{
+ min-width:30px!important;min-height:30px!important;padding:3px 6px!important;
+ border-radius:6px!important;font-size:10px!important;
+ line-height:1.1!important;white-space:nowrap!important
+}
+#learning-constellation #pt-experiences-root .lc-map-tools [data-lc="scale"]{
+ min-width:34px!important;font-size:9px!important
+}
+#learning-constellation #pt-experiences-root .lc-depth-label{
+ padding:2px 5px!important;gap:3px!important;font-size:9px!important
+}
+#learning-constellation #pt-experiences-root .lc-depth-label input{
+ width:48px!important
+}
+#learning-constellation #pt-experiences-root .lc-canvas{
+ min-height:350px!important
+}
+#learning-constellation #pt-experiences-root .lc-map-tip{
+ font-size:8px!important;padding:5px 8px!important
+}
+#learning-constellation #pt-experiences-root .lc-legend{
+ padding:6px 9px!important;font-size:8px!important;gap:7px!important
+}
+#learning-constellation #pt-experiences-root .lc-detail-note{
+ margin-top:auto!important;padding-top:9px!important
+}
+#learning-constellation #pt-experiences-root .lc-detail-note p{
+ font-size:10px!important
+}
+/* Never display sitewide legal/copyright chrome within the constellation. */
+#learning-constellation #pt-experiences-root :is(footer,.footer,.gu-legal-footer-grid,.gu-footer-bottom){
+ display:none!important
+}
+@media(max-width:1200px){
+ #learning-constellation #pt-experiences-root .lc-map-head{
+  align-items:flex-start!important;flex-direction:column!important
+ }
+ #learning-constellation #pt-experiences-root .lc-map-head>div:first-child{
+  flex:none!important
+ }
+ #learning-constellation #pt-experiences-root .lc-map-tools{
+  flex:none!important;width:100%!important;justify-content:flex-start!important
+ }
+}
+@media(max-width:850px){
+ #learning-constellation #pt-experiences-root .lc-layout{min-height:0!important}
+ #learning-constellation #pt-experiences-root .lc-canvas{min-height:330px!important}
+ #learning-constellation #pt-experiences-root .lc-tabs button span{display:block!important;margin-left:0!important}
+ #learning-constellation #pt-experiences-root .lc-head h2{
+  font-size:clamp(23px,5vw,32px)!important
+ }
+}
+@media(max-width:600px){
+ #learning-constellation #pt-experiences-root .lc-metrics,
+ #learning-constellation #pt-experiences-root .lc-tabs{
+  grid-template-columns:repeat(2,minmax(0,1fr))!important
+ }
+ #learning-constellation #pt-experiences-root .lc-map-tools button{
+  min-width:39px!important;min-height:39px!important
+ }
+ #learning-constellation #pt-experiences-root .lc-canvas{min-height:320px!important}
+}
