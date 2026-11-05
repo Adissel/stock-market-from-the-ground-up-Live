@@ -27,11 +27,13 @@ test('Member-scoped chart preferences validate stored values and do not persist 
  assert.match(ts,/Private browsing may disable storage/);
 });
 
-test('Accessible prototype ledger exposes only completed bars with keyboard Tutor actions',()=>{
- assert.match(ts,/Accessible completed-candle ledger/);
+test('Compact candle selector keeps keyboard access to completed bars and verified Tutor evidence',()=>{
+ assert.doesNotMatch(ts,/Accessible completed-candle ledger|tp-candle-audit|tc-current-candle-ledger/);
+ assert.match(ts,/aria-label="Select a revealed completed candle"/);
  assert.match(ts,/REPLAY\.slice\(0,visible\)\.map/);
- assert.match(ts,/scope="row"/);
- assert.match(ts,/Explain bar \{i\+1\}/);
- assert.match(ts,/onClick=\{\(\)=>onCandleSelect\(i,1\)\}/,'Click requests server-verified selected completed candle');
- assert.match(ts,/evidence\.open!==verified\.bar\.open/,'Display refuses mismatched lesson evidence');
+ assert.match(ts,/onCandleSelect\(Number\(e.target.value\),1\)/,
+   'Keyboard selection requests server-verified completed candle');
+ assert.match(ts,/evidence\.open!==verified\.bar\.open/,
+   'Display refuses mismatched lesson evidence');
+ assert.match(ts,/caseBars=\{sharedBars\}/);
 });
