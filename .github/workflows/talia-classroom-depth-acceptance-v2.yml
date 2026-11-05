@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/talia-classroom-depth-acceptance-v2.yml'
       - 'tests/talia-classroom-teaching-depth-v1.test.mjs'
+      - 'tests/talia-p0-interruption-resume-v2.test.mjs'
       - 'tests/talia-classroom-route-alias-v4.test.mjs'
       - 'tests/talia-classroom-real-member-depth-v2.mjs'
       - 'functions/_lib/talia-classroom-curriculum-v1.js'
@@ -54,7 +55,7 @@ jobs:
       - name: Enforce seven-policy matrix and authorization against local first-party API
         run: |
           node --test tests/kdb-classroom-product-boundary-v1.test.mjs
-          node --test tests/talia-classroom-teaching-depth-v1.test.mjs tests/talia-classroom-source-v1.test.mjs
+          node --test tests/talia-classroom-teaching-depth-v1.test.mjs tests/talia-classroom-source-v1.test.mjs tests/talia-p0-interruption-resume-v2.test.mjs
       - name: Verify checkpoint answers appear beneath the active Tutor question
         run: node --test tests/talia-live-interactive-v1.test.mjs tests/talia-student-desk-v1.test.mjs tests/talia-classroom-route-alias-v4.test.mjs
   genuine-james-classroom:

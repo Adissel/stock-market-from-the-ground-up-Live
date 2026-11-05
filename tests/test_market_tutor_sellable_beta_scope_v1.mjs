@@ -6,7 +6,7 @@ const provider=readFileSync('functions/_lib/tutor-provider-v014107.js','utf8');
 const ui=readFileSync('assets/js/market-tutor.js','utf8');
 for(const literal of [
  'data-product-code="MARKET_TUTOR"','What Market Tutor actually teaches',
- 'Simulated lesson prompt','What this tool does not include','Private conversations',
+ 'Hypothetical lesson prompt','What this tool does not include','Private conversations',
  'Optional AI-generated explanations','zero-spend policy',
  'per-member rate limits','global resource policy',
  'market-tutor.html','labs.html','store.html#tools'
