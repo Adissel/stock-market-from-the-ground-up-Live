@@ -26,6 +26,8 @@ fi
 node --test tests/tool-registry-navigation-fallback-v1.test.mjs
 node --test tests/watchlist-offline-credential-boundary-v1.test.mjs
 node --test tests/home-stable-first-paint-v1.test.mjs
+# Enforce deterministic 245-article catalog pagination across tied editorial sort timestamps.
+node --test tests/knowledge-library-stable-pagination-v1.test.mjs
 # Dedicated React chart classrooms must not load legacy global DOM/CSS enhancers.
 node --test tests/runtime-owned-talia-v1.test.mjs
 # Student-facing Tutor desk must keep chart and instruction aligned and preserve revealed-evidence boundaries.
