@@ -625,7 +625,7 @@ function Classroom(){
   },[]);
   const submitTutor=async(q:string,selectedMode:Mode,learnerInput:string)=>{
     if(busy||!member||!ready)return;
-    if(checkpoint){setStatus('Finish, retry or skip Talia’s current checkpoint before sending a new message.');return}
+    if(checkpoint&&selectedMode!=='explain'){setStatus('This checkpoint remains paused. Ask for an explanation, or complete or skip the current ungraded question before switching teaching modes.');return}
     setPlaying(false);
     if(q.length<4||q.length>450){setStatus('Question must contain 4–450 characters.');return}
     if(selectedMode==='review'&&!learnerInput.trim()){setStatus('Provide your reasoning to request an ungraded review.');return}
@@ -690,7 +690,7 @@ function Classroom(){
     return()=>{live=false};
   },[member?.id,member?.access,getToken]);
   const teachSelected=async(phase:LessonPhase,selected:ChartFocus|null=null)=>{
-    if(!member||!ready||busy||checkpoint||!teachingCatalog||
+    if(!member||!ready||busy||(checkpoint&&phase!=='explain'&&phase!=='demonstrate')||!teachingCatalog||
        !teachingCatalog.allowedDepths.includes(teachingDepth))return;
     const uid=member.id,version=epoch.current,topic=teachingTopic,depth=teachingDepth;
     const entry=teachingCatalog.lessons.find(x=>x.id===topic);
@@ -752,7 +752,7 @@ function Classroom(){
       label:'Private to this open tab · not submitted for grading'}]);
     void teachSelected('correct');
   };
-  const send=(e:React.FormEvent)=>{e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())};
+  const send=(e:React.FormEvent)=>{e.preventDefault();void submitTutor(question.trim(),checkpoint?'explain':mode,checkpoint?'':reasoning.trim())};
   const newConversation=async()=>{
     if(!member||busy)return;
     const title=window.prompt('Private conversation title (maximum 80 characters):','Learning session');
@@ -851,7 +851,7 @@ function Classroom(){
               <option key={t} value={t} disabled={!teachingCatalog?.allowedDepths.includes(t)}>{t.charAt(0)+t.slice(1).toLowerCase()}{!teachingCatalog?.allowedDepths.includes(t)?' · Requires entitlement':''}</option>)}
           </select>
         </label>
-        <button type="button" className="tc-teaching-start" onClick={()=>void teachSelected('explain')} disabled={!teachingCatalog||busy||!!checkpoint}>Start teaching</button>
+        <button type="button" className="tc-teaching-start" onClick={()=>void teachSelected('explain')} disabled={!teachingCatalog||busy}>Start teaching</button>
       </div>
       {teachingCatalog&&<div className="tc-teaching-focus" aria-label="Selected lesson learning guide">
         <strong>{teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.title||'Learning guide'}</strong>
@@ -871,7 +871,7 @@ function Classroom(){
       </div>}
       {teachingStarted&&<div className="tc-teaching-steps" role="group" aria-label="Talia lesson steps">
         {([['explain','Explain'],['demonstrate','Demonstrate'],['practice','Practice'],['correct','Correct'],['transfer','Transfer']] as Array<[LessonPhase,string]>).map(([step,label])=>
-          <button type="button" key={step} aria-pressed={teachingPhase===step} disabled={busy||!!checkpoint}
+          <button type="button" key={step} aria-pressed={teachingPhase===step} disabled={busy||(!!checkpoint&&step!=='explain'&&step!=='demonstrate')}
             onClick={()=>void teachSelected(step)}>{viewedSteps.includes(step)?'✓ ':''}{label}</button>)}
       </div>}
       {teachingStarted&&teachingPhase==='practice'&&<div className="tc-teaching-notebook">
@@ -906,11 +906,23 @@ function Classroom(){
         {typingId&&typedCount<(chat.at(-1)?.text.length||0)&&<span role="status" className="tc-muted">Talia is displaying her explanation…</span>}
       </div>
       {busy&&<p className="tc-wait" role="status">Talia is preparing a source-grounded reply… <button type="button" onClick={()=>pending.current?.abort()}>Stop</button></p>}
+      {checkpoint?<div className="tc-p0-interruption" role="group" aria-label="Clarify before answering the ungraded checkpoint">
+        <strong>Checkpoint paused · Questions are welcome</strong>
+        <p>Talia can explain this completed candle without grading the open question. Your selected answer and retries stay in place. Playback resumes only when you complete or skip the checkpoint.</p>
+        <div className="tc-row">
+          <button type="button" className="tc-secondary" disabled={busy||!teachingCatalog} onClick={()=>void teachSelected('explain')}>Explain this completed candle</button>
+          <button type="button" className="tc-secondary" disabled={busy} onClick={()=>setQuestion('Please clarify what is observable in the completed fictional candle without telling me the next price direction.')}>Write a clarification question</button>
+        </div>
+      </div>:!playing&&visible<REPLAY.length&&<div className="tc-p0-interruption" role="group" aria-label="Resume the paused fictional replay">
+        <span className="tc-muted">The fictional chart is paused. Continue from the last revealed candle; no future prices are exposed.</span>
+        <button type="button" className="tc-secondary" disabled={busy} onClick={()=>setPlaying(true)}>Resume candle replay</button>
+      </div>}
       <form onSubmit={send} className="tc-composer">
         <label htmlFor="tc-question">Your question or follow-up</label>
+        {checkpoint&&<p className="tc-muted">During this ungraded checkpoint, your message is sent as an explanation only; the checkpoint remains unchanged.</p>}
         <textarea id="tc-question" value={question} onChange={e=>setQuestion(e.target.value)}
-          onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())}}}
-          maxLength={450} rows={3} placeholder="Message Talia… Enter to send · Shift+Enter for a new line" disabled={!member||busy||!!checkpoint}/>
+          onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();void submitTutor(question.trim(),checkpoint?'explain':mode,checkpoint?'':reasoning.trim())}}}
+          maxLength={450} rows={3} placeholder="Ask Talia at any time… Enter to send · Shift+Enter for a new line" disabled={!member||busy}/>
         <div className="tc-row"><label htmlFor="tc-mode">Teaching mode</label>
           <select id="tc-mode" value={mode} onChange={e=>setMode(e.target.value as Mode)} disabled={!member||busy||(lessonKind!==null&&stageIndex>=3)}>
             <option value="explain">Explain concept</option><option value="question">Guided self-check</option>
@@ -936,7 +948,7 @@ function Classroom(){
           </fieldset></>}
         <div className="tc-row tc-row-between">
           <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
-          <button type="submit" disabled={!member||busy||!!checkpoint||question.trim().length<4}>Send to Talia</button>
+          <button type="submit" disabled={!member||busy||question.trim().length<4}>Send to Talia</button>
         </div>
         {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
       </form>

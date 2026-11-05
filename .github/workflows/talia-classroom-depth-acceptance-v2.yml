@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/workflows/talia-classroom-depth-acceptance-v2.yml'
       - 'tests/talia-classroom-teaching-depth-v1.test.mjs'
+      - 'tests/talia-p0-interruption-resume-v2.test.mjs'
       - 'tests/talia-classroom-route-alias-v4.test.mjs'
       - 'tests/talia-classroom-real-member-depth-v2.mjs'
       - 'functions/_lib/talia-classroom-curriculum-v1.js'
@@ -47,7 +48,7 @@ jobs:
           node --check functions/api/talia-classroom-curriculum-v1.js
           node --check tests/talia-classroom-real-member-depth-v2.mjs
       - name: Enforce seven-policy matrix and authorization against local first-party API
-        run: node --test tests/talia-classroom-teaching-depth-v1.test.mjs tests/talia-classroom-source-v1.test.mjs
+        run: node --test tests/talia-classroom-teaching-depth-v1.test.mjs tests/talia-classroom-source-v1.test.mjs tests/talia-p0-interruption-resume-v2.test.mjs
   genuine-james-classroom:
     name: Authenticated James_Test real browser and no-charge lesson API
     needs: hierarchical-authorized-source
