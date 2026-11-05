@@ -56,3 +56,14 @@
 
 /* Avoid a character-by-character announcement flood: full text is accessible once. */
 .tc-body .tc-screen-reader-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
+
+/* P0: selected completed candle, exact math labels and interruption continuity. */
+.tc-body .tc-evidence-dock{margin:14px 0;padding:15px;border:1px solid #598d99;border-radius:13px;background:linear-gradient(135deg,#102d40,#10263b)}
+.tc-body .tc-evidence-dock strong{color:#c6f5e7;line-height:1.5}
+.tc-body .tc-evidence-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:8px;margin:12px 0}
+.tc-body .tc-evidence-grid>div{padding:9px 11px;border:1px solid #345a70;border-radius:8px;background:#0b2335;min-width:0}
+.tc-body .tc-evidence-grid dt{font-size:.74rem;color:#b8cddc;line-height:1.5}
+.tc-body .tc-evidence-grid dd{margin:4px 0 0;color:#effffb;font-size:.93rem;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.tc-body .tc-resume-instruction{margin:10px 0;padding:12px;border:1px solid #385d6f;border-radius:10px;background:#132e40}
+.tc-body .tc-evidence-dock button,.tc-body .tc-resume-instruction button{min-height:44px}
+@media(max-width:620px){.tc-body .tc-evidence-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.tc-body .tc-evidence-dock{padding:11px}}

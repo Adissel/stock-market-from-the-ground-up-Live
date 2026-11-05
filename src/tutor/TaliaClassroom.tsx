@@ -61,6 +61,43 @@ for(let i=0;i<248;i++){
  REPLAY.push([previous,close,low,high]);
 }
 const syntheticVolume=(bar:number[],index:number)=>200+Math.round(Math.abs(bar[1]-bar[0])*3700)+index*17;
+type ChartEvidence={index:number;timeframe:1|3|5;sourceCount:number;open:number;high:number;low:number;close:number;volume:number;body:number;range:number;bodyPercent:number;ema9:number|null;ema20:number|null;vwapProxy:number};
+/** Original fictional evidence through the SELECTED completed candle, never later revealed bars. */
+function chartEvidenceAt(index:number,timeframe:1|3|5,visible:number):ChartEvidence|null{
+ if(!Number.isSafeInteger(index)||index<0||![1,3,5].includes(timeframe)||!Number.isSafeInteger(visible)||visible<1||visible>REPLAY.length)return null;
+ const limit=(index+1)*timeframe;
+ if(limit>visible)return null;
+ const source=REPLAY.slice(0,limit);
+ const groups:Array<{open:number;high:number;low:number;close:number;volume:number}>=[];
+ for(let start=0;start<source.length;start+=timeframe){
+  const rows=source.slice(start,start+timeframe);
+  if(rows.length!==timeframe)return null;
+  groups.push({open:rows[0][0],close:rows[rows.length-1][1],
+   high:Math.max(...rows.map(x=>x[3])),low:Math.min(...rows.map(x=>x[2])),
+   volume:rows.reduce((sum,row,j)=>sum+syntheticVolume(row,start+j),0)});
+ }
+ const closes=groups.map(x=>x.close);
+ const ema=(p:number):number|null=>{
+  if(closes.length<p)return null;
+  let value=closes.slice(0,p).reduce((sum,x)=>sum+x,0)/p;
+  for(let j=p;j<closes.length;j++)value=closes[j]*2/(p+1)+value*(1-2/(p+1));
+  return Number(value.toFixed(4));
+ };
+ let dollars=0,shares=0;
+ for(const x of groups){dollars+=((x.high+x.low+x.close)/3)*x.volume;shares+=x.volume}
+ const bar=groups[groups.length-1],range=bar.high-bar.low,body=Math.abs(bar.close-bar.open);
+ return {index,timeframe,sourceCount:limit,...bar,body,range,bodyPercent:range?body/range*100:0,ema9:ema(9),ema20:ema(20),vwapProxy:Number((dollars/shares).toFixed(4))};
+}
+function chartEvidencePrompt(e:ChartEvidence,aim:'explain'|'simplify'|'calculate'|'question',depth:TeachingDepth):string{
+ const n=(v:number|null)=>v===null?'warmup':v.toFixed(4);
+ const task=aim==='simplify'?'Explain simply.':aim==='calculate'?'Show worked arithmetic.':aim==='question'?'Ask one ungraded observation question.':'Explain observable evidence and limitations.';
+ return ('ONLY first '+e.sourceCount+' simulated 1m candles at selected decision time; no future bars. '+
+  'Completed '+e.timeframe+'m bar '+(e.index+1)+': O '+e.open.toFixed(2)+', H '+e.high.toFixed(2)+
+  ', L '+e.low.toFixed(2)+', C '+e.close.toFixed(2)+', synthetic volume '+e.volume+
+  ', EMA9 '+n(e.ema9)+', EMA20 '+n(e.ema20)+', HLC3 VWAP proxy '+n(e.vwapProxy)+
+  ' (not exact trade-print VWAP). '+task+' '+depth+' educational detail if authorized. No trading advice.').slice(0,450);
+}
+
 function aggregateCompleted(rows:number[][],minutes:1|3|5){
  if(minutes===1)return rows;
  const groups:number[][]=[];
@@ -125,14 +162,17 @@ function originalQuestion(kind:LessonKind,bar:number[],index:number):LessonQuest
     'The wick proves the exact transaction sequence inside the interval.'],
    correct:1,hint:'Separate what has already been observed from what remains unknown. OHLC does not establish intrabar transaction order.'};
 }
-function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
- onQuestion:(q:string)=>void;memberId:string;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
+function FictionalChart({onQuestion,memberId,teachingDepth,tutorBusy,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
+ onQuestion:(q:string)=>void;memberId:string;teachingDepth:TeachingDepth;tutorBusy:boolean;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
  playing:boolean;setPlaying:React.Dispatch<React.SetStateAction<boolean>>;playSpeed:number;setPlaySpeed:React.Dispatch<React.SetStateAction<number>>;
  onPauseForQuestion:()=>void
 }){
   const host=useRef<HTMLDivElement|null>(null);
   const chartRef=useRef<ChartInstance|null>(null);
   const [timeframe,setTimeframe]=useState<1|3|5>(1);
+  const [focusSelection,setFocusSelection]=useState<{index:number;timeframe:1|3|5}|null>(null);
+  const focusEvidence=useMemo(()=>focusSelection?chartEvidenceAt(focusSelection.index,focusSelection.timeframe,visible):chartEvidenceAt(visible-1,1,visible),[focusSelection,visible]);
+  useEffect(()=>setFocusSelection(null),[visible,memberId]);
   const [compare,setCompare]=useState(false);
   const prototype=typeof window!=='undefined'&&isTaliaAdvancedRoute();
   const sharedBars=useMemo(()=>REPLAY.slice(0,visible).map((bar,i)=>({
@@ -294,13 +334,32 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
         // unfinished group or any source bar after the Talia reveal boundary.
         const group=REPLAY.slice(index*interval,Math.min(visible,(index+1)*interval));
         if(group.length!==interval)return;
-        const opening=group[0][0],closing=group[group.length-1][1];
-        const high=Math.max(...group.map(bar=>bar[3]));
-        const low=Math.min(...group.map(bar=>bar[2]));
-        onQuestion(('Talia, explain completed simulated '+interval+'-minute candle '+(index+1)+' using only '+((index+1)*interval)+' completed one-minute observations available AT THAT BAR. Open '+opening.toFixed(2)+', high '+high.toFixed(2)+', low '+low.toFixed(2)+', close '+closing.toFixed(2)+'. Discuss actual observed structure, not future prices or protected answers.').slice(0,450));
+        const evidence=chartEvidenceAt(index,interval,visible);
+        if(!evidence)return;
+        setFocusSelection({index,timeframe:interval});
+        onQuestion(chartEvidencePrompt(evidence,'explain',teachingDepth));
        }}/>
      </div>:<div className="tc-chart" ref={host} role="img" onPointerUpCapture={releasePointer} onPointerCancelCapture={releasePointer} aria-label={'Simulated price chart of '+Math.floor(visible/timeframe)+' complete '+timeframe+'-minute candlesticks'} />}
-    <p className="tc-muted tc-chart-sync" role="status">{prototype?visible+' completed candles revealed · Volume is simulated.':status}</p>
+    {prototype&&focusEvidence&&<aside className="tc-evidence-dock" aria-label="Talia selected completed candle evidence">
+      <div className="tc-row tc-row-between"><strong>Teaching focus · completed {focusEvidence.timeframe}-minute candle {focusEvidence.index+1}</strong><span className="tc-pill">Source candles 1–{focusEvidence.sourceCount}</span></div>
+      <dl className="tc-evidence-grid">
+       <div><dt>Open / Close</dt><dd>{focusEvidence.open.toFixed(2)} / {focusEvidence.close.toFixed(2)}</dd></div>
+       <div><dt>High / Low</dt><dd>{focusEvidence.high.toFixed(2)} / {focusEvidence.low.toFixed(2)}</dd></div>
+       <div><dt>Body / Range</dt><dd>{focusEvidence.body.toFixed(2)} / {focusEvidence.range.toFixed(2)}</dd></div>
+       <div><dt>Body %</dt><dd>{focusEvidence.bodyPercent.toFixed(1)}%</dd></div>
+       <div><dt>Fictional volume</dt><dd>{focusEvidence.volume.toLocaleString('en-US')}</dd></div>
+       <div><dt>EMA 9 / 20</dt><dd>{focusEvidence.ema9?.toFixed(4)??'Warmup'} / {focusEvidence.ema20?.toFixed(4)??'Warmup'}</dd></div>
+       <div><dt>HLC3 VWAP proxy</dt><dd>{focusEvidence.vwapProxy.toFixed(4)}</dd></div>
+      </dl>
+      <p className="tc-muted">Only completed fictional candles through this selection. Synthetic volume is not live market volume; HLC3-based VWAP is not exact trade-print VWAP.</p>
+      <div className="tc-row" aria-label="Chart-linked Talia instruction">
+       <button type="button" className="tc-secondary" disabled={tutorBusy} onClick={()=>onQuestion(chartEvidencePrompt(focusEvidence,'explain',teachingDepth))}>Explain this evidence</button>
+       <button type="button" className="tc-secondary" disabled={tutorBusy} onClick={()=>onQuestion(chartEvidencePrompt(focusEvidence,'simplify',teachingDepth))}>Explain more simply</button>
+       <button type="button" className="tc-secondary" disabled={tutorBusy} onClick={()=>onQuestion(chartEvidencePrompt(focusEvidence,'calculate',teachingDepth))}>Show calculations</button>
+       <button type="button" className="tc-secondary" disabled={tutorBusy} onClick={()=>onQuestion(chartEvidencePrompt(focusEvidence,'question',teachingDepth))}>Ask me a question</button>
+      </div>
+     </aside>}
+     <p className="tc-muted tc-chart-sync" role="status">{prototype?visible+' completed candles revealed · Volume is simulated.':status}</p>
     {!prototype&&<details className="tc-current-candle-ledger">
       <summary>Accessible latest-candle data table · bar {visible}</summary>
       <table className="tc-candle-table"><caption>Latest visible completed candle (base one-minute source)</caption>
@@ -328,7 +387,7 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
       <summary>More replay options</summary>
       <div className="tc-row">
         {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(200);setTimeframe(1);setZoom(20)}} disabled={visible>=200}>Load 200 candles for EMA 200</button>}
-        {prototype&&<button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(v=>Math.max(7,v-1))}} disabled={visible<=7}>Previous candle</button>}
+        <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(v=>Math.max(7,v-1))}} disabled={visible<=7}>Previous candle</button>
         <label className="tc-playback-speed">Speed <select value={playSpeed} onChange={e=>setPlaySpeed(Number(e.target.value))} aria-label="Fictional playback speed"><option value={3000}>Slow</option><option value={1600}>Normal</option><option value={750}>Fast</option></select></label>
         <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);onPauseForQuestion()}}>Pause for a question</button>
         <button type="button" className="tc-secondary" onClick={()=>{setPlaying(false);setVisible(7);setTimeframe(1);setZoom(100);setAnnotation(null)}} disabled={visible===7&&timeframe===1&&zoom===100&&annotation===null}>Restart replay</button>
@@ -630,7 +689,7 @@ function Classroom(){
   },[]);
   const submitTutor=async(q:string,selectedMode:Mode,learnerInput:string)=>{
     if(busy||!member||!ready)return;
-    if(checkpoint){setStatus('Finish, retry or skip Talia’s current checkpoint before sending a new message.');return}
+    if(checkpoint&&selectedMode==='review'){setStatus('Complete or skip the checkpoint before a reasoning review. Concept questions may interrupt the paused lesson.');return}
     setPlaying(false);
     if(q.length<4||q.length>450){setStatus('Question must contain 4–450 characters.');return}
     if(selectedMode==='review'&&!learnerInput.trim()){setStatus('Provide your reasoning to request an ungraded review.');return}
@@ -865,7 +924,9 @@ function Classroom(){
     </section>
     {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
     <div className="tc-grid tc-terminal-grid tc-terminal-split tc-student-workspace">
-      <FictionalChart onQuestion={q=>void submitTutor(q,'explain','')} memberId={member.id} visible={visible} setVisible={setVisible}
+      <FictionalChart onQuestion={q=>void submitTutor(q,'explain','')} memberId={member.id}
+       teachingDepth={teachingCatalog?.allowedDepths.includes(teachingDepth)?teachingDepth:'FOUNDATION'} tutorBusy={busy}
+       visible={visible} setVisible={setVisible}
       playing={playing} setPlaying={setPlaying} playSpeed={playSpeed} setPlaySpeed={setPlaySpeed}
       onPauseForQuestion={()=>pauseForQuestion()}/>
       <section className="tc-chat" aria-labelledby="tc-chat-title">
@@ -885,7 +946,7 @@ function Classroom(){
         <label htmlFor="tc-question">Your question or follow-up</label>
         <textarea id="tc-question" value={question} onChange={e=>setQuestion(e.target.value)}
           onKeyDown={e=>{if(e.key==='Enter'&&!e.shiftKey&&!e.nativeEvent.isComposing){e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())}}}
-          maxLength={450} rows={3} placeholder="Message Talia… Enter to send · Shift+Enter for a new line" disabled={!member||busy||!!checkpoint}/>
+          maxLength={450} rows={3} placeholder="Ask while replay is paused… Enter to send · Shift+Enter for a new line" disabled={!member||busy}/>
         <div className="tc-row"><label htmlFor="tc-mode">Teaching mode</label>
           <select id="tc-mode" value={mode} onChange={e=>setMode(e.target.value as Mode)} disabled={!member||busy||(lessonKind!==null&&stageIndex>=3)}>
             <option value="explain">Explain concept</option><option value="question">Guided self-check</option>
@@ -911,11 +972,19 @@ function Classroom(){
           </fieldset></>}
         <div className="tc-row tc-row-between">
           <label className="tc-check"><input type="checkbox" checked={save} onChange={e=>setSave(e.target.checked)} disabled={!member||busy}/> Save responses to private Tutor history</label>
-          <button type="submit" disabled={!member||busy||!!checkpoint||question.trim().length<4}>Send to Talia</button>
+          <button type="submit" disabled={!member||busy||question.trim().length<4}>Send to Talia</button>
         </div>
         {!member&&<p><a href={'/signin.html?next='+encodeURIComponent(isTaliaPrototypePath()?'/talia-tutor-prototype.html':'/talia-classroom.html')}>Sign in to use the member classroom</a></p>}
       </form>
-      <details className="tc-example-questions"><summary>Suggested questions</summary><div className="tc-chipbar" aria-label="Example questions">
+      {chat.length>1&&chat.at(-1)?.who==='talia'&&<div className="tc-resume-instruction" role="group" aria-label="Interrupt or resume Talia">
+       <span className="tc-muted">Follow up without losing an ungraded checkpoint.</span>
+       <div className="tc-row">
+        <button type="button" className="tc-secondary" disabled={busy} onClick={()=>continueLesson('clarify')}>Explain another way</button>
+        <button type="button" className="tc-secondary" disabled={busy} onClick={()=>void submitTutor('Show one worked fictional calculation for the observed concept, with inputs and limitations and no future candles.','explain','')}>Show worked math</button>
+        <button type="button" className="tc-secondary" disabled={busy} onClick={()=>continueLesson('challenge')}>Check my understanding</button>
+        <button type="button" disabled={busy||!!checkpoint||visible>=REPLAY.length} onClick={()=>setPlaying(true)}>Resume replay</button>
+       </div></div>}
+       <details className="tc-example-questions"><summary>Suggested questions</summary><div className="tc-chipbar" aria-label="Example questions">
         {EXAMPLES.map(item=><button type="button" key={item} disabled={busy||!!checkpoint} onClick={()=>void submitTutor(item,'explain','')}>{item}</button>)}
       </div></details>
       {advancedExperience&&<details className="tc-guided-lesson" open={!!lessonKind}><summary>{lessonKind?'Guided lesson · '+lessonKind:'Choose a guided lesson'}</summary><section className="tc-live-lesson" aria-label="Talia synchronized interactive lesson">
