@@ -237,3 +237,38 @@ test('classroom exposes a local-only practice notebook and distinct chart contex
  assert.match(styles,/\.tc-teaching-notebook/);
  assert.match(styles,/\.tc-teaching-focus/);
 });
+
+
+test('regression: all four teaching editions start with instruction, worked evidence, and a learner turn',()=>{
+ const order=['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE'];
+ for(const topic of TUTOR_LESSONS){
+  const delivered=order.map(depth=>buildTaliaLesson({topic:topic.id,depth,phase:'explain'}));
+  for(const lesson of delivered){
+   assert.match(lesson.answer,/I DO — UNDERSTAND/);
+   assert.match(lesson.answer,/I DO — SHOW THE EVIDENCE AND WORK THE NUMBERS/);
+   assert.match(lesson.answer,/WE DO — RECOGNIZE/);
+   assert.match(lesson.answer,/COMMON MISTAKE AND LIMITATION/);
+   assert.match(lesson.answer,/YOU DO — UNGRADED CHECK/);
+   assert.doesNotMatch(lesson.answer,/What would you like me to clarify before the worked example\?/);
+   assert.equal(lesson.graded,false);
+   assert.equal(lesson.masteryAwarded,false);
+   assert.equal(lesson.hasFutureBars,false);
+   assert.ok(lesson.answer.length<=7000,'The member client truncates longer replies');
+  }
+  assert.ok(delivered[0].answer.length<delivered[1].answer.length);
+  assert.ok(delivered[1].answer.length<delivered[2].answer.length);
+  assert.ok(delivered[2].answer.length<delivered[3].answer.length);
+  assert.match(delivered[1].answer,/ADVANCED — Compare/);
+  assert.match(delivered[2].answer,/PROFESSIONAL — Test/);
+  assert.match(delivered[3].answer,/ENTERPRISE — Make/);
+ }
+ const [f,a,p,e]=order.map(depth=>buildTaliaLesson({topic:'candlesticks',depth,phase:'explain'}).answer);
+ assert.match(f,/upper wick = \$32\.50/);
+ assert.match(f,/lower wick = \$31\.00/);
+ assert.match(a,/54\.55%/);
+ assert.match(p,/20%/);
+ assert.match(e,/high \$31\.80 and close \$32\.00 is invalid/);
+ const independent=buildTaliaLesson({topic:'candlesticks',depth:'ENTERPRISE',phase:'practice'}).answer;
+ assert.doesNotMatch(independent,/body percentage = .*40%/i);
+ assert.match(independent,/Show your own steps/);
+});
