@@ -369,3 +369,13 @@ test('chart interaction selects the SAME highlighted group, updates timeframe an
  assert.match(chart,/completedBars\.slice\(focusStart,focusStart\+appearance\.timeframe\)/);
  assert.match(pages,/talia-chart-evidence-v1\.d\.ts/);
 });
+
+test('keyboard ledger teaching keeps highlighted candle, measurements and lesson context synchronized',()=>{
+ const classroom=readFileSync('src/tutor/TaliaClassroom.tsx','utf8');
+ const chart=readFileSync('src/prototype/PrototypeExperiences.tsx','utf8');
+ assert.match(classroom,/focusSourceBar=\{chartFocus\?Math\.min\(visible-1/);
+ assert.match(classroom,/focusedSourceBar=\{focusSourceBar\?\?undefined\}/);
+ assert.match(classroom,/onClick=\{\(\)=>onCandleSelect\(i,1\)\}/);
+ assert.match(chart,/focusedSourceBar!==undefined&&focusedSourceBar>=0/);
+ assert.match(chart,/setFocus\(focusedSourceBar\)/);
+});

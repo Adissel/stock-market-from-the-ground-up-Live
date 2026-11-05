@@ -1248,8 +1248,8 @@ function Suite({page}:{page:Page}){
  * UI components with immutable Standard-only supplemental simulation. The
  * member caller provides no private lesson data or entitlement overrides. */
 export type ClassicChartMeasurement={index:number;open:number;high:number;low:number;close:number;interval:string};
-export type ClassicChartInput={mode:'lab'|'bootcamp'|'talia';caseBars?:Bar[];memberSafe?:boolean;onObservedBar?:(index:number,timeframe:ChartTimeframe)=>void;onTimeframeChange?:(timeframe:ChartTimeframe)=>void;measurement?:ClassicChartMeasurement};
-export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObservedBar,onTimeframeChange,measurement}:ClassicChartInput){
+export type ClassicChartInput={mode:'lab'|'bootcamp'|'talia';caseBars?:Bar[];memberSafe?:boolean;onObservedBar?:(index:number,timeframe:ChartTimeframe)=>void;onTimeframeChange?:(timeframe:ChartTimeframe)=>void;focusedSourceBar?:number;measurement?:ClassicChartMeasurement};
+export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObservedBar,onTimeframeChange,focusedSourceBar,measurement}:ClassicChartInput){
  const [source,setSource]=useState<'demo'|'case'>(mode==='talia'?'case':'demo');
  const [reveal,setReveal]=useState(54);
  const [focus,setFocus]=useState(0);
@@ -1274,6 +1274,10 @@ export function ClassicClassroomChart({mode,caseBars=[],memberSafe=false,onObser
  const available=source==='case'&&caseBars.length>0?caseBars:series;
  const count=mode==='talia'?Math.max(1,available.length):Math.max(1,Math.min(reveal,available.length));
  useEffect(()=>{if(mode==='talia'&&caseBars.length>0)setFocus(caseBars.length-1)},[mode,caseBars.length]);
+ useEffect(()=>{if(mode==='talia'&&Number.isInteger(focusedSourceBar)&&
+   focusedSourceBar!==undefined&&focusedSourceBar>=0&&focusedSourceBar<caseBars.length)
+   setFocus(focusedSourceBar);
+ },[mode,focusedSourceBar,caseBars.length]);
  // A partial 3m/5m group is still forming. Never label it a completed
  // observation, supply it to an indicator, or ask Talia to assess it.
  const completedBars=mode==='talia'

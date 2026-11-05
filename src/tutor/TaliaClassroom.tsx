@@ -113,9 +113,9 @@ function originalQuestion(kind:LessonKind,bar:number[],index:number):LessonQuest
     'The wick proves the exact transaction sequence inside the interval.'],
    correct:1,hint:'Separate what has already been observed from what remains unknown. OHLC does not establish intrabar transaction order.'};
 }
-function FictionalChart({onQuestion,onCandleSelect,onTimeframeChange,memberId,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
+function FictionalChart({onQuestion,onCandleSelect,onTimeframeChange,focusSourceBar,memberId,visible,setVisible,playing,setPlaying,playSpeed,setPlaySpeed,onPauseForQuestion}:{
  onQuestion:(q:string)=>void;onCandleSelect:(index:number,timeframe:1|3|5)=>void;
- onTimeframeChange:(timeframe:1|3|5)=>void;memberId:string;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
+ onTimeframeChange:(timeframe:1|3|5)=>void;focusSourceBar:number|null;memberId:string;visible:number;setVisible:React.Dispatch<React.SetStateAction<number>>;
  playing:boolean;setPlaying:React.Dispatch<React.SetStateAction<boolean>>;playSpeed:number;setPlaySpeed:React.Dispatch<React.SetStateAction<number>>;
  onPauseForQuestion:()=>void
 }){
@@ -277,6 +277,7 @@ function FictionalChart({onQuestion,onCandleSelect,onTimeframeChange,memberId,vi
       <ClassicClassroomChart mode="talia" memberSafe={true}
        caseBars={sharedBars}
        onTimeframeChange={onTimeframeChange}
+       focusedSourceBar={focusSourceBar??undefined}
        measurement={{index:visible,open:latest[0],high:latest[3],low:latest[2],close:latest[1],interval:'1-minute source'}}
        onObservedBar={(index,interval)=>{
         // The selected ECharts index is an AGGREGATED completed timeframe
@@ -886,10 +887,11 @@ function Classroom(){
     {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
     <div className="tc-grid tc-terminal-grid tc-terminal-split tc-student-workspace">
       <FictionalChart onQuestion={q=>void submitTutor(q,'explain','')}
-      onCandleSelect={(index,interval)=>{setPlaying(false);setChartTimeframe(interval);setChartFocus({index,timeframe:interval});
+      onCandleSelect={(index,interval)=>{setPlaying(false);setChartTimeframe(interval);setChartFocus({index,timeframe:interval});setPracticeNotes('');setViewedSteps([]);
         if(teachingCatalog?.lessons.find(x=>x.id===teachingTopic)?.chart)void teachSelected('explain',{index,timeframe:interval});
         else setStatus('Select a chart-based teaching topic to have Talia explain this candle.');}}
       onTimeframeChange={interval=>{setChartTimeframe(interval);setChartFocus(null);}}
+      focusSourceBar={chartFocus?Math.min(visible-1,(chartFocus.index+1)*chartFocus.timeframe-1):null}
       memberId={member.id} visible={visible} setVisible={setVisible}
       playing={playing} setPlaying={setPlaying} playSpeed={playSpeed} setPlaySpeed={setPlaySpeed}
       onPauseForQuestion={()=>pauseForQuestion()}/>
