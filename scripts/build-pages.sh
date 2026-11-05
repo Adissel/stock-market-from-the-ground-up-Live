@@ -28,6 +28,11 @@ node --test tests/watchlist-offline-credential-boundary-v1.test.mjs
 node --test tests/home-stable-first-paint-v1.test.mjs
 # Unique tie-breaker for published Knowledge metadata pagination (no protected body).
 node --test tests/knowledge-library-stable-pagination-v1.test.mjs
+node --test tests/test_kdb_research_family_catalog_v1.mjs
+node --test tests/test_kdb_sma_independent_case_clarification_v1.mjs
+node --test tests/test_knowledge_p0_copy_reconciliation_v1.mjs
+node --test tests/test_kdb_claim_evidence_priority25_v1.mjs
+node --test tests/test_kdb_curriculum_priority25_crosswalk_v1.mjs
 node --test tests/test_knowledge_admin_draft_preview_v1.mjs
 # Dedicated React chart classrooms must not load legacy global DOM/CSS enhancers.
 node --test tests/runtime-owned-talia-v1.test.mjs
