@@ -59,7 +59,8 @@ test('P0 manual pause visibly opens the ungraded checkpoint, even before a lesso
 test('Authenticated QA verifies selected-chart VWAP proxy, not an unrelated trade-print answer',()=>{
  const browser=readFileSync('tests/talia-classroom-real-member-depth-v2.mjs','utf8');
  assert.ok(browser.includes('getTaliaChartEvidence({visible:7,index:6,timeframe:1})'));
- assert.ok(browser.includes('cumulative bar-proxy VWAP = $'));
+ assert.ok(browser.includes('String.fromCharCode(36)'));
+ assert.ok(browser.includes('const expectedProxy='));
  assert.ok(browser.includes('not an exact transaction-print VWAP/i'));
  assert.ok(!browser.includes('exact trade-print VWAP = $4,600 / 400 = $11.50'));
 });

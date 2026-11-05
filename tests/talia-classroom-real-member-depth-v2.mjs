@@ -190,7 +190,9 @@ try{
   await page.waitForFunction(n=>[...document.querySelectorAll('.tc-transcript li')].slice(n).some(x=>x.textContent?.includes('REVIEW — SAME CHART CANDLE')&&x.textContent?.includes('cumulative bar-proxy VWAP')),beforeVwap,{timeout:25000});
   const corrected=await page.locator('.tc-transcript li').last().textContent();
   const proxy=getTaliaChartEvidence({visible:7,index:6,timeframe:1}).proxyVWAP;
-  assert.ok(corrected.includes('cumulative bar-proxy VWAP = 
+  const expectedProxy='cumulative bar-proxy VWAP = '+String.fromCharCode(36)+proxy.toFixed(2);
+  assert.ok(corrected.includes(expectedProxy),'Proxy calculation must match completed chart evidence.');
+  assert.match(corrected,/not an exact transaction-print VWAP/i,'Proxy must not be misrepresented as transaction VWAP.');
   assert.match(await page.locator('.tc-teaching-progress').innerText(),/Viewed [1-5] of 5/);
   mark('James_Test browser: chart-based HLC3 proxy matches selected completed fictional candle');
   if(catalog.allowedDepths.length>1){
