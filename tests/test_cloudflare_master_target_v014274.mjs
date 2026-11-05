@@ -13,6 +13,8 @@ test('legacy Pages fallback is archived, not executable from main',()=>{
  const active=read('.github/workflows/cloudflare-master-target-guard-v014274.yml');
  assert.ok(active.includes(acct));
  assert.ok(active.includes(project));
+ assert.ok(active.includes("p.source?.config?.repo_name!=='stock-market-from-the-ground-up-Live'"));
+ assert.ok(active.includes("p.source?.config?.owner!=='Adissel'"));
  assert.ok(active.includes('stock-market-from-the-ground-up-d1r.pages.dev'));
  assert.ok(active.includes('secrets.SMFGU_LIVES_PAGES_DEPLOY'));
  assert.ok(active.includes("p.production_branch!=='main'"));

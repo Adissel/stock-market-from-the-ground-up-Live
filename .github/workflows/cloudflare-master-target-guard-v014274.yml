@@ -53,7 +53,7 @@ jobs:
             throw Error('GitHub secret is not authorized for approved Yahoo master account');
           const p=await get('/accounts/'+id+'/pages/projects/'+project);
           if(p?.name!==project||p.id!=='2cf1b496-5f6a-4cb0-89ba-b1519c08154b'
-            ||p.subdomain!==host||p.source?.config?.repo_name!=='stock-market-from-the-ground-up'
+            ||p.subdomain!==host||p.source?.config?.repo_name!=='stock-market-from-the-ground-up-Live' || p.source?.config?.owner!=='Adissel'
             ||p.source?.type!=='github'||p.production_branch!=='main'
             ||p.build_config?.build_command!=='bash scripts/build-pages.sh'
             ||p.build_config?.destination_dir!=='public')
