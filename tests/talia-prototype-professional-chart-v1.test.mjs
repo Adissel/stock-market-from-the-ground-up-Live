@@ -27,11 +27,11 @@ test('Member-scoped chart preferences validate stored values and do not persist 
  assert.match(ts,/Private browsing may disable storage/);
 });
 
-test('Accessible prototype ledger exposes only completed bars with keyboard Tutor actions',()=>{
- assert.match(ts,/Accessible completed-candle ledger/);
- assert.match(ts,/REPLAY\.slice\(0,visible\)\.map/);
- assert.match(ts,/scope="row"/);
- assert.match(ts,/Explain bar \{i\+1\}/);
- assert.match(ts,/onClick=\{\(\)=>onCandleSelect\(i,1\)\}/,'Click requests server-verified selected completed candle');
- assert.match(ts,/evidence\.open!==verified\.bar\.open/,'Display refuses mismatched lesson evidence');
+test('Accessible prototype candle selector exposes revealed bars without lookahead',()=>{
+ assert.ok(ts.includes('Select a completed candle'));
+ assert.ok(ts.includes('aria-label="Select a revealed completed candle"'));
+ assert.ok(ts.includes('REPLAY.slice(0,visible).map((_,i)'),'Only revealed candles may populate the selector');
+ assert.ok(ts.includes('onCandleSelect(Number(e.target.value),1)'),'Selected completed bar must reach server-verified Tutor');
+ assert.ok(ts.includes('evidence.open!==verified.bar.open'),'Server-reconstructed OHLC must match client display');
+ assert.ok(ts.includes("aria-label={playing?'Pause automatic fictional candle playback'"),'Replay status must remain accessible');
 });
