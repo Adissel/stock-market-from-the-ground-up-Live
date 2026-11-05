@@ -379,13 +379,14 @@ function TeachingCheckpoint({checkpoint,bar,onComplete,onFeedback,onSkip}:{
   if(correct){setFeedback(diagnostic);onComplete(reply,diagnostic+' '+explanation)}
   else{setFeedback(diagnostic);onFeedback(diagnostic)}
  };
- return <section className="tc-checkpoint" aria-labelledby="tc-checkpoint-heading">
-  <div className="tc-row tc-row-between"><h3 id="tc-checkpoint-heading">Talia's teaching checkpoint</h3><span className="tc-pill">Playback paused · ungraded</span></div>
-  <p><strong>{checkpoint.title}</strong></p><p>{checkpoint.prompt}</p>
+ return <section className="tc-checkpoint tc-checkpoint-inline" aria-label="Answer Talia's current question" aria-live="off">
+  <div className="tc-row tc-row-between"><h3>Choose your answer</h3><span className="tc-pill">Playback paused · ungraded</span></div>
+  <p className="tc-checkpoint-context">Complete this checkpoint here to resume the fictional chart.</p>
   <form onSubmit={check} className="tc-checkpoint-form">
    {checkpoint.kind==='choice'?<fieldset><legend>Choose the supported observation</legend>
      {(checkpoint.options||[]).map((option,i)=><label className="tc-checkpoint-option" key={i}>
-       <input type="radio" name={checkpoint.id} checked={choice===i} onChange={()=>setChoice(i)}/>
+       <input type="radio" name={checkpoint.id} checked={choice===i} onChange={()=>{setChoice(i);setFeedback('')}}/>
+       <span className="tc-answer-letter" aria-hidden="true">{String.fromCharCode(65+i)}.</span>
        <span>{option}</span>
      </label>)}</fieldset>:
      <fieldset><legend>Work through the three calculations separately</legend>
@@ -555,7 +556,21 @@ function Classroom(){
     void init();
     return ()=>{live=false;epoch.current++;pending.current?.abort();unsubscribe?.()};
   },[reset]);
-  useEffect(()=>{log.current?.scrollTo({top:log.current.scrollHeight,behavior:'auto'})},[chat,busy,typedCount]);
+  // Keep the question in view when playback pauses, rather than auto-scrolling past
+  // the multiple-choice answers. Ordinary conversation still follows new messages.
+  useEffect(()=>{
+    const transcript=log.current;
+    if(!transcript)return;
+    if(checkpoint){
+      const item=transcript.querySelector<HTMLElement>('.tc-message-question');
+      if(item){
+        transcript.scrollTop+=item.getBoundingClientRect().top-transcript.getBoundingClientRect().top-8;
+        return;
+      }
+    }
+    transcript.scrollTo({top:transcript.scrollHeight,behavior:'auto'});
+  },[chat,busy,checkpoint]);
+  useEffect(()=>{if(!checkpoint)log.current?.scrollTo({top:log.current.scrollHeight,behavior:'auto'})},[typedCount,checkpoint]);
   useEffect(()=>{
     const latest=chat[chat.length-1];
     if(latest?.who!=='talia'||latest.id===typingId)return;
@@ -610,9 +625,11 @@ function Classroom(){
       {id:crypto.randomUUID(),who:'talia',text:feedback+' Playback will resume with the next revealed fictional candle.',label:'Original fictional corrective explanation'}]);
     setCheckpoint(null);setStageIndex(i=>Math.min(9,i+1));setPlaying(true);
   };
-  const checkpointFeedback=(feedback:string)=>{
+  const checkpointFeedback=(_feedback:string)=>{
     setStudyReport(r=>({...r,retries:r.retries+1,latest:checkpoint?.title||'Ungraded corrective practice'}));
-    appendInstructor(feedback+' Try again, request a free explanation, or skip this ungraded practice.');
+    // Keep the response attached to the original question; the inline checkpoint
+    // displays its own corrective feedback without hiding or moving the options.
+    setStatus('Checkpoint remains paused. Select another answer, view the free explanation, or skip.');
   };
   const checkpointSkipped=()=>{
     setStudyReport(r=>({...r,skipped:r.skipped+1,latest:checkpoint?.title||'Skipped ungraded exercise'}));
@@ -816,6 +833,7 @@ function Classroom(){
       setStatus('Authenticated '+target+' member beta. The server has verified this edition.');
     }catch(e){setPremiumEvidence(null);setActiveEdition('FOUNDATION');setStatus(e instanceof Error?e.message:'Member tier validation failed.')}
   };
+  const checkpointMessageId=checkpoint?chat.filter(line=>line.who==='talia'&&line.label==='Ungraded learner checkpoint').at(-1)?.id:null;
   const latestExchange=chat.length>=3&&chat[chat.length-1]?.who==='talia'?
     [...chat].reverse().find(line=>line.who==='member')?.text||'the current topic':'the current topic';
   const continueLesson=(kind:'clarify'|'challenge'|'transfer')=>{
@@ -898,9 +916,12 @@ function Classroom(){
       <section className="tc-chat" aria-labelledby="tc-chat-title">
       <div className="tc-chat-top"><div><h2 id="tc-chat-title">Talia Mercer · Your Instructor</h2>{conversationLabel&&<p className="tc-muted">{conversationLabel}</p>}</div><span className="tc-pill">{member?'SIGNED IN':'MEMBER SIGN-IN REQUIRED'}</span></div>
       <ol className="tc-transcript" ref={log} role="log" aria-label="Talia conversation transcript" aria-live="polite" aria-relevant="additions">
-        {chat.map(m=><li className={'tc-message tc-'+m.who} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong>
+        {chat.map(m=><li className={'tc-message tc-'+m.who+(m.id===checkpointMessageId?' tc-message-question':'')} key={m.id}><strong>{m.who==='talia'?'Talia Mercer':'You'}</strong>
           <p>{m.id===typingId?<><span className="tc-screen-reader-only">{m.text}</span><span aria-hidden="true">{m.text.slice(0,typedCount)}{typedCount<m.text.length&&<span className="tc-typing-caret">▌</span>}</span></>:m.text}</p>
-          {m.label&&<small>{m.label}</small>}</li>)}
+          {m.label&&<small>{m.label}</small>}
+          {checkpoint&&m.id===checkpointMessageId&&<TeachingCheckpoint key={checkpoint.id} checkpoint={checkpoint} bar={REPLAY[visible-1]}
+            onComplete={checkpointCompleted} onFeedback={checkpointFeedback} onSkip={checkpointSkipped}/>}
+        </li>)}
       </ol>
       <div className="tc-typing-controls"><label>Text display speed <select aria-label="Talia typing speed" value={typingSpeed} onChange={e=>setTypingSpeed(Number(e.target.value))}>
         <option value={56}>Slow</option><option value={28}>Normal</option><option value={12}>Fast</option><option value={0}>Show instantly</option></select></label>
@@ -963,8 +984,7 @@ function Classroom(){
           <p>Latest activity: {studyReport.latest}</p>
           <p>These are temporary in-tab practice counters, not a saved Assessment, official proficiency measure, entitlement change or Lumens award.</p>
         </details>
-        {checkpoint&&<TeachingCheckpoint key={checkpoint.id} checkpoint={checkpoint} bar={REPLAY[visible-1]}
-          onComplete={checkpointCompleted} onFeedback={checkpointFeedback} onSkip={checkpointSkipped}/>}
+        {checkpoint&&<p className="tc-muted" role="status">Answer Talia's active checkpoint in the conversation above. The chart remains paused until you answer or skip.</p>}
         {!checkpoint&&lessonKind&&<p className="tc-muted">Use Auto Play to continue. You can pause, zoom, inspect the accessible candle table, or ask Talia a follow-up at any point.</p>}
       </section></details>}
       <details className="tc-advanced-tutor-options" hidden={!advancedExperience}><summary>Additional tutoring options</summary>

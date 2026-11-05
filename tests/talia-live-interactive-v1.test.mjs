@@ -9,8 +9,8 @@ const gate=readFileSync('assets/js/talia-prototype-gate-v1.js','utf8');
 
 test('One protected React classroom owns both member and staff learning runtime',()=>{
  for(const html of [member,staff])assert.match(html,/talia-live-lesson-v1\.css/);
- assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261104-teaching-practice2/);
- assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261104-teaching-practice2/);
+ assert.match(member,/talia-classroom-v1\.bundle\.js\?v=20261105-checkpoint-inline1/);
+ assert.match(gate,/talia-classroom-v1\.bundle\.js\?v=20261105-checkpoint-inline1/);
  assert.match(staff,/data-route-access="staff"/);
  assert.match(gate,/control_panel\.access/);
  assert.match(src,/const advancedExperience=isTaliaAdvancedRoute\(\)/);
@@ -82,4 +82,31 @@ test('Premium editions require canonical server-authenticated data, never a brow
  for(const value of ['toolAccess(env,request','betaTesterAllowed(env,userId)','ownerApprovedTesterGrant(grants,code)','memberReplay(env,member.userId)','readOwnLearning(env,member.userId)'])
   assert.ok(api.includes(value),value);
  assert.match(api,/premiumCommerciallyReleased:false/);
+});
+
+
+test('active checkpoint presents answers directly beneath the Tutor question rather than below the composer',()=>{
+ const start=src.indexOf('<ol className="tc-transcript"');
+ const end=src.indexOf('</ol>',start);
+ const inline=src.indexOf('checkpoint&&m.id===checkpointMessageId&&<TeachingCheckpoint',start);
+ const composer=src.indexOf('<form onSubmit={send} className="tc-composer">');
+ assert.ok(start>=0&&inline>start&&inline<end&&end<composer,
+  'A response control must be inside the same transcript message as the active question');
+ assert.equal([...src.matchAll(/<TeachingCheckpoint /g)].length,1,'Never display a duplicate form beneath the conversation');
+ assert.match(src,/m\.id===checkpointMessageId\?' tc-message-question'/);
+ assert.match(src,/const checkpointMessageId=checkpoint\?chat\.filter/);
+ assert.match(src,/querySelector<HTMLElement>\('\.tc-message-question'\)/);
+ assert.match(src,/onChange=\{\(\)=>\{setChoice\(i\);setFeedback\(''\)\}\}/);
+ assert.match(src,/String\.fromCharCode\(65\+i\)/,'The answers must display A through D');
+ assert.match(src,/const checkpointFeedback=\(_feedback:string\)=>/);
+ assert.doesNotMatch(src,/appendInstructor\(feedback\+' Try again/,'Wrong attempts may not scroll the answer form out of view');
+ for(const choice of ['The candle guarantees the next price direction.',
+ 'The observed open, high, low and close describe this completed interval only.',
+ 'A green body guarantees buyers will control the following interval.',
+ 'The wick proves the exact transaction sequence inside the interval.'])assert.ok(src.includes(choice));
+ assert.match(css,/tc-message-question \.tc-checkpoint-inline/);
+ assert.match(css,/tc-checkpoint-inline \.tc-checkpoint-option/);
+ assert.match(css,/@media\(max-width:620px\)/);
+ assert.match(member,/talia-live-lesson-v1\.css\?v=20261105-checkpoint-inline1/);
+ assert.match(staff,/talia-live-lesson-v1\.css\?v=20261105-checkpoint-inline1/);
 });

@@ -56,3 +56,81 @@
 
 /* Avoid a character-by-character announcement flood: full text is accessible once. */
 .tc-body .tc-screen-reader-only{position:absolute!important;width:1px!important;height:1px!important;padding:0!important;margin:-1px!important;overflow:hidden!important;clip:rect(0 0 0 0)!important;white-space:nowrap!important;border:0!important}
+
+
+/* The active ungraded checkpoint is part of Talia's message, never below the
+   general chat composer. Let learners read the question and answer in one view. */
+html body.tc-body .tc-transcript:has(.tc-checkpoint-inline){
+ max-height:min(70dvh,740px);
+ scroll-padding-block:8px 20px;
+}
+html body.tc-body .tc-message.tc-message-question{
+ box-sizing:border-box;
+ align-self:stretch;
+ width:100%;
+ max-width:100%;
+ border-color:#5c9f9a;
+}
+html body.tc-body .tc-message-question .tc-checkpoint-inline{
+ margin:14px 0 0;
+ padding:13px;
+ border:1px solid #70d5bc;
+ box-shadow:none;
+ border-radius:10px;
+ background:#0b2b38;
+ white-space:normal;
+}
+html body.tc-body .tc-message-question .tc-checkpoint-inline .tc-checkpoint-context{
+ font-size:13px!important;
+ line-height:1.5!important;
+ margin:4px 0 12px;
+ color:#cce8e6;
+}
+html body.tc-body .tc-message-question .tc-checkpoint-inline fieldset{
+ min-width:0;
+ padding:12px;
+}
+html body.tc-body .tc-message-question .tc-checkpoint-inline .tc-checkpoint-option{
+ display:grid;
+ grid-template-columns:20px 22px minmax(0,1fr);
+ align-items:start;
+ gap:8px;
+ padding:9px 10px;
+ min-width:0;
+ margin:6px 0;
+ border:1px solid #4b7788;
+ background:#16364a;
+ color:#f5ffff;
+}
+html body.tc-body .tc-message-question .tc-checkpoint-inline .tc-checkpoint-option:hover{
+ border-color:#73d5c2;
+ background:#1b4557;
+}
+html body.tc-body .tc-message-question .tc-checkpoint-inline .tc-checkpoint-option:has(input:checked){
+ border-color:#83f2d0;
+ background:#1c5357;
+}
+html body.tc-body .tc-message-question .tc-checkpoint-inline .tc-answer-letter{
+ font-weight:700;
+ font-variant-numeric:tabular-nums;
+ color:#a9efde;
+}
+html body.tc-body .tc-message-question .tc-checkpoint-inline .tc-row{
+ display:flex;
+ flex-wrap:wrap;
+ gap:8px;
+}
+html body.tc-body .tc-message-question .tc-checkpoint-inline button{
+ white-space:normal;
+ min-height:42px;
+}
+@media(max-width:620px){
+ html body.tc-body .tc-transcript:has(.tc-checkpoint-inline){max-height:min(72dvh,720px)}
+ html body.tc-body .tc-message-question .tc-checkpoint-inline{padding:9px}
+ html body.tc-body .tc-message-question .tc-checkpoint-inline fieldset{padding:8px}
+ html body.tc-body .tc-message-question .tc-checkpoint-inline .tc-checkpoint-option{
+   grid-template-columns:20px 18px minmax(0,1fr);
+   padding:8px;
+ }
+ html body.tc-body .tc-message-question .tc-checkpoint-inline .tc-row button{flex:1 1 160px}
+}
