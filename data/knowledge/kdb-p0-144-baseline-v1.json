@@ -1,0 +1,875 @@
+{
+  "schema": "smfgu.knowledge.p0_manifest.v1",
+  "version": "1.0",
+  "date": "2026-11-04",
+  "source": "live Supabase",
+  "issue": 106,
+  "independent_editorial_acceptance": false,
+  "precondition": "144 published visible docs with one exact 3-clause publication-status contradiction",
+  "articles": [
+    {
+      "slug": "research-study-acc-dist-line",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-advance-decline",
+      "version": 5,
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-adx",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-anchored-vwap",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-aroon",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-aroon-oscillator",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-atr",
+      "version": 5,
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-atrp",
+      "version": 5,
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-bollinger-bands",
+      "version": 5,
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-bollinger-bandwidth",
+      "version": 5,
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-bollinger-percent-b",
+      "version": 5,
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-cci",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-chaikin-oscillator",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-chandelier-exit",
+      "version": 5,
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-choppiness",
+      "version": 5,
+      "subject": "Advanced Indicators / Volatility",
+      "learning_level": "professional"
+    },
+    {
+      "slug": "research-study-cmf",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-dema",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-directional-movement",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-dollar-volume",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-donchian-channels",
+      "version": 5,
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-dpo",
+      "version": 5,
+      "subject": "Advanced Indicators / Cycles",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-elder-ray",
+      "version": 5,
+      "subject": "Advanced Indicators / Trend",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-ema",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-emv",
+      "version": 5,
+      "subject": "Advanced Indicators / Volume",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-fibonacci-retracement",
+      "version": 5,
+      "subject": "Technical Indicators / Levels",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-fisher-transform",
+      "version": 5,
+      "subject": "Advanced Indicators / Momentum",
+      "learning_level": "professional"
+    },
+    {
+      "slug": "research-study-force-index",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-historical-volatility",
+      "version": 5,
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-hma",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-ichimoku",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-kama",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-keltner-channels",
+      "version": 5,
+      "subject": "Technical Indicators / Volatility",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-kst",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-macd",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-macd-histogram",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-mass-index",
+      "version": 5,
+      "subject": "Advanced Indicators / Volatility",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-matched-time-rvol",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-mcclellan-osc",
+      "version": 5,
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-mfi",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-moving-average-ribbon",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-new-highs-lows",
+      "version": 5,
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-nvi",
+      "version": 5,
+      "subject": "Advanced Indicators / Volume",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-obv",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-parabolic-sar",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-percent-above-ma",
+      "version": 5,
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-pivot-points",
+      "version": 5,
+      "subject": "Technical Indicators / Levels",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-ppo",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-price-momentum",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-price-relative",
+      "version": 5,
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-put-call-ratio",
+      "version": 5,
+      "subject": "Technical Indicators / Sentiment",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-pvi",
+      "version": 5,
+      "subject": "Advanced Indicators / Volume",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-pvo",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-roc",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-rsi",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-rvol",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-sctr",
+      "version": 5,
+      "subject": "Technical Indicators / Breadth",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-stoch-rsi",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-stochastic",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-strategy-abcd",
+      "version": 5,
+      "subject": "Strategy Research / Structure",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-after-hours-scanner",
+      "version": 5,
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-afternoon-vwap-hold",
+      "version": 5,
+      "subject": "Strategy Research / Late-Day",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-afternoon-vwap-scan",
+      "version": 5,
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-alpha-anomaly",
+      "version": 5,
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "professional"
+    },
+    {
+      "slug": "research-study-strategy-alpha-manual",
+      "version": 5,
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-backside-short",
+      "version": 5,
+      "subject": "Strategy Research / Trend Breakdown",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-blue-sky-break",
+      "version": 5,
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-bounce-day",
+      "version": 5,
+      "subject": "Strategy Research / Multi-Day Reversal",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-cash-no-trigger",
+      "version": 5,
+      "subject": "Strategy Research / No Trade",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-day-three-squeeze",
+      "version": 5,
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-dip-and-rip",
+      "version": 5,
+      "subject": "Strategy Research / Morning Momentum",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-dip-rip-scanner",
+      "version": 5,
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-dollar-cross",
+      "version": 5,
+      "subject": "Strategy Research / Price Level",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-ema21-pullback",
+      "version": 5,
+      "subject": "Strategy Research / Technical Pullback",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-first-green-day",
+      "version": 5,
+      "subject": "Strategy Research / Multi-Day",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-first-green-overnight",
+      "version": 5,
+      "subject": "Strategy Research / Multi-Day",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-first-red-day",
+      "version": 5,
+      "subject": "Strategy Research / Exhaustion",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-flux-afternoon",
+      "version": 5,
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-friday-squeeze",
+      "version": 5,
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-gap-and-fade",
+      "version": 5,
+      "subject": "Strategy Research / Gap Reversal",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-high-low-scanner",
+      "version": 5,
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-hod-break",
+      "version": 5,
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-hod-scanner",
+      "version": 5,
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-iris-score",
+      "version": 5,
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "professional"
+    },
+    {
+      "slug": "research-study-strategy-long-dated-options",
+      "version": 5,
+      "subject": "Strategy Research / Options Setup",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-low-float-gapper",
+      "version": 5,
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-morning-fader",
+      "version": 5,
+      "subject": "Strategy Research / Morning Momentum",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-multi-day-breakout",
+      "version": 5,
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-oracle-double-tap",
+      "version": 5,
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "professional"
+    },
+    {
+      "slug": "research-study-strategy-oracle-signal",
+      "version": 5,
+      "subject": "Strategy Research / Vendor Signal Research",
+      "learning_level": "professional"
+    },
+    {
+      "slug": "research-study-strategy-panic-dip-buy",
+      "version": 5,
+      "subject": "Strategy Research / Panic Reversal",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-panic-point-break",
+      "version": 5,
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-pdh-break",
+      "version": 5,
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-pmh-break",
+      "version": 5,
+      "subject": "Strategy Research / Breakout",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-rct",
+      "version": 5,
+      "subject": "Strategy Research / Premarket Momentum",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-red-green-scanner",
+      "version": 5,
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-red-to-green",
+      "version": 5,
+      "subject": "Strategy Research / Reversal",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-resistance-breakout",
+      "version": 5,
+      "subject": "Strategy Research / Technical Breakout",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-short-dated-options",
+      "version": 5,
+      "subject": "Strategy Research / Options Setup",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-short-promotion",
+      "version": 5,
+      "subject": "Strategy Research / Exhaustion",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-short-squeeze",
+      "version": 5,
+      "subject": "Strategy Research / Squeeze Momentum",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-space-theme",
+      "version": 5,
+      "subject": "Strategy Research / Theme Scanner",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-squeeze-scanner",
+      "version": 5,
+      "subject": "Strategy Research / Scanner",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-supernova",
+      "version": 5,
+      "subject": "Strategy Research / Penny Stock",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-support-bounce",
+      "version": 5,
+      "subject": "Strategy Research / Technical Reversal",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-three-times-lady",
+      "version": 5,
+      "subject": "Strategy Research / Options Setup",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-trendline-break",
+      "version": 5,
+      "subject": "Strategy Research / Technical Breakout",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-vwap-bounce",
+      "version": 5,
+      "subject": "Strategy Research / Reversal",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-strategy-whole-half-dollar",
+      "version": 5,
+      "subject": "Strategy Research / Price Level",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-supertrend",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-tema",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-trix",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-tsi",
+      "version": 5,
+      "subject": "Advanced Indicators / Momentum",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-ulcer-index",
+      "version": 5,
+      "subject": "Advanced Indicators / Risk",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-ultimate-oscillator",
+      "version": 5,
+      "subject": "Advanced Indicators / Momentum",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-vix-context",
+      "version": 5,
+      "subject": "Technical Indicators / Sentiment",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-volume-profile",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-volume-sma",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-vortex",
+      "version": 5,
+      "subject": "Advanced Indicators / Trend",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-vwap",
+      "version": 8,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-vwap-bands",
+      "version": 5,
+      "subject": "Technical Indicators / Volume",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-watch-alert-trigger",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-candidate-state",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-catalyst-scan",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-data-freshness",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-discovery-filters",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-dynamic-snapshot",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-event-calendar",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-halt-ssr-borrow",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-historical-runners",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-identity-corporate",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-level-map",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-liquidity-scan",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-multi-timeframe-watch",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-no-trade-ledger",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-premarket-scan",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-rank-review-queue",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-relative-volume-scan",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-risk-first-score",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-sector-relative",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-strategy-lanes",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-universe-build",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-watch-watchlist-purpose",
+      "version": 5,
+      "subject": "Watchlists and Scanners / Advanced Watchlist",
+      "learning_level": "advanced"
+    },
+    {
+      "slug": "research-study-williams-r",
+      "version": 5,
+      "subject": "Technical Indicators / Momentum",
+      "learning_level": "intermediate"
+    },
+    {
+      "slug": "research-study-wma",
+      "version": 5,
+      "subject": "Technical Indicators / Trend",
+      "learning_level": "intermediate"
+    }
+  ]
+}
