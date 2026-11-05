@@ -33,3 +33,14 @@ test('P0 retains authenticated membership ceilings, privacy resets and accessibl
  assert.ok(css.includes('@media(max-width:620px)'));
  assert.doesNotMatch(s,/allowModel:true|masteryAwarded:true|officialGrade:true/);
 });
+
+test('P0 genuine James_Test browser journey is pinned, private, ungraded and checks interruption/resume',()=>{
+ const qa=readFileSync('tests/talia-classroom-real-member-depth-v2.mjs','utf8');
+ for(const clause of ['const checkpoint=page.locator(\'.tc-checkpoint\')',
+  'await answer.check()','Explain this completed candle','submittedBody.mode',
+  'submittedBody.allowModel,false','await checkpoint.getByRole(\'button\',{name:\'Check my answer\'}).click()',
+  'Pause automatic fictional candle playback'])
+  assert.ok(qa.includes(clause),clause);
+ assert.ok(qa.includes("assert.equal(deployed,true"),'exact deployment SHA preserved');
+ assert.ok(qa.includes("assert.equal(member.id,USER"),'James_Test identity remains strict');
+});
