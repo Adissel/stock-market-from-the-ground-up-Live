@@ -44,3 +44,9 @@ test('P0 genuine James_Test browser journey is pinned, private, ungraded and che
  assert.ok(qa.includes("assert.equal(deployed,true"),'exact deployment SHA preserved');
  assert.ok(qa.includes("assert.equal(member.id,USER"),'James_Test identity remains strict');
 });
+
+test('P0 clarification cannot accidentally send numeric review data',()=>{
+ assert.ok(s.includes("const isReviewPractice=selectedMode==='review'&&practiceCase!=='none'"));
+ assert.ok(s.includes("...(isReviewPractice?{formativePractice:"));
+ assert.ok(s.includes("'Explain this completed candle':'Explain this topic'"));
+});

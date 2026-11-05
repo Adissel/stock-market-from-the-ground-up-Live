@@ -629,7 +629,8 @@ function Classroom(){
     setPlaying(false);
     if(q.length<4||q.length>450){setStatus('Question must contain 4–450 characters.');return}
     if(selectedMode==='review'&&!learnerInput.trim()){setStatus('Provide your reasoning to request an ungraded review.');return}
-    if(practiceCase!=='none'&&!/^[-+]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(practiceValue.trim())){
+    const isReviewPractice=selectedMode==='review'&&practiceCase!=='none';
+    if(isReviewPractice&&!/^[-+]?(?:\d+(?:\.\d+)?|\.\d+)$/.test(practiceValue.trim())){
       setStatus('Enter one finite decimal result for the selected fictional calculation.');return;
     }
     const targetId=member.id,version=epoch.current;
@@ -643,7 +644,7 @@ function Classroom(){
         headers:{authorization:'Bearer '+access,'content-type':'application/json'},
         body:JSON.stringify({question:labQuestion(instructionalQuestion(q)),mode:selectedMode,learnerAnswer:learnerInput.trim().slice(0,1800),
           requestId:crypto.randomUUID(),allowModel:false,saveHistory:currentSave,conversationId:thread,
-          ...(practiceCase!=='none'?{formativePractice:{caseId:practiceCase,submitted:practiceValue.trim(),labId:labHandoff?.id||'TALIA_CLASSROOM'}}:{})})});
+          ...(isReviewPractice?{formativePractice:{caseId:practiceCase,submitted:practiceValue.trim(),labId:labHandoff?.id||'TALIA_CLASSROOM'}}:{})})});
       const result=await res.json().catch(()=>null);
       if(controller.signal.aborted||version!==epoch.current||identity.current!==targetId)return;
       if(!res.ok||result?.ok!==true||typeof result.answer!=='string'||!result.answer.trim())
@@ -910,7 +911,7 @@ function Classroom(){
         <strong>Checkpoint paused · Questions are welcome</strong>
         <p>Talia can explain this completed candle without grading the open question. Your selected answer and retries stay in place. Playback resumes only when you complete or skip the checkpoint.</p>
         <div className="tc-row">
-          <button type="button" className="tc-secondary" disabled={busy||!teachingCatalog} onClick={()=>void teachSelected('explain')}>Explain this completed candle</button>
+          <button type="button" className="tc-secondary" disabled={busy||!teachingCatalog} onClick={()=>void teachSelected('explain')}>{teachingCatalog?.lessons.find(x=>x.id===teachingTopic)?.chart?'Explain this completed candle':'Explain this topic'}</button>
           <button type="button" className="tc-secondary" disabled={busy} onClick={()=>setQuestion('Please clarify what is observable in the completed fictional candle without telling me the next price direction.')}>Write a clarification question</button>
         </div>
       </div>:!playing&&visible<REPLAY.length&&<div className="tc-p0-interruption" role="group" aria-label="Resume the paused fictional replay">
