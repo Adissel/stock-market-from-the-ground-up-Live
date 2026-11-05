@@ -16,6 +16,7 @@ jobs:
       GH_TOKEN: ${{ github.token }}
       TARGET_BRANCH: ${{ github.event.ref }}
       TARGET_REF_TYPE: ${{ github.event.ref_type }}
+      APPROVED_ARCHIVE_BRANCH: archive/obsolete-ci-20261104
     steps:
       - name: Audit main or archive and remove newly created non-main branch
         shell: bash
@@ -37,17 +38,22 @@ jobs:
               print(text,flush=True)
               with open(os.environ["GITHUB_STEP_SUMMARY"],"a") as f:f.write(text+"\n")
           event=os.environ["GITHUB_EVENT_NAME"]
+          archive=os.environ["APPROVED_ARCHIVE_BRANCH"]
+          allowed={"main",archive}
           if event=="push":
               branches=call("GET","/branches?per_page=100")
               names=[b["name"] for b in branches]
               note("## Main-only branch policy audit")
               note("Branches: "+", ".join(names))
-              if names!=["main"]:raise RuntimeError("Repository contains non-main branches")
-              note("**PASS: only main exists.**")
+              if "main" not in names or any(name not in allowed for name in names):raise RuntimeError("Repository contains non-approved branches")
+              note("**PASS: only main and the explicitly approved CI archive may exist.**")
               sys.exit(0)
           if event!="create" or os.environ.get("TARGET_REF_TYPE")!="branch":sys.exit(0)
           name=os.environ.get("TARGET_BRANCH","")
           if not name or name=="main":sys.exit(0)
+          if name==archive:
+              note("Approved read-only CI recovery archive branch retained: "+name)
+              sys.exit(0)
           current=call("GET","/git/ref/heads/"+ref(name))
           sha=current["object"]["sha"]
           main=call("GET","/git/ref/heads/main")["object"]["sha"]
