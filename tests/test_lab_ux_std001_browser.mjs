@@ -74,7 +74,8 @@ try{
   await target.getByRole('button',{name:'Next learning stage'}).click();
   assert.equal(await target.locator('.gu-l33-graphic').count(),1,'Practice must show its candle');
   assert.match(await target.locator('.gu-l33-metrics').innerText(),/Calculate/,'Do not pre-reveal numeric result');
-  await target.locator('input[type="number"]').fill('50');
+  // Two numerical inputs coexist: Talia's question and the Lab's independent practice.
+  await target.getByRole('spinbutton',{name:'My calculation (%)'}).fill('50');
   await target.getByRole('button',{name:'Check calculation'}).click();
   assert.match(await target.innerText(),/Calculation completed/);
   await target.getByRole('button',{name:'Next learning stage'}).click();
