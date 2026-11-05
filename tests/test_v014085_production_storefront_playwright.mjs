@@ -116,16 +116,30 @@ try{
    if(founderVisible){
     await main.waitForFunction(()=>document.querySelectorAll('#store-founder-plans .catalog-founder-card').length>0,
      {timeout:22000});
-    const latestResponse=await main.request.get(base+'/api/storefront-public-catalog',{headers:{'cache-control':'no-cache'}});
-    assert.ok(latestResponse.ok(),'Published Founder catalog must be verifiable');
-    const latest=await latestResponse.json();
+    let latest;
+    if(isLocal){
+     const response=await main.evaluate(async()=>{const r=await fetch('/api/storefront-public-catalog',{cache:'no-store'});return {ok:r.ok,data:await r.json()};});
+     assert.ok(response.ok,'Published Founder catalog must be verifiable in local fixture');
+     latest=response.data;
+    }else{
+     const response=await main.request.get(base+'/api/storefront-public-catalog',{headers:{'cache-control':'no-cache'}});
+     assert.ok(response.ok(),'Published Founder catalog must be verifiable');
+     latest=await response.json();
+    }
     assert.equal(latest.source,'verified_storefront');
     const currentCodes=latest.items.filter(x=>x.category==='founding'&&
      founderCodes.some(c=>x.sku==='founding:'+c)).map(x=>x.sku.slice('founding:'.length));
     assert.ok(currentCodes.length>0,'No currently published Founder SKU');
-    const termsResponse=await main.request.get(base+'/data/founding-catalog.json');
-    assert.ok(termsResponse.ok(),'Current Founder pricing must be available');
-    const terms=await termsResponse.json();
+    let terms;
+    if(isLocal){
+     const response=await main.evaluate(async()=>{const r=await fetch('/data/founding-catalog.json',{cache:'no-store'});return {ok:r.ok,data:await r.json()};});
+     assert.ok(response.ok,'Current Founder terms fixture must be available');
+     terms=response.data;
+    }else{
+     const response=await main.request.get(base+'/data/founding-catalog.json');
+     assert.ok(response.ok(),'Current Founder pricing must be available');
+     terms=await response.json();
+    }
     const titles=await main.locator('#store-founder-plans .catalog-founder-card h3').allTextContents();
     verifiedFounderCount=titles.length;
     assert.ok(verifiedFounderCount>=1&&verifiedFounderCount<=3,
@@ -252,7 +266,8 @@ try{
    await main.locator('#store-tab-'+(founderVisible?'founders':'books')).click();
    const result=await new AxeBuilder({page:main}).withTags(['wcag2a','wcag2aa','wcag21a','wcag21aa']).analyze();
    const serious=result.violations.filter(v=>['critical','serious'].includes(v.impact));
-   assert.equal(serious.length,0,serious.map(v=>v.id+': '+v.nodes.length).join('; '));
+   const diagnostic=serious.map(v=>({rule:v.id,impact:v.impact,nodes:v.nodes.slice(0,8).map(n=>({target:n.target,html:String(n.html||'').slice(0,240),reason:String(n.failureSummary||'').slice(0,400)}))}));
+   assert.equal(serious.length,0,JSON.stringify(diagnostic).slice(0,3900));
    return 'No serious/critical automated issues; not manual WCAG certification';
  });
  for(const [i,path] of named.entries()){
