@@ -1,0 +1,1465 @@
+{
+  "schema": "smfgu.talia.kdb.interactive.batch.v1",
+  "documentId": "SMFGU-TALIA-KDB-BATCH03-20261104",
+  "date": "2026-11-04",
+  "version": "1.0",
+  "project": "THE STOCK MARKET: FROM THE GROUND UP",
+  "projectId": "oxihglyfgzywsupnyicb",
+  "batch": 3,
+  "numberOfLessons": 50,
+  "trainingSurface": "Talia Classroom / Knowledge Database",
+  "status": "INTERACTIVE_SOURCE_LINKED_BETA_NOT_INDEPENDENTLY_APPROVED",
+  "source": "published visible gu_knowledge_articles_v1; content fetched after existing per-member authorization",
+  "lessons": [
+    {
+      "ordinal": 67,
+      "slug": "research-study-bollinger-percent-b",
+      "title": "Bollinger Percent B — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volatility",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 68,
+      "slug": "research-study-chandelier-exit",
+      "title": "Chandelier Exit — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volatility",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 69,
+      "slug": "research-study-donchian-channels",
+      "title": "Donchian Price Channels — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volatility",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 70,
+      "slug": "research-study-historical-volatility",
+      "title": "Historical Volatility — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volatility",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 2,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 71,
+      "slug": "research-study-keltner-channels",
+      "title": "Keltner Channels — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volatility",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 72,
+      "slug": "research-study-acc-dist-line",
+      "title": "Accumulation Distribution Line — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 73,
+      "slug": "research-study-anchored-vwap",
+      "title": "Anchored VWAP — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 74,
+      "slug": "research-study-volume-sma",
+      "title": "Average Volume — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 75,
+      "slug": "research-study-cmf",
+      "title": "Chaikin Money Flow — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 76,
+      "slug": "research-study-chaikin-oscillator",
+      "title": "Chaikin Oscillator — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 77,
+      "slug": "research-study-dollar-volume",
+      "title": "Dollar Volume — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 78,
+      "slug": "research-study-force-index",
+      "title": "Force Index — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 79,
+      "slug": "research-study-matched-time-rvol",
+      "title": "Matched-Time Relative Volume — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 80,
+      "slug": "research-study-mfi",
+      "title": "Money Flow Index — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 81,
+      "slug": "research-study-obv",
+      "title": "On Balance Volume — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 82,
+      "slug": "research-study-pvo",
+      "title": "Percentage Volume Oscillator — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 83,
+      "slug": "research-study-rvol",
+      "title": "Relative Volume — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 84,
+      "slug": "research-study-volume-profile",
+      "title": "Volume by Price or Volume Profile — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 85,
+      "slug": "research-study-vwap-bands",
+      "title": "VWAP Deviation Bands — calculation and chart interpretation",
+      "subject": "Technical Indicators / Volume",
+      "learningLevel": "intermediate",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 86,
+      "slug": "research-study-strategy-blue-sky-break",
+      "title": "52 Week High Blue Sky Break — evidence and risk research",
+      "subject": "Strategy Research / Breakout",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 87,
+      "slug": "research-study-strategy-hod-break",
+      "title": "High of Day Break — evidence and risk research",
+      "subject": "Strategy Research / Breakout",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 88,
+      "slug": "research-study-strategy-multi-day-breakout",
+      "title": "Multi-Day Breakout — evidence and risk research",
+      "subject": "Strategy Research / Breakout",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 89,
+      "slug": "research-study-strategy-pmh-break",
+      "title": "Premarket High Break — evidence and risk research",
+      "subject": "Strategy Research / Breakout",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 90,
+      "slug": "research-study-strategy-pdh-break",
+      "title": "Prior Day High Break — evidence and risk research",
+      "subject": "Strategy Research / Breakout",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 91,
+      "slug": "research-study-strategy-first-red-day",
+      "title": "First Red Day — evidence and risk research",
+      "subject": "Strategy Research / Exhaustion",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 92,
+      "slug": "research-study-strategy-short-promotion",
+      "title": "Promotional Stock Short Research — evidence and risk research",
+      "subject": "Strategy Research / Exhaustion",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 93,
+      "slug": "research-study-strategy-gap-and-fade",
+      "title": "Gap and Fade — evidence and risk research",
+      "subject": "Strategy Research / Gap Reversal",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 94,
+      "slug": "research-study-strategy-afternoon-vwap-hold",
+      "title": "Afternoon VWAP Hold — evidence and risk research",
+      "subject": "Strategy Research / Late-Day",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 95,
+      "slug": "research-study-strategy-dip-and-rip",
+      "title": "Dip and Rip — evidence and risk research",
+      "subject": "Strategy Research / Morning Momentum",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 96,
+      "slug": "research-study-strategy-morning-fader",
+      "title": "Morning Fader — evidence and risk research",
+      "subject": "Strategy Research / Morning Momentum",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 97,
+      "slug": "research-study-strategy-first-green-day",
+      "title": "First Green Day — evidence and risk research",
+      "subject": "Strategy Research / Multi-Day",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 98,
+      "slug": "research-study-strategy-first-green-overnight",
+      "title": "First Green Day Overnight — evidence and risk research",
+      "subject": "Strategy Research / Multi-Day",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 99,
+      "slug": "research-study-strategy-bounce-day",
+      "title": "Bounce Day — evidence and risk research",
+      "subject": "Strategy Research / Multi-Day Reversal",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 100,
+      "slug": "research-study-strategy-cash-no-trigger",
+      "title": "No Trigger Cash Hold — evidence and risk research",
+      "subject": "Strategy Research / No Trade",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 101,
+      "slug": "research-study-strategy-long-dated-options",
+      "title": "Long Dated Options Pullback — evidence and risk research",
+      "subject": "Strategy Research / Options Setup",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 102,
+      "slug": "research-study-strategy-short-dated-options",
+      "title": "Short Dated Options Breakout — evidence and risk research",
+      "subject": "Strategy Research / Options Setup",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 103,
+      "slug": "research-study-strategy-three-times-lady",
+      "title": "Three Times a Lady Breakout — evidence and risk research",
+      "subject": "Strategy Research / Options Setup",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 104,
+      "slug": "research-study-strategy-panic-dip-buy",
+      "title": "Morning Panic Dip Buy — evidence and risk research",
+      "subject": "Strategy Research / Panic Reversal",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 105,
+      "slug": "research-study-strategy-supernova",
+      "title": "Supernova Framework — evidence and risk research",
+      "subject": "Strategy Research / Penny Stock",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 106,
+      "slug": "research-study-strategy-rct",
+      "title": "Red Candle Theory first-red reset — evidence and risk research",
+      "subject": "Strategy Research / Premarket Momentum",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 107,
+      "slug": "research-study-strategy-dollar-cross",
+      "title": "Dollar Cross — evidence and risk research",
+      "subject": "Strategy Research / Price Level",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 108,
+      "slug": "research-study-strategy-whole-half-dollar",
+      "title": "Whole and Half Dollar Break — evidence and risk research",
+      "subject": "Strategy Research / Price Level",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 109,
+      "slug": "research-study-strategy-red-to-green",
+      "title": "Red to Green — evidence and risk research",
+      "subject": "Strategy Research / Reversal",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 110,
+      "slug": "research-study-strategy-vwap-bounce",
+      "title": "VWAP Bounce — evidence and risk research",
+      "subject": "Strategy Research / Reversal",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 111,
+      "slug": "research-study-strategy-after-hours-scanner",
+      "title": "After Hours Scanner — evidence and risk research",
+      "subject": "Strategy Research / Scanner",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 112,
+      "slug": "research-study-strategy-afternoon-vwap-scan",
+      "title": "Afternoon VWAP Hold Scanner — evidence and risk research",
+      "subject": "Strategy Research / Scanner",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 113,
+      "slug": "research-study-strategy-dip-rip-scanner",
+      "title": "Dip and Rip Scanner — evidence and risk research",
+      "subject": "Strategy Research / Scanner",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 114,
+      "slug": "research-study-strategy-high-low-scanner",
+      "title": "High Low Ticker Scanner — evidence and risk research",
+      "subject": "Strategy Research / Scanner",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 115,
+      "slug": "research-study-strategy-hod-scanner",
+      "title": "High of Day Scanner — evidence and risk research",
+      "subject": "Strategy Research / Scanner",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    },
+    {
+      "ordinal": 116,
+      "slug": "research-study-strategy-low-float-gapper",
+      "title": "Low Float Gapper Scanner — evidence and risk research",
+      "subject": "Strategy Research / Scanner",
+      "learningLevel": "advanced",
+      "sourceUrlCount": 3,
+      "sourceHosts": [],
+      "headingEvidence": {
+        "independentApplication": true,
+        "instructorExplanation": true,
+        "fictionalCase": true,
+        "misconception": true,
+        "selfCheck": true,
+        "limits": true
+      },
+      "activityContract": {
+        "explain": "authorized_article_definition",
+        "experiment": "authorized_article_fictional_case",
+        "predict": "claim_and_evidence_boundary",
+        "practice": "authorized_article_independent_application",
+        "assess": "ungraded_source_check",
+        "review": "authorized_article_instructor_explanation",
+        "transfer": "original_changed_assumption_reflection"
+      },
+      "status": "SOURCE_DERIVED_UNGRADED_INTERACTIVE_BETA",
+      "factualReview": "REQUIRES_INDEPENDENT_ITEM_LEVEL_VERIFICATION",
+      "memberAccess": "VERIFY_ON_AUTHENTICATED_ARTICLE_READ"
+    }
+  ]
+}
