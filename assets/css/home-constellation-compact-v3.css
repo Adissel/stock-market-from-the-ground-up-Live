@@ -108,7 +108,7 @@
  display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:10px!important
 }
 .gu-premium-home .gu-home-path .gu-path-card{
- min-height:155px!important;padding:14px 15px!important;gap:5px!important;
+ box-sizing:border-box!important;min-height:155px!important;padding:14px 15px!important;gap:5px!important;
  border-radius:10px!important
 }
 .gu-premium-home .gu-home-path .gu-path-icon{display:none!important}
