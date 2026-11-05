@@ -297,7 +297,7 @@ function FictionalChart({onQuestion,memberId,visible,setVisible,playing,setPlayi
         const opening=group[0][0],closing=group[group.length-1][1];
         const high=Math.max(...group.map(bar=>bar[3]));
         const low=Math.min(...group.map(bar=>bar[2]));
-        onQuestion(('Talia, explain completed simulated '+interval+'-minute candle '+(index+1)+' using only '+visible+' revealed one-minute observations. Open '+opening.toFixed(2)+', high '+high.toFixed(2)+', low '+low.toFixed(2)+', close '+closing.toFixed(2)+'. Discuss actual observed structure, not future prices or protected answers.').slice(0,450));
+        onQuestion(('Talia, explain completed simulated '+interval+'-minute candle '+(index+1)+' using only '+((index+1)*interval)+' completed one-minute observations available AT THAT BAR. Open '+opening.toFixed(2)+', high '+high.toFixed(2)+', low '+low.toFixed(2)+', close '+closing.toFixed(2)+'. Discuss actual observed structure, not future prices or protected answers.').slice(0,450));
        }}/>
      </div>:<div className="tc-chart" ref={host} role="img" onPointerUpCapture={releasePointer} onPointerCancelCapture={releasePointer} aria-label={'Simulated price chart of '+Math.floor(visible/timeframe)+' complete '+timeframe+'-minute candlesticks'} />}
     <p className="tc-muted tc-chart-sync" role="status">{prototype?visible+' completed candles revealed · Volume is simulated.':status}</p>
