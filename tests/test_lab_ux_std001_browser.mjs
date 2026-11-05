@@ -68,8 +68,9 @@ try{
    'Experiment must include the responsive interactive closing-price slider');
   await target.getByRole('button',{name:'Next learning stage'}).click();
   assert.equal(await target.locator('.gu-l33-graphic').count(),1,'Predict must show relevant candle');
-  await target.locator('textarea').first().fill('I will not assume the next completed candle is higher; I need fresh evidence.');
-  await target.getByRole('button',{name:'Lock my prediction'}).click();
+  // Predict uses a conditional evidence choice, not a required essay.
+  await target.locator('.gu-v33-prediction-choice input[type="radio"]').last().check();
+  await target.getByRole('button',{name:'Lock my conditional prediction'}).click();
   await target.getByRole('button',{name:'Next learning stage'}).click();
   assert.equal(await target.locator('.gu-l33-graphic').count(),1,'Practice must show its candle');
   assert.match(await target.locator('.gu-l33-metrics').innerText(),/Calculate/,'Do not pre-reveal numeric result');
