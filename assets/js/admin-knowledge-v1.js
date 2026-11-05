@@ -33,7 +33,7 @@ function setPlans(arr){planHost.querySelectorAll('[data-plan]').forEach(x=>x.che
 function newDoc(){
  state.id=null;state.version=null;$('ak-form').reset();$('ak-form').dataset.existing='false';
  $('ak-editor-title').textContent='Create a new article';$('ak-order').value='100';
- setPlans(['FREE']);$('ak-archive').disabled=true;$('ak-restore').disabled=true;$('ak-history').disabled=true;
+ setPlans(['FREE']);$('ak-preview-page').disabled=true;$('ak-archive').disabled=true;$('ak-restore').disabled=true;$('ak-history').disabled=true;
  $('ak-record').textContent='New article · Not yet saved';$('ak-preview-area').hidden=true;$('ak-history-area').hidden=true;
  $('ak-title').focus();
 }
@@ -66,6 +66,7 @@ function show(a){
  for(const name of field)$(name.startsWith('ak-')?name:'ak-'+name).value=asText(vals[name]);
  setPlans(a.access_plans);$('ak-visible').checked=a.is_visible===true;
  $('ak-editor-title').textContent='Edit: '+a.title;
+ $('ak-preview-page').disabled=false;
  $('ak-archive').disabled=a.deleted_at!=null;
  $('ak-restore').disabled=a.deleted_at==null;
  $('ak-history').disabled=false;
@@ -257,6 +258,12 @@ $('ak-export').addEventListener('click',exportJson);
 $('ak-upload').addEventListener('change',upload);
 $('ak-form').addEventListener('submit',save);
 $('ak-preview').addEventListener('click',preview);
+$('ak-preview-page').addEventListener('click',()=>{
+ if(!state.id){msg('Save the article before opening full-page preview.',true);return}
+ const target='/knowledge-article.html?article='+encodeURIComponent(state.id)+'&preview=1';
+ window.open(target,'_blank','noopener,noreferrer');
+ msg('Opened the last saved revision for Owner/Admin review; unsaved edits were not included.');
+});
 $('ak-history').addEventListener('click',history);
 $('ak-archive').addEventListener('click',()=>mutate('archive'));
 $('ak-restore').addEventListener('click',()=>mutate('restore'));
