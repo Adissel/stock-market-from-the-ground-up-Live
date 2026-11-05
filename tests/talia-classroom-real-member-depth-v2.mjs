@@ -174,12 +174,21 @@ try{
   assert.equal(await page.locator('#tc-teaching-topic').isVisible(),true);
   assert.equal(await page.locator('#tc-teaching-depth').isVisible(),true);
   mark('Mobile lesson and depth controls remain visible');
-  await page.evaluate(()=>{void window.getSupabaseClient().then(sb=>sb.auth.signOut({scope:'local'}))});
-  await page.goto(ORIGIN+'/signin.html',{waitUntil:'domcontentloaded',timeout:30000});
-  const after=await page.evaluate(async()=>{
-   const sb=await window.getSupabaseClient();return (await sb.auth.getSession()).data?.session||null;
+  await page.evaluate(async()=>{
+   const sb=await window.getSupabaseClient();
+   const result=await sb.auth.signOut({scope:'local'});
+   if(result.error)throw Error('Local sign-out could not be completed.');
   });
-  assert.equal(after,null);
+  await page.waitForFunction(async()=>{
+   const sb=await window.getSupabaseClient();
+   return !(await sb.auth.getSession()).data?.session;
+  },null,{timeout:15000});
+  await page.goto(ORIGIN+'/signin.html',{waitUntil:'domcontentloaded',timeout:30000});
+  const sessionRemains=await page.evaluate(async()=>{
+   const sb=await window.getSupabaseClient();
+   return !!(await sb.auth.getSession()).data?.session;
+  });
+  assert.equal(sessionRemains,false,'Member session must not persist after awaited local sign-out');
   mark('After sign-out no member session persists');
   console.log('PASS AUTHENTICATED CLASSROOM QA '+samples+' read-only lessons. Maximum depth '+catalog.maximumDepth+'. Other membership identities must be tested separately.');
  }finally{await ctx.close()}
