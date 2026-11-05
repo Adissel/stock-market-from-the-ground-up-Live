@@ -11,7 +11,7 @@ type Mode='explain'|'question'|'review'|'practice';
 type TeachingDepth='FOUNDATION'|'ADVANCED'|'PROFESSIONAL'|'ENTERPRISE';
 type LessonPhase='explain'|'demonstrate'|'practice'|'correct'|'transfer';
 type CurriculumAccess={maximumDepth:TeachingDepth;allowedDepths:TeachingDepth[];
- lessons:Array<{id:string;title:string;chart:boolean}>;ok:true};
+ lessons:Array<{id:string;title:string;chart:boolean;objective?:string;evidence?:string;limitation?:string}>;ok:true};
 type ChatLine={id:string;who:'member'|'talia';text:string;label?:string};
 type Member={id:string;access:string};
 type SupabaseSession={access_token:string;user:{id:string}};
@@ -426,6 +426,8 @@ function Classroom(){
   const [teachingPhase,setTeachingPhase]=useState<LessonPhase>('explain');
   const [teachingStarted,setTeachingStarted]=useState(false);
   const [teachingAccessError,setTeachingAccessError]=useState('');
+  const [practiceNotes,setPracticeNotes]=useState('');
+  const [viewedSteps,setViewedSteps]=useState<LessonPhase[]>([]);
   const [checkpoint,setCheckpoint]=useState<LessonQuestion|null>(null);
   const [stageIndex,setStageIndex]=useState(0);
   const [studyReport,setStudyReport]=useState({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
@@ -503,6 +505,7 @@ function Classroom(){
     setPlaying(false);setVisible(7);setLessonKind(null);setCheckpoint(null);setStageIndex(0);
     setTeachingCatalog(null);setTeachingTopic('candlesticks');setTeachingDepth('FOUNDATION');
     setTeachingPhase('explain');setTeachingStarted(false);setTeachingAccessError('');
+    setPracticeNotes('');setViewedSteps([]);
     setStudyReport({completed:0,retries:0,skipped:0,latest:'No ungraded question submitted'});
     setActiveEdition('FOUNDATION');setPremiumEvidence(null);setTypingId(null);setTypedCount(0);
     setConversationId(null);setConversationLabel('');setSave(false);
@@ -717,6 +720,7 @@ function Classroom(){
         {id:crypto.randomUUID(),who:'talia',text:result.answer.slice(0,7000),
          label:'Original '+depth.toLowerCase()+' teaching · '+phase+' · ungraded'}]);
       setTeachingStarted(true);setSessionTopic(title);
+      setViewedSteps(old=>old.includes(phase)?old:[...old,phase]);
       setStatus('Talia completed the '+phase+' step. Select another teaching step or ask a question.');
     }catch(e){
       if(version===epoch.current&&identity.current===uid)
@@ -725,6 +729,13 @@ function Classroom(){
     }finally{
       if(version===epoch.current&&identity.current===uid){setBusy(false);pending.current=null}
     }
+  };
+  const comparePractice=()=>{
+    const note=practiceNotes.trim();
+    if(note.length<3){setStatus('Write your calculation or reasoning before opening the worked check.');return}
+    setChat(old=>[...old,{id:crypto.randomUUID(),who:'member',text:'My ungraded practice notes: '+note.slice(0,1200),
+      label:'Private to this open tab · not submitted for grading'}]);
+    void teachSelected('correct');
   };
   const send=(e:React.FormEvent)=>{e.preventDefault();void submitTutor(question.trim(),mode,reasoning.trim())};
   const newConversation=async()=>{
@@ -814,27 +825,42 @@ function Classroom(){
         <span className="tc-muted">Original lessons · no grades or trading signals</span></div>
       <div className="tc-teaching-choices">
         <label htmlFor="tc-teaching-topic">Lesson topic
-          <select id="tc-teaching-topic" value={teachingTopic} onChange={e=>{setTeachingTopic(e.target.value);setTeachingStarted(false);setTeachingPhase('explain')}} disabled={!teachingCatalog||busy}>
+          <select id="tc-teaching-topic" value={teachingTopic} onChange={e=>{setTeachingTopic(e.target.value);setTeachingStarted(false);setTeachingPhase('explain');setPracticeNotes('');setViewedSteps([])}} disabled={!teachingCatalog||busy}>
             {(teachingCatalog?.lessons||[{id:'candlesticks',title:'Reading candlesticks',chart:true}]).map(t=>
               <option key={t.id} value={t.id}>{t.title}</option>)}
           </select>
         </label>
         <label htmlFor="tc-teaching-depth">Teaching depth
-          <select id="tc-teaching-depth" value={teachingDepth} onChange={e=>{setTeachingDepth(e.target.value as TeachingDepth);setTeachingStarted(false);setTeachingPhase('explain')}} disabled={!teachingCatalog||busy}>
+          <select id="tc-teaching-depth" value={teachingDepth} onChange={e=>{setTeachingDepth(e.target.value as TeachingDepth);setTeachingStarted(false);setTeachingPhase('explain');setPracticeNotes('');setViewedSteps([])}} disabled={!teachingCatalog||busy}>
             {(['FOUNDATION','ADVANCED','PROFESSIONAL','ENTERPRISE'] as const).map(t=>
               <option key={t} value={t} disabled={!teachingCatalog?.allowedDepths.includes(t)}>{t.charAt(0)+t.slice(1).toLowerCase()}{!teachingCatalog?.allowedDepths.includes(t)?' · Requires entitlement':''}</option>)}
           </select>
         </label>
         <button type="button" className="tc-teaching-start" onClick={()=>void teachSelected('explain')} disabled={!teachingCatalog||busy||!!checkpoint}>Start teaching</button>
       </div>
+      {teachingCatalog&&<div className="tc-teaching-focus" aria-label="Selected lesson learning guide">
+        <strong>{teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.title||'Learning guide'}</strong>
+        <p><b>Learning objective:</b> {teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.objective||'Observe the evidence and test your reasoning.'}</p>
+        <p><b>Evidence to inspect:</b> {teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.evidence||'Completed observations.'}</p>
+        <p><b>Limitation:</b> {teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.limitation||'An example is not a prediction.'}</p>
+        <small>{teachingCatalog.lessons.find(t=>t.id===teachingTopic)?.chart?'The nearby chart is a separate simulated example.':'This lesson uses rule-based examples; the nearby chart is optional context.'} Lesson examples do not necessarily match the chart.</small>
+      </div>}
       {teachingCatalog?<div className="tc-teaching-progress">
         <span>Included with your Tutor access: up to {teachingCatalog.maximumDepth.charAt(0)+teachingCatalog.maximumDepth.slice(1).toLowerCase()}.</span>
-        <span>Higher-tier members may select any lower teaching depth.</span></div>:
+        <span>Higher-tier members may select any lower teaching depth.</span><span>Viewed {viewedSteps.length} of 5 lesson steps in this tab · not a mastery record.</span></div>:
         <p className="tc-teaching-access" role="status">{teachingAccessError||'Checking your available lessons and membership teaching depth...'}</p>}
       {teachingStarted&&<div className="tc-teaching-steps" role="group" aria-label="Talia lesson steps">
         {([['explain','Explain'],['demonstrate','Demonstrate'],['practice','Practice'],['correct','Correct'],['transfer','Transfer']] as Array<[LessonPhase,string]>).map(([step,label])=>
           <button type="button" key={step} aria-pressed={teachingPhase===step} disabled={busy||!!checkpoint}
-            onClick={()=>void teachSelected(step)}>{label}</button>)}
+            onClick={()=>void teachSelected(step)}>{viewedSteps.includes(step)?'✓ ':''}{label}</button>)}
+      </div>}
+      {teachingStarted&&teachingPhase==='practice'&&<div className="tc-teaching-notebook">
+        <label htmlFor="tc-practice-notes">Your ungraded practice working</label>
+        <textarea id="tc-practice-notes" rows={3} maxLength={1200} value={practiceNotes}
+          onChange={e=>setPracticeNotes(e.target.value)} disabled={busy||!!checkpoint}
+          placeholder="Write your calculation, evidence, uncertainty, or why you would choose NO TRADE." />
+        <div className="tc-teaching-notebook-actions"><small>Optional local notes. Talia will show a worked reference, not automatically grade your response. These notes are not sent to the lesson API or saved in Tutor history.</small>
+          <button type="button" onClick={comparePractice} disabled={busy||!!checkpoint||practiceNotes.trim().length<3}>Compare with worked check</button></div>
       </div>}
     </section>
     {labHandoff&&<p className="tc-muted" role="note">Lab context: {labHandoff.id} · {labHandoff.stage}. Only the public registered Lab ID and learning stage are sent to Talia. Your assessment answers and progress remain in the Lab. <a href={'/labs.html?q='+encodeURIComponent(labHandoff.id)}>Return to Lab</a></p>}
