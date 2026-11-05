@@ -196,6 +196,41 @@ try{
    assert.equal(after,'FOUNDATION');
    mark('Higher-level member switches to Foundation without downgrading their entitlement');
   }
+  // P0: Genuine QA, not fabricated state. The chart lesson must remain
+  // answer-safe during an interruption; only ungraded responses are submitted.
+  await page.locator('#tc-teaching-topic').selectOption('candlesticks');
+  await page.locator('.tc-replay-options summary').click();
+  await page.getByRole('button',{name:'Pause for a question'}).click();
+  const checkpoint=page.locator('.tc-checkpoint');
+  await checkpoint.waitFor({state:'visible',timeout:10000});
+  const answer=checkpoint.locator('input[type="radio"]').nth(1);
+  await answer.check();
+  assert.equal(await answer.isChecked(),true,'Correct ungraded choice must be retained locally');
+  const beforeP0=await page.locator('.tc-transcript li').count();
+  await page.locator('.tc-p0-interruption').getByRole('button',{name:'Explain this completed candle'}).click();
+  await page.waitForFunction(expected=>document.querySelectorAll('.tc-transcript li').length>=expected,beforeP0+2,{timeout:25000});
+  assert.match(await page.locator('.tc-transcript li').last().textContent(),/I DO — READ YOUR ACTUAL FICTIONAL CHART/);
+  assert.equal(await checkpoint.isVisible(),true,'Chart explanation must not dismiss open checkpoint');
+  assert.equal(await checkpoint.locator('input[type="radio"]').nth(1).isChecked(),true,'Interruption must not erase the learner choice');
+  assert.equal(await page.locator('.tc-p0-interruption').getByRole('button',{name:'Resume candle replay'}).count(),0,
+   'Never permit replay to resume while a checkpoint is open');
+  const composer=page.locator('#tc-question');
+  assert.equal(await composer.isEnabled(),true,'Text clarification must be available while replay is paused');
+  await composer.fill('Please explain the difference between upper and lower wicks in a completed candle.');
+  const chatRequest=page.waitForRequest(req=>new URL(req.url()).pathname==='/api/market-tutor'&&req.method()==='POST',{timeout:15000});
+  await page.getByRole('button',{name:'Send to Talia'}).click();
+  const submitted=await chatRequest;
+  const submittedBody=submitted.postDataJSON();
+  assert.equal(submittedBody.mode,'explain','Checkpoint interruptions must only request source-grounded explanation');
+  assert.equal(submittedBody.allowModel,false,'Never invoke paid Tutor inference');
+  await page.waitForFunction(()=>!document.querySelector('.tc-wait'),null,{timeout:25000});
+  assert.equal(await checkpoint.isVisible(),true,'Freeform clarification must not close the ungraded checkpoint');
+  assert.equal(await checkpoint.locator('input[type="radio"]').nth(1).isChecked(),true,'Freeform clarification must retain learner choice');
+  await checkpoint.getByRole('button',{name:'Check my answer'}).click();
+  await page.waitForFunction(()=>!document.querySelector('.tc-checkpoint'),null,{timeout:10000});
+  assert.equal(await page.getByRole('button',{name:'Pause automatic fictional candle playback'}).isVisible(),true,
+   'Successful ungraded practice should resume the fictional chart');
+  mark('Genuine P0 chart-grounded interruption, preserved answer, source-only clarification and replay resumption');
   await page.setViewportSize({width:390,height:844});
   assert.equal(await page.locator('#tc-teaching-topic').isVisible(),true);
   assert.equal(await page.locator('#tc-teaching-depth').isVisible(),true);
