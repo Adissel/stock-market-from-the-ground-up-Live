@@ -52,7 +52,7 @@ assert(guided.includes('gu-v2-apply-feedback'),'Sizing action must explain missi
 assert(guided.includes("current.dispatchEvent(new Event('input'"),'Eligible action must update planned quantity');
 const sim=get('simulator.html'),simMode=get('assets/js/simulator-mode-v014112.js'),
   replay=get('assets/js/verified-replay-v01492.js'),policy=get('functions/_lib/fictional-replay-policy-v1.js');
-assert.match(sim, /<button[^>]*id="sim-mode-server"[^>]*aria-pressed="true"[^>]*>Server-Controlled\s+Replay \(default\)<\/button>/, 'Server-controlled original scenario must remain the default');
+assert.match(sim, /<button[^>]*id="sim-mode-server"[^>]*aria-pressed="true"[^>]*>Server-Controlled[^<]*Replay \(default\)<\/button>/, 'The server-controlled source-safe replay must remain selected by default');
 assert(sim.includes('No real market history or confirmed fills are implied.'), 'Default scenario must disclose that it is not historical data or verified execution');
 assert(sim.includes('verified-replay.html?scope=historical'),'Licensed historical training remains separate');
 assert(replay.includes("const embedded=!!document.getElementById('sim-server-mode')"));
