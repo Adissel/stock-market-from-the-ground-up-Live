@@ -100,7 +100,7 @@ export async function onRequest({request,env}){
   const u=new URL(request.url),a=u.searchParams.get('action')||'list',c=cfg(env);
   if(request.method==='GET'&&a==='list'){
    const page=Math.max(0,Math.min(100,Number.parseInt(u.searchParams.get('page')||'0',10)||0));
-   const q='select='+publicSelect+'&status=eq.published&is_visible=eq.true&deleted_at=is.null&order=sort_order.asc,updated_at.desc&limit=100&offset='+(page*100);
+   const q='select='+publicSelect+'&status=eq.published&is_visible=eq.true&deleted_at=is.null&order=sort_order.asc,updated_at.desc,id.asc&limit=100&offset='+(page*100);
    const articles=await rows(c,'gu_knowledge_articles_v1',q);
    return reply({ok:true,articles:articles.map(slim),page,hasMore:articles.length===100,
     note:'Existing 38 free educational references remain available separately.'});
