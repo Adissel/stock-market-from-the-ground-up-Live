@@ -14,6 +14,7 @@ const uuid=/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
 const safeSlug=/^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 const params=new URLSearchParams(location.search);
 const id=params.get('article')||params.get('id')||'',slug=params.get('slug')||'';
+const ownerPreview=params.get('preview')==='1';
 function safeLink(label,href){
  let url;try{url=new URL(String(href||''))}catch{return make('span',label)}
  if(url.protocol!=='https:')return make('span',label);
@@ -103,13 +104,15 @@ async function load(){
   const session=await token();
   if(!session){showError('Sign in to read this article','The full article is protected by your membership. Sign in to your account to continue.','sign-in');return}
   const q=new URLSearchParams({action:'read'});
+  if(ownerPreview)q.set('action','admin/preview');
   if(id)q.set('id',id);else q.set('slug',slug);
   const response=await fetch('/api/knowledge-library?'+q.toString(),{
    cache:'no-store',headers:{authorization:'Bearer '+session}});
   const data=await response.json().catch(()=>({}));
   if(!response.ok||!data.ok){
    if(response.status===401){showError('Your session has expired','Sign in again to read this article.','sign-in');return}
-   if(response.status===403){showError('Membership access required',data.error||'This article is not included in your current membership.','membership',data.requiredPlans||[]);return}
+   if(response.status===403){if(ownerPreview){showError('Owner/Admin access required',data.error||'Draft preview requires Owner or Admin authorization.','unavailable');return}
+    showError('Membership access required',data.error||'This article is not included in your current membership.','membership',data.requiredPlans||[]);return}
    showError('Article cannot be opened',data.error||'The article is unavailable.','unavailable');return
   }
   const a=data.article;
@@ -119,7 +122,8 @@ async function load(){
   el('kal-article-meta').textContent=(levels[a.learning_level]||a.learning_level)+' · '+a.subject;
   el('kal-article-summary').textContent=a.summary||'An educational research article.';
   el('kal-article-tags').replaceChildren(...(a.tags||[]).slice(0,12).map(tag=>make('span',tag)));
-  el('kal-access-status').textContent='Member access verified. This article is available to your eligible membership.';
+  el('kal-access-status').textContent=ownerPreview?'Owner/Admin review only. Unreleased content is not accessible to members.':'Member access verified. This article is available to your eligible membership.';
+  const previewBanner=el('kal-preview-banner');if(previewBanner){previewBanner.hidden=!ownerPreview;if(ownerPreview)previewBanner.textContent='OWNER / ADMIN PREVIEW · Saved revision '+(a.version||'?')+' · '+(a.status||'unreleased')+' · Not independent editorial approval.';}
   el('kal-access-plans').textContent='Membership tiers: '+(a.access_plans||[]).map(p=>tiers[p]||p).join(', ');
   const meta=document.querySelector('meta[name="description"]');
   if(meta)meta.content=String(a.summary||a.title).slice(0,260);
@@ -130,7 +134,7 @@ async function load(){
   content.hidden=false;message.hidden=true;
    // Guided lesson mounts only after the server has authenticated this article read.
    const lessonHost=el('kal-talia-classroom');
-   if(lessonHost){
+   if(lessonHost&&!ownerPreview){
     try{
      const args={article:a,element:lessonHost};
      const original=window.CrownlightKnowledgeLesson?.mount(args);
