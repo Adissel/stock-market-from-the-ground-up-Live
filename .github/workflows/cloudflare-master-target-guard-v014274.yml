@@ -62,11 +62,11 @@ jobs:
           for(const name of ['GU_PAYMENT_LIVE_LAUNCH_APPROVED','GU58_LIVE_CHECKOUT_ENABLED',
             'GU58_LIVE_WEBHOOK_ENABLED','GU_F600_LIVE_CHECKOUT_ENABLED',
             'GU_F600_LIVE_WEBHOOK_ENABLED','GU_F600_LIVE_FULFILLMENT_APPROVED']){
-            if(env[name]?.type!=='plain_text'||env[name]?.value!=='false')
-              throw Error('Nonpayment guard missing or enabled: '+name);
+            if(env[name]?.type!=='plain_text'||env[name]?.value!=='true')
+              throw Error('Owner-approved LIVE beta launch flag missing or disabled: '+name);
           }
           console.log(JSON.stringify({account:'Yahoo master',accountId:id,project,hostname:host,
             sourceRepo:p.source.config.repo_name,branch:p.production_branch,
-            nativeGithubDeploy:true,allCheckedLivePaymentFlags:false,
+            nativeGithubDeploy:true,allCheckedLivePaymentFlags:true,
             credentialPresent:true,paymentOperations:0}));
           NODE

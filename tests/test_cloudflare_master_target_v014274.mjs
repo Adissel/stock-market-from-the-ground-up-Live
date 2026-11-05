@@ -17,6 +17,9 @@ test('legacy Pages fallback is archived, not executable from main',()=>{
  assert.ok(active.includes("p.source?.config?.owner!=='Adissel'"));
  assert.ok(active.includes('stock-market-from-the-ground-up-d1r.pages.dev'));
  assert.ok(active.includes('secrets.SMFGU_LIVES_PAGES_DEPLOY'));
+ assert.ok(active.includes("env[name]?.value!=='true'"),'Owner-approved LIVE beta controls must be enabled');
+ assert.ok(active.includes('allCheckedLivePaymentFlags:true'));
+ assert.ok(existsSync(new URL('ops/release/OWNER-LIVE-SELLING-20261104.md',root)));
  assert.ok(active.includes("p.production_branch!=='main'"));
  assert.doesNotMatch(active,/9a43bc08e9db72e7187bc8c0a31710c2|5cc474054a0869a2fc0c4d0bd1c5373b/);
 });
