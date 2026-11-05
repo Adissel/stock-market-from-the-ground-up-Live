@@ -24,6 +24,20 @@
  border:1px solid #51778c;border-radius:7px;background:#183a4c;color:#eafaff;cursor:pointer}
 .tc-body .tc-teaching-steps button[aria-pressed=true]{border-color:#5be7aa;background:#155b53;color:#f5fffa}
 .tc-body .tc-teaching-steps button:disabled{opacity:.55;cursor:not-allowed}
+.tc-body .tc-teaching-focus{margin:12px 0 6px;padding:12px 14px;border:1px solid #426c81;border-radius:9px;background:#10283d;display:grid;gap:6px;line-height:1.55}
+.tc-body .tc-teaching-focus strong{font-size:15px;color:#f2ffff}
+.tc-body .tc-teaching-focus p{margin:0;font-size:13px;color:#d6edf6}
+.tc-body .tc-teaching-focus b{color:#87e6d2}
+.tc-body .tc-teaching-focus small{font-size:12px;color:#bcd4df}
+.tc-body .tc-teaching-notebook{margin:12px 0 2px;padding:12px;border:1px solid #436981;border-radius:9px;background:#10283d;display:grid;gap:8px}
+.tc-body .tc-teaching-notebook>label{font-size:14px;font-weight:700;color:#f2fbff}
+.tc-body .tc-teaching-notebook textarea{display:block;width:100%;min-height:96px;box-sizing:border-box;resize:vertical;border:1px solid #7798ae;border-radius:8px;background:#152f42;color:#fff;padding:10px 12px;font:inherit;font-size:15px;line-height:1.5}
+.tc-body .tc-teaching-notebook textarea::placeholder{color:#bbd2de}
+.tc-body .tc-teaching-notebook-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between}
+.tc-body .tc-teaching-notebook-actions small{flex:1 1 260px;color:#c1dce7;font-size:12px;line-height:1.5}
+.tc-body .tc-teaching-notebook-actions button{min-height:42px;padding:8px 13px;border:1px solid #69e5bc;border-radius:8px;background:#146554;color:#fff;font-weight:700;cursor:pointer}
+.tc-body .tc-teaching-notebook-actions button:disabled{opacity:.6;cursor:not-allowed}
+.tc-body .tc-teaching-notebook :is(button,textarea):focus-visible{outline:2px solid #a0f2de;outline-offset:3px}
 .tc-body .tc-teaching-selector :is(button,select):focus-visible{outline:2px solid #a0f2de;outline-offset:3px}
 .tc-body #talia-member-beta,.tc-body .tc-premium-bridge{display:none!important}
 @media(max-width:860px){
