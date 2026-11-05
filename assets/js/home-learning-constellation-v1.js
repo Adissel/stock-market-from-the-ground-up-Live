@@ -5,14 +5,14 @@
  const section=document.getElementById('learning-constellation');
  const host=document.getElementById('pt-experiences-root');
  if(!section||!host)return;
- const version='20261105-compact2';
+ const version='20261105-compact3';
  let started=false,dispose=null,observer=null;
  const ensureStyles=()=>{
-  if(document.querySelector('link[data-gu-constellation-compact-v2]'))return;
+  if(document.querySelector('link[data-gu-constellation-compact-v3]'))return;
   const link=document.createElement('link');
   link.rel='stylesheet';
-  link.href='/assets/css/home-constellation-compact-v2.css?v='+version;
-  link.dataset.guConstellationCompactV2='1';
+  link.href='/assets/css/home-constellation-compact-v3.css?v='+version;
+  link.dataset.guConstellationCompactV3='1';
   document.head.append(link);
  };
  const repairFooter=()=>{
@@ -43,10 +43,56 @@
    dispose=module.mountLearningConstellation(host,{publicPreview:true});
    const root=host.querySelector('.lc-app');
    if(root){
-    root.dataset.guConstellationHomeCompact='v2';
+    root.dataset.guConstellationHomeCompact='v3';
     const sub=root.querySelector('.lc-map-head > div > span');
     if(sub)sub.textContent='Select a node to study the evidence.';
    }
+   // Public homepage editorial presentation only; protected Prototype Center keeps
+   // its complete curriculum notes, full labels and original controls.
+   root.querySelector('.lc-guard')?.remove();
+   root.querySelector('.lc-detail .lc-detail-note')?.remove();
+   root.querySelector('.lc-map-tip')?.remove();
+   const hero=root.querySelector('.lc-head p');
+   if(hero)hero.textContent='Explore how nine learning stages, 419 Labs, ten authored Boot Camp paths and 73 Talia teaching guides connect. Some paths are draft beta.';
+   const tutorMetric=root.querySelector('[data-lc="tutor-num"]')?.nextElementSibling;
+   if(tutorMetric)tutorMetric.textContent='TALIA TEACHING GUIDES';
+   const tutorTab=root.querySelector('[data-mode="tutor"] span');
+   if(tutorTab)tutorTab.textContent='TALIA GUIDES';
+   const campMetric=root.querySelector('.lc-metrics > div:nth-child(2) span');
+   if(campMetric)campMetric.textContent='AUTHORED CAMP PATHS';
+   const mapText=root.querySelector('.lc-map-head > div:first-child span');
+   const modeCopy={
+    journey:'Nine approved learning stages.',
+    labs:'Research topics linked to 419 Labs.',
+    academy:'Ten authored paths; some are beta-only.',
+    tutor:'73 teaching guides, not 73 trading signals.'
+   };
+   function polish(){
+    const active=root.querySelector('.lc-tabs [data-mode].is-active')?.dataset.mode||'journey';
+    if(mapText)mapText.textContent=modeCopy[active]||modeCopy.journey;
+    const title=root.querySelector('[data-lc="aside-title"]');
+    if(title&&active==='tutor')title.textContent='Talia Guides';
+    const status=root.querySelector('[data-lc="status"]');
+    if(status&&active==='tutor')status.textContent=status.textContent.replace('Indicator Intelligence','Talia Guides');
+    const buttons={
+     focus:['Focus','Focus selected node'],
+     'stars-toggle':['Stars','Toggle starfield'],
+     interaction:[root.querySelector('[data-lc="interaction"]')?.getAttribute('aria-pressed')==='true'?'Orbit':'Pan','Toggle orbit or pan'],
+     flatten:[root.querySelector('[data-lc="flatten"]')?.getAttribute('aria-pressed')==='true'?'3D':'2D','Toggle 2D or 3D view'],
+     reset:['Reset','Reset view']
+    };
+    for(const [name,[short,accessible]] of Object.entries(buttons)){
+     const button=root.querySelector('[data-lc="'+name+'"]');
+     if(!button)continue;
+     if(button.textContent!==short)button.textContent=short;
+     button.setAttribute('aria-label',accessible);
+     button.title=accessible;
+    }
+   }
+   root.addEventListener('click',event=>{
+    if(event.target.closest('[data-lc="focus"],[data-lc="stars-toggle"],[data-lc="interaction"],[data-lc="flatten"],[data-lc="reset"],[data-mode]'))queueMicrotask(polish);
+   });
+   polish();
    repairFooter();
    observer=new MutationObserver(()=>repairFooter());
    observer.observe(host,{childList:true,subtree:true});

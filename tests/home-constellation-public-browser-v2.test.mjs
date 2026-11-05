@@ -7,22 +7,22 @@ import {resolve,extname} from 'node:path';
 import {chromium} from 'playwright';
 
 const index=readFileSync('index.html','utf8');
-assert.match(index,/home-constellation-compact-v2\.css\?v=20261105-compact2/);
+assert.match(index,/home-constellation-compact-v3\.css\?v=20261105-compact3/);
 const root=process.cwd();
 const fixture=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="/assets/css/prototype-learning-constellation-v1.css">
 <link rel="stylesheet" href="/assets/css/home-academy-wide-chart-galaxy-v1.css">
-<link rel="stylesheet" href="/assets/css/home-constellation-compact-v2.css?v=20261105-compact2">
+<link rel="stylesheet" href="/assets/css/home-constellation-compact-v3.css?v=20261105-compact3">
 </head><body>
 <footer class="footer" id="website-footer"><p>Real website footer remains after all main content.</p></footer>
 <main><section id="learning-constellation" class="gu-home-galaxy-section" aria-label="Learning Constellation">
 <div id="pt-experiences-root" class="gu-home-galaxy-host"></div></section></main>
-<script defer src="/assets/js/home-learning-constellation-v1.js?v=20261105-compact2"></script>
+<script defer src="/assets/js/home-learning-constellation-v1.js?v=20261105-compact3"></script>
 </body></html>`;
 const server=createServer((req,res)=>{
  const name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);
  if(name==='/'){res.writeHead(200,{'content-type':'text/html; charset=utf-8'});return res.end(fixture)}
- if(!/^\/(?:assets\/(?:js\/(?:home-learning-constellation-v1|prototype-learning-constellation-v1|prototype-constellation-galaxy-v2)\.js|css\/(?:prototype-learning-constellation-v1|home-academy-wide-chart-galaxy-v1|home-constellation-compact-v2)\.css)|data\/(?:competency-lab-paths-v01499|tutor-indicator-study-v1|tutor-indicator-expansion-v1)\.json)$/.test(name)){res.writeHead(404);return res.end('Not found')}
+ if(!/^\/(?:assets\/(?:js\/(?:home-learning-constellation-v1|prototype-learning-constellation-v1|prototype-constellation-galaxy-v2)\.js|css\/(?:prototype-learning-constellation-v1|home-academy-wide-chart-galaxy-v1|home-constellation-compact-v3)\.css)|data\/(?:competency-lab-paths-v01499|tutor-indicator-study-v1|tutor-indicator-expansion-v1)\.json)$/.test(name)){res.writeHead(404);return res.end('Not found')}
  const file=resolve(root,'.'+name);
  if(!file.startsWith(root+'/')||!existsSync(file)){res.writeHead(404);return res.end('Not found')}
  res.writeHead(200,{'content-type':extname(file)==='.js'?'application/javascript':extname(file)==='.css'?'text/css':'application/json','cache-control':'no-store'});
@@ -37,7 +37,7 @@ try{
   const page=await browser.newPage({viewport:{width,height:900}});
   const errors=[];page.on('pageerror',e=>errors.push(e.message));
   await page.goto('http://127.0.0.1:'+server.address().port,{waitUntil:'networkidle',timeout:30000});
-  await page.locator('.lc-app[data-gu-constellation-home-compact="v2"]').waitFor({timeout:20000});
+  await page.locator('.lc-app[data-gu-constellation-home-compact="v3"]').waitFor({timeout:20000});
   const data=await page.evaluate(()=>{
    const q=s=>document.querySelector(s),style=s=>getComputedStyle(q(s));
    const box=s=>q(s).getBoundingClientRect();
