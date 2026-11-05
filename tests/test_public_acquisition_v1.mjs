@@ -20,6 +20,7 @@ for(const slug of slugs){
  assert(/hypothetical teaching examples/i.test(html),'Instructional prices and scenarios must be explicitly hypothetical: '+file);
  assert(/not historical market observations or recommendations/i.test(html),'Illustrative examples must not be mistaken for historical evidence or recommendations: '+file);
  assert(!/are\s*,\s*not historical/i.test(html),'Editorial placeholder must be completed: '+file);
+ assert(!/interpret the\s{2,}example/i.test(html),'Learning objective must not contain an empty example label: '+file);
  assert(/risk of loss/i.test(html),'Financial educational disclaimer missing: '+file);
  assert(html.includes('href="lab-samples.html"')&&html.includes('href="books.html"'),'Guided destination links: '+file);
  assert(html.includes('bootcamp-academy.html?program=free5'),'Respect existing Free Foundations gateway: '+file);
