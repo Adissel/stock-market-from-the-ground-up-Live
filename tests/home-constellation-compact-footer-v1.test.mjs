@@ -2,7 +2,7 @@ import test from 'node:test';import assert from 'node:assert/strict';import {rea
 const read=p=>readFileSync(p,'utf8');
 test('homepage Constellation compact presentation preserves protected map',()=>{
  const index=read('index.html'),css=read('assets/css/home-constellation-compact-v3.css');
- assert.match(index,/home-constellation-compact-v3\.css\?v=20261105-compact3/);
+ assert.match(index,/home-constellation-compact-v3\.css\?v=20261105-compact3b/);
  for(const name of ['lc-map-head','lc-map-tools button','lc-tabs button','lc-metrics','lc-detail-note'])
    assert.ok(css.includes('#learning-constellation #pt-experiences-root .'+name),name);
  assert.doesNotMatch(css,/(^|\n)#pt-experiences-root \.lc-app\{/);

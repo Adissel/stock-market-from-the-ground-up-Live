@@ -65,9 +65,9 @@ test('actual Prototype Center workspaces and all eight experiences replace stati
 test('homepage mounts the same dimensional map as protected prototype without exposing staff navigation',()=>{
  assert.match(index,/id="learning-constellation"/);
  assert.match(index,/id="pt-experiences-root"/);
- assert.match(index,/prototype-learning-constellation-v1\.css\?v=20261105-compact3/);
+ assert.match(index,/prototype-learning-constellation-v1\.css\?v=20261105-compact3b/);
  assert.match(index,/home-academy-wide-chart-galaxy-v1\.css\?v=20261104-homegalaxy1/);
- assert.match(index,/home-learning-constellation-v1\.js\?v=20261105-compact3/);
+ assert.match(index,/home-learning-constellation-v1\.js\?v=20261105-compact3b/);
  assert.doesNotMatch(index,/data-home-stage="/,'Replace old nine-button teaser, not keep a second map');
  assert.match(constellation,/mountLearningConstellation\(host,\{publicPreview:true\}\)/);
  assert.match(constellation,/prototype-learning-constellation-v1\.js/);

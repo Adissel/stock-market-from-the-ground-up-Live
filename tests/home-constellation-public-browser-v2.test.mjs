@@ -7,17 +7,17 @@ import {resolve,extname} from 'node:path';
 import {chromium} from 'playwright';
 
 const index=readFileSync('index.html','utf8');
-assert.match(index,/home-constellation-compact-v3\.css\?v=20261105-compact3/);
+assert.match(index,/home-constellation-compact-v3\.css\?v=20261105-compact3b/);
 const root=process.cwd();
 const fixture=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="/assets/css/premium-design-v014168.css"><link rel="stylesheet" href="/assets/css/prototype-learning-constellation-v1.css">
 <link rel="stylesheet" href="/assets/css/home-academy-wide-chart-galaxy-v1.css">
-<link rel="stylesheet" href="/assets/css/home-constellation-compact-v3.css?v=20261105-compact3">
+<link rel="stylesheet" href="/assets/css/home-constellation-compact-v3.css?v=20261105-compact3b">
 </head><body>
 <footer class="footer" id="website-footer"><p>Real website footer remains after all main content.</p></footer>
 <main class="gu-premium-home"><section id="learning-constellation" class="gu-home-galaxy-section" aria-label="Learning Constellation">
 <div id="pt-experiences-root" class="gu-home-galaxy-host"></div></section><section class="gu-home-path section"><div class="wrap"><div class="gu-section-intro"><h2>One platform. A clear path forward.</h2></div><div class="gu-path-grid"><a class="gu-path-card" href="/books.html"><span class="gu-path-icon">▤</span><h3>Read &amp; understand</h3><p>Study market foundations.</p></a><a class="gu-path-card" href="/labs.html"><h3>Explore 419 Labs</h3></a><a class="gu-path-card" href="/bootcamp-academy.html"><h3>Train with purpose</h3></a><a class="gu-path-card" href="/dashboard.html"><h3>Track your growth</h3></a></div></div></section></main>
-<script defer src="/assets/js/home-learning-constellation-v1.js?v=20261105-compact3"></script>
+<script defer src="/assets/js/home-learning-constellation-v1.js?v=20261105-compact3b"></script>
 </body></html>`;
 const server=createServer((req,res)=>{
  const name=decodeURIComponent(new URL(req.url,'http://localhost').pathname);

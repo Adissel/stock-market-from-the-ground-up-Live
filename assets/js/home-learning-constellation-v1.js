@@ -5,7 +5,7 @@
  const section=document.getElementById('learning-constellation');
  const host=document.getElementById('pt-experiences-root');
  if(!section||!host)return;
- const version='20261105-compact3';
+ const version='20261105-compact3b';
  let started=false,dispose=null,observer=null;
  const ensureStyles=()=>{
   if(document.querySelector('link[data-gu-constellation-compact-v3]'))return;

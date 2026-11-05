@@ -10,6 +10,7 @@ on:
       - 'tests/prototype-constellation-galaxy-v2.test.mjs'
       - 'tests/home-constellation-public-browser-v2.test.mjs'
       - 'assets/js/home-learning-constellation-v1.js'
+      - 'assets/css/home-constellation-compact-v3.css'
       - 'assets/css/home-constellation-compact-v2.css'
       - 'index.html'
       - '.github/workflows/prototype-learning-constellation-v1.yml'
@@ -26,6 +27,7 @@ on:
       - 'tests/prototype-constellation-galaxy-v2.test.mjs'
       - 'tests/home-constellation-public-browser-v2.test.mjs'
       - 'assets/js/home-learning-constellation-v1.js'
+      - 'assets/css/home-constellation-compact-v3.css'
       - 'assets/css/home-constellation-compact-v2.css'
       - 'index.html'
 permissions:
