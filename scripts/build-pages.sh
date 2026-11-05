@@ -32,6 +32,8 @@ node --test tests/knowledge-library-stable-pagination-v1.test.mjs
 node --test tests/runtime-owned-talia-v1.test.mjs
 # Student-facing Tutor desk must keep chart and instruction aligned and preserve revealed-evidence boundaries.
 node --test tests/talia-student-desk-v1.test.mjs
+# Versioned Lab source audit: V2 frozen, V3 matches the current exact source blob.
+node --test tests/lab-419-current-body-quality-v2.test.mjs tests/lab-419-current-body-quality-v3.test.mjs
 node --test tests/talia-p0-interruption-resume-v2.test.mjs
 node --test tests/talia-classroom-teaching-depth-v1.test.mjs
 # Privately authorized first-party source-based teaching, never official grading.
